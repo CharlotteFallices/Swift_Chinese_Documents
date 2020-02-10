@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>可选链式调用</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">可选链式调用</span></h1>
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end"><em>可选链式调用</em>是一种可以在当前值可能为 <code>nil</code> 的可选值上请求和调用属性、方法及下标的方法。如果可选值有值，那么调用就会成功；如果可选值是 <code>nil</code>，那么调用将返回 <code>nil</code>。多个调用可以连接在一起形成一个调用链，如果其中任何一个节点为 <code>nil</code>，整个调用链都会失败，即返回 <code>nil</code>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">Swift 的可选链式调用和 Objective-C 中向 <code>nil</code> 发送消息有些相像，但是 Swift 的可选链式调用可以应用于任意类型，并且能检查调用是否成功。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_1" class="h16"><span class="span_for_h">使用可选链式调用代替强制展开 {#optional-chaining-as-an-alternative-to-forced-unwrapping}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">通过在想调用的属性、方法，或下标的可选值后面放一个问号（<code>?</code>），可以定义一个可选链。这一点很像在可选值后面放一个叹号（<code>!</code>）来强制展开它的值。它们的主要区别在于当可选值为空时可选链式调用只会调用失败，然而强制展开将会触发运行时错误。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">为了反映可选链式调用可以在空值（<code>nil</code>）上调用的事实，不论这个调用的属性、方法及下标返回的值是不是可选值，它的返回结果都是一个可选值。你可以利用这个返回值来判断你的可选链式调用是否调用成功，如果调用有返回值则说明调用成功，返回 <code>nil</code> 则说明调用失败。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这里需要特别指出，可选链式调用的返回结果与原本的返回结果具有相同的类型，但是被包装成了一个可选值。例如，使用可选链式调用访问属性，当可选链式调用成功时，如果属性原本的返回结果是 <code>Int</code> 类型，则会变为 <code>Int?</code> 类型。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">下面几段代码将解释可选链式调用和强制展开的不同。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">首先定义两个类 <code>Person</code> 和 <code>Residence</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Person</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">residence</span><span class="p">:</span> <span class="n">Residence</span><span class="p">?</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Residence</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">numberOfRooms</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>Residence</code> 有一个 <code>Int</code> 类型的属性 <code>numberOfRooms</code>，其默认值为 <code>1</code>。<code>Person</code> 具有一个可选的 <code>residence</code> 属性，其类型为 <code>Residence?</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">假如你创建了一个新的 <code>Person</code> 实例，它的 <code>residence</code> 属性由于是可选类型而将被初始化为 <code>nil</code>，在下面的代码中，<code>john</code> 有一个值为 <code>nil</code> 的 <code>residence</code> 属性：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">john</span> <span class="p">=</span> <span class="n">Person</span><span class="p">()</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果使用叹号（<code>!</code>）强制展开获得这个 <code>john</code> 的 <code>residence</code> 属性中的 <code>numberOfRooms</code> 值，会触发运行时错误，因为这时 <code>residence</code> 没有可以展开的值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">roomCount</span> <span class="p">=</span> <span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">!.</span><span class="n">numberOfRooms</span>
+<span class="c1">// 这会引发运行时错误</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>john.residence</code> 为非 <code>nil</code> 值的时候，上面的调用会成功，并且把 <code>roomCount</code> 设置为 <code>Int</code> 类型的房间数量。正如上面提到的，当 <code>residence</code> 为 <code>nil</code> 的时候，上面这段代码会触发运行时错误。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">可选链式调用提供了另一种访问 <code>numberOfRooms</code> 的方式，使用问号（<code>?</code>）来替代原来的叹号（<code>!</code>）：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">roomCount</span> <span class="p">=</span> <span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?.</span><span class="n">numberOfRooms</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;John&#39;s residence has </span><span class="si">\(</span><span class="n">roomCount</span><span class="si">)</span><span class="s"> room(s).&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Unable to retrieve the number of rooms.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“Unable to retrieve the number of rooms.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在 <code>residence</code> 后面添加问号之后，Swift 就会在 <code>residence</code> 不为 <code>nil</code> 的情况下访问 <code>numberOfRooms</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">因为访问 <code>numberOfRooms</code> 有可能失败，可选链式调用会返回 <code>Int?</code> 类型，或称为“可选的 <code>Int</code>”。如上例所示，当 <code>residence</code> 为 <code>nil</code> 的时候，可选的 <code>Int</code> 将会为 <code>nil</code>，表明无法访问 <code>numberOfRooms</code>。访问成功时，可选的 <code>Int</code> 值会通过可选绑定展开，并赋值给非可选类型的 <code>roomCount</code> 常量。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">要注意的是，即使 <code>numberOfRooms</code> 是非可选的 <code>Int</code> 时，这一点也成立。只要使用可选链式调用就意味着 <code>numberOfRooms</code> 会返回一个 <code>Int?</code> 而不是 <code>Int</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">可以将一个 <code>Residence</code> 的实例赋给 <code>john.residence</code>，这样它就不再是 <code>nil</code> 了：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">john</span><span class="p">.</span><span class="n">residence</span> <span class="p">=</span> <span class="n">Residence</span><span class="p">()</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>john.residence</code> 现在包含一个实际的 <code>Residence</code> 实例，而不再是 <code>nil</code>。如果你试图使用先前的可选链式调用访问 <code>numberOfRooms</code>，它现在将返回值为 <code>1</code> 的 <code>Int?</code> 类型的值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">roomCount</span> <span class="p">=</span> <span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?.</span><span class="n">numberOfRooms</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;John&#39;s residence has </span><span class="si">\(</span><span class="n">roomCount</span><span class="si">)</span><span class="s"> room(s).&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Unable to retrieve the number of rooms.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“John&#39;s residence has 1 room(s).”</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_2" class="h16"><span class="span_for_h">为可选链式调用定义模型类 {#defining-model-classes-for-optional-chaining}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">通过使用可选链式调用可以调用多层属性、方法和下标。这样可以在复杂的模型中向下访问各种子属性，并且判断能否访问子属性的属性、方法和下标。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">下面这段代码定义了四个模型类，这些例子包括多层可选链式调用。为了方便说明，在 <code>Person</code> 和 <code>Residence</code> 的基础上增加了 <code>Room</code> 类和 <code>Address</code> 类，以及相关的属性、方法以及下标。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>Person</code> 类的定义基本保持不变：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Person</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">residence</span><span class="p">:</span> <span class="n">Residence</span><span class="p">?</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>Residence</code> 类比之前复杂些，增加了一个名为 <code>rooms</code> 的变量属性，该属性被初始化为 <code>[Room]</code> 类型的空数组：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Residence</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">rooms</span> <span class="p">=</span> <span class="p">[</span><span class="n">Room</span><span class="p">]()</span>
+    <span class="kd">var</span> <span class="nv">numberOfRooms</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">rooms</span><span class="p">.</span><span class="bp">count</span>
+    <span class="p">}</span>
+    <span class="kd">subscript</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Room</span> <span class="p">{</span>
+        <span class="kr">get</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">rooms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="p">}</span>
+        <span class="kr">set</span> <span class="p">{</span>
+            <span class="n">rooms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">newValue</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kd">func</span> <span class="nf">printNumberOfRooms</span><span class="p">()</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The number of rooms is </span><span class="si">\(</span><span class="n">numberOfRooms</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nv">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">?</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">现在 <code>Residence</code> 有了一个存储 <code>Room</code> 实例的数组，<code>numberOfRooms</code> 属性被实现为计算型属性，而不是存储型属性。<code>numberOfRooms</code> 属性简单地返回 <code>rooms</code> 数组的 <code>count</code> 属性的值。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>Residence</code> 还提供了访问 <code>rooms</code> 数组的快捷方式，即提供可读写的下标来访问 <code>rooms</code> 数组中指定位置的元素。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">此外，<code>Residence</code> 还提供了 <code>printNumberOfRooms</code> 方法，这个方法的作用是打印 <code>numberOfRooms</code> 的值。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">最后，<code>Residence</code> 还定义了一个可选属性 <code>address</code>，其类型为 <code>Address?</code>。<code>Address</code> 类的定义在下面会说明。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>Room</code> 类是一个简单类，其实例被存储在 <code>rooms</code> 数组中。该类只包含一个属性 <code>name</code>，以及一个用于将该属性设置为适当的房间名的初始化函数：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Room</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span> <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">最后一个类是 <code>Address</code>，这个类有三个 <code>String?</code> 类型的可选属性。<code>buildingName</code> 以及 <code>buildingNumber</code> 属性分别表示大厦的名称和号码，第三个属性 <code>street</code> 表示大厦所在街道的名称：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Address</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">buildingName</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
+    <span class="kd">var</span> <span class="nv">buildingNumber</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
+    <span class="kd">var</span> <span class="nv">street</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
+    <span class="kd">func</span> <span class="nf">buildingIdentifier</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">buildingName</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">buildingName</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="kd">let</span> <span class="nv">buildingNumber</span> <span class="p">=</span> <span class="n">buildingNumber</span><span class="p">,</span> <span class="kd">let</span> <span class="nv">street</span> <span class="p">=</span> <span class="n">street</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s">&quot;</span><span class="si">\(</span><span class="n">buildingNumber</span><span class="si">)</span><span class="s"> </span><span class="si">\(</span><span class="n">street</span><span class="si">)</span><span class="s">&quot;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">nil</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>Address</code> 类提供了 <code>buildingIdentifier()</code> 方法，返回值为 <code>String?</code>。 如果 <code>buildingName</code> 有值则返回 <code>buildingName</code>。或者，如果 <code>buildingNumber</code> 和 <code>street</code> 均有值，则返回两者拼接得到的字符串。否则，返回 <code>nil</code>。</span>
+</p>
+
+<h2 id="toc_3" class="h16"><span class="span_for_h">通过可选链式调用访问属性 {#accessing-properties-through-optional-chaining}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">正如 <a class="md_compiled" href="#optional-chaining-as-an-alternative-to-forced-unwrapping">使用可选链式调用代替强制展开</a> 中所述，可以通过可选链式调用在一个可选值上访问它的属性，并判断访问是否成功。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">使用前面定义过的类，创建一个 <code>Person</code> 实例，然后像之前一样，尝试访问 <code>numberOfRooms</code> 属性：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">john</span> <span class="p">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">roomCount</span> <span class="p">=</span> <span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?.</span><span class="n">numberOfRooms</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;John&#39;s residence has </span><span class="si">\(</span><span class="n">roomCount</span><span class="si">)</span><span class="s"> room(s).&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Unable to retrieve the number of rooms.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“Unable to retrieve the number of rooms.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">因为 <code>john.residence</code> 为 <code>nil</code>，所以这个可选链式调用依旧会像先前一样失败。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">还可以通过可选链式调用来设置属性值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">someAddress</span> <span class="p">=</span> <span class="n">Address</span><span class="p">()</span>
+<span class="n">someAddress</span><span class="p">.</span><span class="n">buildingNumber</span> <span class="p">=</span> <span class="s">&quot;29&quot;</span>
+<span class="n">someAddress</span><span class="p">.</span><span class="n">street</span> <span class="p">=</span> <span class="s">&quot;Acacia Road&quot;</span>
+<span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?.</span><span class="n">address</span> <span class="p">=</span> <span class="n">someAddress</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在这个例子中，通过 <code>john.residence</code> 来设定 <code>address</code> 属性也会失败，因为 <code>john.residence</code> 当前为 <code>nil</code>。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">上面代码中的赋值过程是可选链式调用的一部分，这意味着可选链式调用失败时，等号右侧的代码不会被执行。对于上面的代码来说，很难验证这一点，因为像这样赋值一个常量没有任何副作用。下面的代码完成了同样的事情，但是它使用一个函数来创建 <code>Address</code> 实例，然后将该实例返回用于赋值。该函数会在返回前打印“Function was called”，这使你能验证等号右侧的代码是否被执行。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">createAddress</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">Address</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Function was called.&quot;</span><span class="p">)</span>
+
+    <span class="kd">let</span> <span class="nv">someAddress</span> <span class="p">=</span> <span class="n">Address</span><span class="p">()</span>
+    <span class="n">someAddress</span><span class="p">.</span><span class="n">buildingNumber</span> <span class="p">=</span> <span class="s">&quot;29&quot;</span>
+    <span class="n">someAddress</span><span class="p">.</span><span class="n">street</span> <span class="p">=</span> <span class="s">&quot;Acacia Road&quot;</span>
+
+    <span class="k">return</span> <span class="n">someAddress</span>
+<span class="p">}</span>
+<span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?.</span><span class="n">address</span> <span class="p">=</span> <span class="n">createAddress</span><span class="p">()</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">没有任何打印消息，可以看出 <code>createAddress()</code> 函数并未被执行。</span>
+</p>
+
+<h2 id="toc_4" class="h16"><span class="span_for_h">通过可选链式调用来调用方法 {#calling-methods-through-optional-chaining}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">可以通过可选链式调用来调用方法，并判断是否调用成功，即使这个方法没有返回值。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>Residence</code> 类中的 <code>printNumberOfRooms()</code> 方法打印当前的 <code>numberOfRooms</code> 值，如下所示：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">printNumberOfRooms</span><span class="p">()</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The number of rooms is </span><span class="si">\(</span><span class="n">numberOfRooms</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个方法没有返回值。然而，没有返回值的方法具有隐式的返回类型 <code>Void</code>，如 <a class="md_compiled" href="./06_Functions.md#functions-without-return-values">无返回值函数</a> 中所述。这意味着没有返回值的方法也会返回 <code>()</code>，或者说空的元组。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果在可选值上通过可选链式调用来调用这个方法，该方法的返回类型会是 <code>Void?</code>，而不是 <code>Void</code>，因为通过可选链式调用得到的返回值都是可选的。这样我们就可以使用 <code>if</code> 语句来判断能否成功调用 <code>printNumberOfRooms()</code> 方法，即使方法本身没有定义返回值。通过判断返回值是否为 <code>nil</code> 可以判断调用是否成功：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?.</span><span class="n">printNumberOfRooms</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;It was possible to print the number of rooms.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;It was not possible to print the number of rooms.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“It was not possible to print the number of rooms.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">同样的，可以据此判断通过可选链式调用为属性赋值是否成功。在上面的 <a class="md_compiled" href="#accessing-properties-through-optional-chaining">通过可选链式调用访问属性</a> 的例子中，我们尝试给 <code>john.residence</code> 中的 <code>address</code> 属性赋值，即使 <code>residence</code> 为 <code>nil</code>。通过可选链式调用给属性赋值会返回 <code>Void?</code>，通过判断返回值是否为 <code>nil</code> 就可以知道赋值是否成功：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?.</span><span class="n">address</span> <span class="p">=</span> <span class="n">someAddress</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;It was possible to set the address.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;It was not possible to set the address.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“It was not possible to set the address.”</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_5" class="h16"><span class="span_for_h">通过可选链式调用访问下标 {#accessing-subscripts-through-optional-chaining}</span></h2>
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">通过可选链式调用，我们可以在一个可选值上访问下标，并且判断下标调用是否成功。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">通过可选链式调用访问可选值的下标时，应该将问号放在下标方括号的前面而不是后面。可选链式调用的问号一般直接跟在可选表达式的后面。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面这个例子用下标访问 <code>john.residence</code> 属性存储的 <code>Residence</code> 实例的 <code>rooms</code> 数组中的第一个房间的名称，因为 <code>john.residence</code> 为 <code>nil</code>，所以下标调用失败了：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">firstRoomName</span> <span class="p">=</span> <span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The first room name is </span><span class="si">\(</span><span class="n">firstRoomName</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Unable to retrieve the first room name.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“Unable to retrieve the first room name.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在这个例子中，问号直接放在 <code>john.residence</code> 的后面，并且在方括号的前面，因为 <code>john.residence</code> 是可选值。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">类似的，可以通过下标，用可选链式调用来赋值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="n">Room</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;Bathroom&quot;</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这次赋值同样会失败，因为 <code>residence</code> 目前是 <code>nil</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你创建一个 <code>Residence</code> 实例，并为其 <code>rooms</code> 数组添加一些 <code>Room</code> 实例，然后将 <code>Residence</code> 实例赋值给 <code>john.residence</code>，那就可以通过可选链和下标来访问数组中的元素：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">johnsHouse</span> <span class="p">=</span> <span class="n">Residence</span><span class="p">()</span>
+<span class="n">johnsHouse</span><span class="p">.</span><span class="n">rooms</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">Room</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;Living Room&quot;</span><span class="p">))</span>
+<span class="n">johnsHouse</span><span class="p">.</span><span class="n">rooms</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">Room</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;Kitchen&quot;</span><span class="p">))</span>
+<span class="n">john</span><span class="p">.</span><span class="n">residence</span> <span class="p">=</span> <span class="n">johnsHouse</span>
+
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">firstRoomName</span> <span class="p">=</span> <span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The first room name is </span><span class="si">\(</span><span class="n">firstRoomName</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Unable to retrieve the first room name.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“The first room name is Living Room.”</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_6" class="h16"><span class="span_for_h">访问可选类型的下标 {#accessing-subscripts-of-optional-type}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果下标返回可选类型值，比如 Swift 中 <code>Dictionary</code> 类型的键的下标，可以在下标的结尾括号后面放一个问号来在其可选返回值上进行可选链式调用：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">testScores</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Dave&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">86</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">84</span><span class="p">],</span> <span class="s">&quot;Bev&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">79</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">81</span><span class="p">]]</span>
+<span class="n">testScores</span><span class="p">[</span><span class="s">&quot;Dave&quot;</span><span class="p">]?[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="mi">91</span>
+<span class="n">testScores</span><span class="p">[</span><span class="s">&quot;Bev&quot;</span><span class="p">]?[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">testScores</span><span class="p">[</span><span class="s">&quot;Brian&quot;</span><span class="p">]?[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="mi">72</span>
+<span class="c1">// &quot;Dave&quot; 数组现在是 [91, 82, 84]，&quot;Bev&quot; 数组现在是 [80, 94, 81]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面的例子中定义了一个 <code>testScores</code> 数组，包含了两个键值对，分别把 <code>String</code> 类型的键映射到一个 <code>Int</code> 值的数组。这个例子用可选链式调用把 <code>"Dave"</code> 数组中第一个元素设为 <code>91</code>，把 <code>"Bev"</code> 数组的第一个元素 <code>+1</code>，然后尝试把 <code>"Brian"</code> 数组中的第一个元素设为 <code>72</code>。前两个调用成功，因为 <code>testScores</code> 字典中包含 <code>"Dave"</code> 和 <code>"Bev"</code> 这两个键。但是 <code>testScores</code> 字典中没有 <code>"Brian"</code> 这个键，所以第三个调用失败。</span>
+</p>
+
+<h2 id="toc_7" class="h16"><span class="span_for_h">连接多层可选链式调用 {#linking-multiple-levels-of-chaining}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">可以通过连接多个可选链式调用在更深的模型层级中访问属性、方法以及下标。然而，多层可选链式调用不会增加返回值的可选层级。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">也就是说：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>如果你访问的值不是可选的，可选链式调用将会返回可选值。
+</span></li>
+<li class="md_li"><span>如果你访问的值就是可选的，可选链式调用不会让可选返回值变得“更可选”。
+</span></li>
+</ul>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">因此：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>通过可选链式调用访问一个 <code>Int</code> 值，将会返回 <code>Int?</code>，无论使用了多少层可选链式调用。
+</span></li>
+<li class="md_li"><span>类似的，通过可选链式调用访问 <code>Int?</code> 值，依旧会返回 <code>Int?</code> 值，并不会返回 <code>Int??</code>。
+</span></li>
+</ul>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子尝试访问 <code>john</code> 中的 <code>residence</code> 属性中的 <code>address</code> 属性中的 <code>street</code> 属性。这里使用了两层可选链式调用，<code>residence</code> 以及 <code>address</code> 都是可选值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">johnsStreet</span> <span class="p">=</span> <span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?.</span><span class="n">address</span><span class="p">?.</span><span class="n">street</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;John&#39;s street name is </span><span class="si">\(</span><span class="n">johnsStreet</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Unable to retrieve the address.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“Unable to retrieve the address.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>john.residence</code> 现在包含一个有效的 <code>Residence</code> 实例。然而，<code>john.residence.address</code> 的值当前为 <code>nil</code>。因此，调用 <code>john.residence?.address?.street</code> 会失败。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">需要注意的是，上面的例子中，<code>street</code> 的属性为 <code>String?</code>。<code>john.residence?.address?.street</code> 的返回值也依然是 <code>String?</code>，即使已经使用了两层可选链式调用。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果为 <code>john.residence.address</code> 赋值一个 <code>Address</code> 实例，并且为 <code>address</code> 中的 <code>street</code> 属性设置一个有效值，我们就能过通过可选链式调用来访问 <code>street</code> 属性：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">johnsAddress</span> <span class="p">=</span> <span class="n">Address</span><span class="p">()</span>
+<span class="n">johnsAddress</span><span class="p">.</span><span class="n">buildingName</span> <span class="p">=</span> <span class="s">&quot;The Larches&quot;</span>
+<span class="n">johnsAddress</span><span class="p">.</span><span class="n">street</span> <span class="p">=</span> <span class="s">&quot;Laurel Street&quot;</span>
+<span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?.</span><span class="n">address</span> <span class="p">=</span> <span class="n">johnsAddress</span>
+    
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">johnsStreet</span> <span class="p">=</span> <span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?.</span><span class="n">address</span><span class="p">?.</span><span class="n">street</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;John&#39;s street name is </span><span class="si">\(</span><span class="n">johnsStreet</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Unable to retrieve the address.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“John&#39;s street name is Laurel Street.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面的例子中，因为 <code>john.residence</code> 包含一个有效的 <code>Address</code> 实例，所以对 <code>john.residence</code> 的 <code>address</code> 属性赋值将会成功。</span>
+</p>
+
+<h2 id="toc_8" class="h16"><span class="span_for_h">在方法的可选返回值上进行可选链式调用 {#chaining-on-methods-with-optional-return-values}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面的例子展示了如何在一个可选值上通过可选链式调用来获取它的属性值。我们还可以在一个可选值上通过可选链式调用来调用方法，并且可以根据需要继续在方法的可选返回值上进行可选链式调用。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在下面的例子中，通过可选链式调用来调用 <code>Address</code> 的 <code>buildingIdentifier()</code> 方法。这个方法返回 <code>String?</code> 类型的值。如上所述，通过可选链式调用来调用该方法，最终的返回值依旧会是 <code>String?</code> 类型：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">buildingIdentifier</span> <span class="p">=</span> <span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?.</span><span class="n">address</span><span class="p">?.</span><span class="n">buildingIdentifier</span><span class="p">()</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;John&#39;s building identifier is </span><span class="si">\(</span><span class="n">buildingIdentifier</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“John&#39;s building identifier is The Larches.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果要在该方法的返回值上进行可选链式调用，在方法的圆括号后面加上问号即可：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">beginsWithThe</span> <span class="p">=</span>
+    <span class="n">john</span><span class="p">.</span><span class="n">residence</span><span class="p">?.</span><span class="n">address</span><span class="p">?.</span><span class="n">buildingIdentifier</span><span class="p">()?.</span><span class="n">hasPrefix</span><span class="p">(</span><span class="s">&quot;The&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">beginsWithThe</span> <span class="p">{</span>
+            <span class="bp">print</span><span class="p">(</span><span class="s">&quot;John&#39;s building identifier begins with </span><span class="se">\&quot;</span><span class="s">The</span><span class="se">\&quot;</span><span class="s">.&quot;</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="bp">print</span><span class="p">(</span><span class="s">&quot;John&#39;s building identifier does not begin with </span><span class="se">\&quot;</span><span class="s">The</span><span class="se">\&quot;</span><span class="s">.&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// 打印“John&#39;s building identifier begins with &quot;The&quot;.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line">在上面的例子中，在方法的圆括号后面加上问号是因为你要在 <code>buildingIdentifier()</code> 方法的可选返回值上进行可选链式调用，而不是 <code>buildingIdentifier()</code> 方法本身。<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+        </div>
+    </div>
+    <!--mathjax-->
+    <!--mermaid-->
+</body>
+</html>

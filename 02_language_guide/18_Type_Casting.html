@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>类型转换</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">类型转换</span></h1>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>类型转换</em>可以判断实例的类型，也可以将实例看做是其父类或者子类的实例。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">类型转换在 Swift 中使用 <code>is</code> 和 <code>as</code> 操作符实现。这两个操作符分别提供了一种简单达意的方式去检查值的类型或者转换它的类型。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你也可以用它来检查一个类型是否遵循了某个协议，就像在 <a class="md_compiled" href="./21_Protocols.md#checking-for-protocol-conformance">检验协议遵循</a> 部分讲述的一样。</span>
+</p>
+
+<h2 id="toc_1" class="h16"><span class="span_for_h">为类型转换定义类层次 {#defining-a-class-hierarchy-for-type-casting}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以将类型转换用在类和子类的层次结构上，检查特定类实例的类型并且转换这个类实例的类型成为这个层次结构中的其他类型。下面的三个代码段定义了一个类层次和一个包含了这些类实例的数组，作为类型转换的例子。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">第一个代码片段定义了一个新的基类 <code>MediaItem</code>。这个类为任何出现在数字媒体库的媒体项提供基础功能。特别的，它声明了一个 <code>String</code> 类型的 <code>name</code> 属性，和一个 <code>init(name:)</code> 初始化器。（假定所有的媒体项都有个名称。）</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">MediaItem</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下一个代码段定义了 <code>MediaItem</code> 的两个子类。第一个子类 <code>Movie</code> 封装了与电影相关的额外信息，在父类（或者说基类）的基础上增加了一个 <code>director</code>（导演）属性，和相应的初始化器。第二个子类 <code>Song</code>，在父类的基础上增加了一个 <code>artist</code>（艺术家）属性，和相应的初始化器：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Movie</span><span class="p">:</span> <span class="n">MediaItem</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">director</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">director</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">director</span> <span class="p">=</span> <span class="n">director</span>
+        <span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">name</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Song</span><span class="p">:</span> <span class="n">MediaItem</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">artist</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">artist</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">artist</span> <span class="p">=</span> <span class="n">artist</span>
+        <span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">name</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">最后一个代码段创建了一个数组常量 <code>library</code>，包含两个 <code>Movie</code> 实例和三个 <code>Song</code> 实例。<code>library</code> 的类型是在它被初始化时根据它数组中所包含的内容推断来的。Swift 的类型检测器能够推断出 <code>Movie</code> 和 <code>Song</code> 有共同的父类 <code>MediaItem</code>，所以它推断出 <code>[MediaItem]</code> 类作为 <code>library</code> 的类型：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">library</span> <span class="p">=</span> <span class="p">[</span>
+    <span class="n">Movie</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;Casablanca&quot;</span><span class="p">,</span> <span class="n">director</span><span class="p">:</span> <span class="s">&quot;Michael Curtiz&quot;</span><span class="p">),</span>
+    <span class="n">Song</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;Blue Suede Shoes&quot;</span><span class="p">,</span> <span class="n">artist</span><span class="p">:</span> <span class="s">&quot;Elvis Presley&quot;</span><span class="p">),</span>
+    <span class="n">Movie</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;Citizen Kane&quot;</span><span class="p">,</span> <span class="n">director</span><span class="p">:</span> <span class="s">&quot;Orson Welles&quot;</span><span class="p">),</span>
+    <span class="n">Song</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;The One And Only&quot;</span><span class="p">,</span> <span class="n">artist</span><span class="p">:</span> <span class="s">&quot;Chesney Hawkes&quot;</span><span class="p">),</span>
+    <span class="n">Song</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;Never Gonna Give You Up&quot;</span><span class="p">,</span> <span class="n">artist</span><span class="p">:</span> <span class="s">&quot;Rick Astley&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="c1">// 数组 library 的类型被推断为 [MediaItem]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在幕后 <code>library</code> 里存储的媒体项依然是 <code>Movie</code> 和 <code>Song</code> 类型的。但是，若你迭代它，依次取出的实例会是 <code>MediaItem</code> 类型的，而不是 <code>Movie</code> 和 <code>Song</code> 类型。为了让它们作为原本的类型工作，你需要检查它们的类型或者向下转换它们到其它类型，就像下面描述的一样。</span>
+</p>
+
+<h2 id="toc_2" class="h16"><span class="span_for_h">检查类型 {#checking-type}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">用<em class="md_patched_em">类型检查操作符</em>（<code>is</code>）来检查一个实例是否属于特定子类型。若实例属于那个子类型，类型检查操作符返回 <code>true</code>，否则返回 <code>false</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子定义了两个变量，<code>movieCount</code> 和 <code>songCount</code>，用来计算数组 <code>library</code> 中 <code>Movie</code> 和 <code>Song</code> 类型的实例数量：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">movieCount</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="kd">var</span> <span class="nv">songCount</span> <span class="p">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">library</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="k">is</span> <span class="n">Movie</span> <span class="p">{</span>
+        <span class="n">movieCount</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">item</span> <span class="k">is</span> <span class="n">Song</span> <span class="p">{</span>
+        <span class="n">songCount</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;Media library contains </span><span class="si">\(</span><span class="n">movieCount</span><span class="si">)</span><span class="s"> movies and </span><span class="si">\(</span><span class="n">songCount</span><span class="si">)</span><span class="s"> songs&quot;</span><span class="p">)</span>
+<span class="c1">// 打印“Media library contains 2 movies and 3 songs”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start">示例迭代了数组 <code>library</code> 中的所有项。每一次，<code>for-in</code> 循环设置<br /></span>
+    <span class="md_line md_line_end"><code>item</code> 常量为数组中的下一个 <code>MediaItem</code> 实例。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start">若当前 <code>MediaItem</code> 是一个 <code>Movie</code> 类型的实例，<code>item is Movie</code> 返回<br /></span>
+    <span class="md_line md_line_end"><code>true</code>，否则返回 <code>false</code>。同样的，<code>item is Song</code> 检查 <code>item</code> 是否为 <code>Song</code> 类型的实例。在循环结束后，<code>movieCount</code> 和 <code>songCount</code> 的值就是被找到的属于各自类型的实例的数量。</span>
+</p>
+
+<h2 id="toc_3" class="h16"><span class="span_for_h">向下转型 {#downcasting}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">某类型的一个常量或变量可能在幕后实际上属于一个子类。当确定是这种情况时，你可以尝试用<em class="md_patched_em">类型转换操作符</em>（<code>as?</code> 或 <code>as!</code>）向下转到它的子类型。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">因为向下转型可能会失败，类型转型操作符带有两种不同形式。条件形式 <code>as?</code> 返回一个你试图向下转成的类型的可选值。强制形式 <code>as!</code> 把试图向下转型和强制解包转换结果结合为一个操作。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当你不确定向下转型可以成功时，用类型转换的条件形式（<code>as?</code>）。条件形式的类型转换总是返回一个可选值，并且若下转是不可能的，可选值将是 <code>nil</code>。这使你能够检查向下转型是否成功。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">只有你可以确定向下转型一定会成功时，才使用强制形式（<code>as!</code>）。当你试图向下转型为一个不正确的类型时，强制形式的类型转换会触发一个运行时错误。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">下面的例子，迭代了 <code>library</code> 里的每一个 <code>MediaItem</code>，并打印出适当的描述。要这样做，<code>item</code> 需要真正作为 <code>Movie</code> 或 <code>Song</code> 的类型来使用，而不仅仅是作为 <code>MediaItem</code>。为了能够在描述中使用 <code>Movie</code> 或 <code>Song</code> 的 <code>director</code> 或 <code>artist</code> 属性，这是必要的。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在这个示例中，数组中的每一个 <code>item</code> 可能是 <code>Movie</code> 或 <code>Song</code>。事前你不知道每个 <code>item</code> 的真实类型，所以这里使用条件形式的类型转换（<code>as?</code>）去检查循环里的每次下转：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">library</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">movie</span> <span class="p">=</span> <span class="n">item</span> <span class="k">as</span><span class="p">?</span> <span class="n">Movie</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Movie: </span><span class="si">\(</span><span class="n">movie</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">, dir. </span><span class="si">\(</span><span class="n">movie</span><span class="p">.</span><span class="n">director</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="kd">let</span> <span class="nv">song</span> <span class="p">=</span> <span class="n">item</span> <span class="k">as</span><span class="p">?</span> <span class="n">Song</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Song: </span><span class="si">\(</span><span class="n">song</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">, by </span><span class="si">\(</span><span class="n">song</span><span class="p">.</span><span class="n">artist</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Movie: Casablanca, dir. Michael Curtiz</span>
+<span class="c1">// Song: Blue Suede Shoes, by Elvis Presley</span>
+<span class="c1">// Movie: Citizen Kane, dir. Orson Welles</span>
+<span class="c1">// Song: The One And Only, by Chesney Hawkes</span>
+<span class="c1">// Song: Never Gonna Give You Up, by Rick Astley</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start">示例首先试图将 <code>item</code> 下转为 <code>Movie</code>。因为 <code>item</code> 是一个 <code>MediaItem</code><br /></span>
+    <span class="md_line">类型的实例，它可能是一个 <code>Movie</code>；同样，它也可能是一个 <code>Song</code>，或者仅仅是基类<br /></span>
+    <span class="md_line md_line_end"><code>MediaItem</code>。因为不确定，<code>as?</code> 形式在试图下转时将返回一个可选值。<code>item as? Movie</code> 的返回值是 <code>Movie?</code> 或者说“可选 <code>Movie</code>”。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start">当向下转型为 <code>Movie</code> 应用在两个 <code>Song</code><br /></span>
+    <span class="md_line md_line_end">实例时将会失败。为了处理这种情况，上面的例子使用了可选绑定（optional binding）来检查可选 <code>Movie</code> 真的包含一个值（这个是为了判断下转是否成功。）可选绑定是这样写的“<code>if let movie = item as? Movie</code>”，可以这样解读：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">“尝试将 <code>item</code> 转为 <code>Movie</code> 类型。若成功，设置一个新的临时常量 <code>movie</code> 来存储返回的可选 <code>Movie</code> 中的值”</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">若向下转型成功，然后 <code>movie</code> 的属性将用于打印一个 <code>Movie</code> 实例的描述，包括它的导演的名字 <code>director</code>。相似的原理被用来检测 <code>Song</code> 实例，当 <code>Song</code> 被找到时则打印它的描述（包含 <code>artist</code> 的名字）。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">转换没有真的改变实例或它的值。根本的实例保持不变；只是简单地把它作为它被转换成的类型来使用。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_4" class="h16"><span class="span_for_h"><code>Any</code> 和 <code>AnyObject</code> 的类型转换 {#type-casting-for-any-and-anyobject}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">Swift 为不确定类型提供了两种特殊的类型别名：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span><code>Any</code> 可以表示任何类型，包括函数类型。
+
+</span></li>
+<li class="md_li"><span><code>AnyObject</code> 可以表示任何类类型的实例。
+
+</span></li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">只有当你确实需要它们的行为和功能时才使用 <code>Any</code> 和 <code>AnyObject</code>。最好还是在代码中指明需要使用的类型。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">这里有个示例，使用 <code>Any</code> 类型来和混合的不同类型一起工作，包括函数类型和非类类型。它创建了一个可以存储 <code>Any</code> 类型的数组 <code>things</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">things</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Any</span><span class="p">]()</span>
+
+<span class="n">things</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">things</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">things</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">things</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">)</span>
+<span class="n">things</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
+<span class="n">things</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">))</span>
+<span class="n">things</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">Movie</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;Ghostbusters&quot;</span><span class="p">,</span> <span class="n">director</span><span class="p">:</span> <span class="s">&quot;Ivan Reitman&quot;</span><span class="p">))</span>
+<span class="n">things</span><span class="p">.</span><span class="n">append</span><span class="p">({</span> <span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="k">in</span> <span class="s">&quot;Hello, </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">&quot;</span> <span class="p">})</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>things</code> 数组包含两个 <code>Int</code> 值，两个 <code>Double</code> 值，一个 <code>String</code> 值，一个元组 <code>(Double, Double)</code>，一个 <code>Movie</code> 实例“Ghostbusters”，以及一个接受 <code>String</code> 值并返回另一个 <code>String</code> 值的闭包表达式。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以在 <code>switch</code> 表达式的 <code>case</code> 中使用 <code>is</code> 和 <code>as</code> 操作符来找出只知道是 <code>Any</code> 或 <code>AnyObject</code> 类型的常量或变量的具体类型。下面的示例迭代 <code>things</code> 数组中的每一项，并用 <code>switch</code> 语句查找每一项的类型。有几个 <code>switch</code> 语句的 <code>case</code> 绑定它们匹配到的值到一个指定类型的常量，从而可以打印这些值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">thing</span> <span class="k">in</span> <span class="n">things</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="n">thing</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">0</span> <span class="k">as</span> <span class="nb">Int</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;zero as an Int&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">0</span> <span class="k">as</span> <span class="nb">Double</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;zero as a Double&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="nv">someInt</span> <span class="k">as</span> <span class="nb">Int</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;an integer value of </span><span class="si">\(</span><span class="n">someInt</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="nv">someDouble</span> <span class="k">as</span> <span class="nb">Double</span> <span class="k">where</span> <span class="n">someDouble</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;a positive double value of </span><span class="si">\(</span><span class="n">someDouble</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="k">is</span> <span class="nb">Double</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;some other double value that I don&#39;t want to print&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="nv">someString</span> <span class="k">as</span> <span class="nb">String</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;a string value of </span><span class="se">\&quot;</span><span class="si">\(</span><span class="n">someString</span><span class="si">)</span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">as</span> <span class="p">(</span><span class="nb">Double</span><span class="p">,</span> <span class="nb">Double</span><span class="p">):</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;an (x, y) point at </span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">, </span><span class="si">\(</span><span class="n">y</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="nv">movie</span> <span class="k">as</span> <span class="n">Movie</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;a movie called </span><span class="si">\(</span><span class="n">movie</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">, dir. </span><span class="si">\(</span><span class="n">movie</span><span class="p">.</span><span class="n">director</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="nv">stringConverter</span> <span class="k">as</span> <span class="p">(</span><span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">String</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="n">stringConverter</span><span class="p">(</span><span class="s">&quot;Michael&quot;</span><span class="p">))</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;something else&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// zero as an Int</span>
+<span class="c1">// zero as a Double</span>
+<span class="c1">// an integer value of 42</span>
+<span class="c1">// a positive double value of 3.14159</span>
+<span class="c1">// a string value of &quot;hello&quot;</span>
+<span class="c1">// an (x, y) point at 3.0, 5.0</span>
+<span class="c1">// a movie called Ghostbusters, dir. Ivan Reitman</span>
+<span class="c1">// Hello, Michael</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end"><code>Any</code> 类型可以表示所有类型的值，包括可选类型。Swift 会在你用 <code>Any</code> 类型来表示一个可选值的时候，给你一个警告。如果你确实想使用 <code>Any</code> 类型来承载可选值，你可以使用 <code>as</code> 操作符显式转换为 <code>Any</code>，如下所示：</span>
+</p>
+
+</blockquote>
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">optionalNumber</span><span class="p">:</span> <span class="nb">Int</span><span class="p">?</span> <span class="p">=</span> <span class="mi">3</span>
+<span class="n">things</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">optionalNumber</span><span class="p">)</span>        <span class="c1">// 警告</span>
+<span class="n">things</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">optionalNumber</span> <span class="k">as</span> <span class="nb">Any</span><span class="p">)</span> <span class="c1">// 没有警告</span>
+</pre></div>
+
+<!--block_code_end-->
+        </div>
+    </div>
+    <!--mathjax-->
+    <!--mermaid-->
+</body>
+</html>

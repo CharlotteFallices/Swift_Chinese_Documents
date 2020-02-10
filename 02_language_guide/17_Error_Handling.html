@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>错误处理</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">错误处理</span></h1>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>错误处理（Error handling）</em> 是响应错误以及从错误中恢复的过程。Swift 在运行时提供了抛出、捕获、传递和操作可恢复错误（recoverable errors）的一等支持（first-class support）。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">某些操作无法保证总是执行完所有代码或生成有用的结果。可选类型用来表示值缺失，但是当某个操作失败时，理解造成失败的原因有助于你的代码作出相应的应对。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">举个例子，假如有个从磁盘上的某个文件读取数据并进行处理的任务，该任务会有多种可能失败的情况，包括指定路径下文件并不存在，文件不具有可读权限，或者文件编码格式不兼容。区分这些不同的失败情况可以让程序处理并解决某些错误，然后把它解决不了的错误报告给用户。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">Swift 中的错误处理涉及到错误处理模式，这会用到 Cocoa 和 Objective-C 中的 <code>NSError</code>。更多详情参见 <a class="md_compiled" href="https://developer.apple.com/documentation/swift/cocoa_design_patterns/handling_cocoa_errors_in_swift">用 Swift 解决 Cocoa 错误</a>。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_1" class="h16"><span class="span_for_h">表示与抛出错误 {#representing-and-throwing-errors}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在 Swift 中，错误用遵循 <code>Error</code> 协议的类型的值来表示。这个空协议表明该类型可以用于错误处理。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">Swift 的枚举类型尤为适合构建一组相关的错误状态，枚举的关联值还可以提供错误状态的额外信息。例如，在游戏中操作自动贩卖机时，你可以这样表示可能会出现的错误状态：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">enum</span> <span class="nc">VendingMachineError</span><span class="p">:</span> <span class="n">Error</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">invalidSelection</span>                     <span class="c1">//选择无效</span>
+    <span class="k">case</span> <span class="n">insufficientFunds</span><span class="p">(</span><span class="n">coinsNeeded</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="c1">//金额不足</span>
+    <span class="k">case</span> <span class="n">outOfStock</span>                             <span class="c1">//缺货</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">抛出一个错误可以让你表明有意外情况发生，导致正常的执行流程无法继续执行。抛出错误使用 <code>throw</code> 语句。例如，下面的代码抛出一个错误，提示贩卖机还需要 <code>5</code> 个硬币：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">insufficientFunds</span><span class="p">(</span><span class="n">coinsNeeded</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_2" class="h16"><span class="span_for_h">处理错误 {#handling-errors}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">某个错误被抛出时，附近的某部分代码必须负责处理这个错误，例如纠正这个问题、尝试另外一种方式、或是向用户报告错误。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 中有 <code>4</code> 种处理错误的方式。你可以把函数抛出的错误传递给调用此函数的代码、用 <code>do-catch</code> 语句处理错误、将错误作为可选类型处理、或者断言此错误根本不会发生。每种方式在下面的小节中都有描述。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">当一个函数抛出一个错误时，你的程序流程会发生改变，所以重要的是你能迅速识别代码中会抛出错误的地方。为了标识出这些地方，在调用一个能抛出错误的函数、方法或者构造器之前，加上 <code>try</code> 关键字，或者 <code>try?</code> 或 <code>try!</code> 这种变体。这些关键字在下面的小节中有具体讲解。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">Swift 中的错误处理和其他语言中用 <code>try</code>，<code>catch</code> 和 <code>throw</code> 进行异常处理很像。和其他语言中（包括 Objective-C ）的异常处理不同的是，Swift 中的错误处理并不涉及解除调用栈，这是一个计算代价高昂的过程。就此而言，<code>throw</code> 语句的性能特性是可以和 <code>return</code> 语句相媲美的。</span>
+</p>
+
+</blockquote>
+<h3 id="toc_3" class="h16"><span class="span_for_h">用 throwing 函数传递错误 {#propagating-errors-using-throwing-functions}</span></h3>
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">为了表示一个函数、方法或构造器可以抛出错误，在函数声明的参数之后加上 <code>throws</code> 关键字。一个标有 <code>throws</code> 关键字的函数被称作 <em>throwing 函数</em>。如果这个函数指明了返回值类型，<code>throws</code> 关键词需要写在返回箭头（<code>-&gt;</code>）的前面。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">canThrowErrors</span><span class="p">()</span> <span class="kr">throws</span> <span class="p">-&gt;</span> <span class="nb">String</span>
+
+<span class="kd">func</span> <span class="nf">cannotThrowErrors</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">一个 throwing 函数可以在其内部抛出错误，并将错误传递到函数被调用时的作用域。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">只有 throwing 函数可以传递错误。任何在某个非 throwing 函数内部抛出的错误只能在函数内部处理。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子中，<code>VendingMachine</code> 类有一个 <code>vend(itemNamed:)</code> 方法，如果请求的物品不存在、缺货或者投入金额小于物品价格，该方法就会抛出一个相应的 <code>VendingMachineError</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">struct</span> <span class="nc">Item</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">price</span><span class="p">:</span> <span class="nb">Int</span>
+    <span class="kd">var</span> <span class="nv">count</span><span class="p">:</span> <span class="nb">Int</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">VendingMachine</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">inventory</span> <span class="p">=</span> <span class="p">[</span>
+        <span class="s">&quot;Candy Bar&quot;</span><span class="p">:</span> <span class="n">Item</span><span class="p">(</span><span class="n">price</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">7</span><span class="p">),</span>
+        <span class="s">&quot;Chips&quot;</span><span class="p">:</span> <span class="n">Item</span><span class="p">(</span><span class="n">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">4</span><span class="p">),</span>
+        <span class="s">&quot;Pretzels&quot;</span><span class="p">:</span> <span class="n">Item</span><span class="p">(</span><span class="n">price</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">11</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="kd">var</span> <span class="nv">coinsDeposited</span> <span class="p">=</span> <span class="mi">0</span>
+
+    <span class="kd">func</span> <span class="nf">vend</span><span class="p">(</span><span class="n">itemNamed</span> <span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">item</span> <span class="p">=</span> <span class="n">inventory</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">invalidSelection</span>
+        <span class="p">}</span>
+
+        <span class="k">guard</span> <span class="n">item</span><span class="p">.</span><span class="bp">count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">outOfStock</span>
+        <span class="p">}</span>
+
+        <span class="k">guard</span> <span class="n">item</span><span class="p">.</span><span class="n">price</span> <span class="o">&lt;=</span> <span class="n">coinsDeposited</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">insufficientFunds</span><span class="p">(</span><span class="n">coinsNeeded</span><span class="p">:</span> <span class="n">item</span><span class="p">.</span><span class="n">price</span> <span class="o">-</span> <span class="n">coinsDeposited</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="n">coinsDeposited</span> <span class="o">-=</span> <span class="n">item</span><span class="p">.</span><span class="n">price</span>
+
+        <span class="kd">var</span> <span class="nv">newItem</span> <span class="p">=</span> <span class="n">item</span>
+        <span class="n">newItem</span><span class="p">.</span><span class="bp">count</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">inventory</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="p">=</span> <span class="n">newItem</span>
+
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Dispensing </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在 <code>vend(itemNamed:)</code> 方法的实现中使用了 <code>guard</code> 语句来确保在购买某个物品所需的条件中有任一条件不满足时，能提前退出方法并抛出相应的错误。由于 <code>throw</code> 语句会立即退出方法，所以物品只有在所有条件都满足时才会被售出。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">因为 <code>vend(itemNamed:)</code> 方法会传递出它抛出的任何错误，在你的代码中调用此方法的地方，必须要么直接处理这些错误——使用 <code>do-catch</code> 语句，<code>try?</code> 或 <code>try!</code>；要么继续将这些错误传递下去。例如下面例子中，<code>buyFavoriteSnack(person:vendingMachine:)</code> 同样是一个 throwing 函数，任何由 <code>vend(itemNamed:)</code> 方法抛出的错误会一直被传递到 <code>buyFavoriteSnack(person:vendingMachine:)</code> 函数被调用的地方。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">favoriteSnacks</span> <span class="p">=</span> <span class="p">[</span>
+    <span class="s">&quot;Alice&quot;</span><span class="p">:</span> <span class="s">&quot;Chips&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Bob&quot;</span><span class="p">:</span> <span class="s">&quot;Licorice&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Eve&quot;</span><span class="p">:</span> <span class="s">&quot;Pretzels&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="kd">func</span> <span class="nf">buyFavoriteSnack</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">vendingMachine</span><span class="p">:</span> <span class="n">VendingMachine</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">snackName</span> <span class="p">=</span> <span class="n">favoriteSnacks</span><span class="p">[</span><span class="n">person</span><span class="p">]</span> <span class="p">??</span> <span class="s">&quot;Candy Bar&quot;</span>
+    <span class="k">try</span> <span class="n">vendingMachine</span><span class="p">.</span><span class="n">vend</span><span class="p">(</span><span class="n">itemNamed</span><span class="p">:</span> <span class="n">snackName</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上例中，<code>buyFavoriteSnack(person:vendingMachine:)</code> 函数会查找某人最喜欢的零食，并通过调用 <code>vend(itemNamed:)</code> 方法来尝试为他们购买。因为 <code>vend(itemNamed:)</code> 方法能抛出错误，所以在调用它的时候在它前面加了 <code>try</code> 关键字。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>throwing</code> 构造器能像 <code>throwing</code> 函数一样传递错误。例如下面代码中的 <code>PurchasedSnack</code> 构造器在构造过程中调用了 throwing 函数，并且通过传递到它的调用者来处理这些错误。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">struct</span> <span class="nc">PurchasedSnack</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">vendingMachine</span><span class="p">:</span> <span class="n">VendingMachine</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">{</span>
+        <span class="k">try</span> <span class="n">vendingMachine</span><span class="p">.</span><span class="n">vend</span><span class="p">(</span><span class="n">itemNamed</span><span class="p">:</span> <span class="n">name</span><span class="p">)</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_4" class="h16"><span class="span_for_h">用 Do-Catch 处理错误 {#handling-errors-using-do-Catch}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以使用一个 <code>do-catch</code> 语句运行一段闭包代码来处理错误。如果在 <code>do</code> 子句中的代码抛出了一个错误，这个错误会与 <code>catch</code> 子句做匹配，从而决定哪条子句能处理它。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面是 <code>do-catch</code> 语句的一般形式：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="n">expression</span>
+    <span class="n">statements</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="n">pattern</span> <span class="mi">1</span> <span class="p">{</span>
+    <span class="n">statements</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="n">pattern</span> <span class="mi">2</span> <span class="k">where</span> <span class="n">condition</span> <span class="p">{</span>
+    <span class="n">statements</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+    <span class="n">statements</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在 <code>catch</code> 后面写一个匹配模式来表明这个子句能处理什么样的错误。如果一条 <code>catch</code> 子句没有指定匹配模式，那么这条子句可以匹配任何错误，并且把错误绑定到一个名字为 <code>error</code> 的局部常量。关于模式匹配的更多信息请参考 <a class="md_compiled" href="../03_language_reference/07_Patterns.html">模式</a>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">举例来说，下面的代码处理了 <code>VendingMachineError</code> 枚举类型的全部三种情况：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">vendingMachine</span> <span class="p">=</span> <span class="n">VendingMachine</span><span class="p">()</span>
+<span class="n">vendingMachine</span><span class="p">.</span><span class="n">coinsDeposited</span> <span class="p">=</span> <span class="mi">8</span>
+<span class="k">do</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="n">buyFavoriteSnack</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="s">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">vendingMachine</span><span class="p">:</span> <span class="n">vendingMachine</span><span class="p">)</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Success! Yum.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">invalidSelection</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Invalid Selection.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">outOfStock</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Out of Stock.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">insufficientFunds</span><span class="p">(</span><span class="kd">let</span> <span class="nv">coinsNeeded</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Insufficient funds. Please insert an additional </span><span class="si">\(</span><span class="n">coinsNeeded</span><span class="si">)</span><span class="s"> coins.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Unexpected error: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“Insufficient funds. Please insert an additional 2 coins.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面的例子中，<code>buyFavoriteSnack(person:vendingMachine:)</code> 函数在一个 <code>try</code> 表达式中被调用，是因为它能抛出错误。如果错误被抛出，相应的执行会马上转移到 <code>catch</code> 子句中，并判断这个错误是否要被继续传递下去。如果错误没有被匹配，它会被最后一个 <code>catch</code> 语句捕获，并赋值给一个 <code>error</code> 常量。如果没有错误被抛出，<code>do</code> 子句中余下的语句就会被执行。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>catch</code> 子句不必将 <code>do</code> 子句中的代码所抛出的每一个可能的错误都作处理。如果所有 <code>catch</code> 子句都未处理错误，错误就会传递到周围的作用域。然而，错误还是必须要被某个周围的作用域处理的。在不会抛出错误的函数中，必须用 <code>do-catch</code> 语句处理错误。而能够抛出错误的函数既可以使用 <code>do-catch</code> 语句处理，也可以让调用方来处理错误。如果错误传递到了顶层作用域却依然没有被处理，你会得到一个运行时错误。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">以下面的代码为例，不是 <code>VendingMachineError</code> 中申明的错误会在调用函数的地方被捕获：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">nourish</span><span class="p">(</span><span class="n">with</span> <span class="n">item</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">{</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="k">try</span> <span class="n">vendingMachine</span><span class="p">.</span><span class="n">vend</span><span class="p">(</span><span class="n">itemNamed</span><span class="p">:</span> <span class="n">item</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="k">is</span> <span class="n">VendingMachineError</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Invalid selection, out of stock, or not enough money.&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">do</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="n">nourish</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="s">&quot;Beet-Flavored Chips&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Unexpected non-vending-machine-related error: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“Invalid selection, out of stock, or not enough money.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果 <code>vend(itemNamed:)</code> 抛出的是一个 <code>VendingMachineError</code> 类型的错误，<code>nourish(with:)</code> 会打印一条消息，否则 <code>nourish(with:)</code> 会将错误抛给它的调用方。这个错误之后会被通用的 <code>catch</code> 语句捕获。</span>
+</p>
+
+<h3 id="toc_5" class="h16"><span class="span_for_h">将错误转换成可选值 {#converting-errors-to-optional-values}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">可以使用 <code>try?</code> 通过将错误转换成一个可选值来处理错误。如果是在计算 <code>try?</code> 表达式时抛出错误，该表达式的结果就为 <code>nil</code>。例如，在下面的代码中，<code>x</code> 和 <code>y</code> 有着相同的数值和等价的含义：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">someThrowingFunction</span><span class="p">()</span> <span class="kr">throws</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nv">x</span> <span class="p">=</span> <span class="k">try</span><span class="p">?</span> <span class="n">someThrowingFunction</span><span class="p">()</span>
+
+<span class="kd">let</span> <span class="nv">y</span><span class="p">:</span> <span class="nb">Int</span><span class="p">?</span>
+<span class="k">do</span> <span class="p">{</span>
+    <span class="n">y</span> <span class="p">=</span> <span class="k">try</span> <span class="n">someThrowingFunction</span><span class="p">()</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+    <span class="n">y</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果 <code>someThrowingFunction()</code> 抛出一个错误，<code>x</code> 和 <code>y</code> 的值是 <code>nil</code>。否则 <code>x</code> 和 <code>y</code> 的值就是该函数的返回值。注意，无论 <code>someThrowingFunction()</code> 的返回值类型是什么类型，<code>x</code> 和 <code>y</code> 都是这个类型的可选类型。例子中此函数返回一个整型，所以 <code>x</code> 和 <code>y</code> 是可选整型。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你想对所有的错误都采用同样的方式来处理，用 <code>try?</code> 就可以让你写出简洁的错误处理代码。例如，下面的代码用几种方式来获取数据，如果所有方式都失败了则返回 <code>nil</code>。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">fetchData</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">Data</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="k">try</span><span class="p">?</span> <span class="n">fetchDataFromDisk</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">data</span> <span class="p">}</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="k">try</span><span class="p">?</span> <span class="n">fetchDataFromServer</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">data</span> <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_6" class="h16"><span class="span_for_h">禁用错误传递 {#disabling-error-propagation}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">有时你知道某个 <code>throwing</code> 函数实际上在运行时是不会抛出错误的，在这种情况下，你可以在表达式前面写 <code>try!</code> 来禁用错误传递，这会把调用包装在一个不会有错误抛出的运行时断言中。如果真的抛出了错误，你会得到一个运行时错误。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">例如，下面的代码使用了 <code>loadImage(atPath:)</code> 函数，该函数从给定的路径加载图片资源，如果图片无法载入则抛出一个错误。在这种情况下，因为图片是和应用绑定的，运行时不会有错误抛出，所以适合禁用错误传递。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">photo</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">loadImage</span><span class="p">(</span><span class="n">atPath</span><span class="p">:</span> <span class="s">&quot;./Resources/John Appleseed.jpg&quot;</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_7" class="h16"><span class="span_for_h">指定清理操作 {#specifying-cleanup-actions}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以使用 <code>defer</code> 语句在即将离开当前代码块时执行一系列语句。该语句让你能执行一些必要的清理工作，不管是以何种方式离开当前代码块的——无论是由于抛出错误而离开，或是由于诸如 <code>return</code>、<code>break</code> 的语句。例如，你可以用 <code>defer</code> 语句来确保文件描述符得以关闭，以及手动分配的内存得以释放。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>defer</code> 语句将代码的执行延迟到当前的作用域退出之前。该语句由 <code>defer</code> 关键字和要被延迟执行的语句组成。延迟执行的语句不能包含任何控制转移语句，例如 <code>break</code>、<code>return</code> 语句，或是抛出一个错误。延迟执行的操作会按照它们声明的顺序从后往前执行——也就是说，第一条 <code>defer</code> 语句中的代码最后才执行，第二条 <code>defer</code> 语句中的代码倒数第二个执行，以此类推。最后一条语句会第一个执行。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">processFile</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">file</span> <span class="p">=</span> <span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">defer</span> <span class="p">{</span>
+            <span class="n">close</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">while</span> <span class="kd">let</span> <span class="nv">line</span> <span class="p">=</span> <span class="k">try</span> <span class="n">file</span><span class="p">.</span><span class="n">readline</span><span class="p">()</span> <span class="p">{</span>
+            <span class="c1">// 处理文件。</span>
+        <span class="p">}</span>
+        <span class="c1">// close(file) 会在这里被调用，即作用域的最后。</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">上面的代码使用一条 <code>defer</code> 语句来确保 <code>open(_:)</code> 函数有一个相应的对 <code>close(_:)</code> 函数的调用。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line">即使没有涉及到错误处理的代码，你也可以使用 <code>defer</code> 语句。<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+        </div>
+    </div>
+    <!--mathjax-->
+    <!--mermaid-->
+</body>
+</html>

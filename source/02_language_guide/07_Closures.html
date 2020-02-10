@@ -1,0 +1,689 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>闭包</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">闭包</span></h1>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>闭包</em>是自包含的函数代码块，可以在代码中被传递和使用。Swift 中的闭包与 C 和 Objective-C 中的代码块（blocks）以及其他一些编程语言中的匿名函数（Lambdas）比较相似。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">闭包可以捕获和存储其所在上下文中任意常量和变量的引用。被称为<em class="md_patched_em">包裹</em>常量和变量。 Swift 会为你管理在捕获过程中涉及到的所有内存操作。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">如果你不熟悉捕获（capturing）这个概念也不用担心，在 <a class="md_compiled" href="#capturing-values">值捕获</a> 章节有它更详细的介绍。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">在 <a class="md_compiled" href="./06_Functions.md">函数</a> 章节中介绍的全局和嵌套函数实际上也是特殊的闭包，闭包采用如下三种形式之一：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>全局函数是一个有名字但不会捕获任何值的闭包
+
+</span></li>
+<li class="md_li"><span>嵌套函数是一个有名字并可以捕获其封闭函数域内值的闭包
+
+</span></li>
+<li class="md_li"><span>闭包表达式是一个利用轻量级语法所写的可以捕获其上下文中变量或常量值的匿名闭包
+
+</span></li>
+</ul>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">Swift 的闭包表达式拥有简洁的风格，并鼓励在常见场景中进行语法优化，主要优化如下：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>利用上下文推断参数和返回值类型
+
+</span></li>
+<li class="md_li"><span>隐式返回单表达式闭包，即单表达式闭包可以省略 <code>return</code> 关键字
+
+</span></li>
+<li class="md_li"><span>参数名称缩写
+
+</span></li>
+<li class="md_li"><span>尾随闭包语法
+
+</span></li>
+</ul>
+<h2 id="toc_1" class="h16"><span class="span_for_h">闭包表达式 {#closure-expressions}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><a class="md_compiled" href="./06_Functions.md#Nested-Functions">嵌套函数</a> 作为复杂函数的一部分时，它自包含代码块式的定义和命名形式在使用上带来了方便。当然，编写未完整声明和没有函数名的类函数结构代码是很有用的，尤其是在编码中涉及到函数作为参数的那些方法时。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>闭包表达式</em>是一种构建内联闭包的方式，它的语法简洁。在保证不丢失它语法清晰明了的同时，闭包表达式提供了几种优化的语法简写形式。下面通过对  <code>sorted(by:)</code> 这一个案例的多次迭代改进来展示这个过程，每次迭代都使用了更加简明的方式描述了相同功能。。</span>
+</p>
+
+<h3 id="toc_2" class="h16"><span class="span_for_h">排序方法 {#the-sorted-function}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 标准库提供了名为 <code>sorted(by:)</code> 的方法，它会基于你提供的排序闭包表达式的判断结果对数组中的值（类型确定）进行排序。一旦它完成排序过程，<code>sorted(by:)</code> 方法会返回一个与旧数组类型大小相同类型的新数组，该数组的元素有着正确的排序顺序。原数组不会被  <code>sorted(by:)</code>  方法修改。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的闭包表达式示例使用 <code>sorted(by:)</code> 方法对一个 <code>String</code> 类型的数组进行字母逆序排序。以下是初始数组：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">names</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Chris&quot;</span><span class="p">,</span> <span class="s">&quot;Alex&quot;</span><span class="p">,</span> <span class="s">&quot;Ewa&quot;</span><span class="p">,</span> <span class="s">&quot;Barry&quot;</span><span class="p">,</span> <span class="s">&quot;Daniella&quot;</span><span class="p">]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>sorted(by:)</code> 方法接受一个闭包，该闭包函数需要传入与数组元素类型相同的两个值，并返回一个布尔类型值来表明当排序结束后传入的第一个参数排在第二个参数前面还是后面。如果第一个参数值出现在第二个参数值*前面*，排序闭包函数需要返回 <code>true</code>，反之返回 <code>false</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">该例子对一个 <code>String</code> 类型的数组进行排序，因此排序闭包函数类型需为 <code>(String, String) -&gt; Bool</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">提供排序闭包函数的一种方式是撰写一个符合其类型要求的普通函数，并将其作为 <code>sorted(by:)</code> 方法的参数传入：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">backward</span><span class="p">(</span><span class="kc">_</span> <span class="n">s1</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="kc">_</span> <span class="n">s2</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">s1</span> <span class="o">&gt;</span> <span class="n">s2</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nv">reversedNames</span> <span class="p">=</span> <span class="n">names</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span> <span class="n">backward</span><span class="p">)</span>
+<span class="c1">// reversedNames 为 [&quot;Ewa&quot;, &quot;Daniella&quot;, &quot;Chris&quot;, &quot;Barry&quot;, &quot;Alex&quot;]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果第一个字符串（<code>s1</code>）大于第二个字符串（<code>s2</code>），<code>backward(_:_:)</code> 函数会返回 <code>true</code>，表示在新的数组中 <code>s1</code> 应该出现在 <code>s2</code> 前。对于字符串中的字符来说，“大于”表示“按照字母顺序较晚出现”。这意味着字母 <code>"B"</code> 大于字母 <code>"A"</code> ，字符串 <code>"Tom"</code> 大于字符串 <code>"Tim"</code>。该闭包将进行字母逆序排序，<code>"Barry"</code> 将会排在 <code>"Alex"</code> 之前。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">然而，以这种方式来编写一个实际上很简单的表达式（<code>a &gt; b</code>)，确实太过繁琐了。对于这个例子来说，利用闭包表达式语法可以更好地构造一个内联排序闭包。</span>
+</p>
+
+<h3 id="toc_3" class="h16"><span class="span_for_h">闭包表达式语法 {#closure-expression-syntax}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">闭包表达式语法有如下的一般形式：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="p">{</span> <span class="p">(</span><span class="n">parameters</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="k">return</span> <span class="n">type</span> <span class="k">in</span>
+    <span class="n">statements</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>闭包表达式参数</em> 可以是 in-out 参数，但不能设定默认值。如果你命名了可变参数，也可以使用此可变参数。元组也可以作为参数和返回值。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子展示了之前 <code>backward(_:_:)</code> 函数对应的闭包表达式版本的代码：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">reversedNames</span> <span class="p">=</span> <span class="n">names</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">s1</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">s2</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="k">in</span>
+    <span class="k">return</span> <span class="n">s1</span> <span class="o">&gt;</span> <span class="n">s2</span>
+<span class="p">})</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">需要注意的是内联闭包参数和返回值类型声明与 <code>backward(_:_:)</code> 函数类型声明相同。在这两种方式中，都写成了 <code>(s1: String, s2: String) -&gt; Bool</code>。然而在内联闭包表达式中，函数和返回值类型都写在<em class="md_patched_em">大括号内</em>，而不是大括号外。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">闭包的函数体部分由关键字 <code>in</code> 引入。该关键字表示闭包的参数和返回值类型定义已经完成，闭包函数体即将开始。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">由于这个闭包的函数体部分如此短，以至于可以将其改写成一行代码：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">reversedNames</span> <span class="p">=</span> <span class="n">names</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">s1</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">s2</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="k">in</span> <span class="k">return</span> <span class="n">s1</span> <span class="o">&gt;</span> <span class="n">s2</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">该例中 <code>sorted(by:)</code> 方法的整体调用保持不变，一对圆括号仍然包裹住了方法的整个参数。然而，参数现在变成了内联闭包。</span>
+</p>
+
+<h3 id="toc_4" class="h16"><span class="span_for_h">根据上下文推断类型 {#inferring-type-from-context}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">因为排序闭包函数是作为 <code>sorted(by:)</code> 方法的参数传入的，Swift 可以推断其参数和返回值的类型。<code>sorted(by:)</code> 方法被一个字符串数组调用，因此其参数必须是 <code>(String, String) -&gt; Bool</code> 类型的函数。这意味着 <code>(String, String)</code> 和 <code>Bool</code> 类型并不需要作为闭包表达式定义的一部分。因为所有的类型都可以被正确推断，返回箭头（<code>-&gt;</code>）和围绕在参数周围的括号也可以被省略：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">reversedNames</span> <span class="p">=</span> <span class="n">names</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span> <span class="p">{</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span> <span class="k">in</span> <span class="k">return</span> <span class="n">s1</span> <span class="o">&gt;</span> <span class="n">s2</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">实际上，通过内联闭包表达式构造的闭包作为参数传递给函数或方法时，总是能够推断出闭包的参数和返回值类型。这意味着闭包作为函数或者方法的参数时，你几乎不需要利用完整格式构造内联闭包。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">尽管如此，你仍然可以明确写出有着完整格式的闭包。如果完整格式的闭包能够提高代码的可读性，则我们更鼓励采用完整格式的闭包。而在 <code>sorted(by:)</code> 方法这个例子里，显然闭包的目的就是排序。由于这个闭包是为了处理字符串数组的排序，因此读者能够推测出这个闭包是用于字符串处理的。</span>
+</p>
+
+<h3 id="toc_5" class="h16"><span class="span_for_h">单表达式闭包的隐式返回 {#implicit-returns-from-single-expression-closures}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">单行表达式闭包可以通过省略 <code>return</code> 关键字来隐式返回单行表达式的结果，如上版本的例子可以改写为：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">reversedNames</span> <span class="p">=</span> <span class="n">names</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span> <span class="p">{</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span> <span class="k">in</span> <span class="n">s1</span> <span class="o">&gt;</span> <span class="n">s2</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在这个例子中，<code>sorted(by:)</code> 方法的参数类型明确了闭包必须返回一个 <code>Bool</code> 类型值。因为闭包函数体只包含了一个单一表达式（<code>s1 &gt; s2</code>），该表达式返回 <code>Bool</code> 类型值，因此这里没有歧义，<code>return</code> 关键字可以省略。</span>
+</p>
+
+<h3 id="toc_6" class="h16"><span class="span_for_h">参数名称缩写 {#shorthand-argument-names}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 自动为内联闭包提供了参数名称缩写功能，你可以直接通过 <code>$0</code>，<code>$1</code>，<code>$2</code> 来顺序调用闭包的参数，以此类推。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你在闭包表达式中使用参数名称缩写，你可以在闭包定义中省略参数列表，并且对应参数名称缩写的类型会通过函数类型进行推断。<code>in</code> 关键字也同样可以被省略，因为此时闭包表达式完全由闭包函数体构成：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">reversedNames</span> <span class="p">=</span> <span class="n">names</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">&gt;</span> <span class="nv">$1</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在这个例子中，<code>$0</code> 和 <code>$1</code> 表示闭包中第一个和第二个 <code>String</code> 类型的参数。</span>
+</p>
+
+<h3 id="toc_7" class="h16"><span class="span_for_h">运算符方法 {#operator-methods}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">实际上还有一种更<em class="md_patched_em">简短的</em>方式来编写上面例子中的闭包表达式。Swift 的 <code>String</code> 类型定义了关于大于号（<code>&gt;</code>）的字符串实现，其作为一个函数接受两个 <code>String</code> 类型的参数并返回 <code>Bool</code> 类型的值。而这正好与 <code>sorted(by:)</code> 方法的参数需要的函数类型相符合。因此，你可以简单地传递一个大于号，Swift 可以自动推断找到系统自带的那个字符串函数的实现：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">reversedNames</span> <span class="p">=</span> <span class="n">names</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span> <span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">更多关于运算符方法的内容请查看 <a class="md_compiled" href="./27_Advanced_Operators.md#operator-methods">运算符方法</a>。</span>
+</p>
+
+<h2 id="toc_8" class="h16"><span class="span_for_h">尾随闭包 {#trailing-closures}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你需要将一个很长的闭包表达式作为最后一个参数传递给函数，将这个闭包替换成为尾随闭包的形式很有用。尾随闭包是一个书写在函数圆括号之后的闭包表达式，函数支持将其作为最后一个参数调用。在使用尾随闭包时，你不用写出它的参数标签：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">someFunctionThatTakesAClosure</span><span class="p">(</span><span class="n">closure</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 函数体部分</span>
+<span class="p">}</span>
+
+<span class="c1">// 以下是不使用尾随闭包进行函数调用</span>
+<span class="n">someFunctionThatTakesAClosure</span><span class="p">(</span><span class="n">closure</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// 闭包主体部分</span>
+<span class="p">})</span>
+
+<span class="c1">// 以下是使用尾随闭包进行函数调用</span>
+<span class="n">someFunctionThatTakesAClosure</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 闭包主体部分</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在 <a class="md_compiled" href="#closure-expression-syntax">闭包表达式语法</a> 上章节中的字符串排序闭包可以作为尾随包的形式改写在  <code>sorted(by:)</code> 方法圆括号的外面：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">reversedNames</span> <span class="p">=</span> <span class="n">names</span><span class="p">.</span><span class="bp">sorted</span><span class="p">()</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">&gt;</span> <span class="nv">$1</span> <span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果闭包表达式是函数或方法的唯一参数，则当你使用尾随闭包时，你甚至可以把 <code>()</code> 省略掉：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">reversedNames</span> <span class="p">=</span> <span class="n">names</span><span class="p">.</span><span class="bp">sorted</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">&gt;</span> <span class="nv">$1</span> <span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当闭包非常长以至于不能在一行中进行书写时，尾随闭包变得非常有用。举例来说，Swift 的 <code>Array</code> 类型有一个 <code>map(_:)</code> 方法，这个方法获取一个闭包表达式作为其唯一参数。该闭包函数会为数组中的每一个元素调用一次，并返回该元素所映射的值。具体的映射方式和返回值类型由闭包来指定。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当提供给数组的闭包应用于每个数组元素后，<code>map(_:)</code> 方法将返回一个新的数组，数组中包含了与原数组中的元素一一对应的映射后的值。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下例介绍了如何在 <code>map(_:)</code> 方法中使用尾随闭包将 <code>Int</code> 类型数组 <code>[16, 58, 510]</code> 转换为包含对应 <code>String</code> 类型的值的数组 <code>["OneSix", "FiveEight", "FiveOneZero"]</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">digitNames</span> <span class="p">=</span> <span class="p">[</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s">&quot;Zero&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s">&quot;One&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">&quot;Two&quot;</span><span class="p">,</span>   <span class="mi">3</span><span class="p">:</span> <span class="s">&quot;Three&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s">&quot;Four&quot;</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s">&quot;Five&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s">&quot;Six&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="s">&quot;Seven&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="s">&quot;Eight&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="s">&quot;Nine&quot;</span>
+<span class="p">]</span>
+<span class="kd">let</span> <span class="nv">numbers</span> <span class="p">=</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">510</span><span class="p">]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如上代码创建了一个整型数位和它们英文版本名字相映射的字典。同时还定义了一个准备转换为字符串数组的整型数组。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你现在可以通过传递一个尾随闭包给 <code>numbers</code> 数组的 <code>map(_:)</code> 方法来创建对应的字符串版本数组：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">strings</span> <span class="p">=</span> <span class="n">numbers</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span>
+    <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="k">in</span>
+    <span class="kd">var</span> <span class="nv">number</span> <span class="p">=</span> <span class="n">number</span>
+    <span class="kd">var</span> <span class="nv">output</span> <span class="p">=</span> <span class="s">&quot;&quot;</span>
+    <span class="k">repeat</span> <span class="p">{</span>
+        <span class="n">output</span> <span class="p">=</span> <span class="n">digitNames</span><span class="p">[</span><span class="n">number</span> <span class="o">%</span> <span class="mi">10</span><span class="p">]</span><span class="o">!</span> <span class="o">+</span> <span class="n">output</span>
+        <span class="n">number</span> <span class="o">/=</span> <span class="mi">10</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">output</span>
+<span class="p">}</span>
+<span class="c1">// strings 常量被推断为字符串类型数组，即 [String]</span>
+<span class="c1">// 其值为 [&quot;OneSix&quot;, &quot;FiveEight&quot;, &quot;FiveOneZero&quot;]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>map(_:)</code> 为数组中每一个元素调用了一次闭包表达式。你不需要指定闭包的输入参数 <code>number</code> 的类型，因为可以通过要映射的数组类型进行推断。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在该例中，局部变量 <code>number</code> 的值由闭包中的 <code>number</code> 参数获得，因此可以在闭包函数体内对其进行修改，(闭包或者函数的参数总是常量)，闭包表达式指定了返回类型为 <code>String</code>，以表明存储映射值的新数组类型为 <code>String</code>。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">闭包表达式在每次被调用的时候创建了一个叫做 <code>output</code> 的字符串并返回。其使用求余运算符（<code>number % 10</code>）计算最后一位数字并利用 <code>digitNames</code> 字典获取所映射的字符串。这个闭包能够用于创建任意正整数的字符串表示。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">字典 <code>digitNames</code> 下标后跟着一个叹号（<code>!</code>），因为字典下标返回一个可选值（optional value），表明该键不存在时会查找失败。在上例中，由于可以确定 <code>number % 10</code> 总是 <code>digitNames</code> 字典的有效下标，因此叹号可以用于强制解包（force-unwrap）存储在下标的可选类型的返回值中的 <code>String</code> 类型的值。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">从 <code>digitNames</code> 字典中获取的字符串被添加到 <code>output</code> 的*前部*，逆序建立了一个字符串版本的数字。（在表达式 <code>number % 10</code> 中，如果 <code>number</code> 为 <code>16</code>，则返回 <code>6</code>，<code>58</code> 返回 <code>8</code>，<code>510</code> 返回 <code>0</code>。）</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>number</code> 变量之后除以 <code>10</code>。因为其是整数，在计算过程中未除尽部分被忽略。因此 <code>16</code> 变成了 <code>1</code>，<code>58</code> 变成了 <code>5</code>，<code>510</code> 变成了 <code>51</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">整个过程重复进行，直到 <code>number /= 10</code> 为 <code>0</code>，这时闭包会将字符串 <code>output</code> 返回，而 <code>map(_:)</code> 方法则会将字符串添加到映射数组中。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面的例子中，通过尾随闭包语法，优雅地在函数后封装了闭包的具体功能，而不再需要将整个闭包包裹在 <code>map(_:)</code> 方法的括号内。</span>
+</p>
+
+<h2 id="toc_9" class="h16"><span class="span_for_h">值捕获 {#capturing-values}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">闭包可以在其被定义的上下文中<em class="md_patched_em">捕获</em>常量或变量。即使定义这些常量和变量的原作用域已经不存在，闭包仍然可以在闭包函数体内引用和修改这些值。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 中，可以捕获值的闭包的最简单形式是嵌套函数，也就是定义在其他函数的函数体内的函数。嵌套函数可以捕获其外部函数所有的参数以及定义的常量和变量。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">举个例子，这有一个叫做 <code>makeIncrementer</code> 的函数，其包含了一个叫做 <code>incrementer</code> 的嵌套函数。嵌套函数 <code>incrementer()</code> 从上下文中捕获了两个值，<code>runningTotal</code> 和 <code>amount</code>。捕获这些值之后，<code>makeIncrementer</code> 将 <code>incrementer</code> 作为闭包返回。每次调用 <code>incrementer</code> 时，其会以 <code>amount</code> 作为增量增加 <code>runningTotal</code> 的值。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">makeIncrementer</span><span class="p">(</span><span class="n">forIncrement</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">runningTotal</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="kd">func</span> <span class="nf">incrementer</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+        <span class="n">runningTotal</span> <span class="o">+=</span> <span class="n">amount</span>
+        <span class="k">return</span> <span class="n">runningTotal</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">incrementer</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>makeIncrementer</code> 返回类型为 <code>() -&gt; Int</code>。这意味着其返回的是一个*函数*，而非一个简单类型的值。该函数在每次调用时不接受参数，只返回一个 <code>Int</code> 类型的值。关于函数返回其他函数的内容，请查看 <a class="md_compiled" href="./06_Functions.md#function-types-as-return-types">函数类型作为返回类型</a>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>makeIncrementer(forIncrement:)</code> 函数定义了一个初始值为 <code>0</code> 的整型变量 <code>runningTotal</code>，用来存储当前总计数值。该值为 <code>incrementer</code> 的返回值。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>makeIncrementer(forIncrement:)</code> 有一个 <code>Int</code> 类型的参数，其外部参数名为 <code>forIncrement</code>，内部参数名为 <code>amount</code>，该参数表示每次 <code>incrementer</code> 被调用时 <code>runningTotal</code> 将要增加的量。<code>makeIncrementer</code> 函数还定义了一个嵌套函数 <code>incrementer</code>，用来执行实际的增加操作。该函数简单地使 <code>runningTotal</code> 增加 <code>amount</code>，并将其返回。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果我们单独考虑嵌套函数 <code>incrementer()</code>，会发现它有些不同寻常：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">incrementer</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+    <span class="n">runningTotal</span> <span class="o">+=</span> <span class="n">amount</span>
+    <span class="k">return</span> <span class="n">runningTotal</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end"><code>incrementer()</code> 函数并没有任何参数，但是在函数体内访问了 <code>runningTotal</code> 和 <code>amount</code> 变量。这是因为它从外围函数捕获了 <code>runningTotal</code> 和 <code>amount</code> 变量的*引用*。捕获引用保证了 <code>runningTotal</code> 和 <code>amount</code> 变量在调用完 <code>makeIncrementer</code> 后不会消失，并且保证了在下一次执行 <code>incrementer</code> 函数时，<code>runningTotal</code> 依旧存在。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line">为了优化，如果一个值不会被闭包改变，或者在闭包创建后不会改变，Swift 可能会改为捕获并保存一份对值的拷贝。<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">Swift 也会负责被捕获变量的所有内存管理工作，包括释放不再需要的变量。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面是一个使用 <code>makeIncrementer</code> 的例子：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">incrementByTen</span> <span class="p">=</span> <span class="n">makeIncrementer</span><span class="p">(</span><span class="n">forIncrement</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">该例子定义了一个叫做 <code>incrementByTen</code> 的常量，该常量指向一个每次调用会将其 <code>runningTotal</code> 变量增加 <code>10</code> 的 <code>incrementer</code> 函数。调用这个函数多次可以得到以下结果：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">incrementByTen</span><span class="p">()</span>
+<span class="c1">// 返回的值为10</span>
+<span class="n">incrementByTen</span><span class="p">()</span>
+<span class="c1">// 返回的值为20</span>
+<span class="n">incrementByTen</span><span class="p">()</span>
+<span class="c1">// 返回的值为30</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你创建了另一个 <code>incrementer</code>，它会有属于自己的引用，指向一个全新、独立的 <code>runningTotal</code> 变量：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">incrementBySeven</span> <span class="p">=</span> <span class="n">makeIncrementer</span><span class="p">(</span><span class="n">forIncrement</span><span class="p">:</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">incrementBySeven</span><span class="p">()</span>
+<span class="c1">// 返回的值为7</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">再次调用原来的 <code>incrementByTen</code> 会继续增加它自己的 <code>runningTotal</code> 变量，该变量和 <code>incrementBySeven</code> 中捕获的变量没有任何联系：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">incrementByTen</span><span class="p">()</span>
+<span class="c1">// 返回的值为40</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">如果你将闭包赋值给一个类实例的属性，并且该闭包通过访问该实例或其成员而捕获了该实例，你将在闭包和该实例间创建一个循环强引用。Swift 使用捕获列表来打破这种循环强引用。更多信息，请参考 <a class="md_compiled" href="./24_Automatic_Reference_Counting.md#strong-reference-cycles-for-closures">闭包引起的循环强引用</a>。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_10" class="h16"><span class="span_for_h">闭包是引用类型 {#closures-are-reference-types}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面的例子中，<code>incrementBySeven</code> 和 <code>incrementByTen</code> 都是常量，但是这些常量指向的闭包仍然可以增加其捕获的变量的值。这是因为函数和闭包都是<em class="md_patched_em">引用类型</em>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">无论你将函数或闭包赋值给一个常量还是变量，你实际上都是将常量或变量的值设置为对应函数或闭包的<em class="md_patched_em">引用</em>。上面的例子中，指向闭包的引用 <code>incrementByTen</code> 是一个常量，而并非闭包内容本身。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">这也意味着如果你将闭包赋值给了两个不同的常量或变量，两个值都会指向同一个闭包：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">alsoIncrementByTen</span> <span class="p">=</span> <span class="n">incrementByTen</span>
+<span class="n">alsoIncrementByTen</span><span class="p">()</span>
+<span class="c1">// 返回的值为50</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_11" class="h16"><span class="span_for_h">逃逸闭包 {#escaping-closures}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当一个闭包作为参数传到一个函数中，但是这个闭包在函数返回之后才被执行，我们称该闭包从函数中<em class="md_patched_em">逃逸</em>。当你定义接受闭包作为参数的函数时，你可以在参数名之前标注 <code>@escaping</code>，用来指明这个闭包是允许“逃逸”出这个函数的。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">一种能使闭包“逃逸”出函数的方法是，将这个闭包保存在一个函数外部定义的变量中。举个例子，很多启动异步操作的函数接受一个闭包参数作为 completion handler。这类函数会在异步操作开始之后立刻返回，但是闭包直到异步操作结束后才会被调用。在这种情况下，闭包需要“逃逸”出函数，因为闭包需要在函数返回之后被调用。例如：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">completionHandlers</span><span class="p">:</span> <span class="p">[()</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">]</span> <span class="p">=</span> <span class="p">[]</span>
+<span class="kd">func</span> <span class="nf">someFunctionWithEscapingClosure</span><span class="p">(</span><span class="n">completionHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">completionHandlers</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">completionHandler</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>someFunctionWithEscapingClosure(_:)</code> 函数接受一个闭包作为参数，该闭包被添加到一个函数外定义的数组中。如果你不将这个参数标记为 <code>@escaping</code>，就会得到一个编译错误。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">将一个闭包标记为 <code>@escaping</code> 意味着你必须在闭包中显式地引用 <code>self</code>。比如说，在下面的代码中，传递到 <code>someFunctionWithEscapingClosure(_:)</code> 中的闭包是一个逃逸闭包，这意味着它需要显式地引用 <code>self</code>。相对的，传递到 <code>someFunctionWithNonescapingClosure(_:)</code> 中的闭包是一个非逃逸闭包，这意味着它可以隐式引用 <code>self</code>。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">someFunctionWithNonescapingClosure</span><span class="p">(</span><span class="n">closure</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">closure</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">SomeClass</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">x</span> <span class="p">=</span> <span class="mi">10</span>
+    <span class="kd">func</span> <span class="nf">doSomething</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">someFunctionWithEscapingClosure</span> <span class="p">{</span> <span class="kc">self</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="mi">100</span> <span class="p">}</span>
+        <span class="n">someFunctionWithNonescapingClosure</span> <span class="p">{</span> <span class="n">x</span> <span class="p">=</span> <span class="mi">200</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nv">instance</span> <span class="p">=</span> <span class="n">SomeClass</span><span class="p">()</span>
+<span class="n">instance</span><span class="p">.</span><span class="n">doSomething</span><span class="p">()</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">instance</span><span class="p">.</span><span class="n">x</span><span class="p">)</span>
+<span class="c1">// 打印出“200”</span>
+
+<span class="n">completionHandlers</span><span class="p">.</span><span class="bp">first</span><span class="p">?()</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">instance</span><span class="p">.</span><span class="n">x</span><span class="p">)</span>
+<span class="c1">// 打印出“100”</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_12" class="h16"><span class="span_for_h">自动闭包 {#autoclosures}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>自动闭包</em>是一种自动创建的闭包，用于包装传递给函数作为参数的表达式。这种闭包不接受任何参数，当它被调用的时候，会返回被包装在其中的表达式的值。这种便利语法让你能够省略闭包的花括号，用一个普通的表达式来代替显式的闭包。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">我们经常会<em class="md_patched_em">调用</em>采用自动闭包的函数，但是很少去<em class="md_patched_em">实现</em>这样的函数。举个例子来说，<code>assert(condition:message:file:line:)</code> 函数接受自动闭包作为它的 <code>condition</code> 参数和 <code>message</code> 参数；它的 <code>condition</code> 参数仅会在 debug 模式下被求值，它的 <code>message</code> 参数仅当 <code>condition</code> 参数为 <code>false</code> 时被计算求值。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">自动闭包让你能够延迟求值，因为直到你调用这个闭包，代码段才会被执行。延迟求值对于那些有副作用（Side Effect）和高计算成本的代码来说是很有益处的，因为它使得你能控制代码的执行时机。下面的代码展示了闭包如何延时求值。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">customersInLine</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Chris&quot;</span><span class="p">,</span> <span class="s">&quot;Alex&quot;</span><span class="p">,</span> <span class="s">&quot;Ewa&quot;</span><span class="p">,</span> <span class="s">&quot;Barry&quot;</span><span class="p">,</span> <span class="s">&quot;Daniella&quot;</span><span class="p">]</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">customersInLine</span><span class="p">.</span><span class="bp">count</span><span class="p">)</span>
+<span class="c1">// 打印出“5”</span>
+
+<span class="kd">let</span> <span class="nv">customerProvider</span> <span class="p">=</span> <span class="p">{</span> <span class="n">customersInLine</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span> <span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">customersInLine</span><span class="p">.</span><span class="bp">count</span><span class="p">)</span>
+<span class="c1">// 打印出“5”</span>
+
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;Now serving </span><span class="si">\(</span><span class="n">customerProvider</span><span class="si">())</span><span class="s">!&quot;</span><span class="p">)</span>
+<span class="c1">// Prints &quot;Now serving Chris!&quot;</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">customersInLine</span><span class="p">.</span><span class="bp">count</span><span class="p">)</span>
+<span class="c1">// 打印出“4”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">尽管在闭包的代码中，<code>customersInLine</code> 的第一个元素被移除了，不过在闭包被调用之前，这个元素是不会被移除的。如果这个闭包永远不被调用，那么在闭包里面的表达式将永远不会执行，那意味着列表中的元素永远不会被移除。请注意，<code>customerProvider</code> 的类型不是 <code>String</code>，而是 <code>() -&gt; String</code>，一个没有参数且返回值为 <code>String</code> 的函数。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">将闭包作为参数传递给函数时，你能获得同样的延时求值行为。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="c1">// customersInLine is [&quot;Alex&quot;, &quot;Ewa&quot;, &quot;Barry&quot;, &quot;Daniella&quot;]</span>
+<span class="kd">func</span> <span class="nf">serve</span><span class="p">(</span><span class="n">customer</span> <span class="n">customerProvider</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Now serving </span><span class="si">\(</span><span class="n">customerProvider</span><span class="si">())</span><span class="s">!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">serve</span><span class="p">(</span><span class="n">customer</span><span class="p">:</span> <span class="p">{</span> <span class="n">customersInLine</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span> <span class="p">}</span> <span class="p">)</span>
+<span class="c1">// 打印出“Now serving Alex!”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">上面的 <code>serve(customer:)</code> 函数接受一个返回顾客名字的显式的闭包。下面这个版本的 <code>serve(customer:)</code> 完成了相同的操作，不过它并没有接受一个显式的闭包，而是通过将参数标记为 <code>@autoclosure</code> 来接收一个自动闭包。现在你可以将该函数当作接受 <code>String</code> 类型参数（而非闭包）的函数来调用。<code>customerProvider</code> 参数将自动转化为一个闭包，因为该参数被标记了 <code>@autoclosure</code> 特性。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="c1">// customersInLine is [&quot;Ewa&quot;, &quot;Barry&quot;, &quot;Daniella&quot;]</span>
+<span class="kd">func</span> <span class="nf">serve</span><span class="p">(</span><span class="n">customer</span> <span class="n">customerProvider</span><span class="p">:</span> <span class="kr">@autoclosure</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Now serving </span><span class="si">\(</span><span class="n">customerProvider</span><span class="si">())</span><span class="s">!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">serve</span><span class="p">(</span><span class="n">customer</span><span class="p">:</span> <span class="n">customersInLine</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
+<span class="c1">// 打印“Now serving Ewa!”</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">过度使用 <code>autoclosures</code> 会让你的代码变得难以理解。上下文和函数名应该能够清晰地表明求值是被延迟执行的。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你想让一个自动闭包可以“逃逸”，则应该同时使用 <code>@autoclosure</code> 和 <code>@escaping</code> 属性。<code>@escaping</code> 属性的讲解见上面的 <a class="md_compiled" href="#escaping-closures">逃逸闭包</a>。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="c1">// customersInLine i= [&quot;Barry&quot;, &quot;Daniella&quot;]</span>
+<span class="kd">var</span> <span class="nv">customerProviders</span><span class="p">:</span> <span class="p">[()</span> <span class="p">-&gt;</span> <span class="nb">String</span><span class="p">]</span> <span class="p">=</span> <span class="p">[]</span>
+<span class="kd">func</span> <span class="nf">collectCustomerProviders</span><span class="p">(</span><span class="kc">_</span> <span class="n">customerProvider</span><span class="p">:</span> <span class="kr">@autoclosure</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">customerProviders</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">customerProvider</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">collectCustomerProviders</span><span class="p">(</span><span class="n">customersInLine</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">collectCustomerProviders</span><span class="p">(</span><span class="n">customersInLine</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;Collected </span><span class="si">\(</span><span class="n">customerProviders</span><span class="p">.</span><span class="bp">count</span><span class="si">)</span><span class="s"> closures.&quot;</span><span class="p">)</span>
+<span class="c1">// 打印“Collected 2 closures.”</span>
+<span class="k">for</span> <span class="n">customerProvider</span> <span class="k">in</span> <span class="n">customerProviders</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Now serving </span><span class="si">\(</span><span class="n">customerProvider</span><span class="si">())</span><span class="s">!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“Now serving Barry!”</span>
+<span class="c1">// 打印“Now serving Daniella!”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start md_line_end">在上面的代码中，<code>collectCustomerProviders(_:)</code> 函数并没有调用传入的 <code>customerProvider</code> 闭包，而是将闭包追加到了 <code>customerProviders</code> 数组中。这个数组定义在函数作用域范围外，这意味着数组内的闭包能够在函数返回之后被调用。因此，<code>customerProvider</code> 参数必须允许“逃逸”出函数作用域。</span>
+</p>
+        </div>
+    </div>
+    
+        <script type= "text/javascript">
+            window.MathJax = {
+              tex: {
+                inlineMath: [ ['$','$']],
+                displayMath: [ ['$$','$$'] ]
+              },
+              svg: {fontCache: 'none'},
+              startup: {
+                    ready: () => {
+                      MathJax.startup.defaultReady();
+                      MathJax.startup.promise.then(() => {
+                        if (typeof(send_to_app_client)!='undefined'){send_to_app_client({'action': 'start_to_export_pdf'})}
+                      });
+                    }
+                  },
+              options: {
+                renderActions: {
+                  addMenu: [0]
+                }
+              }
+            };
+        </script>
+        <script src="https://markeditor-files.oss-cn-hangzhou.aliyuncs.com/fb_static/lib/markdown/MathJax/tex-svg.js" type= "text/javascript"></script>
+        
+        
+    <!--mermaid-->
+</body>
+</html>

@@ -1,0 +1,2168 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>语法总结（Summary of the Grammar）</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">语法总结（Summary of the Grammar）</span></h1>
+<h2 id="toc_1" class="h16"><span class="span_for_h">词法结构 {#lexical-structure}</span></h2>
+
+<blockquote class="blockquote_lines_28 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">空白字符语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>空白字符</em>  → <a class="md_compiled" href="./02_Lexical_Structure.md#whitespace-item">空白字符项</a> <a class="md_compiled" href="./02-Lexical-Structure.md#whitespace">空白字符</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>空白字符项</em>  → <a class="md_compiled" href="./02_Lexical_Structure.md#line-break">换行符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>空白字符项</em>   → <a class="md_compiled" href="./02_Lexical_Structure.md#comment">注释</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>空白字符项</em>  → <a class="md_compiled" href="./02_Lexical_Structure.md#multiline-comment">多行注释</a>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>空白字符项</em>  → U+0000，U+0009，U+000B，U+000C 或 U+0020<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+    <span class="md_line">换行符*  → U+000A<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>换行符</em>  → U+000D<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>换行符</em>  → U+000D 后面是 U+000A<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>注释</em>  → <strong>//</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#comment-text">单行内容注释</a> <a class="md_compiled" href="./02-Lexical-Structure.md#line-break">换行符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>注释</em>  → <strong>/*</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#multiline-comment-text">多行内容注释</a> <strong>*/</strong>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>注释内容</em>  → <a class="md_compiled" href="./02_Lexical_Structure.md#comment-text-item">注释内容项</a> <a class="md_compiled" href="./02-Lexical-Structure.md#comment-text">注释内容</a><sub>可选</sub><br>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>注释内容项</em>  → 除 U+000A 或 U+000D 外的任何 Unicode 标量值<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>多行注释内容</em>  → <a class="md_compiled" href="./02_Lexical_Structure.md#multiline-comment-text-item">多行注释内容项</a> <a class="md_compiled" href="./02-Lexical-Structure.md#multiline-comment-text">多行注释内容</a><sub>可选</sub><br>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行注释内容项</em>  → <a class="md_compiled" href="./02_Lexical_Structure.md#multiline-comment">多行内容</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行注释内容项</em>  → <a class="md_compiled" href="./02_Lexical_Structure.md#comment-text-item">注释内容项</a>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>多行注释内容项</em>  → 除 <strong>/*</strong> 或 <strong>*/</strong> 外的任何 Unicode 标量值<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_47 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">标识符语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标识符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier-head">标识符头（Head）</a> <a class="md_compiled" href="./02-Lexical-Structure.md#identifier-characters">标识符字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+<em>标识符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier-head">标识符头（Head）</a> <a class="md_compiled" href="./02-Lexical-Structure.md#identifier-characters">标识符字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+<em>标识符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#implicit-parameter-name">隐式参数名</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标识符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#property-wrapper-projection">属性包装器呈现值</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标识符集</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a> | <a class="md_compiled" href="./02-Lexical-Structure.md#identifier">标识符</a> <strong>,</strong> <a class="md_compiled" href="./02-Lexical-Structure.md#identifier-list">标识符集</a>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → 大写或者小写字母 A 到 Z<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → _<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → U+00A8, U+00AA, U+00AD, U+00AF, U+00B2–U+00B5, or U+00B7–U+00BA<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → U+00BC–U+00BE, U+00C0–U+00D6, U+00D8–U+00F6, or U+00F8–U+00FF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → U+0100–U+02FF, U+0370–U+167F, U+1681–U+180D, or U+180F–U+1DBF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → U+1E00–U+1FFF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → U+200B–U+200D, U+202A–U+202E, U+203F–U+2040, U+2054, or U+2060–U+206F<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → U+2070–U+20CF, U+2100–U+218F, U+2460–U+24FF, or U+2776–U+2793<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → U+2C00–U+2DFF or U+2E80–U+2FFF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → U+3004–U+3007, U+3021–U+302F, U+3031–U+303F, or U+3040–U+D7FF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → U+F900–U+FD3D, U+FD40–U+FDCF, U+FDF0–U+FE1F, or U+FE30–U+FE44<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → U+FE47–U+FFFD<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → U+10000–U+1FFFD, U+20000–U+2FFFD, U+30000–U+3FFFD, or U+40000–U+4FFFD<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → U+50000–U+5FFFD, U+60000–U+6FFFD, U+70000–U+7FFFD, or U+80000–U+8FFFD<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → U+90000–U+9FFFD, U+A0000–U+AFFFD, U+B0000–U+BFFFD, or U+C0000–U+CFFFD<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符头（Head）</em> → U+D0000–U+DFFFD or U+E0000–U+EFFFD<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符字符</em> → 数值 0 到 9<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符字符</em> → U+0300–U+036F, U+1DC0–U+1DFF, U+20D0–U+20FF, or U+FE20–U+FE2F<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标识符字符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier-head">标识符头（Head）</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标识符字符集</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier-character">标识符字符</a> <a class="md_compiled" href="./02-Lexical-Structure.md#identifier-characters">标识符字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+<em>隐式参数名</em> → <strong>$</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#decimal-digits">十进制数字集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>属性包装器呈现值</em> → <strong>$</strong>  <a class="md_compiled" href="./02-Lexical-Structure.md#identifier-characters">标识符字符集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_6 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">字面量语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>字面量</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#numeric-literal">数值型字面量</a> | <a class="md_compiled" href="./02-Lexical-Structure.md#string-literal">字符串字面量</a> | <a class="md_compiled" href="./02-Lexical-Structure.md#boolean-literal">布尔字面量</a> | <a class="md_compiled" href="./02-Lexical-Structure.md#nil-literal">空字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>数值型字面量</em> → <strong>-</strong><sub>可选</sub><a class="md_compiled" href="./02_Lexical_Structure.md#integer-literal">整形字面量</a> | <strong>-</strong><sub>可选</sub><a class="md_compiled" href="./02-Lexical-Structure.md#floating-point-literal">浮点型字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>布尔字面量</em> → <strong>true</strong> | <strong>false</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>空字面量</em> → <strong>nil</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_27 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">整型字面量语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>整型字面量</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#binary-literal">二进制字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>整型字面量</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#octal-literal">八进制字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>整型字面量</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#decimal-literal">十进制字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>整型字面量</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#hexadecimal-literal">十六进制字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>二进制字面量</em> → <strong>0b</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#binary-digit">二进制数字</a> <a class="md_compiled" href="./02-Lexical-Structure.md#binary-literal-characters">二进制字面量字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>二进制数字</em> → 数值 0 到 1<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>二进制字面量字符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#binary-digit">二进制数字</a> | <strong>-</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>二进制字面量字符集</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#binary-literal-character">二进制字面量字符</a> <a class="md_compiled" href="./02-Lexical-Structure.md#binary-literal-characters">二进制字面量字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+<em>八进制字面量</em> → <strong>0o</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#octal-digit">八进制数字</a> <a class="md_compiled" href="./02-Lexical-Structure.md#octal-literal-characters">八进制字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>八进字数字</em> → 数值 0 到 7<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>八进制字符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#octal-digit">八进制数字</a> | <strong>-</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>八进制字符集</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#octal-literal-character">八进制字符</a> <a class="md_compiled" href="./02-Lexical-Structure.md#octal-literal-characters">八进制字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+<em>十进制字面量</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#decimal-digit">十进制数字</a> <a class="md_compiled" href="./02-Lexical-Structure.md#decimal-literal-characters">十进制字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>十进制数字</em> → 数值 0 到 9<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>十进制数字集</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#decimal-digit">十进制数字</a> <a class="md_compiled" href="./02-Lexical-Structure.md#decimal-digits">十进制数字集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+<em>十进制字面量字符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#decimal-digit">十进制数字</a> | <strong>-</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>十进制字面量字符集</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#decimal-literal-character">十进制字面量字符</a> <a class="md_compiled" href="./02-Lexical-Structure.md#decimal-literal-characters">十进制字面量字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+<em>十六进制字面量</em> → <strong>0x</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#hexadecimal-digit">十六进制数字</a> <a class="md_compiled" href="./02-Lexical-Structure.md#hexadecimal-literal-characters">十六进制字面量字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>十六进制数字</em> → 数值 0 到 9，a 到 f，或者 A 到 F<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>十六进制字符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#hexadecimal-digit">十六进制数字</a> | <strong>-</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>十六进制字面量字符集</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#hexadecimal-literal-character">十六进制字符</a> <a class="md_compiled" href="./02-Lexical-Structure.md#hexadecimal-literal-characters">十六进制字面量字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_11 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">浮点型字面量语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>浮点数字面量</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#decimal-literal">十进制字面量</a> <a class="md_compiled" href="./02-Lexical-Structure.md#decimal-fraction">十进制分数</a><sub>可选</sub><a class="md_compiled" href="./02-Lexical-Structure.md#decimal-exponent">十进制指数</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+<em>浮点数字面量</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#hexadecimal-literal">十六进制字面量</a> <a class="md_compiled" href="./02-Lexical-Structure.md#hexadecimal-fraction">十六进制分数</a><sub>可选</sub><a class="md_compiled" href="./02-Lexical-Structure.md#hexadecimal-exponent">十六进制指数</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>十进制分数</em> → <strong>.</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#decimal-literal">十进制字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>十进制指数</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#floating-point-e">浮点数 e</a> <a class="md_compiled" href="./02-Lexical-Structure.md#sign">正负号</a><sub>可选</sub><a class="md_compiled" href="./02-Lexical-Structure.md#decimal-literal">十进制字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>十六进制分数</em> → <strong>.</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#hexadecimal-literal">十六进制数</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>十六进制指数</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#floating-point-p">浮点数 p</a> <a class="md_compiled" href="./02-Lexical-Structure.md#sign">正负号</a><sub>可选</sub><a class="md_compiled" href="./02-Lexical-Structure.md#hexadecimal-literal">十六进制字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>浮点数 e</em> → <strong>e</strong> | <strong>E</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>浮点数 p</em> → <strong>p</strong> | <strong>P</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>正负号</em> → <strong>+</strong> | <strong>-</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">字符串型字面量语法</span>
+</p>
+
+</blockquote>
+
+<blockquote class="blockquote_lines_15 blockquote_without_image">
+<p class="md_block">
+<em>字符串字面量</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#static-string-literal">静态字符串字面量</a> | <a class="md_compiled" href="./02-Lexical-Structure.md#interpolated-string-literal">插值字符串字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>字符串开分隔定界符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#extended-string-literal-delimiter">字符串扩展分隔符</a> <strong>&quot;</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>字符串闭分隔定界符</em> → <strong>&quot;</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#extended-string-literal-delimiter">字符串扩展分隔符</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>静态字符串字面量</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#extended-string-literal-delimiter">字符串开分隔定界符</a> <a class="md_compiled" href="./02-Lexical-Structure.md#quoted-text">引用文本</a><sub>可选</sub> <a class="md_compiled" href="./02-Lexical-Structure.md#extended-string-literal-delimiter">字符串闭分隔定界符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>静态字符串字面量</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#extended-string-literal-delimiter">多行字符串开分隔定界符</a> <a class="md_compiled" href="./02-Lexical-Structure.md#multiline-quoted-text">多行引用文本</a><sub>可选</sub> <a class="md_compiled" href="./02-Lexical-Structure.md#extended-string-literal-delimiter">多行字符串闭分隔定界符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行字符串开分隔定界符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#extended-string-literal-delimiter">字符串扩展分隔符</a> <strong>&quot;&quot;&quot;</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行字符串闭分隔定界符</em> → <strong>&quot;&quot;&quot;</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#extended-string-literal-delimiter">字符串扩展分隔符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>字符串扩展分隔符</em> → <strong>#</strong> <a class="md_compiled" href="./02-Lexical-Structure.md#extended-string-literal-delimiter">字符串扩展分隔符</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>引用文本</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#quoted-text-item">引用文本项</a> <a class="md_compiled" href="#quoted-text">引用文本</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>引用文本项</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#escaped-character">转义字符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>引用文本项</em> → 除了 <strong>&quot;</strong>、<strong>\</strong>、U+000A、U+000D 以外的所有 Unicode 字符<br>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行引用文本</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#multiline-quoted-text-item">多行引用文本项</a> <a class="md_compiled" href="./02-Lexical-Structure.md#multiline-quoted-text">多行引用文本</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行引用文本项</em> <a class="md_compiled" href="./02_Lexical_Structure.md#escaped-character">转义字符</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>多行引用文本</em> → 除了 <strong>\</strong> 以外的任何 Unicode 标量值<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行引用文本</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#escaped-newline">转义换行</a></p>
+
+</blockquote>
+
+<blockquote class="blockquote_lines_11 blockquote_without_image">
+<p class="md_block">
+<em>插值字符串字面量</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#extended-string-literal-delimiter">字符串开分隔定界符</a> <a class="md_compiled" href="./02-Lexical-Structure.md#interpolated-text">插值文本</a><sub>可选</sub> <a class="md_compiled" href="./02-Lexical-Structure.md#extended-string-literal-delimiter">字符串闭分隔定界符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>插值字符串字面量</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#extended-string-literal-delimiter">多行字符串开分隔定界符</a> <a class="md_compiled" href="./02-Lexical-Structure.md#interpolated-text">插值文本</a><sub>可选</sub> <a class="md_compiled" href="./02-Lexical-Structure.md#extended-string-literal-delimiter">多行字符串闭分隔定界符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>插值文本</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#interpolated-text-item">插值文本项</a> <a class="md_compiled" href="./02-Lexical-Structure.md#interpolated-text">插值文本</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>插值文本项</em> → <strong>\</strong>(<strong><a class="md_compiled" href="./04_Expressions.md">表达式</a></strong>) | <a class="md_compiled" href="./02_Lexical_Structure.md#quoted-text-item">引用文本项</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行插值文本</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#multiline-quoted-text-item">多行插值文本项</a> <a class="md_compiled" href="./02-Lexical-Structure.md#multiline-quoted-text">多行插值文本</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行插值文本项</em> → <strong>\(</strong> <a class="md_compiled" href="./04_Expressions.md">表达式</a> <strong>)</strong> | <a class="md_compiled" href="./02_Lexical_Structure.md#multiline-quoted-text-item">多行引用文本项</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>转义序列</em> → <strong>\</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#extended-string-literal-delimiter">字符串扩展分隔符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>转义字符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#escape-sequence">转义序列</a> <strong>0</strong> | <a class="md_compiled" href="./02-Lexical-Structure.md#escape-sequence">转义序列</a> <strong>\</strong> | <a class="md_compiled" href="./02-Lexical-Structure.md#escape-sequence">转义序列</a> <strong>t</strong> | <a class="md_compiled" href="#escape-sequence">转义序列</a> <strong>n</strong> | <a class="md_compiled" href="./02-Lexical-Structure.md#escape-sequence">转义序列</a> <strong>r</strong> | <a class="md_compiled" href="./02-Lexical-Structure.md#escape-sequence">转义序列</a> <strong>&quot;</strong> | <a class="md_compiled" href="./02-Lexical-Structure.md#escape-sequence">转义序列</a> <strong>&#39;</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>转义字符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#escape-sequence">转义序列</a> <strong>u {</strong> <a class="md_compiled" href="./02-Lexical-Structure.md#unicode-scalar-digits">unicode 标量数字</a> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>unicode 标量数字</em> → 一到八位的十六进制数字<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>转义换行符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#escape-sequence">转义序列</a> <a class="md_compiled" href="./02-Lexical-Structure.md#whitespace">空白</a><sub>可选</sub> <a class="md_compiled" href="./02-Lexical-Structure.md#line-break">换行符</a></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_53 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">运算符语法语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>运算符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#operator-character">运算符头</a> <a class="md_compiled" href="./02-Lexical-Structure.md#operator">运算符字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+<em>运算符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#dot-operator-head">点运算符头</a> <a class="md_compiled" href="./02-Lexical-Structure.md#dot-operator-characters">点运算符字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+<em>运算符字符</em> → <strong>/</strong> | <strong>=</strong> | <strong>-</strong> | <strong>+</strong> | <strong>!</strong> | <strong>&#42;</strong> | <strong>%</strong> | <strong>&lt;</strong> | <strong>&gt;</strong> | <strong>&amp;</strong> | <strong>|</strong> | <strong>^</strong> | <strong>~</strong> | <strong>?</strong>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符头</em> → U+00A1–U+00A7<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符头</em> → U+00A9 or U+00AB<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符头</em> →  U+00AC or U+00AE<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符头</em> → U+00B0–U+00B1, U+00B6, U+00BB, U+00BF, U+00D7, or U+00F7<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符头</em> → U+2016–U+2017 or U+2020–U+2027<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符头</em> → U+2030–U+203E<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符头</em> → U+2041–U+2053<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符头</em> → U+2055–U+205E<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符头</em> → U+2190–U+23FF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符头</em> → U+2500–U+2775<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符头</em> → U+2794–U+2BFF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符头</em> → U+2E00–U+2E7F<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符头</em> → U+3001–U+3003<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符头</em> → U+3008–U+3030<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>运算符字符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#operator-head">运算符头</a>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符字符</em> → U+0300–U+036F<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符字符</em> → U+1DC0–U+1DFF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符字符</em> → U+20D0–U+20FF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符字符</em> → U+FE00–U+FE0F<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符字符</em> → U+FE20–U+FE2F<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符字符</em> → U+E0100–U+E01EF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>运算符字符集</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#operator-character">运算符字符</a> <a class="md_compiled" href="./02-Lexical-Structure.md#operator-characters">运算符字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+<em>点运算符头</em> → <strong>..</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>点运算符字符</em> → <strong>.</strong> | <a class="md_compiled" href="./02_Lexical_Structure.md#operator-character">运算符字符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>点运算符字符集</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#dot-operator-character">点运算符字符</a> <a class="md_compiled" href="./02-Lexical-Structure.md#dot-operator-characters">点运算符字符集</a><sub>可选</sub> 
+    <span class="md_line">&nbsp;<br /></span>
+<em>二元运算符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#operator">运算符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>前置运算符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#operator">运算符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>后置运算符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#operator">运算符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h2 id="toc_2" class="h16"><span class="span_for_h">类型 {#types}</span></h2>
+
+<blockquote class="blockquote_lines_12 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="./03_Types.md#array-type">数组类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="./03_Types.md#dictionary-type">字典类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="./03_Types.md#function-type">函数类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="./03_Types.md#type-identifier">类型标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="./03_Types.md./03_Types.md#tuple-type">元组类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="./03_Types.md#optional-type">可选类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="./03_Types.md#implicitly-unwrapped-optional-type">隐式解析可选类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="./03_Types.md#protocol-composition-type">协议合成类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <strong>Any</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <strong>Self</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <strong>（</strong> <a class="md_compiled" href="./03_Types.md#metatype-type">type</a> <strong>）</strong></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">类型注解语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型注解</em> → <strong>:</strong> <a class="md_compiled" href="./07_Attributes.md#attributes">属性（Attributes）集</a><sub>可选</sub><a class="md_compiled" href="./03-Types.md#type">类型</a></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">类型标识语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型标识</em> → <a class="md_compiled" href="./03_Types.md#type-name">类型名称</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-argument-clause">泛型参数从句</a><sub>可选</sub>| <a class="md_compiled" href="./03-Types.md#type-name">类型名称</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-argument-clause">泛型参数从句</a><sub>可选</sub><strong>.</strong> <a class="md_compiled" href="./03-Types.md#type-identifier">类型标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">元组类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>元组类型</em> → <strong>(</strong> <strong>)</strong> | <strong>(</strong> <a class="md_compiled" href="./03_Types.md#tuple-type-element">元组类型元素</a> <strong>,</strong> <a class="md_compiled" href="./03-Types.md#tuple-type-element-list">元组类型元素列表</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>元组类型元素列表</em> → <a class="md_compiled" href="./03_Types.md#tuple-type-element">元组类型元素</a> | <a class="md_compiled" href="./03-Types.md#tuple-type-element">元组类型元素</a> <strong>,</strong> <a class="md_compiled" href="./03-Types.md#tuple-type-element-list">元组类型元素列表</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>元组类型元素</em> → <a class="md_compiled" href="./03_Types.md#element-name">元素名</a> <a class="md_compiled" href="./03-Types.md#type-annotation">类型注解</a> | <a class="md_compiled" href="./03-Types.md#type">类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>元素名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_8 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">函数类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数类型</em> → <a class="md_compiled" href="./03_Types.md#type">类型</a>  <strong>throws</strong><sub>可选</sub><strong>-&gt;</strong> <a class="md_compiled" href="./03-Types.md#type">类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数类型</em> → <a class="md_compiled" href="./03_Types.md#">类型</a>  <strong>rethrows</strong> <strong>-&gt;</strong> <a class="md_compiled" href="./03-Types.md#">类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数类型子句</em> → <strong>(</strong> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数类型子句</em> → <strong>(</strong> <a class="md_compiled" href="./03_Types.md#function-type-argument-list">函数类型参数列表</a> <em>...</em><sub>可选</sub> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数类型参数列表</em> → <a class="md_compiled" href="./03_Types.md#function-type-argument">函数类型参数</a> | <a class="md_compiled" href="function-type-argument">函数类型参数</a>， <a class="md_compiled" href="./03-Types.md#function-type-argument-list">函数类型参数列表</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数类型参数</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性列表</a><sub>可选</sub> <strong>输入输出参数</strong><sub>可选</sub> <a class="md_compiled" href="#type">类型</a> | <a class="md_compiled" href="#argument-label">参数标签</a> <a class="md_compiled" href="#type-annotation">类型注解</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>参数标签</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">数组类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>数组类型</em> → <strong>[</strong> <a class="md_compiled" href="./03_Types.md#array-type"><em>类型</em></a> <strong>]</strong></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">字典类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>字典类型</em> → <strong>[</strong> <a class="md_compiled" href="./03_Types.md#type">类型 <strong>:</strong> 类型</a> <strong>]</strong></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">可选类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>可选类型</em> → <a class="md_compiled" href="./03_Types.md#type">类型</a> <strong>?</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">隐式解析可选类型（Implicitly Unwrapped Optional Type）语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>隐式解析可选类型</em> → <a class="md_compiled" href="./03_Types.md#type">类型</a> <strong>!</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">协议合成类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议合成类型</em> → <a class="md_compiled" href="./03_Types.md#type-identifier">类型标识符</a> | <a class="md_compiled" href="./03-Types.md#protocol-composition-continuation">协议合成延续</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议持续延续</em> → <a class="md_compiled" href="./03_Types.md#type-identifier">类型标识符</a> | <a class="md_compiled" href="./03-Types.md#protocol-composition-type">协议合成类型</a></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">元（Metatype）类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>元类型</em> → <a class="md_compiled" href="./03_Types.md#type">类型</a> <strong>.</strong> <strong>Type</strong> | <a class="md_compiled" href="./03-Types.md#type">类型</a> <strong>.</strong> <strong>Protocol</strong></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">类型继承从句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型继承从句</em> → <strong>:</strong> <a class="md_compiled" href="./03_Types.md#type-inheritance-list">类型继承集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型继承集</em> → <a class="md_compiled" href="./03_Types.md#type-identifier">类型标识符</a> | <a class="md_compiled" href="./03-Types.md#type-identifier">类型标识符</a> <strong>,</strong> <a class="md_compiled" href="./03-Types.md#type-inheritance-list">类型继承集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类条件</em> → <strong>class</strong></p>
+
+</blockquote>
+<h2 id="toc_3" class="h16"><span class="span_for_h">表达式 {#expressions}</span></h2>
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>表达式</em> → <a class="md_compiled" href="./04_Expressions.md#try-operator">try 运算符</a><sub>可选</sub> <a class="md_compiled" href="./04-Expressions.md#prefix-expression">前缀表达式</a> <a class="md_compiled" href="./04-Expressions.md#binary-expressions">二元表达式列表</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>表达式列表</em> → <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a>|<a class="md_compiled" href="./04-Expressions.md#expression">表达式</a>, <a class="md_compiled" href="./04-Expressions.md#expression-list">表达式列表</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">前缀表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>前缀表达式</em> → <a class="md_compiled" href="">前缀操作符</a><sub>可选</sub> <a class="md_compiled" href="./04_Expressions.md#prefix-expression">前缀表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>前缀表达式</em> → <a class="md_compiled" href="./04_Expressions.md#in-out-expression">输入输出表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>输入输出表达式</em> → <strong>&amp;</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">try 表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>try 操作符</em> → <strong>try</strong> | <strong>try ? </strong> | <strong> try ! </strong><br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_7 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">二元表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>二元表达式</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#binary-operator">二元运算符</a> <a class="md_compiled" href="./04-Expressions.md#prefix-expression">前缀表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>二元表达式</em> → <a class="md_compiled" href="./06_Declarations.md#class-declaration">赋值操作符</a> <a class="md_compiled" href="./04-Expressions.md#try-operator">try 运算符</a><sub>可选</sub> <a class="md_compiled" href="./04-Expressions.md#prefix-expression">前缀表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>二元表达式</em> → <a class="md_compiled" href="./04_Expressions.md#conditional-operator">条件运算符</a> <a class="md_compiled" href="./04-Expressions.md#try-operator">try 运算符</a><sub>可选</sub> <a class="md_compiled" href="./04-Expressions.md#prefix-expression">前缀表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>二元表达式</em> → <a class="md_compiled" href="./04_Expressions.md#type-casting-operator">类型转换运算符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>二元表达式</em> → <a class="md_compiled" href="./04_Expressions.md#binary-expression">二元表达式</a> <a class="md_compiled" href="./04-Expressions.md#binary-expressions">二元表达式列表</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">赋值操作符语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span style='font-family:='  class="md_line"><em>赋值运算符</em> → <br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">条件运算符<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end"><em>条件运算符</em> → [?] <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a>:</span>
+</p>
+
+</blockquote>
+
+<blockquote class="blockquote_lines_6 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">类型转换运算符语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型转换运算符</em> → [is] <a class="md_compiled" href="./03_Types.md#type">类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型转换运算符</em> → [as] <a class="md_compiled" href="./03_Types.md#type">类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型转换运算符</em> → [as ?] <a class="md_compiled" href="./03_Types.md#type">类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型转换运算符</em> → [as !] <a class="md_compiled" href="./03_Types.md#type">类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_14 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">基础表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>基础表达式</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-argument-clause">泛型实参子句</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>基础表达式</em> → <a class="md_compiled" href="./04_Expressions.md#literal-expression">字面量表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>基础表达式</em> → <a class="md_compiled" href="./04_Expressions.md#self-expression">self 表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>基础级表达式</em> → <a class="md_compiled" href="./04_Expressions.md#superclass-expression">父类表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>基础表达式</em> → <a class="md_compiled" href="./04_Expressions.md#closure-expression">闭包表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>基础表达式</em> → <a class="md_compiled" href="./04_Expressions.md#parenthesized-expression">圆括号表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>基础表达式</em> → <a class="md_compiled" href="./04_Expressions.md#Tuple-Expression">元组表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>基础表达式</em> → <a class="md_compiled" href="./04_Expressions.md#implicit-member-expression">隐式成员表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>基础表达式</em> → <a class="md_compiled" href="./04_Expressions.md#wildcard-expression">通配符表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>基础表达式</em> → <a class="md_compiled" href="./04_Expressions.md#key-path-expression">key-path表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>基础表达式</em> → <a class="md_compiled" href="./04_Expressions.md#selector-expression">选择器表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>基础表达式</em> → <a class="md_compiled" href="./04_Expressions.md#key-patch-string-expression">key-path字符串表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_12 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">字面量表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>字面量表达式</em> → <a class="md_compiled" href="./04_Expressions.md#literal-expression">字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>字面量表达式</em> → <a class="md_compiled" href="./04_Expressions.md#array-literal">数组字面量</a> | <a class="md_compiled" href="./04-Expressions.md#dictionary-literal">字典字面量</a> | <a class="md_compiled" href="./04-Expressions.md#playground-literal">练习场字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>字面量表达式</em> → <strong>#file</strong> | <strong>#line</strong> | <strong>#column</strong> | <strong>#function</strong> | <strong>dsohandle</strong>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+
+<p class="md_block">
+<em>数组字面量</em> → <strong>[</strong> <a class="md_compiled" href="./04_Expressions.md#array-literal-items">数组字面量项列表</a><sub>可选</sub> <strong>]</strong>
+<em>数组字面量项列表</em> → <a class="md_compiled" href="./04_Expressions.md#array-literal-item">数组字面量项</a><sub>可选</sub> | <a class="md_compiled" href="./04-Expressions.md#array-literal-item">数组字面量项</a>,<a class="md_compiled" href="./04-Expressions.md#array-literal-items">数组字面量项列表</a>
+<em>数组字面量项</em> → <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+
+<p class="md_block">
+<em>字典字面量</em> → [<a class="md_compiled" href="./04_Expressions.md#dictionary-literal-items">字典字面量项列表</a> <strong>]</strong> | <strong>[</strong> <strong>:</strong> <strong>]</strong>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+
+<p class="md_block">
+<em>字典字面量项列表</em> → <a class="md_compiled" href="./04_Expressions.md#dictionary-literal-item">字典字面量项</a> ,**<sub>可选</sub> | <a class="md_compiled" href="./04-Expressions.md#dictionary-literal-item">字典字面量项</a> ,<a class="md_compiled" href="./04-Expressions.md#dictionary-literal-items">字典字面量项列表</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>字典字面量项</em> → <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a> <strong>:</strong> <a class="md_compiled" href="./04-Expressions.md#expression">表达式</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+
+<p class="md_block">
+<em>palyground 字面量</em> → <strong>#colorLiteral ( red :  <a class="md_compiled" href="./04-Expressions.md#expression">表达式</a> , green :<a class="md_compiled" href="./04-Expressions.md#expression">表达式</a>,  blue :<a class="md_compiled" href="./04-Expressions.md#expression">表达式</a> , alpha : <a class="md_compiled" href="./04-Expressions.md#expression">表达式</a> )</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>playground 字面量</em> → <strong>#fileLiteral ( resourceName : <a class="md_compiled" href="#expression">表达式</a> )</strong>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end"><em>playground 字面量</em> → **#imageLiteral ( resourceName : <a class="md_compiled" href="#expression">表达式</a> )</span>
+</p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">self 表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>self 表达式</em> → <strong>self</strong>  | <a class="md_compiled" href="./04_Expressions.md#self-method-expression">self 方法表达式</a> ｜ <a class="md_compiled" href="./04-Expressions.md#self-subscript-expression">self 下标表达式</a> | <a class="md_compiled" href="./04-Expressions.md#self-initializer-expression">self 构造器表达式</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+
+<p class="md_block">
+<em>self 方法表达式</em> → <strong>self</strong> <strong>.</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>self 下标表达式</em> → <strong>self</strong> <strong>[</strong> <a class="md_compiled" href="./04_Expressions.md#function-call-argument-list">函数调用参数表</a> <strong>]</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>self 构造器表达式</em> → <strong>self</strong> <strong>.</strong> <strong>init</strong></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_6 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">父类表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>父类表达式</em> → <a class="md_compiled" href="./04_Expressions.md#superclass-method-expression">父类方法表达式</a> | <a class="md_compiled" href="./04-Expressions.md#superclass-subscript-expression">父类下标表达式</a> | <a class="md_compiled" href="./04-Expressions.md#superclass-initializer-expression">父类构造器表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>父类方法表达式</em> → <strong>super</strong> <strong>.</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>父类下标表达式</em> → <strong>super</strong> [<a class="md_compiled" href="./04_Expressions.md#function-call-argument-list">函数调用参数表</a> <strong>]</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>父类构造器表达式</em> → <strong>super</strong> <strong>.</strong> <strong>init</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_15 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">闭包表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>闭包表达式</em> → <strong>{</strong> <a class="md_compiled" href="./04_Expressions.md#closure-signature">闭包签名</a><sub>可选</sub> <a class="md_compiled" href="./04-Expressions.md#statements">语句</a> <strong>}</strong>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start">闭包签名* → <a class="md_compiled" href="./04_Expressions.md#parameter-clause">参数子句</a> <a class="md_compiled" href="05-Declarations.md#function-result">函数结果</a><sub>可选</sub> <strong>in</strong><br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>闭包签名</em> → <a class="md_compiled" href="./04_Expressions.md#identifier-list">标识符列表</a> <a class="md_compiled" href="05-Declarations.md#function-result">函数结果</a><sub>可选</sub> <strong>in</strong>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+
+<p class="md_block">
+<em>闭包参数子句</em> <strong>(</strong> <strong>)</strong> | <strong>(</strong> <a class="md_compiled" href="./04_Expressions.md#closure-parameter-list">闭包参数列表</a> | <a class="md_compiled" href="./04-Expressions.md#identifier-list">标识符列表</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>闭包参数列表</em> <a class="md_compiled" href="./04_Expressions.md#implicit-member-expression">闭包参数</a> | <a class="md_compiled" href="./04-Expressions.md#implicit-member-expression">闭包参数</a>, <a class="md_compiled" href="./04-Expressions.md#implicit-member-expression">闭包参数列表</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>闭包参数</em> <a class="md_compiled" href="./04_Expressions.md#implicit-member-expression">闭包参数名</a> <a class="md_compiled" href="./03-Types.md#type-annotation">类型声明</a> <sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>闭包参数</em> <a class="md_compiled" href="./04_Expressions.md#implicit-member-expression">闭包参数名</a> <a class="md_compiled" href="./03-Types.md#type-annotation">类型声明</a> <strong>...</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>闭包参数名</em> <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+
+<p class="md_block">
+<em>捕获列表</em> → <a class="md_compiled" href="./04_Expressions.md#capture-list">捕获列表</a> <strong>[</strong> <a class="md_compiled" href="./04-Expressions.md#capture-list-items">捕获列表项列表</a> <strong>]</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>捕获列表项列表</em> → <a class="md_compiled" href="./04_Expressions.md#capture-list-item">捕获列表项</a> | <a class="md_compiled" href="./04-Expressions.md#capture-list-item">捕获列表项</a> <strong>,</strong> <a class="md_compiled" href="./04-Expressions.md#capture-list-items">捕获列表项列表</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>捕获列表项</em> → <a class="md_compiled" href="./04_Expressions.md#capture-specifier">捕获说明符</a><sub>可选</sub> <a class="md_compiled" href="./04-Expressions.md#expression"><em>表达式</em></a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>捕获说明符</em> → <strong>weak</strong> | <strong>unowned</strong> | <strong>unowned(safe)</strong> | <strong>unowned(unsafe)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">隐式成员表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>隐式成员表达式</em> → <strong>.</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">圆括号表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>圆括号表达式</em> → <strong>( <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a> )</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">元组表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>元组表达式</em> → <strong>( )</strong> | <strong>(</strong><a class="md_compiled" href="./04_Expressions.md#tuple-element">元组元素</a>， <a class="md_compiled" href="./04-Expressions.md#tuple-element-list">元组元素列表</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>元组元素列表</em> → <a class="md_compiled" href="./04_Expressions.md#tuple-element">元组元素</a> | <a class="md_compiled" href="./04-Expressions.md#tuple-element">元组元素</a> <strong>,</strong> <a class="md_compiled" href="./04-Expressions.md#tuple-element-list">元组元素列表</a>
+<em>元组元素</em> → <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a> | <a class="md_compiled" href="./04-Expressions.md#identifier">标识符</a> <strong>:</strong> <a class="md_compiled" href="./04-Expressions.md##expression">表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">通配符表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>通配符表达式</em> → <strong>_</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_6 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">key-path表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>key-path 表达式</em> → <strong></strong>  <a class="md_compiled" href="./03_Types.md#type">类型</a><sub>可选</sub>  <strong>.</strong>  [多个 key-path 组件]<br /></span>
+<em>多个 key-path 组件</em> → <a class="md_compiled" href="./04_Expressions.md#key-path-component">key-path 组件</a> | <a class="md_compiled" href="./04-Expressions.md#key-path-component">key-path 组件</a> <strong>.</strong> <a class="md_compiled" href="./04-Expressions.md#key-path-components">多个 key-path 组件</a>
+<em>key-path 组件</em> →  <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a> <a class="md_compiled" href="./04-Expressions.md#key-path-postfixes">多个 key-path 后缀</a><sub>可选<sub> | <a class="md_compiled" href="./04-Expressions.md#key-path-postfixes">多个 key-path 后缀</a>
+    <span class="md_line"><em>多个 key-path 后缀</em> →  <a class="md_compiled" href="./04_Expressions.md#key-path-postfix">key-path 后缀</a> <a class="md_compiled" href="./04-Expressions.md#key-path-postfixes">多个 key-path 后缀</a><sub>可选<sub> key-path-postfixes {./04-Expressions.md#key-path-postfixes}<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>key-path 后缀</em> → <strong>?</strong> | <strong>!</strong> | <strong>self</strong> | <strong>[</strong> <a class="md_compiled" href="./04_Expressions.md#function-call-argument-list">函数调用参数表</a> <strong>]</strong> 
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">选择器表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>选择器表达式</em> → <strong>#selector</strong> <strong>(</strong> <a class="md_compiled" href="./04-Expressions.md#expression"><em>表达式</em></a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>选择器表达式</em> → <strong>#selector</strong> <strong>(</strong> <a class="md_compiled" href="./04-Expressions.md#expression"><em>getter:表达式</em></a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>选择器表达式</em> → <strong>#selector</strong> <strong>(</strong> <a class="md_compiled" href="./04-Expressions.md#expression"><em>setter:表达式</em></a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">key-path 字符串表达式语法<br /></span>
+<em>key-path 字符串表达式</em> → <strong>#keyPath (</strong> <a class="md_compiled" href="./04-Expressions.md#expression">表达式</a>  <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_11 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">后缀表达式表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>后缀表达式</em> → <a class="md_compiled" href="./04_Expressions.md#primary-expression">基本表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>后缀表达式</em> → <a class="md_compiled" href="./04_Expressions.md#postfix-expression">后缀表达式</a> <a class="md_compiled" href="02-Lexical-Structure.md#postfix-operator">后缀运算符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>后缀表达式</em> → <a class="md_compiled" href="./04_Expressions.md#function-call-expression">函数调用表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>后缀表达式</em> → <a class="md_compiled" href="./04_Expressions.md#initializer-expression">构造器表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>后缀表达式</em> → <a class="md_compiled" href="./04_Expressions.md#explicit-member-expression">显式成员表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>后缀表达式</em> → <a class="md_compiled" href="./04_Expressions.md#postfix-self-expression">后缀 self 表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>后缀表达式</em> → <a class="md_compiled" href="./04_Expressions.md#subscript-expression">下标表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>后缀表达式</em> → <a class="md_compiled" href="./04_Expressions.md#forced-value-expression">强制取值表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>后缀表达式</em> → <a class="md_compiled" href="./04_Expressions.md#optional-chaining-expression">可选链表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_9 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">函数调用表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数调用表达式</em> → <a class="md_compiled" href="./04_Expressions.md#postfix-expression">后缀表达式</a> <a class="md_compiled" href="./04-Expressions.md#function-call-argument-clause">函数调用参数子句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数调用表达式</em> → <a class="md_compiled" href="./04_Expressions.md#postfix-expression">后缀表达式</a> <a class="md_compiled" href="./04-Expressions.md#function-call-argument-clause">函数调用参数子句</a><sub>可选</sub> <a class="md_compiled" href="./04-Expressions.md#trailing-closure">尾随闭包</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数调用参数子句</em> → <strong>(</strong>  <strong>)</strong>  | <strong>(</strong> <a class="md_compiled" href="./04_Expressions.md#function-call-argument-list">函数调用参数表</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数调用参数表</em> → <a class="md_compiled" href="./04_Expressions.md#function-call-argument">函数调用参数</a> | <a class="md_compiled" href="./04-Expressions.md#function-call-argument">函数调用参数</a> <strong>,</strong> <a class="md_compiled" href="./04-Expressions.md#function-call-argument-list">函数调用参数表</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数调用参数</em> → <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a> | <a class="md_compiled" href="02-Lexical-Structure.md#identifier">标识符</a> <strong>:</strong> <a class="md_compiled" href="./04-Expressions.md#expression">表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数调用参数</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#operator">运算符</a> | <a class="md_compiled" href="./02-Lexical-Structure.md#identifier">标识符</a> <strong>:</strong> <a class="md_compiled" href="./02-Lexical-Structure.md#operator">运算符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>尾随闭包</em> → <a class="md_compiled" href="./04_Expressions.md#closure-expression">闭包表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">初始化表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>构造器表达式</em> → <a class="md_compiled" href="./04_Expressions.md#postfix-expression">后缀表达式</a> <strong>.</strong> <strong>init</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>构造器表达式</em> → <a class="md_compiled" href="./04_Expressions.md#postfix-expression">后缀表达式</a> <strong>.</strong> <strong>init</strong> <strong>(</strong> <a class="md_compiled" href="./04-Expressions.md#argument-names">参数名称</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_7 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">显式成员表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>显式成员表达式</em> → <a class="md_compiled" href="./04_Expressions.md#postfix-expression">后缀表达式</a> <strong>.</strong> <a class="md_compiled" href="02-Lexical-Structure.md#decimal-digit">十进制数字</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>显式成员表达式</em> → <a class="md_compiled" href="./04_Expressions.md#postfix-expression">后缀表达式</a> <strong>.</strong> <a class="md_compiled" href="02-Lexical-Structure.md#identifier">标识符</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-argument-clause">泛型实参子句</a><sub>可选</sub><br/>
+    <span class="md_line">&nbsp;<br /></span>
+<em>显式成员表达式</em> → <a class="md_compiled" href="./04_Expressions.md#postfix-expression">后缀表达式</a> <strong>.</strong> <a class="md_compiled" href="02-Lexical-Structure.md#identifier">标识符</a> <strong>(</strong> <a class="md_compiled" href="./04-Expressions.md#argument-names">参数名称</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>参数名称</em> → <a class="md_compiled" href="./04_Expressions.md#argument-name">参数名</a> <a class="md_compiled" href="./04-Expressions.md#argument-names">参数名称</a><sub>可选</sub><br/>
+    <span class="md_line">&nbsp;<br /></span>
+<em>参数名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a> <strong>:</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">后缀 self 表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>后缀 self 表达式</em> → <a class="md_compiled" href="./04_Expressions.md#postfix-expression">后缀表达式</a> <strong>.</strong> <strong>self</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">下标表达式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>下标表达式</em> → <a class="md_compiled" href="./04_Expressions.md#postfix-expression">后缀表达式</a> <strong>[</strong> <a class="md_compiled" href="./04-Expressions.md#expression-list">表达式列表</a> <strong>]</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">强制取值表达式语法<br /></span>
+<em>强制取值表达式</em> → <a class="md_compiled" href="./04_Expressions.md#postfix-expression">后缀表达式</a> <strong>!</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">可选链式表达式语法<br /></span>
+<em>可选链表达式</em> → <a class="md_compiled" href="./04_Expressions.md#postfix-expression">后缀表达式</a> <strong>?</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h2 id="toc_4" class="h16"><span class="span_for_h">语句 {#statements}</span></h2>
+
+<blockquote class="blockquote_lines_12 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>语句</em> → <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a> <strong>;</strong><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>语句</em> → <a class="md_compiled" href="./06_Declarations.md#declaration">声明</a> <strong>;</strong><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>语句</em> → <a class="md_compiled" href="./05_Statements.md#loop-statement">循环语句</a> <strong>;</strong><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>语句</em> → <a class="md_compiled" href="./05_Statements.md#branch-statement">分支语句</a> <strong>;</strong><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>语句</em> → <a class="md_compiled" href="./05_Statements.md#labeled-statement">标签语句</a> <strong>;</strong><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>语句</em> → <a class="md_compiled" href="./05_Statements.md#control-transfer-statement">控制转移语句</a> <strong>;</strong><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>语句</em> → <a class="md_compiled" href="./05_Statements.md#defer-statement">延迟语句</a> <strong>;</strong><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>语句</em> → <a class="md_compiled" href="./05_Statements.md#do-statement">执行语句</a> <strong>;</strong><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>语句</em> → <a class="md_compiled" href="./05_Statements.md#compiler-control-statement">编译控制语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>语句集</em> → <a class="md_compiled" href="./05_Statements.md#statement">语句</a> <a class="md_compiled" href="./05-Statements.md#statements">语句集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">循环语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>循环语句</em> → <a class="md_compiled" href="./05_Statements.md#for-in-statement">for-in 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>循环语句</em> → <a class="md_compiled" href="./05_Statements.md#wheetatype%20%E7%B1%BB%E5%9E%8B%20ile-statement">while 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>循环语句</em> → <a class="md_compiled" href="./05_Statements.md#do-while-statement">repeat-while 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">For-In 循环语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>for-in 语句</em> → <strong>for case</strong><sub>可选</sub> <a class="md_compiled" href="./08_Patterns.md#pattern">模式</a> <strong>in</strong> <a class="md_compiled" href="./04-Expressions.md#expression">表达式</a> <a class="md_compiled" href="./05-Statements.md#where-clause">where 子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#code-block">代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_6 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">While 循环语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>while 语句</em> → <strong>while</strong> <a class="md_compiled" href="./05_Statements.md#condition-list">条件集</a> <a class="md_compiled" href="./06-Declarations.md#code-block">代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>条件集</em> → <a class="md_compiled" href="./05_Statements.md#condition">条件</a> | <a class="md_compiled" href="./05-Statements.md#condition">条件</a> <strong>,</strong> <a class="md_compiled" href="./05-Statements.md#condition-list">条件集</a>
+<em>条件</em> → <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a> | <a class="md_compiled" href="./05-Statements.md#availability-condition">可用性条件</a> | <a class="md_compiled" href="./05-Statements.md#case-condition">case 条件</a> | <a class="md_compiled" href="./05-Statements.md#optional-binding-condition">可选绑定条件</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>case 条件</em> → <strong>case</strong> <a class="md_compiled" href="./08_Patterns.md#pattern">模式</a> <a class="md_compiled" href="./06-Declarations.md#initializer">构造器</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>可选绑定条件</em> → <strong>let</strong> <a class="md_compiled" href="./08_Patterns.md#pattern">模式</a> <a class="md_compiled" href="./06-Declarations.md#initializer">构造器</a> | <strong>var</strong> <a class="md_compiled" href="./08-Patterns.md#pattern">模式</a> <a class="md_compiled" href="./06-Declarations.md#initializer">构造器</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">Repeat-While 语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<em>repeat-while-statement</em> → <strong>repeat</strong> <a class="md_compiled" href="./06_Declarations.md#code-block">代码块</a> <strong>while</strong> <a class="md_compiled" href="./04-Expressions.md#expression">表达式</a><!-- -->
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">分支语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>分支语句</em> → <a class="md_compiled" href="./05_Statements.md#if-statement">if 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>分支语句</em> → <a class="md_compiled" href="./05_Statements.md#guard-statement">guard 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>分支语句</em> → <a class="md_compiled" href="./05_Statements.md#switch-statement">switch 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">If 语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>if 语句</em> → <strong>if</strong> <a class="md_compiled" href="./05_Statements.md#condition-list">条件集</a> <a class="md_compiled" href="./06-Declarations.md#code-block">代码块</a> <a class="md_compiled" href="./05-Statements.md#else-clause">else 子句</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>else 子句</em> → <strong>else</strong> <a class="md_compiled" href="./06_Declarations.md#code-block">代码块</a> | <strong>else</strong> <a class="md_compiled" href="./05-Statements.md#if-statement">if 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">Guard 语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>guard 语句</em> → <strong>guard</strong> <a class="md_compiled" href="./05_Statements.md#condition-list">条件集</a> <strong>else</strong> <a class="md_compiled" href="./06-Declarations.md#code-block">代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_17 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">Switch 语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>switch 语句</em> → <strong>switch</strong> <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a> <strong>{</strong> <a class="md_compiled" href="./05-Statements.md#switch-cases">switch-case集</a><sub>可选</sub> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>switch-case集</em> → <a class="md_compiled" href="./05_Statements.md#switch-case">switch-case</a> <a class="md_compiled" href="./05-Statements.md#switch-cases">switch-case集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>switch-case</em> → <a class="md_compiled" href="./05_Statements.md#case-label">case 标签</a> <a class="md_compiled" href="./05-Statements.md#statements">语句集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>switch-case</em> → <a class="md_compiled" href="./05_Statements.md#default-label">default 标签</a> <a class="md_compiled" href="./05-Statements.md#statements">语句集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>switch-case</em> → <a class="md_compiled" href="./05_Statements.md#conditional-switch-case">条件 switch-case</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>case 标签</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <strong>case</strong> <a class="md_compiled" href="./05-Statements.md#case-item-list">case 项集</a> <strong>:</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>case 项集</em> → <a class="md_compiled" href="./08_Patterns.md#pattern">模式</a> <a class="md_compiled" href="./05-Statements.md#where-clause">where 子句</a><sub>可选</sub> | <a class="md_compiled" href="./08-Patterns.md#pattern">模式</a> <a class="md_compiled" href="./05-Statements.md#guard-clause">where 子句</a><sub>可选</sub> <strong>,</strong> <a class="md_compiled" href="./05-Statements.md#case-item-list">case 项集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>default 标签</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <strong>default</strong> <strong>:</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>where 子句</em> → <strong>where</strong> <a class="md_compiled" href="./05_Statements.md#where-expression">where 表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>where 表达式</em> → <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>条件 switch-case</em> → <a class="md_compiled" href="./05_Statements.md#switch-if-directive-clause">switch if 指令子句</a> <a class="md_compiled" href="./05-Statements.md#switch-elseif-directive-clauses">switch elseif 指令子句集</a><sub>可选</sub> <a class="md_compiled" href="./05-Statements.md#switch-else-directive-clause">switch else 指令子句</a><sub>可选</sub> <a class="md_compiled" href="./05-Statements.md#endif-directive">endif 指令</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>switch if 指令子句</em> → <a class="md_compiled" href="./05_Statements.md#if-directive">if 指令</a> <a class="md_compiled" href="./05-Statements.md#compilation-condition">编译条件</a> <a class="md_compiled" href="./05-Statements.md#switch-cases">switch-case集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>switch elseif 指令子句集</em> → <a class="md_compiled" href="./05_Statements.md#else-if-directive-clause">elseif 指令子句</a> <a class="md_compiled" href="./05-Statements.md#switch-elseif-directive-clauses">switch elseif 指令子句集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>switch elseif 指令子句</em> → <a class="md_compiled" href="./05_Statements.md#elseif-directive">elseif 指令</a> <a class="md_compiled" href="./05-Statements.md#compilation-condition">编译条件</a> <a class="md_compiled" href="./05-Statements.md#switch-cases">switch-case集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>switch else 指令子句</em> → <a class="md_compiled" href="./05_Statements.md#else-directive">else 指令</a> <a class="md_compiled" href="./05-Statements.md#switch-cases">switch-case集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_8 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">标签语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标签语句</em> → <a class="md_compiled" href="./05_Statements.md#statement-label">语句标签</a> <a class="md_compiled" href="./05-Statements.md#loop-statement">循环语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标签语句</em> → <a class="md_compiled" href="./05_Statements.md#statement-label">语句标签</a> <a class="md_compiled" href="./05-Statements.md#if-statement">if 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标签语句</em> → <a class="md_compiled" href="./05_Statements.md#statement-label">语句标签</a> <a class="md_compiled" href="./05-Statements.md#switch-statement">switch 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标签语句</em> → <a class="md_compiled" href="./05_Statements.md#statement-label">语句标签</a> <a class="md_compiled" href="./05-Statements.md#do-statement">do 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>语句标签</em> → <a class="md_compiled" href="./05_Statements.md#label-name">标签名称</a> <strong>:</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标签名称</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_7 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">控制转移语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>控制转移语句</em> → <a class="md_compiled" href="./05_Statements.md#break-statement">break 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>控制转移语句</em> → <a class="md_compiled" href="./05_Statements.md#continue-statement">continue 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>控制转移语句</em> → <a class="md_compiled" href="./05_Statements.md#fallthrough-statement">fallthrough 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>控制转移语句</em> → <a class="md_compiled" href="./05_Statements.md#return-statement">return 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>控制转移语句</em> → <a class="md_compiled" href="./05_Statements.md#throw-statement">throw 语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">Break 语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>break 语句</em> → <strong>break</strong> <a class="md_compiled" href="./05_Statements.md#label-name">标签名称</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">Continue 语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>continue 语句</em> → <strong>continue</strong> <a class="md_compiled" href="./05_Statements.md#label-name">标签名称</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">Fallthrough 语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>fallthrough 语句</em> → <strong>fallthrough</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">Return 语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>return 语句</em> → <strong>return</strong> <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">Throw 语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>throw 语句</em> → <strong>throw</strong> <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">Defer 语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>defer 语句</em> → <strong>defer</strong> <a class="md_compiled" href="./06_Declarations.md#code-block">代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">Do 语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>do 语句</em> → <strong>do</strong> <a class="md_compiled" href="./06_Declarations.md#code-block">代码块</a> <a class="md_compiled" href="./05-Statements.md#catch-clauses">catch 子句集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>catch 子句集</em> → <a class="md_compiled" href="./05_Statements.md#catch-clause">catch 子句</a> <a class="md_compiled" href="05-Statements.md#catch-clauses">catch 子句集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>catch 子句</em> → <strong>catch</strong> <a class="md_compiled" href="./08_Patterns.md#pattern">模式</a><sub>可选</sub>  <a class="md_compiled" href="./05-Statements.md#where-clause">where 子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#code-block">代码块</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">编译控制语句<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>编译控制语句</em> → <a class="md_compiled" href="./05_Statements.md#conditional-complation-block">条件编译块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>编译控制语句</em> → <a class="md_compiled" href="./05_Statements.md#line-control-statement">行控制语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>编译控制语句</em> → <a class="md_compiled" href="./05_Statements.md#diagnostic-statement">诊断语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_30 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">条件编译块语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>条件编译块</em> → <a class="md_compiled" href="./05_Statements.md#if-directive-clause">if 指令子句</a> <a class="md_compiled" href="./05-Statements.md#elseif-directive-clauses">elseif 指令子句集</a><sub>可选</sub> <a class="md_compiled" href="./05-Statements.md#else-directive-clause">else 指令子句</a><sub>可选</sub> <a class="md_compiled" href="./05-Statements.md#endif-directive">endif 指令</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>if 指令子句</em> → <a class="md_compiled" href="./05_Statements.md#if-directive">if 指令</a> <a class="md_compiled" href="./05-Statements.md#compilation-condition">编译条件</a> <a class="md_compiled" href="./05-Statements.md#statements">语句集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>elseif 指令子句集</em> → <a class="md_compiled" href="./05_Statements.md#else-if-directive-clause">elseif 指令子句</a> <a class="md_compiled" href="./05-Statements.md#elseif-directive-clauses">elseif 指令子句集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>elseif 指令子句</em> → <a class="md_compiled" href="./05_Statements.md#elseif-directive">elseif 指令</a> <a class="md_compiled" href="./05-Statements.md#compilation-condition">编译条件</a> <a class="md_compiled" href="./05-Statements.md#statements">语句集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>else 指令子句</em> → <a class="md_compiled" href="./05_Statements.md#else-directive">else 指令</a> <a class="md_compiled" href="./05-Statements.md#statements">语句集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>if 指令</em> → <strong>#if</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>elseif 指令</em> → <strong>#elseif</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>else 指令</em> → <strong>#else</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>endif 指令</em> → <strong>#endif</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>编译条件</em> → <a class="md_compiled" href="./05_Statements.md#platform-condition">平台条件</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>编译条件</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>编译条件</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#boolean-literal">布尔字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>编译条件</em> → <strong>(</strong> <a class="md_compiled" href="./05_Statements.md#compilation-condition">编译条件</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>编译条件</em> → <strong>!</strong> <a class="md_compiled" href="./05_Statements.md#compilation-condition">编译条件</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>编译条件</em> → <a class="md_compiled" href="./05_Statements.md#compilation-condition">编译条件</a> <strong>&amp;&amp;</strong> <a class="md_compiled" href="./05-Statements.md#compilation-condition">编译条件</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>编译条件</em> → <a class="md_compiled" href="./05_Statements.md#compilation-condition">编译条件</a> <strong>||</strong> <a class="md_compiled" href="./05-Statements.md#compilation-condition">编译条件</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平台条件</em> → <strong>os</strong> <strong>(</strong> <a class="md_compiled" href="./05_Statements.md#operating-system">操作系统</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平台条件</em> → <strong>arch</strong> <strong>(</strong> <a class="md_compiled" href="./05_Statements.md#architecture">架构</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平台条件</em> → <strong>swift</strong> <strong>(</strong> <strong>&gt;=</strong> <a class="md_compiled" href="./05_Statements.md#swift-version">swift 版本</a> <strong>)</strong> | <strong>swift</strong> <strong>(</strong> <strong>&lt;</strong> <a class="md_compiled" href="./05-Statements.md#swift-version">swift 版本</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平台条件</em> → <strong>compiler</strong> <strong>(</strong> <strong>&gt;=</strong> <a class="md_compiled" href="./05_Statements.md#swift-version">swift 版本</a> <strong>)</strong> | <strong>compiler</strong> <strong>(</strong> <strong>&lt;</strong> <a class="md_compiled" href="./05-Statements.md#swift-version">swift 版本</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平台条件</em> → <strong>canImport</strong> <strong>(</strong> <a class="md_compiled" href="./05_Statements.md#module-name">模块名</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平台条件</em> → <strong>targetEnvironment</strong> <strong>(</strong> <a class="md_compiled" href="./05_Statements.md#environment">环境</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>操作系统</em> → <strong>macOS</strong> | <strong>iOS</strong> | <strong>watchOS</strong> | <strong>tvOS</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>架构</em> → <strong>i386</strong> | <strong>x86_64</strong> | <strong>arm</strong> | <strong>arm64</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>swift 版本</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#decimal-digits">十进制数字集</a> <a class="md_compiled" href="./05-Statements.md#swift-version-continuation">swift 版本后缀</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>swift 版本后缀</em> → <strong>.</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#decimal-digits">十进制数字集</a> <a class="md_compiled" href="./05-Statements.md#swift-version-continuation">swift 版本集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>模块名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>环境</em> → <strong>simulator</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_7 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">行控制语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>行控制语句</em> → <strong>#sourceLocation</strong> <strong>(</strong> <strong>file:</strong> <a class="md_compiled" href="./05-Statements.md#file-name">文件名</a> <strong>,</strong> <strong>line:</strong>  <a class="md_compiled" href="./05-Statements.md#line-number">行号</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>行控制语句</em> → <strong>#sourceLocation</strong> <strong>(</strong> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>行号</em> → 一个大于 0 的十进制数字<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>文件名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#static-string-literal">静态字符串字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">编译期诊断语句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>诊断语句</em> → <strong>#error</strong> <strong>(</strong> <a class="md_compiled" href="./05-Statements.md#diagnostic-message">诊断信息</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>诊断语句</em> → <strong>#warning</strong> <strong>(</strong> <a class="md_compiled" href="./05-Statements.md#diagnostic-message">诊断信息</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>诊断信息</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#static-string-literal">静态字符串字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_13 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">可用性条件语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>可用性条件</em> → <strong>#available</strong> <strong>(</strong> <a class="md_compiled" href="./05-Statements.md#availability-arguments">可用性参数集</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>可用性参数集</em> → <a class="md_compiled" href="./05_Statements.md#availability-argument">可用性参数</a> | <a class="md_compiled" href="./05-Statements.md#availability-argument">可用性参数</a> , <a class="md_compiled" href="./05-Statements.md#availability-arguments">可用性参数集）</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>可用性参数</em> → <a class="md_compiled" href="./05_Statements.md#platform-name">平台名</a> <a class="md_compiled" href="./05-Statements.md#platform-version">平台版本</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>可用性参数</em> → <strong>*</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平台名</em> → <strong>iOS</strong> | <strong>iOSApplicationExtension</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平台名</em> → <strong>macOS</strong> | <strong>macOSApplicationExtension</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平台名</em> → <strong>watchOS</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平台名</em> → <strong>tvOS</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平台版本</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#decimal-digits">十进制数字集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平台版本</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#decimal-digits">十进制数字集</a> <strong>.</strong> <a class="md_compiled" href="./02-Lexical-Structure.md#decimal-digits">十进制数字集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平台版本</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#decimal-digits">十进制数字集</a> <strong>.</strong> <a class="md_compiled" href="./02-Lexical-Structure.md#decimal-digits">十进制数字集</a> <strong>.</strong> <a class="md_compiled" href="./02-Lexical-Structure.md#decimal-digits">十进制数字集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h2 id="toc_5" class="h16"><span class="span_for_h">声明 {#declarations}</span></h2>
+
+<blockquote class="blockquote_lines_18 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#import-declaration">导入声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#constant-declaration">常量声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#variable-declaration">变量声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#typealias-declaration">类型别名声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#function-declaration">函数声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#enum-declaration">枚举声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#struct-declaration">结构体声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#class-declaration">类声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#protocol-declaration">协议声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#initializer-declaration">构造器声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#deinitializer-declaration">析构器声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#extension-declaration">扩展声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#subscript-declaration">下标声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#operator-declaration">运算符声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明</em> → <a class="md_compiled" href="./06_Declarations.md#precedence-group-declaration">优先级组声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明集</em> → <a class="md_compiled" href="./06_Declarations.md#declaration">声明</a> <a class="md_compiled" href="./06-Declarations.md#declarations">声明集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">顶级声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>顶级声明</em> → <a class="md_compiled" href="./05_Statements.md#statements">多条语句</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">代码块语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>代码块</em> → <strong>{</strong> <a class="md_compiled" href="./05_Statements.md#statements">多条语句</a><sub>可选</sub> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_6 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">导入声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>导入声明</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <strong>import</strong> <a class="md_compiled" href="./06-Declarations.md#import-kind">导入类型</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#import-path">导入路径</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>导入类型</em> → <strong>typealias</strong> | <strong>struct</strong> | <strong>class</strong> | <strong>enum</strong> | <strong>protocol</strong> | <strong>let</strong> | <strong>var</strong> | <strong>func</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>导入路径</em> → <a class="md_compiled" href="./06_Declarations.md#import-path-identifier">导入路径标识符</a> | <a class="md_compiled" href="./06-Declarations.md#import-path-identifier">导入路径标识符</a> <strong>.</strong> <a class="md_compiled" href="./06-Declarations.md#import-path">导入路径</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>导入路径标识符</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a> | <a class="md_compiled" href="./02-Lexical-Structure.md#operator">运算符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_6 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">常数声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>常量声明</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#declaration-specifiers">声明修饰符集</a><sub>可选</sub> <strong>let</strong> <a class="md_compiled" href="./06-Declarations.md#pattern-initializer-list">模式构造器集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>模式构造器集</em> → <a class="md_compiled" href="./06_Declarations.md#pattern-initializer">模式构造器</a> | <a class="md_compiled" href="./06-Declarations.md#pattern-initializer">模式构造器</a>    <strong>,</strong> <a class="md_compiled" href="./06-Declarations.md#pattern-initializer-list">模式构造器集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>模式构造器</em> → <a class="md_compiled" href="./08_Patterns.md#pattern">模式</a> <a class="md_compiled" href="./06-Declarations.md#initializer">构造器</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>构造器</em> → <strong>=</strong> <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_24 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">变量声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>变量声明</em> → <a class="md_compiled" href="./06_Declarations.md#variable-declaration-head">变量声明头</a> <a class="md_compiled" href="./06-Declarations.md#pattern-initializer-list">模式构造器集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>变量声明</em> → <a class="md_compiled" href="./06_Declarations.md#variable-declaration-head">变量声明头</a> <a class="md_compiled" href="./06-Declarations.md#variable-name">变量名</a> <a class="md_compiled" href="./03-Types.md#type-annotation">类型注解</a> <a class="md_compiled" href="./06-Declarations.md#code-block">代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>变量声明</em> → <a class="md_compiled" href="./06_Declarations.md#variable-declaration-head">变量声明头</a> <a class="md_compiled" href="./06-Declarations.md#variable-name">变量名</a> <a class="md_compiled" href="./03-Types.md#type-annotation">类型注解</a> <a class="md_compiled" href="./06-Declarations.md#getter-setter-block">getter-setter 块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>变量声明</em> → <a class="md_compiled" href="./06_Declarations.md#variable-declaration-head">变量声明头</a> <a class="md_compiled" href="./06-Declarations.md#variable-name">变量名</a> <a class="md_compiled" href="./03-Types.md#type-annotation">类型注解</a> <a class="md_compiled" href="./06-Declarations.md#getter-setter-keyword-block">getter-setter 关键字块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>变量声明</em> → <a class="md_compiled" href="./06_Declarations.md#variable-declaration-head">变量声明头</a> <a class="md_compiled" href="./06-Declarations.md#variable-name">变量名</a> <a class="md_compiled" href="./06-Declarations.md#initializer">构造器</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#willSet-didSet-block">willSet-didSet 代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>变量声明</em> → <a class="md_compiled" href="./06_Declarations.md#variable-declaration-head">变量声明头</a> <a class="md_compiled" href="./06-Declarations.md#variable-name">变量名</a> <a class="md_compiled" href="./03-Types.md#type-annotation">类型注解</a> <a class="md_compiled" href="./06-Declarations.md#initializer">构造器</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#willSet-didSet-block">willSet-didSet 代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>变量声明头</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#declaration-specifiers">声明修饰符集</a><sub>可选</sub> <strong>var</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>变量名称</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>getter-setter 块</em> → <a class="md_compiled" href="./06_Declarations.md#code-block">代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>getter-setter 块</em> → <strong>{</strong> <a class="md_compiled" href="./06_Declarations.md#getter-keyword-clause">getter 子句</a> <a class="md_compiled" href="./06-Declarations.md#setter-keyword-clause">setter 子句</a><sub>可选</sub> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>getter-setter 块</em> → <strong>{</strong> <a class="md_compiled" href="./06_Declarations.md#setter-keyword-clause">setter 子句</a> <a class="md_compiled" href="./06-Declarations.md#getter-keyword-clause">getter 子句</a> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>getter 子句</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#mutation-modifier">可变性修饰符</a><sub>可选</sub>  <strong>get</strong>  <a class="md_compiled" href="./06-Declarations.md#code-block">代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>setter 子句</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#mutation-modifier">可变性修饰符</a><sub>可选</sub> <strong>set</strong> <a class="md_compiled" href="./06-Declarations.md#setter-name">setter 名称</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#code-block">代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>setter 名称</em> → <strong>(</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>getter-setter 关键字（Keyword）块</em> → <strong>{</strong> <a class="md_compiled" href="./06_Declarations.md#getter-keyword-clause">getter 关键字子句</a> <a class="md_compiled" href="./06-Declarations.md#setter-keyword-clause">setter 关键字子句</a><sub>可选</sub> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>getter-setter 关键字（Keyword）块</em> → <strong>{</strong> <a class="md_compiled" href="./06_Declarations.md#setter-keyword-clause">setter 关键字子句</a> <a class="md_compiled" href="./06-Declarations.md#getter-keyword-clause">getter 关键字子句</a> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>getter 关键字（Keyword）子句</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#mutation-modifier">可变性修饰符</a><sub>可选</sub> <strong>get</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>setter 关键字（Keyword）子句</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#mutation-modifier">可变性修饰符</a><sub>可选</sub> <strong>set</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>willSet-didSet 代码块</em> → <strong>{</strong> <a class="md_compiled" href="./06_Declarations.md#willSet-clause">willSet 子句</a> <a class="md_compiled" href="./06-Declarations.md#didSet-clause">didSet 子句</a><sub>可选</sub> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>willSet-didSet 代码块</em> → <strong>{</strong> <a class="md_compiled" href="./06_Declarations.md#didSet-clause">didSet 子句</a> <a class="md_compiled" href="./06-Declarations.md#willSet-clause">willSet 子句</a><sub>可选</sub> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>willSet 子句</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <strong>willSet</strong> <a class="md_compiled" href="./06-Declarations.md#setter-name">setter 名称</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#code-block">代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>didSet 子句</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">&nbsp;<strong>didSet</strong> <a class="md_compiled" href="./06_Declarations.md#setter-name">setter 名称</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#code-block">代码块</a></span>
+</p>
+
+<!-- -->
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">类型别名声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型别名声明</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./07-Attributes.md#access-level-modifier">访问级别修饰符</a> <strong>typealias</strong> <a class="md_compiled" href="./06-Declarations.md#typealias-name">类型别名名称</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter-clause">泛型参数子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#typealias-assignment">类型别名赋值</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型别名名称</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型别名赋值</em> → <strong>=</strong> <a class="md_compiled" href="./03_Types.md#type">类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_17 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">函数声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数声明</em> → <a class="md_compiled" href="./06_Declarations.md#function-head">函数头</a> <a class="md_compiled" href="./06-Declarations.md#function-name">函数名</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter-clause">泛型参数子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#function-signature">函数签名</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#function-body">函数体</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数头</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#declaration-specifiers">声明描述符集</a><sub>可选</sub> <strong>func</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a> | <a class="md_compiled" href="./02-Lexical-Structure.md#operator">运算符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数签名</em> → <a class="md_compiled" href="./06_Declarations.md#parameter-clause">参数子句</a> <strong>throws</strong><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#function-result">函数结果</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+
+<p class="md_block">
+<em>函数签名</em> → <a class="md_compiled" href="./06_Declarations.md#parameter-clause">参数子句</a> <strong>rethrows</strong> <a class="md_compiled" href="./06-Declarations.md#function-result">函数结果</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数结果</em> → <strong>-&gt;</strong> <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./03-Types.md#type">类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>函数体</em> → <a class="md_compiled" href="./06_Declarations.md#code-block">代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>参数子句</em> → <strong>(</strong> <strong>)</strong> | <strong>(</strong> <a class="md_compiled" href="./06_Declarations.md#parameter-list">参数集</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>参数集</em> → <a class="md_compiled" href="./06_Declarations.md#parameter">参数</a> | <a class="md_compiled" href="./06-Declarations.md#parameter">参数</a> <strong>,</strong> <a class="md_compiled" href="./06-Declarations.md#parameter-list">参数集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>参数</em> → <a class="md_compiled" href="./06_Declarations.md#parameter-name">外部参数名</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#local-parameter-name">本地参数名</a> <a class="md_compiled" href="./03-Types.md#type-annotation">类型注解</a> <a class="md_compiled" href="./06-Declarations.md#default-argument-clause">默认参数子句</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>参数</em> → <a class="md_compiled" href="./06_Declarations.md#parameter-name">外部参数名</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#local-parameter-name">本地参数名</a> <a class="md_compiled" href="./03-Types.md#type-annotation">类型注解</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>参数</em> → <a class="md_compiled" href="./06_Declarations.md#parameter-name">外部参数名</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#local-parameter-name">本地参数名</a> <a class="md_compiled" href="./03-Types.md#type-annotation">类型注解</a> <strong>...</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>外部参数名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>本地参数名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>默认参数子句</em> → <strong>=</strong> <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_20 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">枚举声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>枚举声明</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./07-Attributes.md#access-level-modifier">访问级别修饰符</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#union-style-enum">联合式枚举</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>枚举声明</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./07-Attributes.md#access-level-modifier">访问级别修饰符</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#raw-value-style-enum">原始值式枚举</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>联合式枚举</em> → <strong>indirect</strong><sub>可选</sub> <strong>enum</strong> <a class="md_compiled" href="./06_Declarations.md#enum-name">枚举名</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter-clause">泛型参数子句</a><sub>可选</sub> <a class="md_compiled" href="./03-Types.md#type-inheritance-clause">类型继承子句</a><sub>可选</sub> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub> <strong>{</strong> <a class="md_compiled" href="./06-Declarations.md#union-style-enum-members">联合式枚举成员</a><sub>可选</sub> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>联合式枚举成员集</em> → <a class="md_compiled" href="./06_Declarations.md#union-style-enum-member">联合式枚举成员</a> <a class="md_compiled" href="./06-Declarations.md#union-style-enum-members">联合样式枚举成员集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>联合样式枚举成员</em> → <a class="md_compiled" href="./06_Declarations.md#declaration">声明</a> | <a class="md_compiled" href="./06-Declarations.md#union-style-enum-case-clause">联合式枚举 case 子句</a> | <a class="md_compiled" href="./05-Statements.md#compiler-control-statement">编译控制语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>联合式枚举 case 子句</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <strong>indirect</strong><sub>可选</sub> <strong>case</strong> <a class="md_compiled" href="./06-Declarations.md#union-style-enum-case-list">联合式枚举 case 集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>联合式枚举 case 集</em> → <a class="md_compiled" href="./06_Declarations.md#union-style-enum-case">联合式枚举 case</a> | <a class="md_compiled" href="./06-Declarations.md#union-style-enum-case">联合式枚举 case</a> <strong>,</strong> <a class="md_compiled" href="./06-Declarations.md#union-style-enum-case-list">联合式枚举 case 集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>联合式枚举 case</em> → <a class="md_compiled" href="./06_Declarations.md#enum-case-name">枚举的 case 名</a> <a class="md_compiled" href="./03-Types.md#tuple-type">元组类型</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>枚举名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>枚举的 case 名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>原始值式枚举</em> → <strong>enum</strong> <a class="md_compiled" href="./06_Declarations.md#enum-name">枚举名</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter-clause">泛型参数子句</a><sub>可选</sub> <a class="md_compiled" href="./03-Types.md#type-inheritance-clause">类型继承子句</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub> <strong>{</strong> <a class="md_compiled" href="./06-Declarations.md#raw-value-style-enum-members">原始值式枚举成员集</a> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>原始值式枚举成员集</em> → <a class="md_compiled" href="./06_Declarations.md#raw-value-style-enum-member">原始值式枚举成员</a> <a class="md_compiled" href="./06-Declarations.md#raw-value-style-enum-members">原始值式枚举成员集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>原始值式枚举成员</em> → <a class="md_compiled" href="./06_Declarations.md#declaration">声明</a> | <a class="md_compiled" href="./06-Declarations.md#raw-value-style-enum-case-clause">原始值式枚举 case 子句</a> | <a class="md_compiled" href="./05-Statements.md#compiler-control-statement">编译控制语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>原始值式枚举 case 子句</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <strong>case</strong> <a class="md_compiled" href="./06-Declarations.md#raw-value-style-enum-case-list">原始值式枚举 case 集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>原始值式枚举 case 集</em> → <a class="md_compiled" href="./06_Declarations.md#raw-value-style-enum-case">原始值式枚举 case</a> | <a class="md_compiled" href="./06-Declarations.md#raw-value-style-enum-case">原始值式枚举 case</a> <strong>,</strong> <a class="md_compiled" href="./06-Declarations.md#raw-value-style-enum-case-list">原始值式枚举 case 集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>原始值式枚举 case</em> → <a class="md_compiled" href="./06_Declarations.md#enum-case-name">枚举的 case 名</a> <a class="md_compiled" href="./06-Declarations.md#raw-value-assignment">原始值赋值</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>原始值赋值</em> → <strong>=</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#literal">原始值字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>原始值字面量（raw-value-literal）</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#literal">数值字面量</a> | <a class="md_compiled" href="./02-Lexical-Structure.md#literal">静态字符串字面量</a> | <a class="md_compiled" href="./02-Lexical-Structure.md#literal">布尔字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_7 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">结构体声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>结构体声明</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./07-Attributes.md#access-level-modifier">访问级别修饰符</a><sub>可选</sub> <strong>struct</strong> <a class="md_compiled" href="./06-Declarations.md#struct-name">结构体名称</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter-clause">泛型参数子句</a><sub>可选</sub> <a class="md_compiled" href="./03-Types.md#type-inheritance-clause">类型继承子句</a><sub>可选</sub> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#struct-body">结构体主体</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>结构体名称</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>结构体主体</em> → <strong>{</strong> <a class="md_compiled" href="./06_Declarations.md#declarations">结构体成员集</a><sub>可选</sub> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>结构体成员集</em> → <a class="md_compiled" href="./06_Declarations.md#declarations">结构体成员</a> <a class="md_compiled" href="./06-Declarations.md#declarations">结构体成员集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>结构体成员</em> → <a class="md_compiled" href="./06_Declarations.md#declarations">声明集</a> | <a class="md_compiled" href="./05-Statements.md#compiler-control-statement">编译控制语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_8 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">类声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类声明</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./07-Attributes.md#access-level-modifier">访问级别修饰符</a><sub>可选</sub> <strong>final</strong><sub>可选</sub> <strong>class</strong> <a class="md_compiled" href="./06-Declarations.md#class-name">类名</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter-clause">泛型参数子句</a><sub>可选</sub> <a class="md_compiled" href="./03-Types.md#type-inheritance-clause">类型继承子句</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#class-body">类主体</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类声明</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <strong>final</strong> <a class="md_compiled" href="./07-Attributes.md#access-level-modifier">访问级别修饰符</a><sub>可选</sub> <strong>class</strong> <a class="md_compiled" href="./06-Declarations.md#class-name">类名</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter-clause">泛型参数子句</a><sub>可选</sub> <a class="md_compiled" href="./03-Types.md#type-inheritance-clause">类型继承子句</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#class-body">类主体</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类主体</em> → <strong>{</strong> <a class="md_compiled" href="./06_Declarations.md#declarations">类成员集</a><sub>可选</sub> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类成员集</em> → <a class="md_compiled" href="./06_Declarations.md#declarations">类成员</a> <a class="md_compiled" href="./06-Declarations.md#declarations">类成员集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类成员</em> → <a class="md_compiled" href="./06_Declarations.md#declarations">声明集</a> | <a class="md_compiled" href="./05-Statements.md#compiler-control-statement">编译控制语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_13 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">协议声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议声明</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./07-Attributes.md#access-level-modifier">访问级别修饰符</a><sub>可选</sub>  <strong>protocol</strong> <a class="md_compiled" href="./06-Declarations.md#protocol-name">协议名</a> <a class="md_compiled" href="./03-Types.md#type-inheritance-clause">类型继承子句</a><sub>可选</sub> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#protocol-body">协议主体</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议主体</em> → <strong>{</strong> <a class="md_compiled" href="./06_Declarations.md#protocol-member-declarations">协议成员集</a><sub>可选</sub> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议成员集</em> → <a class="md_compiled" href="./06_Declarations.md#declarations">协议成员</a> <a class="md_compiled" href="./06-Declarations.md#declarations">协议成员集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议成员</em> → <a class="md_compiled" href="./06_Declarations.md#declarations">协议成员声明</a> | <a class="md_compiled" href="./05-Statements.md#compiler-control-statement">编译控制语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议成员声明</em> → <a class="md_compiled" href="./06_Declarations.md#protocol-property-declaration">协议属性声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议成员声明</em> → <a class="md_compiled" href="./06_Declarations.md#protocol-method-declaration">协议方法声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议成员声明</em> → <a class="md_compiled" href="./06_Declarations.md#protocol-initializer-declaration">协议构造器声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议成员声明</em> → <a class="md_compiled" href="./06_Declarations.md#protocol-subscript-declaration">协议下标声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议成员声明</em> → <a class="md_compiled" href="./06_Declarations.md#protocol-associated-type-declaration">协议关联类型声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议成员声明</em> → <a class="md_compiled" href="./06_Declarations.md#typealias-declaration">类型别名声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">协议属性声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议属性声明</em> → <a class="md_compiled" href="./06_Declarations.md#variable-declaration-head">变量声明头</a> <a class="md_compiled" href="./06-Declarations.md#variable-name">变量名</a> <a class="md_compiled" href="./03-Types.md#type-annotation">类型注解</a> <a class="md_compiled" href="./06-Declarations.md#getter-setter-keyword-block">getter-setter 关键字块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">协议方法声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议方法声明</em> → <a class="md_compiled" href="./06_Declarations.md#function-head">函数头</a> <a class="md_compiled" href="./06-Declarations.md#function-name">函数名</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter-clause">泛型参数子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#function-signature">函数签名</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">协议构造器声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议构造器声明</em> → <a class="md_compiled" href="./06_Declarations.md#initializer-head">构造器头</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter-clause">泛型参数子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#parameter-clause">参数子句</a> <strong>throws</strong><sub>可选</sub> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议构造器声明</em> → <a class="md_compiled" href="./06_Declarations.md#initializer-head">构造器头</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter-clause">泛型参数子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#parameter-clause">参数子句</a> <strong>rethrows</strong> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">协议下标声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议下标声明</em> → <a class="md_compiled" href="./06_Declarations.md#subscript-head">下标头</a> <a class="md_compiled" href="./06-Declarations.md#subscript-result">下标结果</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#getter-setter-keyword-block">getter-setter 关键字块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">协议关联类型声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>协议关联类型声明</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./07-Attributes.md#access-level-modifier">访问级别修饰符</a><sub>可选</sub> <strong>associatedtype</strong> <a class="md_compiled" href="./06-Declarations.md#typealias-name">类型别名</a> <a class="md_compiled" href="./03-Types.md#type-inheritance-clause">类型继承子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#typealias-assignment">类型别名赋值</a><sub>可选</sub> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_8 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">构造器声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>构造器声明</em> → <a class="md_compiled" href="./06_Declarations.md#initializer-head">构造器头</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter-clause">泛型参数子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#parameter-clause">参数子句</a> <strong>throws</strong><sub>可选</sub> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#initializer-body">构造器主体</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>构造器声明</em> → <a class="md_compiled" href="./06_Declarations.md#initializer-head">构造器头</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter-clause">泛型参数子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#parameter-clause">参数子句</a> <strong>rethrows</strong> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#initializer-body">构造器主体</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>构造器头（Head）</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#declaration-modifiers">声明修饰符集</a><sub>可选</sub>  <strong>init</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>构造器头（Head）</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#declaration-modifiers">声明修饰符集</a><sub>可选</sub>  <strong>init ?</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>构造器头（Head）</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#declaration-modifiers">声明修饰符集</a><sub>可选</sub>  <strong>init !</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>构造器主体</em> → <a class="md_compiled" href="./06_Declarations.md#code-block">代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">析构器声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>析构器声明</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <strong>deinit</strong> <a class="md_compiled" href="./06-Declarations.md#code-block">代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_6 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">扩展声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>扩展声明</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./07-Attributes.md#access-level-modifier">访问级别修饰符</a><sub>可选</sub> <strong>extension</strong> <a class="md_compiled" href="./03-Types.md#type-identifier">类型标识</a> <a class="md_compiled" href="./03-Types.md#type-inheritance-clause">类型继承子句</a><sub>可选</sub> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#extension-body">扩展主体</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>扩展主体</em> → <strong>{</strong> <a class="md_compiled" href="./06_Declarations.md#declarations">扩展成员集</a><sub>可选</sub> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>扩展成员集</em> → <a class="md_compiled" href="./06_Declarations.md#declarations">扩展成员</a> <a class="md_compiled" href="./06-Declarations.md#declarations">扩展成员集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>扩展成员</em> → <a class="md_compiled" href="./06_Declarations.md#declarations">声明集</a> | <a class="md_compiled" href="./05-Statements.md#compiler-control-statement">编译控制语句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_7 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">下标声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>下标声明</em> → <a class="md_compiled" href="./06_Declarations.md#subscript-head">下标头</a> <a class="md_compiled" href="./06-Declarations.md#subscript-result">下标结果</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#code-block">代码块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>下标声明</em> → <a class="md_compiled" href="./06_Declarations.md#subscript-head">下标头</a> <a class="md_compiled" href="./06-Declarations.md#subscript-result">下标结果</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#getter-setter-block">getter-setter 块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>下标声明</em> → <a class="md_compiled" href="./06_Declarations.md#subscript-head">下标头</a> <a class="md_compiled" href="./06-Declarations.md#subscript-result">下标结果</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-where-clause">泛型 where 子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#getter-setter-keyword-block">getter-setter 关键字块</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>下标头（Head）</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#declaration-modifiers">声明修饰符集</a><sub>可选</sub> <strong>subscript</strong> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter-clause">泛型参数子句</a><sub>可选</sub> <a class="md_compiled" href="./06-Declarations.md#parameter-clause">参数子句</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>下标结果（Result）</em> → <strong>-&gt;</strong> <a class="md_compiled" href="./07_Attributes.md#attributes">特性</a><sub>可选</sub> <a class="md_compiled" href="./03-Types.md#type">类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_22 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">运算符声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>运算符声明</em> → <a class="md_compiled" href="./06_Declarations.md#prefix-operator-declaration">前置运算符声明</a> | <a class="md_compiled" href="./06-Declarations.md#postfix-operator-declaration">后置运算符声明</a> | <a class="md_compiled" href="./06-Declarations.md#infix-operator-declaration">中置运算符声明</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>前置运算符声明</em> → <strong>prefix</strong> <strong>operator</strong>  <a class="md_compiled" href="./02_Lexical_Structure.md#operator">运算符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>后置运算符声明</em> → <strong>postfix</strong> <strong>operator</strong>  <a class="md_compiled" href="./02_Lexical_Structure.md#operator">运算符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>中置运算符声明</em> → <strong>infix</strong> <strong>operator</strong>  <a class="md_compiled" href="./02_Lexical_Structure.md#operator">运算符</a> <a class="md_compiled" href="./06-Declarations.md#infix-operator-attributes">中置运算符特性</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>中置运算符特性</em> → <a class="md_compiled" href="./06_Declarations.md#precedence-group-name">优先级组名</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start">优先级组声明语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>优先级组声明</em> → <strong>precedencegroup</strong> <a class="md_compiled" href="./06_Declarations.md#precedence-group-name">优先级组名</a> <strong>{</strong> <a class="md_compiled" href="./06-Declarations.md#precedence-group-attributes">优先级组特性</a><sub>可选</sub> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>优先级组特性</em> → <a class="md_compiled" href="./06_Declarations.md#declarations">优先级组属性</a> <a class="md_compiled" href="./06-Declarations.md#declarations">优先级组特性</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>优先级组属性</em> → <a class="md_compiled" href="./06_Declarations.md#declarations">优先级组关系</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>优先级组属性</em> → <a class="md_compiled" href="./06_Declarations.md#declarations">优先级组赋值</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>优先级组属性</em> → <a class="md_compiled" href="./06_Declarations.md#declarations">优先级组结合</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>优先级组关系</em> → <strong>higherThan :</strong> <a class="md_compiled" href="./06_Declarations.md#declarations">优先级组名集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>优先级组关系</em> → <strong>lowerThan :</strong> <a class="md_compiled" href="./06_Declarations.md#declarations">优先级组名集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>优先级组赋值</em> → <strong>assignment :</strong> <a class="md_compiled" href="./02_Lexical_Structure.md#string-literal">布尔字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>优先级组结合</em> → <strong>associativity : left</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>优先级组结合</em> → <strong>associativity : right</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>优先级组结合</em> → <strong>associativity : none</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>优先级组名集</em> → <a class="md_compiled" href="./06_Declarations.md#declarations">优先级组名</a> | <a class="md_compiled" href="./06-Declarations.md#declarations">优先级组名</a> <strong>,</strong> <a class="md_compiled" href="./06-Declarations.md#declarations">优先级组名集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>优先级组名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_12 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">声明修饰符语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明修饰符</em> → <strong>class</strong> | <strong>convenience</strong> | <strong>dynamic</strong> | <strong>final</strong> | <strong>infix</strong> | <strong>lazy</strong> | <strong>optional</strong> | <strong>override</strong> | <strong>postfix</strong> | <strong>prefix</strong> | <strong>required</strong> | <strong>static</strong> | <strong>unowned</strong> | <strong>unowned(safe)</strong> | <strong>unowned(unsafe)</strong> | <strong>weak</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明修饰符</em> → <a class="md_compiled" href="./07_Attributes.md#access-level-modifier">访问级别修饰符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明修饰符</em> → <a class="md_compiled" href="./07_Attributes.md#mutation-modifier">可变性修饰符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>声明修饰符集</em> → <a class="md_compiled" href="./06_Declarations.md#declaration-modifier">声明修饰符</a> <a class="md_compiled" href="./06-Declarations.md#declaration-modifiers">声明修饰符集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>访问级别修饰符</em> → <strong>private</strong> | <strong>private(set)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>访问级别修饰符</em> → <strong>fileprivate</strong> | <strong>fileprivate(set)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>访问级别修饰符</em> → <strong>internal</strong> | <strong>internal(set)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>访问级别修饰符</em> → <strong>public</strong> | <strong>public(set)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>访问级别修饰符</em> → <strong>open</strong> | <strong>open(set)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>可变性修饰符</em> → <strong>mutating</strong> | <strong>nonmutating</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h2 id="toc_6" class="h16"><span class="span_for_h">属性 {#attributes}</span></h2>
+
+<blockquote class="blockquote_lines_14 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">属性语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>属性</em> → <strong>@</strong> <a class="md_compiled" href="./07_Attributes.md#attribute-name">属性名</a> <a class="md_compiled" href="./07-Attributes.md#attribute-argument-clause">属性参数子句</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>属性名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>属性参数子句</em> → <strong>{</strong> <a class="md_compiled" href="./07_Attributes.md#balanced-tokens">平衡令牌集</a><sub>可选</sub>  <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>属性（Attributes）集</em> → <a class="md_compiled" href="./07_Attributes.md#attribute">属性</a> <a class="md_compiled" href="./07-Attributes.md#attributes">特性</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平衡令牌集</em> → <a class="md_compiled" href="./07_Attributes.md#balanced-token">平衡令牌</a> <a class="md_compiled" href="./07-Attributes.md#balanced-tokens">平衡令牌集</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平衡令牌</em> → <strong>(</strong> <a class="md_compiled" href="./07_Attributes.md#balanced-tokens">平衡令牌集</a><sub>可选</sub> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平衡令牌</em> → <strong>[</strong> <a class="md_compiled" href="./07_Attributes.md#balanced-tokens">平衡令牌集</a><sub>可选</sub> <strong>]</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>平衡令牌</em> → <strong>{</strong> <a class="md_compiled" href="./07_Attributes.md#balanced-tokens">平衡令牌集</a><sub>可选</sub> <strong>}</strong>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>平衡令牌</em> → 任意标识符、关键字、字面量或运算符<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>平衡令牌</em> → 除 <strong>(</strong> 、<strong>)</strong>、<strong>[</strong>、<strong>]</strong>、<strong>{</strong>、<strong>}</strong> 外的任意标点符号<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h2 id="toc_7" class="h16"><span class="span_for_h">模式 {#patterns}</span></h2>
+
+<blockquote class="blockquote_lines_10 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">模式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>模式</em> → <a class="md_compiled" href="./08_Patterns.md#wildcard-pattern">通配符模式</a> <a class="md_compiled" href="./03-Types.md#type-annotation">类型注解</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>模式</em> → <a class="md_compiled" href="./08_Patterns.md#identifier-pattern">标识符模式</a> <a class="md_compiled" href="./03-Types.md#type-annotati%20Value%20Bindingon">类型注解</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>模式</em> → <a class="md_compiled" href="./08_Patterns.md#value-binding-pattern">值绑定模式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>模式</em> → <a class="md_compiled" href="./08_Patterns.md#tuple-pattern">元组模式</a> <a class="md_compiled" href="./03-Types.md#type-annotation">类型注解</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>模式</em> → <a class="md_compiled" href="./08_Patterns.md#enum-case-pattern">枚举 case 模式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>模式</em> → <a class="md_compiled" href="./08_Patterns.md#optional-pattern">可选模式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>模式</em> → <a class="md_compiled" href="./08_Patterns.md#type-casting-pattern">类型转换模式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>模式</em> → <a class="md_compiled" href="./08_Patterns.md#expression-pattern">表达式模式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">通配符模式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>通配符模式</em> → <strong>_</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">标识符模式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标识符模式</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">值绑定模式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>值绑定模式</em> → <strong>var</strong> <a class="md_compiled" href="./08_Patterns.md#pattern">模式</a> | <strong>let</strong> <a class="md_compiled" href="./08-Patterns.md#pattern">模式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">元组模式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>元组模式</em> → <strong>(</strong> <a class="md_compiled" href="./08_Patterns.md#tuple-pattern-element-list">元组模式元素集</a><sub>可选</sub> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>元组模式元素集</em> → <a class="md_compiled" href="./08_Patterns.md#tuple-pattern-element">元组模式元素</a> | <a class="md_compiled" href="./08-Patterns.md#tuple-pattern-element">元组模式元素</a> <strong>,</strong> <a class="md_compiled" href="./08-Patterns.md#tuple-pattern-element-list">元组模式元素集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>元组模式元素</em> → <a class="md_compiled" href="./08_Patterns.md#pattern">模式</a> | <a class="md_compiled" href="./02-Lexical-Structure.md#identifier">标识符</a> <strong>:</strong> <a class="md_compiled" href="./08-Patterns.md#pattern">模式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">枚举 case 模式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>enum-case-pattern</em> → <a class="md_compiled" href="./03_Types.md#type-identifier">类型标识</a><sub>可选</sub> <strong>.</strong> <a class="md_compiled" href="./06-Declarations.md#enum-case-name">枚举 case 名</a> <a class="md_compiled" href="./08-Patterns.md#tuple-pattern">元组模式</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">可选模式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>可选模式</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符模式</a> <strong>?</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">类型转换模式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型转换模式</em> → <a class="md_compiled" href="./08_Patterns.md#is-pattern">is 模式</a> | <a class="md_compiled" href="./08-Patterns.md#as-pattern">as 模式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>is 模式</em> → <strong>is</strong> <a class="md_compiled" href="./03_Types.md#type">类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>as 模式</em> → <a class="md_compiled" href="./08_Patterns.md#pattern">模式</a> <strong>as</strong> <a class="md_compiled" href="./03-Types.md#type">类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">表达式模式语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>表达式模式</em> → <a class="md_compiled" href="./04_Expressions.md#expression">表达式</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h2 id="toc_8" class="h16"><span class="span_for_h">泛型参数 {#generic-parameters-and-arguments}</span></h2>
+
+<blockquote class="blockquote_lines_13 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">泛型形参子句语法<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+
+<p class="md_block">
+<em>泛型参数子句</em> → <strong>&lt;</strong> <a class="md_compiled" href="./09_Generic_Parameters_and_Arguments.md#generic-parameter-list">泛型参数集</a> <strong>&gt;</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>泛型参数集</em> → <a class="md_compiled" href="./09_Generic_Parameters_and_Arguments.md#generic-parameter">泛型参数</a> | <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter">泛形参数</a> <strong>,</strong> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-parameter-list">泛型参数集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>泛形参数</em> → <a class="md_compiled" href="./03_Types.md#type-name">类型名称</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>泛形参数</em> → <a class="md_compiled" href="./03_Types.md#type-name">类型名称</a> <strong>:</strong> <a class="md_compiled" href="./03-Types.md#type-identifier">类型标识</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>泛形参数</em> → <a class="md_compiled" href="./03_Types.md#type-name">类型名称</a> <strong>:</strong> <a class="md_compiled" href="./03-Types.md#protocol-composition-type">协议合成类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>泛型 where 子句</em> → <strong>where</strong> <a class="md_compiled" href="./09_Generic_Parameters_and_Arguments.md#requirement-list">约束集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>约束集</em> → <a class="md_compiled" href="./09_Generic_Parameters_and_Arguments.md#requirement">约束</a> | <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#requirement">约束</a> <strong>,</strong> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#requirement-list">约束集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>约束</em> → <a class="md_compiled" href="./09_Generic_Parameters_and_Arguments.md#conformance-requirement">一致性约束</a> | <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#same-type-requirement">同类型约束</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>一致性约束</em> → <a class="md_compiled" href="./03_Types.md#type-identifier">类型标识</a> <strong>:</strong> <a class="md_compiled" href="./03-Types.md#type-identifier">类型标识</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>一致性约束</em> → <a class="md_compiled" href="./03_Types.md#type-identifier">类型标识</a> <strong>:</strong> <a class="md_compiled" href="./03-Types.md#protocol-composition-type">协议合成类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>同类型约束</em> → <a class="md_compiled" href="./03_Types.md#type-identifier">类型标识</a> <strong>==</strong> <a class="md_compiled" href="./03-Types.md#type-identifier">类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<!-- -->
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start">泛型实参子句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>泛型实参子句</em> → <strong>&lt;</strong> <a class="md_compiled" href="./09_Generic_Parameters_and_Arguments.md#generic-argument-list">泛型实参集</a> <strong>&gt;</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>泛型实参集</em> → <a class="md_compiled" href="./09_Generic_Parameters_and_Arguments.md#generic-argument">泛型实参</a> | <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-argument">泛形实参</a> <strong>,</strong> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-argument-list">泛型实参集</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>泛形实参</em> → <a class="md_compiled" href="./03_Types.md#type">类型</a>
+<!--blockquote--></p>
+
+</blockquote>
+        </div>
+    </div>
+    <!--mathjax-->
+    <!--mermaid-->
+</body>
+</html>

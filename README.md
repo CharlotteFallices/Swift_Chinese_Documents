@@ -1,0 +1,425 @@
+<img src="https://swift.org/assets/images/swift.svg" alt="Swift logo" height="70" >
+
+# Swift Programming Language
+
+
+| | **Architecture** | **Master** | **Package** |
+|---|:---:|:---:|:---:|
+| **macOS**        | x86_64 |[![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-osx/lastCompletedBuild/badge/icon)](https://ci.swift.org/job/oss-swift-incremental-RA-osx)|[![Build Status](https://ci.swift.org/job/oss-swift-package-osx/lastCompletedBuild/badge/icon)](https://ci.swift.org/job/oss-swift-package-osx)|
+| **Ubuntu 16.04** | x86_64 | [![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-linux-ubuntu-16_04/lastCompletedBuild/badge/icon)](https://ci.swift.org/job/oss-swift-incremental-RA-linux-ubuntu-16_04)|[![Build Status](https://ci.swift.org/job/oss-swift-package-linux-ubuntu-16_04/lastCompletedBuild/badge/icon)](https://ci.swift.org/job/oss-swift-package-linux-ubuntu-16_04)|
+| **Ubuntu 18.04** | x86_64 | [![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-linux-ubuntu-18_04/lastCompletedBuild/badge/icon)](https://ci.swift.org/job/oss-swift-incremental-RA-linux-ubuntu-18_04)|[![Build Status](https://ci.swift.org/job/oss-swift-package-linux-ubuntu-18_04/lastCompletedBuild/badge/icon)](https://ci.swift.org/job/oss-swift-package-linux-ubuntu-18_04)|
+
+**来自Swift社区**
+
+| **OS** | **Architecture** | **Build** |
+|---|:---:|:---:|
+|**[Ubuntu 16.04 ](https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/ppc64le_ubuntu_16_04.json)** | PPC64LE |[![Build Status](https://ci-external.swift.org/job/oss-swift-5.1-RA-linux-ubuntu-16.04-ppc64le/lastCompletedBuild/badge/icon)](https://ci-external.swift.org/job/oss-swift-5.1-RA-linux-ubuntu-16.04-ppc64le)|
+|**[Ubuntu 16.04 ](https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/aarch64_ubuntu_16.04.json)** | AArch64 |[![Build Status](https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-aarch64/lastCompletedBuild/badge/icon)](https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-aarch64)|
+|**[Android](https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/x86_64_ubuntu_16_04_LTS_android.json)** | ARMv7 |[![Build Status](https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-android/lastCompletedBuild/badge/icon)](https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-android)|
+|**[Android](https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/x86_64_ubuntu_16_04_LTS_android.json)** | AArch64 |[![Build Status](https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-android-arm64/lastCompletedBuild/badge/icon)](https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-android-arm64)|
+|**[Windows 2019](https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/x86_64_windows_2019.json)** | x86_64 | [![Build Status](https://ci-external.swift.org/job/oss-swift-windows-x86_64/lastCompletedBuild/badge/icon)](https://ci-external.swift.org/job/oss-swift-windows-x86_64)|
+
+**来自Swift TensorFlow社区**
+
+| **OS** | **Architecture** | **Build** |
+|---|:---:|:---:|
+|**[Ubuntu 16.04](https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/x86_64_ubuntu_16_04_tensorflow.json)** | x86_64 |[![Build Status](https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-tensorflow/lastCompletedBuild/badge/icon)](https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-tensorflow)|
+|**[macOS 10.13](https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/x86_64_macos_high_sierra_tensorflow.json)** | x86_64 |[![Build Status](https://ci-external.swift.org/job/oss-swift-RA-macOS-tensorflow/lastCompletedBuild/badge/icon)](https://ci-external.swift.org/job/oss-swift-RA-macOS-tensorflow)|
+|**[Ubuntu 16.04 (GPU)](https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/x86_64_ubuntu_16_04_tensorflow_gpu.json)** | x86_64 |[![Build Status](https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-tensorflow-gpu/lastCompletedBuild/badge/icon)](https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-tensorflow-gpu)|
+
+## Welcome to Swift
+
+Swift是一种高性能的系统编程语言,它具有简洁现代的语法,可以用桥接头访问现有的C和OC代码以及框架,并且默认情况下是内存安全的
+
+尽管受OC和许多其他语言的启发,但是Swift本身并不是由C衍生的语言.作为一种完整且独立的语言,Swift同时包含了诸如流控制,数据结构和函数之类的核心功能与对象,和协议,闭包和泛型之类的结构(constructs).Swift通过模块消除了对标头(headers)和它们所需要的重复的代码
+
+[官网](https://swift.org/documentation/) | [文档](https://charlottefallices.github.io/swift-docs_ZH-CN/) | [浅色模式](./light.html)
+
+- [Contributing to Swift](#contributing-to-swift)
+- [Getting Started](#getting-started)
+  - [System Requirements](#system-requirements)
+  - [Getting Sources for Swift and Related Projects](#getting-sources-for-swift-and-related-projects)
+  - [Building Swift](#building-swift)
+  - [Swift Toolchains](#swift-toolchains)
+  - [Build Failures](#build-failures)
+- [Testing Swift](#testing-swift)
+- [Learning More](#learning-more)
+- [Build Dependencies](#build-dependencies)
+
+## Contributing to Swift
+
+我们欢迎每一个人参与到Swift的开发中.
+首先,请参见[编辑指南](https://swift.org/contributing/).
+
+为了使[Swift.org](https://swift.org/)社区更加完善,我们欢迎各行各业的,具有不同背景的开发人员,这将使得这一多元化而友好的社区拥有更多的创意和观点并产生更多优秀的代码.我们将努力使Swift社区受到大家的欢迎.
+
+为了明确说明我们的目的,Swift采用了`参与者公约`**(the Contributor Covenant)**所定义的行为准则, 该文档已在许多开源社区中使用,我们认为它很好地表达了我们的价值观,有关更多信息,请参见[行为准则](https://github.com/CharlotteFallices/swift_ZH-CN/blob/master/参与者公约.md).
+
+## Getting Started
+
+这些说明为获取Swift的开发环境提供了最直接的途径.要对源代码进行编译,您将需要`大约2GB`的磁盘空间用于保存源代码,并需要`70GB`的磁盘空间用于搭载完整的构建,所需的时间取决于您的计算机,完整的构建(clean build)可能需要几分钟到几个小时,当然,在线(incremental)构建则要快得多.
+
+### System Requirements
+
+支持macOS,Ubuntu Linux LTS和最新的Ubuntu Linux版本.
+请使用Python2.x,目前暂时不支持Python3.x.
+
+#### macOS
+
+要在macOS上进行编辑,您需要[Xcode 11.3](https://download.developer.apple.com/Developer_Tools/Xcode_11.4_beta/Xcode_11.4_beta.xip).所需的Xcode版本经常更改,并且通常是beta版本.
+您可以在<https://ci.swift.org>上查看当前设备的所需版本.
+
+您还需要[CMake](https://github.com/CharlotteFallices/CMake_ZH-CN)和[Ninja](https://github.com/CharlotteFallices/ninja_ZH-CN),您可以通过软件包管理器来安装它们：
+
+**[Homebrew](https://brew.sh/)**
+
+    brew install cmake ninja
+
+**[MacPorts](https://macports.org)**
+
+    sudo port install cmake ninja
+
+可以在[下面](#build-dependencies)找到直接安装CMake和Ninja的说明.
+
+#### Linux
+
+在Ubuntu中,您需要安装以下依赖项：
+
+```
+    sudo apt-get install git cmake ninja-build clang python uuid-dev libicu-dev icu-devtools libedit-dev libxml2-dev libsqlite3-dev swig libpython-dev libncurses5-dev pkg-config libcurl4-openssl-dev systemtap-sdt-dev tzdata rsync
+```
+
+**注意**:LLDB至少需要swig-1.3.40版本,但可以使用Ubuntu自带的版本进行构建.
+
+可以在[这里](#for-ubuntu14)找到对于Ubuntu 14.04 LTS的构建说明
+
+### Getting Sources for Swift and Related Projects
+
+首先为Swift创建一个目录:
+
+```
+    mkdir swift-source
+    cd swift-source
+```
+
+注意：这很重要,因为update-checkout(请参阅下文)将使用Swift源目录旁边的存储库. 这意味着如果克隆和Swift其他不相关的存储库,则update-checkout可能不会克隆那些存储库,而是会对其进行更新.
+
+**使用HTTPS**  (只能读取):
+
+```
+    git clone https://github.com/apple/swift.git
+    ./swift/utils/update-checkout --clone
+```
+
+**使用SSH**  (需要将SSH密钥[上传到GitHub](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)):
+
+```
+    git clone git@github.com:apple/swift.git
+    ./swift/utils/update-checkout --clone-with-ssh
+```
+
+### Building Swift
+
+`build-script`是一个自动化脚本,它仅支持基本选项,例如构建与Swift兼容的LLDB,构建Swift软件包管理器,为各种平台进行构建,在构建后运行测试等.
+
+有两个主要的构建系统可以使用:Xcode和Ninja.
+ Xcode构建系统允许您在Xcode中工作,但是Ninja速度更快,并且支持更多环境.
+
+首先,请确保您位于Swift目录中:
+
+```
+    cd swift
+```
+
+要使用Ninja进行构建,请运行:
+
+```
+    utils/build-script --release-debuginfo
+```
+
+使用Swift时可以在调试配置中构建您正在处理的内容,同时优化构建项目的其余部分.
+
+限制编译器中的调试代码数量会对Swift编译时间以及测试执行时间产生很大的影响.如果要在调试中构建整个项目.则可以运行:
+
+```
+    utils/build-script --debug
+```
+
+有关所有可用参数的文档以及其他用法信息,请参考:
+
+```
+    utils/build-script -h
+```
+
+#### Xcode
+
+要使用Xcode进行构建,请在上述任何命令上指定`--xcode`参数.Xcode可用于编译Swift源代码,但目前尚不完全支持Xcode作为macOS以外的构建环境.生成的Xcode项目未与测试运行器集成,但是可以使用`check-swift`目标运行测试.
+
+#### Build Products
+
+所有编译结果(build products)都放置在`swift-source/build/${TOOL}-${MODE}/${PRODUCT}-${PLATFORM}/`中,如果构建了带有DebugAssert模式下的Ninja的macOS Swift,则所有编译结果(products)将位于`swift-source/build/Ninja-DebugAssert/swift-macosx-x86_64/`中,它将有助于将该目录另存为环境变量,以备将来使用.
+
+export SWIFT_BUILD_DIR="~/swift-source/build/Ninja-DebugAssert/swift-macosx-x86_64"//所以这行代码是个啥
+#### Ninja
+
+一旦第一个编译被完成,Ninja即可执行各种快速在线(incremental)构建.这些增量版本能够在开发和调试时节省大量时间.
+
+```
+    cd ${SWIFT_BUILD_DIR}
+    ninja swift
+```
+
+这将构建Swift编译器,但不会重建标准库或任何其他目标.将`swift-stdlib`目标作为附加调试器也是一个好主意.要仅构建标准库,请运行:
+
+```
+    ninja swift-stdlib
+```
+
+值得一提的是,在进行完整构建之前使用`update-checkout`将始终是一个好主意.
+
+#### Using Xcode
+
+若要在Xcode中打开Swift项目,请打开`${SWIFT_BUILD_DIR}/Swift.xcodeproj`,它将为**所有**可用目标自动创建很多解决方案,常见的调试流程将有:
+
+ - 选择`swift`选项卡.
+ - 调出解决方案编辑器**(⌘-⇧-<)**.
+ - 选择`Arguments`选项卡然后点击`+`.
+ - 添加`command line`选项.
+ - 关闭解决方案编辑器.
+ - 编译并运行.
+
+另一个选择是将解决方案更改为`Wait for executable to be launched`,然后在`Terminal`中运行编译结果(build product)
+
+### Swift Toolchains
+
+#### Building
+
+Swift工具链(toolchains)是使用脚本`build-toolchain`创建的,swift.org的持续集成(Continuous Integration),将会使用使用此脚本来生成快照,并且可以允许该脚本在本地复制此类构建以进行开发或分发,典型的调用如下所示:
+
+```
+  $ ./swift/utils/build-toolchain $BUNDLE_PREFIX
+```
+
+其中`$ BUNDLE_PREFIX`是将在构建之前添加的字符串,它将给出工具链(toolchain)的`Info.plist`的捆绑包标识符(bundle identifier)的日期.
+例如,如果`$ BUNDLE_PREFIX`是`com.example`,则该工具链
+产生的包标识符为`com.example.YYYYMMDD`.
+ 它将在您运行脚本的目录中创建的格式为:`swift-LOCAL-YYYY-MM-DD-a-osx.tar.gz`.
+
+除了构建工具链之外,`build-toolchain`还支持以下选项:
+
+`--dry-run`:执行试运行构建, 默认关闭.
+`--test`:在编译后测试工具链,默认关闭.
+`--distcc`:使用distcc通过分发swift构建的c++模块(part)来加快构建速度,默认关闭.
+随后可能添加更多选项,请使用`build-toolchain --help`以查看完整的选项集.
+
+#### Installing into Xcode
+
+在macOS上,如果要将像这样的工具链(toolchain)安装到Xcode中:
+
+1. 解压并复制工具链(toolchain)`/Library/Developer/Toolchains/` 或是
+   `~/Library/Developer/Toolchains/`.
+
+```
+  $ sudo tar -xzf swift-LOCAL-YYYY-MM-DD-a-osx.tar.gz -C /
+  $ tar -xzf swift-LOCAL-YYYY-MM-DD-a-osx.tar.gz -C ~/
+```
+
+该脚本还会生成一个包含调试符号(debug symbols)的文件,可以将其安装在主归档文件上(main archive),从而可以用符号表示任何编译器崩溃.
+
+```
+  $ sudo tar -xzf swift-LOCAL-YYYY-MM-DD-a-osx-symbols.tar.gz -C /
+  $ tar -xzf swift-LOCAL-YYYY-MM-DD-a-osx-symbols.tar.gz -C ~/
+```
+
+2. 通过`Xcode-> Toolchains`指定供Xcode使用的本地工具链(toolchain).
+
+### Build Failures
+
+确保您使用的是Xcode的[正确版本](#macos).
+
+如果您已经更改了Xcode版本,但仍然遇到错误,请尝试将`--clean`传递给`build-script`.
+
+当发布新版本的Xcode时,您可以直接更新构建,而无需通过传递`--reconfigure`选项并重新编译整个项目.
+
+如上所述,请使用`update-checkout`命令确保所有存储库都是最新版本.
+
+## Testing Swift
+
+请参阅[docs/Testing.md](docs/Testing.md)和[lit.py](docs/Testing.md#using-litpy)上的部分.
+
+## Learning More
+
+请浏览[docs](/tree/master/docs)目录以获取有关编译器的更多信息,特别是[Debugging the Swift Compiler](/docs/DebuggingTheCompiler.rst)和[Continuous Integration for Swift](/docs/ContinuousIntegration.md)这两篇文档在提交您的第一个`Pull requests`时非常有用.
+
+### Building Documentation
+
+要阅读编译器文档,请先运行以下命令来安装[Sphinx](https://github.com/CharlotteFallices/sphinx_ZH-CN):
+
+```
+     easy_install -U“ Sphinx <2.0”
+```
+
+完成后,您可以通过将目录更改为[docs](/tree/master/docs)并键入`make`来构建Swift文档这会将[docs](/tree/master/docs)目录中的`.rst`文件编译至`docs/_build/html`目录中的HTML中.
+
+许多文档虽然已经过时,但是您仍可以在`docs`目录中看到一些历史设计文档.
+
+文档的另一个来源是标准库本身,位于`stdlib`中.许多语言实际上是在库中实现的,它通常是具有时效性的.
+
+## Build Dependencies
+
+### CMake
+
+[CMake](https://github.com/CharlotteFallices/CMake_ZH-CN)是用于配置Swift及其附属项目的核心架构,至少需要3.4.3版本.
+
+在macOS上,您可以下载[二进制文件](https://cmake.org/download)([Windows](https://github-production-release-asset-2e65be.s3.amazonaws.com/537699/ba921080-4811-11ea-9a8c-c839ff358bf0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200208%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200208T083521Z&X-Amz-Expires=300&X-Amz-Signature=8a637fc18438a730f6ed19d67c9f65a674cdbc5813280e8ca93e4d61229fff3d&X-Amz-SignedHeaders=host&actor_id=47619464&response-content-disposition=attachment%3B%20filename%3Dcmake-3.16.4-win64-x64.msi&response-content-type=application%2Foctet-stream),[macOS](https://github-production-release-asset-2e65be.s3.amazonaws.com/537699/bbc33d80-4811-11ea-8831-73b31acbc700?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200208%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200208T083615Z&X-Amz-Expires=300&X-Amz-Signature=979d65590f1da16d08c9cf940b80e5bd93067af4d9118e77f2dff3fceb4095dc&X-Amz-SignedHeaders=host&actor_id=47619464&response-content-disposition=attachment%3B%20filename%3Dcmake-3.16.4-Darwin-x86_64.dmg&response-content-type=application%2Foctet-stream),[Linux](https://github-production-release-asset-2e65be.s3.amazonaws.com/537699/b6fe8980-4811-11ea-94a5-6de6b61d25ac?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200208%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200208T083648Z&X-Amz-Expires=300&X-Amz-Signature=4c6cdd27674b591e1b0bbec7bec370a30429cfc65f5c78596f15444ffb9aed11&X-Amz-SignedHeaders=host&actor_id=47619464&response-content-disposition=attachment%3B%20filename%3Dcmake-3.16.4-Linux-x86_64.sh&response-content-type=application%2Foctet-stream))并打包为应用程序,并将其复制到`/Applications`,然后将命令行工具添加到`PATH`中：
+
+```
+    export PATH=/Applications/CMake.app/Contents/bin:$PATH
+```
+
+在Linux上，如果尚未安装Swift的[development依赖项](#linux),则可以下载并安装CMake.
+使用以下命令打包：
+
+```
+    sudo apt-get install cmake
+```
+
+### Ninja
+
+[Ninja](https://github.com/CharlotteFallices/ninja_ZH-CN)是当前推荐用于构建Swift的程序,并且是CMake生成的默认配置. [预构建包](https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages)可用于macOS和Linux发行版,您也可以在其他项目旁边克隆Ninja,它将自动执行以下命令:
+**HTTPS**
+
+    git clone https://github.com/ninja-build/ninja.git && cd ninja
+    git checkout release
+    cat README
+
+**SSH**
+
+    git clone git@github.com:ninja-build/ninja.git && cd ninja
+    git checkout release
+    cat README
+
+## Appendix
+
+### [Glossary](https://github.com/CharlotteFallices/the-swift-programming-language-in-chinese/blob/gh-pages/README.md#术语表)
+| 术语 | 备选翻译 |
+| --- | --- |
+| property wrapper | 属性包装器 |
+| projected value | 被呈现值 |
+| wrapped value | 被包装值 |
+| argument | 实参 |
+| parameter | 形参 |
+| variadic parameters| 可变参数 |
+| associated type | 关联类型 |
+| range | 区间 |
+| type property | 类型属性 |
+| unary operator | 一元运算符 |
+| binary operator | 二元运算符 |
+| ternary operator | 三元运算符 |
+| labeled statement | 具名语句 |
+| conform protocol | 遵循协议 |
+| availability-condition | 可用性条件 |
+| fallthrough | 贯穿 |
+| branch statement | 分支语句 |
+| control transfer statement | 控制传递语句 |
+| type annotation | 类型注解 |
+| type identifier | 类型标识符 |
+| metatype type | 元类型 |
+| protocol composition type | 复合协议类型 |
+| associated value | 关联值 |
+| raw value | 原始值 |
+| computed property | 计算属性 |
+| stored property | 存储属性 |
+| operator | 运算符 |
+| playground | (不翻译) |
+| array | 数组 |
+| dictionary | 字典 |
+| list | 列表 |
+| statement | 语句 |
+| expression | 表达式 |
+| optional | 可选 |
+| implicitly unwrapped optional | 隐式解包可选值 |
+| optional binding | 可选绑定 |
+| optional chaining | 可选链 |
+| collection | 集合 |
+| convention | 约定 |
+| iterate | 迭代 |
+| nest | 嵌套 |
+| inheritance | 继承 |
+| override | 重写 |
+| base class | 基类 |
+| designated initializer | 指定构造器 |
+| convenience initializer | 便利构造器 |
+| automatic reference counting | 自动引用计数 |
+| type inference | 类型推断 |
+| type casting | 类型转换 |
+| unwrapped | 解包 |
+| wrapped | 包装 |
+| note | 注意 |
+| closure | 闭包 |
+| tuple | 元组 |
+| first-class | 一等 |
+| deinitializer | 析构器 |
+| initializer | 构造器 |
+| initialization | 构造过程 |
+| deinitialization | 析构过程 |
+| getter | (不翻译) |
+| setter | (不翻译) |
+| subscript | 下标 |
+| property | 属性 |
+| attribute | 特性或者属性,根据上下文 |
+| method | 方法 |
+| enumeration | 枚举 |
+| structure | 结构体 |
+| protocol | 协议 |
+| extension | 扩展 |
+| generic | 泛型 |
+| literal value | 字面量 |
+| alias | 别名 |
+| assertion | 断言 |
+| conditional compilation | 条件编译 |
+| opaque type | 不透明类型 |
+| function | 函数 |
+| runtime | 运行时 |
+
+### For Ubuntu14
+
+对于Ubuntu 14.04 LTS的构建说明:
+您需要升级`Clang编译器`**(Clang complier)** 以获得对于C++14的支持,并创建一个`符号链接`**(symlink)**.要求的最低版本可能会更改,将来可能在Ubuntu 14.04上不可用:
+
+```
+sudo apt-get install clang-3.9
+sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.9 100
+sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.9 100
+sudo update-alternatives --set clang /usr/bin/clang-3.9
+sudo update-alternatives --set clang++ /usr/bin/clang++-3.9
+Upgrade CMake
+```
+
+您需要通过编译本地副本以便将`CMake工具链`**(toolchain)** 升级到受支持的版本:
+
+```
+wget https://cmake.org/files/v3.5/cmake-3.5.2.tar.gz
+tar xf cmake-3.5.2.tar.gz
+cd cmake-3.5.2
+./configure
+make
+sudo make install
+sudo update-alternatives --install /usr/bin/cmake cmake /usr/local/bin/cmake 1 --force
+cmake --version # This should print 3.5.2
+```
+
+### About Website
+
+[Pages](https://charlottefallices.github.io/swift_ZH-CN/)中的内容可能会相对低2-3个版本,License会在每个版本完成后添加,完成之前因为引用内容暂不明确故先行删除.
+
+## Lincense
+
+此页面([README.md](https://github.com/CharlotteFallices/swift_ZH-CN/blob/master/README.md)或[index.html](https://github.com/CharlotteFallices/swift_ZH-CN/blob/master/index.html))由[Apple Inc.](https://github.com/apple)创作,并由[本人](https://github.com/CharlotteFallices)翻译并整合,内容中有包含其他人/组织创作的文档,正在进行统计,统计完成后会联系原作者并进行署名.
+
+- The [documents](https://charlottefallices.github.io/swift-docs_ZH-CN/) is licensed under **the Creative Commons Attribution 4.0 International License**.To view a copy of this license,visit [website](http://creativecommons.org/licenses/by/4.0/) or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, US.
+
+- The translation text is licensed under **the WTFPL2 License**.To view this license,visit [website](https://wtfpl2.com).
+
+------------------------------------------------------------------------------------------------------------------------------
+最后更新于2020-02-09 15:10:13

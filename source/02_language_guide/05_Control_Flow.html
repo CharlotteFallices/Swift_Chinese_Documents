@@ -1,0 +1,1156 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>控制流</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">控制流</span></h1>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 提供了多种流程控制结构，包括可以多次执行任务的 <code>while</code> 循环，基于特定条件选择执行不同代码分支的 <code>if</code>、<code>guard</code> 和 <code>switch</code> 语句，还有控制流程跳转到其他代码位置的 <code>break</code> 和 <code>continue</code> 语句。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 还提供了 <code>for-in</code> 循环，用来更简单地遍历数组（Array），字典（Dictionary），区间（Range），字符串（String）和其他序列类型。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 的 <code>switch</code> 语句比许多类 C 语言要更加强大。case 还可以匹配很多不同的模式，包括范围匹配，元组（tuple）和特定类型匹配。<code>switch</code> 语句的 case 中匹配的值可以声明为临时常量或变量，在 case 作用域内使用，也可以配合 <code>where</code> 来描述更复杂的匹配条件。</span>
+</p>
+
+<h2 id="toc_1" class="h16"><span class="span_for_h">For-In 循环 {#for-in-loops}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以使用 <code>for-in</code> 循环来遍历一个集合中的所有元素，例如数组中的元素、范围内的数字或者字符串中的字符。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">以下例子使用 <code>for-in</code> 遍历一个数组所有元素：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">names</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Anna&quot;</span><span class="p">,</span> <span class="s">&quot;Alex&quot;</span><span class="p">,</span> <span class="s">&quot;Brian&quot;</span><span class="p">,</span> <span class="s">&quot;Jack&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">name</span> <span class="k">in</span> <span class="n">names</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Hello, </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// Hello, Anna!</span>
+<span class="c1">// Hello, Alex!</span>
+<span class="c1">// Hello, Brian!</span>
+<span class="c1">// Hello, Jack!</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你也可以通过遍历一个字典来访问它的键值对。遍历字典时，字典的每项元素会以 <code>(key, value)</code> 元组的形式返回，你可以在 <code>for-in</code> 循环中使用显式的常量名称来解读 <code>(key, value)</code> 元组。下面的例子中，字典的键声明会为 <code>animalName</code> 常量，字典的值会声明为 <code>legCount</code> 常量：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">numberOfLegs</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;spider&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s">&quot;ant&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&quot;cat&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">]</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">animalName</span><span class="p">,</span> <span class="n">legCount</span><span class="p">)</span> <span class="k">in</span> <span class="n">numberOfLegs</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">animalName</span><span class="si">)</span><span class="s">s have </span><span class="si">\(</span><span class="n">legCount</span><span class="si">)</span><span class="s"> legs&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// cats have 4 legs</span>
+<span class="c1">// ants have 6 legs</span>
+<span class="c1">// spiders have 8 legs</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">字典的内容理论上是无序的，遍历元素时的顺序是无法确定的。将元素插入字典的顺序并不会决定它们被遍历的顺序。关于数组和字典的细节，参见 <a class="md_compiled" href="./04_Collection_Types.md">集合类型</a>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>for-in</code> 循环还可以使用数字范围。下面的例子用来输出乘法表的一部分内容：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="mf">1.</span><span class="p">..</span><span class="mi">5</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">index</span><span class="si">)</span><span class="s"> times 5 is </span><span class="si">\(</span><span class="n">index</span> <span class="o">*</span> <span class="mi">5</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 1 times 5 is 5</span>
+<span class="c1">// 2 times 5 is 10</span>
+<span class="c1">// 3 times 5 is 15</span>
+<span class="c1">// 4 times 5 is 20</span>
+<span class="c1">// 5 times 5 is 25</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">例子中用来进行遍历的元素是使用闭区间操作符（<code>...</code>）表示的从 <code>1</code> 到 <code>5</code> 的数字区间。<code>index</code> 被赋值为闭区间中的第一个数字（<code>1</code>），然后循环中的语句被执行一次。在本例中，这个循环只包含一个语句，用来输出当前 <code>index</code> 值所对应的乘 5 乘法表的结果。该语句执行后，<code>index</code> 的值被更新为闭区间中的第二个数字（<code>2</code>），之后 <code>print(_:separator:terminator:)</code> 函数会再执行一次。整个过程会进行到闭区间结尾为止。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面的例子中，<code>index</code> 是一个每次循环遍历开始时被自动赋值的常量。这种情况下，<code>index</code> 在使用前不需要声明，只需要将它包含在循环的声明中，就可以对其进行隐式声明，而无需使用 <code>let</code> 关键字声明。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你不需要区间序列内每一项的值，你可以使用下划线（<code>_</code>）替代变量名来忽略这个值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">base</span> <span class="p">=</span> <span class="mi">3</span>
+<span class="kd">let</span> <span class="nv">power</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="kd">var</span> <span class="nv">answer</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="kc">_</span> <span class="k">in</span> <span class="mf">1.</span><span class="p">..</span><span class="n">power</span> <span class="p">{</span>
+    <span class="n">answer</span> <span class="o">*=</span> <span class="n">base</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">base</span><span class="si">)</span><span class="s"> to the power of </span><span class="si">\(</span><span class="n">power</span><span class="si">)</span><span class="s"> is </span><span class="si">\(</span><span class="n">answer</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="c1">// 输出“3 to the power of 10 is 59049”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个例子计算 base 这个数的 power 次幂（本例中，是 <code>3</code> 的 <code>10</code> 次幂），从 <code>1</code>（<code>3</code> 的 <code>0</code> 次幂）开始做 <code>3</code> 的乘法， 进行 <code>10</code> 次，使用 <code>1</code> 到 <code>10</code> 的闭区间循环。这个计算并不需要知道每一次循环中计数器具体的值，只需要执行了正确的循环次数即可。下划线符号 <code>_</code> （替代循环中的变量）能够忽略当前值，并且不提供循环遍历时对值的访问。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在某些情况下，你可能不想使用包括两个端点的闭区间。想象一下，你在一个手表上绘制分钟的刻度线。总共 <code>60</code> 个刻度，从 <code>0</code> 分开始。使用半开区间运算符（<code>..&lt;</code>）来表示一个左闭右开的区间。有关区间的更多信息，请参阅 <a class="md_compiled" href="./02_Basic_Operators.md#range-operators">区间运算符</a>。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">minutes</span> <span class="p">=</span> <span class="mi">60</span>
+<span class="k">for</span> <span class="n">tickMark</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">minutes</span> <span class="p">{</span>
+    <span class="c1">// 每一分钟都渲染一个刻度线（60次）</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">一些用户可能在其 UI 中可能需要较少的刻度。他们可以每 5 分钟作为一个刻度。使用 <code>stride(from:to:by:)</code> 函数跳过不需要的标记。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">minuteInterval</span> <span class="p">=</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">tickMark</span> <span class="k">in</span> <span class="bp">stride</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="n">minutes</span><span class="p">,</span> <span class="n">by</span><span class="p">:</span> <span class="n">minuteInterval</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 每5分钟渲染一个刻度线（0, 5, 10, 15 ... 45, 50, 55）</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">可以在闭区间使用 <code>stride(from:through:by:)</code> 起到同样作用：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">hours</span> <span class="p">=</span> <span class="mi">12</span>
+<span class="kd">let</span> <span class="nv">hourInterval</span> <span class="p">=</span> <span class="mi">3</span>
+<span class="k">for</span> <span class="n">tickMark</span> <span class="k">in</span> <span class="bp">stride</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="n">through</span><span class="p">:</span> <span class="n">hours</span><span class="p">,</span> <span class="n">by</span><span class="p">:</span> <span class="n">hourInterval</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 每3小时渲染一个刻度线（3, 6, 9, 12）</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_2" class="h16"><span class="span_for_h">While 循环 {#while-loops}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end"><code>while</code> 循环会一直运行一段语句直到条件变成 <code>false</code>。这类循环适合使用在第一次迭代前，迭代次数未知的情况下。Swift 提供两种 <code>while</code> 循环形式：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span><code>while</code> 循环，每次在循环开始时计算条件是否符合；
+
+</span></li>
+<li class="md_li"><span><code>repeat-while</code> 循环，每次在循环结束时计算条件是否符合。
+
+</span></li>
+</ul>
+<h3 id="toc_3" class="h16"><span class="span_for_h">While {#while}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>while</code> 循环从计算一个条件开始。如果条件为 <code>true</code>，会重复运行一段语句，直到条件变为 <code>false</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面是 <code>while</code> 循环的一般格式：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">while</span> <span class="n">condition</span> <span class="p">{</span>
+    <span class="n">statements</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">下面的例子来玩一个叫做<em class="md_patched_em">蛇和梯子</em>（也叫做<em class="md_patched_em">滑道和梯子</em>）的小游戏：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/snakesAndLadders_2x.png" alt="image" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">游戏的规则如下：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>游戏盘面包括 25 个方格，游戏目标是达到或者超过第 25 个方格；
+
+</span></li>
+<li class="md_li"><span>每一轮，你通过掷一个六面体骰子来确定你移动方块的步数，移动的路线由上图中横向的虚线所示；
+
+</span></li>
+<li class="md_li"><span>如果在某轮结束，你移动到了梯子的底部，可以顺着梯子爬上去；
+
+</span></li>
+<li class="md_li"><span>如果在某轮结束，你移动到了蛇的头部，你会顺着蛇的身体滑下去。
+
+</span></li>
+</ul>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">游戏盘面可以使用一个 <code>Int</code> 数组来表达。数组的长度由一个 <code>finalSquare</code> 常量储存，用来初始化数组和检测最终胜利条件。游戏盘面由 26 个 <code>Int</code> 0 值初始化，而不是 25 个（由 <code>0</code> 到 <code>25</code>，一共 26 个）：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">finalSquare</span> <span class="p">=</span> <span class="mi">25</span>
+<span class="kd">var</span> <span class="nv">board</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">](</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">finalSquare</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">一些方格被设置成特定的值来表示有蛇或者梯子。梯子底部的方格是一个正值，使你可以向上移动，蛇头处的方格是一个负值，会让你向下移动：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">board</span><span class="p">[</span><span class="mi">03</span><span class="p">]</span> <span class="p">=</span> <span class="o">+</span><span class="mi">08</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">06</span><span class="p">]</span> <span class="p">=</span> <span class="o">+</span><span class="mi">11</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">09</span><span class="p">]</span> <span class="p">=</span> <span class="o">+</span><span class="mi">09</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="p">=</span> <span class="o">+</span><span class="mi">02</span>
+<span class="n">board</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="p">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">19</span><span class="p">]</span> <span class="p">=</span> <span class="o">-</span><span class="mi">11</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">22</span><span class="p">]</span> <span class="p">=</span> <span class="o">-</span><span class="mi">02</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">24</span><span class="p">]</span> <span class="p">=</span> <span class="o">-</span><span class="mi">08</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">3 号方格是梯子的底部，会让你向上移动到 11 号方格，我们使用 <code>board[03]</code> 等于 <code>+08</code>（来表示 <code>11</code> 和 <code>3</code> 之间的差值）。为了对齐语句，这里使用了一元正运算符（<code>+i</code>）和一元负运算符（<code>-i</code>），并且小于 10 的数字都使用 0 补齐（这些语法的技巧不是必要的，只是为了让代码看起来更加整洁）。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">玩家由左下角空白处编号为 0 的方格开始游戏。玩家第一次掷骰子后才会进入游戏盘面：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">square</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="kd">var</span> <span class="nv">diceRoll</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">square</span> <span class="o">&lt;</span> <span class="n">finalSquare</span> <span class="p">{</span>
+    <span class="c1">// 掷骰子</span>
+    <span class="n">diceRoll</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">diceRoll</span> <span class="p">==</span> <span class="mi">7</span> <span class="p">{</span> <span class="n">diceRoll</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">}</span>
+    <span class="c1">// 根据点数移动</span>
+    <span class="n">square</span> <span class="o">+=</span> <span class="n">diceRoll</span>
+    <span class="k">if</span> <span class="n">square</span> <span class="o">&lt;</span> <span class="n">board</span><span class="p">.</span><span class="bp">count</span> <span class="p">{</span>
+        <span class="c1">// 如果玩家还在棋盘上，顺着梯子爬上去或者顺着蛇滑下去</span>
+        <span class="n">square</span> <span class="o">+=</span> <span class="n">board</span><span class="p">[</span><span class="n">square</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;Game over!&quot;</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">本例中使用了最简单的方法来模拟掷骰子。<code>diceRoll</code> 的值并不是一个随机数，而是以 <code>0</code> 为初始值，之后每一次 <code>while</code> 循环，<code>diceRoll</code> 的值增加 1 ，然后检测是否超出了最大值。当 <code>diceRoll</code> 的值等于 7 时，就超过了骰子的最大值，会被重置为 <code>1</code>。所以 <code>diceRoll</code> 的取值顺序会一直是 <code>1</code>，<code>2</code>，<code>3</code>，<code>4</code>，<code>5</code>，<code>6</code>，<code>1</code>，<code>2</code> 等。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">掷完骰子后，玩家向前移动 <code>diceRoll</code> 个方格，如果玩家移动超过了第 25 个方格，这个时候游戏将会结束，为了应对这种情况，代码会首先判断 <code>square</code> 的值是否小于 <code>board</code> 的 <code>count</code> 属性，只有小于才会在 <code>board[square]</code> 上增加 <code>square</code>，来向前或向后移动（遇到了梯子或者蛇）。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">如果没有这个检测（<code>square &lt; board.count</code>），<code>board[square]</code> 可能会越界访问 <code>board</code> 数组，导致运行时错误。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当本轮 <code>while</code> 循环运行完毕，会再检测循环条件是否需要再运行一次循环。如果玩家移动到或者超过第 25 个方格，循环条件结果为 <code>false</code>，此时游戏结束。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>while</code> 循环比较适合本例中的这种情况，因为在 <code>while</code> 循环开始时，我们并不知道游戏要跑多久，只有在达成指定条件时循环才会结束。</span>
+</p>
+
+<h3 id="toc_4" class="h16"><span class="span_for_h">Repeat-While {#repeat-while}</span></h3>
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end"><code>while</code> 循环的另外一种形式是 <code>repeat-while</code>，它和 <code>while</code> 的区别是在判断循环条件之前，先执行一次循环的代码块。然后重复循环直到条件为 <code>false</code>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">Swift 语言的 <code>repeat-while</code> 循环和其他语言中的 <code>do-while</code> 循环是类似的。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面是 <code>repeat-while</code> 循环的一般格式：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">repeat</span> <span class="p">{</span>
+    <span class="n">statements</span>
+<span class="p">}</span> <span class="k">while</span> <span class="n">condition</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">还是<em class="md_patched_em">蛇和梯子</em>的游戏，使用 <code>repeat-while</code> 循环来替代 <code>while</code> 循环。<code>finalSquare</code>、<code>board</code>、<code>square</code> 和 <code>diceRoll</code> 的值初始化同 <code>while</code> 循环时一样：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">finalSquare</span> <span class="p">=</span> <span class="mi">25</span>
+<span class="kd">var</span> <span class="nv">board</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">](</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">finalSquare</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">board</span><span class="p">[</span><span class="mi">03</span><span class="p">]</span> <span class="p">=</span> <span class="o">+</span><span class="mi">08</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">06</span><span class="p">]</span> <span class="p">=</span> <span class="o">+</span><span class="mi">11</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">09</span><span class="p">]</span> <span class="p">=</span> <span class="o">+</span><span class="mi">09</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="p">=</span> <span class="o">+</span><span class="mi">02</span>
+<span class="n">board</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="p">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">19</span><span class="p">]</span> <span class="p">=</span> <span class="o">-</span><span class="mi">11</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">22</span><span class="p">]</span> <span class="p">=</span> <span class="o">-</span><span class="mi">02</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">24</span><span class="p">]</span> <span class="p">=</span> <span class="o">-</span><span class="mi">08</span>
+<span class="kd">var</span> <span class="nv">square</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="kd">var</span> <span class="nv">diceRoll</span> <span class="p">=</span> <span class="mi">0</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>repeat-while</code> 的循环版本，循环中<em class="md_patched_em">第一步</em>就需要去检测是否在梯子或者蛇的方块上。没有梯子会让玩家直接上到第 25 个方格，所以玩家不会通过梯子直接赢得游戏。这样在循环开始时先检测是否踩在梯子或者蛇上是安全的。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">游戏开始时，玩家在第 0 个方格上，<code>board[0]</code> 一直等于 0， 不会有什么影响：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">repeat</span> <span class="p">{</span>
+    <span class="c1">// 顺着梯子爬上去或者顺着蛇滑下去</span>
+    <span class="n">square</span> <span class="o">+=</span> <span class="n">board</span><span class="p">[</span><span class="n">square</span><span class="p">]</span>
+    <span class="c1">// 掷骰子</span>
+    <span class="n">diceRoll</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">diceRoll</span> <span class="p">==</span> <span class="mi">7</span> <span class="p">{</span> <span class="n">diceRoll</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">}</span>
+    <span class="c1">// 根据点数移动</span>
+    <span class="n">square</span> <span class="o">+=</span> <span class="n">diceRoll</span>
+<span class="p">}</span> <span class="k">while</span> <span class="n">square</span> <span class="o">&lt;</span> <span class="n">finalSquare</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;Game over!&quot;</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">检测完玩家是否踩在梯子或者蛇上之后，开始掷骰子，然后玩家向前移动 <code>diceRoll</code> 个方格，本轮循环结束。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">循环条件（<code>while square &lt; finalSquare</code>）和 <code>while</code> 方式相同，但是只会在循环结束后进行计算。在这个游戏中，<code>repeat-while</code> 表现得比 <code>while</code> 循环更好。<code>repeat-while</code> 方式会在条件判断 <code>square</code> 没有超出后直接运行 <code>square += board[square]</code>，这种方式可以比起前面 <code>while</code> 循环的版本，可以省去数组越界的检查。</span>
+</p>
+
+<h2 id="toc_5" class="h16"><span class="span_for_h">条件语句 {#conditional-statement}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">根据特定的条件执行特定的代码通常是十分有用的。当错误发生时，你可能想运行额外的代码；或者，当值太大或太小时，向用户显示一条消息。要实现这些功能，你就需要使用<em class="md_patched_em">条件语句</em>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 提供两种类型的条件语句：<code>if</code> 语句和 <code>switch</code> 语句。通常，当条件较为简单且可能的情况很少时，使用 <code>if</code> 语句。而 <code>switch</code> 语句更适用于条件较复杂、有更多排列组合的时候。并且 <code>switch</code> 在需要用到模式匹配（pattern-matching）的情况下会更有用。</span>
+</p>
+
+<h3 id="toc_6" class="h16"><span class="span_for_h">If {#if}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>if</code> 语句最简单的形式就是只包含一个条件，只有该条件为 <code>true</code> 时，才执行相关代码：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">temperatureInFahrenheit</span> <span class="p">=</span> <span class="mi">30</span>
+<span class="k">if</span> <span class="n">temperatureInFahrenheit</span> <span class="o">&lt;=</span> <span class="mi">32</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;It&#39;s very cold. Consider wearing a scarf.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“It&#39;s very cold. Consider wearing a scarf.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面的例子会判断温度是否小于等于 32 华氏度（水的冰点）。如果是，则打印一条消息；否则，不打印任何消息，继续执行 <code>if</code> 块后面的代码。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">当然，<code>if</code> 语句允许二选一执行，叫做 <code>else</code> 从句。也就是当条件为 <code>false</code> 时，执行 <em>else 语句</em>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">temperatureInFahrenheit</span> <span class="p">=</span> <span class="mi">40</span>
+<span class="k">if</span> <span class="n">temperatureInFahrenheit</span> <span class="o">&lt;=</span> <span class="mi">32</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;It&#39;s very cold. Consider wearing a scarf.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;It&#39;s not that cold. Wear a t-shirt.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“It&#39;s not that cold. Wear a t-shirt.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">显然，这两条分支中总有一条会被执行。由于温度已升至 40 华氏度，不算太冷，没必要再围围巾。因此，<code>else</code> 分支就被触发了。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以把多个 <code>if</code> 语句链接在一起，来实现更多分支：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">temperatureInFahrenheit</span> <span class="p">=</span> <span class="mi">90</span>
+<span class="k">if</span> <span class="n">temperatureInFahrenheit</span> <span class="o">&lt;=</span> <span class="mi">32</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;It&#39;s very cold. Consider wearing a scarf.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">temperatureInFahrenheit</span> <span class="o">&gt;=</span> <span class="mi">86</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;It&#39;s really warm. Don&#39;t forget to wear sunscreen.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;It&#39;s not that cold. Wear a t-shirt.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“It&#39;s really warm. Don&#39;t forget to wear sunscreen.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面的例子中，额外的 <code>if</code> 语句用于判断是不是特别热。而最后的 <code>else</code> 语句被保留了下来，用于打印既不冷也不热时的消息。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">实际上，当不需要完整判断情况的时候，最后的 <code>else</code> 语句是可选的：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">temperatureInFahrenheit</span> <span class="p">=</span> <span class="mi">72</span>
+<span class="k">if</span> <span class="n">temperatureInFahrenheit</span> <span class="o">&lt;=</span> <span class="mi">32</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;It&#39;s very cold. Consider wearing a scarf.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">temperatureInFahrenheit</span> <span class="o">&gt;=</span> <span class="mi">86</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;It&#39;s really warm. Don&#39;t forget to wear sunscreen.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在这个例子中，由于既不冷也不热，所以不会触发 <code>if</code> 或 <code>else if</code> 分支，也就不会打印任何消息。</span>
+</p>
+
+<h3 id="toc_7" class="h16"><span class="span_for_h">Switch {#switch}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>switch</code> 语句会尝试把某个值与若干个模式（pattern）进行匹配。根据第一个匹配成功的模式，<code>switch</code> 语句会执行对应的代码。当有可能的情况较多时，通常用 <code>switch</code> 语句替换 <code>if</code> 语句。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>switch</code> 语句最简单的形式就是把某个值与一个或若干个相同类型的值作比较：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">switch</span> <span class="n">some</span> <span class="n">value</span> <span class="n">to</span> <span class="n">consider</span> <span class="p">{</span>
+<span class="k">case</span> <span class="n">value</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">respond</span> <span class="n">to</span> <span class="n">value</span> <span class="mi">1</span>
+<span class="k">case</span> <span class="n">value</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">value</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">respond</span> <span class="n">to</span> <span class="n">value</span> <span class="mi">2</span> <span class="n">or</span> <span class="mi">3</span>
+<span class="k">default</span><span class="p">:</span>
+    <span class="n">otherwise</span><span class="p">,</span> <span class="k">do</span> <span class="n">something</span> <span class="k">else</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>switch</code> 语句由*多个 case* 构成，每个由 <code>case</code> 关键字开始。为了匹配某些更特定的值，Swift 提供了几种方法来进行更复杂的模式匹配，这些模式将在本节的稍后部分提到。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">与 <code>if</code> 语句类似，每一个 case 都是代码执行的一条分支。<code>switch</code> 语句会决定哪一条分支应该被执行，这个流程被称作根据给定的值<em class="md_patched_em">切换（switching）</em>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>switch</code> 语句必须是完备的。这就是说，每一个可能的值都必须至少有一个 case 分支与之对应。在某些不可能涵盖所有值的情况下，你可以使用默认（<code>default</code>）分支来涵盖其它所有没有对应的值，这个默认分支必须在 <code>switch</code> 语句的最后面。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子使用 <code>switch</code> 语句来匹配一个名为 <code>someCharacter</code> 的小写字符：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">someCharacter</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;z&quot;</span>
+<span class="k">switch</span> <span class="n">someCharacter</span> <span class="p">{</span>
+<span class="k">case</span> <span class="s">&quot;a&quot;</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The first letter of the alphabet&quot;</span><span class="p">)</span>
+<span class="k">case</span> <span class="s">&quot;z&quot;</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The last letter of the alphabet&quot;</span><span class="p">)</span>
+<span class="k">default</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Some other character&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“The last letter of the alphabet”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在这个例子中，第一个 case 分支用于匹配第一个英文字母 <code>a</code>，第二个 case 分支用于匹配最后一个字母 <code>z</code>。因为 <code>switch</code> 语句必须有一个 case 分支用于覆盖所有可能的字符，而不仅仅是所有的英文字母，所以 switch 语句使用 <code>default</code> 分支来匹配除了 <code>a</code> 和 <code>z</code> 外的所有值，这个分支保证了 switch 语句的完备性。</span>
+</p>
+
+<h4 id="toc_8" class="h16"><span class="span_for_h">不存在隐式的贯穿 {#no-implicit-fallthrough}</span></h4>
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">与 C 和 Objective-C 中的 <code>switch</code> 语句不同，在 Swift 中，当匹配的 case 分支中的代码执行完毕后，程序会终止 <code>switch</code> 语句，而不会继续执行下一个 case 分支。这也就是说，不需要在 case 分支中显式地使用 <code>break</code> 语句。这使得 <code>switch</code> 语句更安全、更易用，也避免了漏写 <code>break</code> 语句导致多个语言被执行的错误。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">虽然在 Swift 中 <code>break</code> 不是必须的，但你依然可以在 case 分支中的代码执行完毕前使用 <code>break</code> 跳出，详情请参见 <a class="md_compiled" href="#break-in-a-switch-statement">Switch 语句中的 break</a>。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">每一个 case 分支都<em class="md_patched_em">必须</em>包含至少一条语句。像下面这样书写代码是无效的，因为第一个 case 分支是空的：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">anotherCharacter</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;a&quot;</span>
+<span class="k">switch</span> <span class="n">anotherCharacter</span> <span class="p">{</span>
+<span class="k">case</span> <span class="s">&quot;a&quot;</span><span class="p">:</span> <span class="c1">// 无效，这个分支下面没有语句</span>
+<span class="k">case</span> <span class="s">&quot;A&quot;</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The letter A&quot;</span><span class="p">)</span>
+<span class="k">default</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Not the letter A&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 这段代码会报编译错误</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">不像 C 语言里的 <code>switch</code> 语句，在 Swift 中，<code>switch</code> 语句不会一起匹配 <code>"a"</code> 和 <code>"A"</code>。相反的，上面的代码会引起编译期错误：<code>case "a": 不包含任何可执行语句</code>——这就避免了意外地从一个 case 分支贯穿到另外一个，使得代码更安全、也更直观。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">为了让单个 case 同时匹配 <code>a</code> 和 <code>A</code>，可以将这个两个值组合成一个复合匹配，并且用逗号分开：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">anotherCharacter</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;a&quot;</span>
+<span class="k">switch</span> <span class="n">anotherCharacter</span> <span class="p">{</span>
+<span class="k">case</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;A&quot;</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The letter A&quot;</span><span class="p">)</span>
+<span class="k">default</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Not the letter A&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“The letter A”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">为了可读性，符合匹配可以写成多行形式，详情请参考 <a class="md_compiled" href="#compound-cases">复合匹配</a>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">如果想要显式贯穿 case 分支，请使用 <code>fallthrough</code> 语句，详情请参考 <a class="md_compiled" href="#fallthrough">贯穿</a>。</span>
+</p>
+
+</blockquote>
+<h4 id="toc_9" class="h16"><span class="span_for_h">区间匹配 {#interval-matching}</span></h4>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">case 分支的模式也可以是一个值的区间。下面的例子展示了如何使用区间匹配来输出任意数字对应的自然语言格式：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">approximateCount</span> <span class="p">=</span> <span class="mi">62</span>
+<span class="kd">let</span> <span class="nv">countedThings</span> <span class="p">=</span> <span class="s">&quot;moons orbiting Saturn&quot;</span>
+<span class="kd">let</span> <span class="nv">naturalCount</span><span class="p">:</span> <span class="nb">String</span>
+<span class="k">switch</span> <span class="n">approximateCount</span> <span class="p">{</span>
+<span class="k">case</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">naturalCount</span> <span class="p">=</span> <span class="s">&quot;no&quot;</span>
+<span class="k">case</span> <span class="mf">1.</span><span class="p">.&lt;</span><span class="mi">5</span><span class="p">:</span>
+    <span class="n">naturalCount</span> <span class="p">=</span> <span class="s">&quot;a few&quot;</span>
+<span class="k">case</span> <span class="mf">5.</span><span class="p">.&lt;</span><span class="mi">12</span><span class="p">:</span>
+    <span class="n">naturalCount</span> <span class="p">=</span> <span class="s">&quot;several&quot;</span>
+<span class="k">case</span> <span class="mf">12.</span><span class="p">.&lt;</span><span class="mi">100</span><span class="p">:</span>
+    <span class="n">naturalCount</span> <span class="p">=</span> <span class="s">&quot;dozens of&quot;</span>
+<span class="k">case</span> <span class="mf">100.</span><span class="p">.&lt;</span><span class="mi">1000</span><span class="p">:</span>
+    <span class="n">naturalCount</span> <span class="p">=</span> <span class="s">&quot;hundreds of&quot;</span>
+<span class="k">default</span><span class="p">:</span>
+    <span class="n">naturalCount</span> <span class="p">=</span> <span class="s">&quot;many&quot;</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;There are </span><span class="si">\(</span><span class="n">naturalCount</span><span class="si">)</span><span class="s"> </span><span class="si">\(</span><span class="n">countedThings</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="c1">// 输出“There are dozens of moons orbiting Saturn.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上例中，<code>approximateCount</code> 在一个 <code>switch</code> 声明中被评估。每一个 <code>case</code> 都与之进行比较。因为 <code>approximateCount</code> 落在了 12 到 100 的区间，所以 <code>naturalCount</code> 等于 <code>"dozens of"</code> 值，并且此后的执行跳出了 <code>switch</code> 语句。</span>
+</p>
+
+<h4 id="toc_10" class="h16"><span class="span_for_h">元组 {#tuples}</span></h4>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">我们可以使用元组在同一个 <code>switch</code> 语句中测试多个值。元组中的元素可以是值，也可以是区间。另外，使用下划线（<code>_</code>）来匹配所有可能的值。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子展示了如何使用一个 <code>(Int, Int)</code> 类型的元组来分类下图中的点 (x, y)：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">somePoint</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">switch</span> <span class="n">somePoint</span> <span class="p">{</span>
+<span class="k">case</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">somePoint</span><span class="si">)</span><span class="s"> is at the origin&quot;</span><span class="p">)</span>
+<span class="k">case</span> <span class="p">(</span><span class="kc">_</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">somePoint</span><span class="si">)</span><span class="s"> is on the x-axis&quot;</span><span class="p">)</span>
+<span class="k">case</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">_</span><span class="p">):</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">somePoint</span><span class="si">)</span><span class="s"> is on the y-axis&quot;</span><span class="p">)</span>
+<span class="k">case</span> <span class="p">(</span><span class="o">-</span><span class="mf">2.</span><span class="p">..</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span><span class="p">..</span><span class="mi">2</span><span class="p">):</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">somePoint</span><span class="si">)</span><span class="s"> is inside the box&quot;</span><span class="p">)</span>
+<span class="k">default</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">somePoint</span><span class="si">)</span><span class="s"> is outside of the box&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“(1, 1) is inside the box”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/coordinateGraphSimple_2x.png" alt="image" title="" ></span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面的例子中，<code>switch</code> 语句会判断某个点是否是原点 (0, 0)，是否在红色的 x 轴上，是否在橘黄色的 y 轴上，是否在一个以原点为中心的4x4的蓝色矩形里，或者在这个矩形外面。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">不像 C 语言，Swift 允许多个 case 匹配同一个值。实际上，在这个例子中，点 (0, 0)可以匹配所有_四个 case_。但是，如果存在多个匹配，那么只会执行第一个被匹配到的 case 分支。考虑点 (0, 0)会首先匹配 <code>case (0, 0)</code>，因此剩下的能够匹配的分支都会被忽视掉。</span>
+</p>
+
+<h4 id="toc_11" class="h16"><span class="span_for_h">值绑定（Value Bindings） {#value-bindings}</span></h4>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">case 分支允许将匹配的值声明为临时常量或变量，并且在 case 分支体内使用 —— 这种行为被称为<em class="md_patched_em">值绑定</em>（value binding），因为匹配的值在 case 分支体内，与临时的常量或变量绑定。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子将下图中的点 (x, y)，使用 <code>(Int, Int)</code> 类型的元组表示，然后分类表示：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">anotherPoint</span> <span class="p">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">switch</span> <span class="n">anotherPoint</span> <span class="p">{</span>
+<span class="k">case</span> <span class="p">(</span><span class="kd">let</span> <span class="nv">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;on the x-axis with an x value of </span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">case</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kd">let</span> <span class="nv">y</span><span class="p">):</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;on the y-axis with a y value of </span><span class="si">\(</span><span class="n">y</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">case</span> <span class="kd">let</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;somewhere else at (</span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">, </span><span class="si">\(</span><span class="n">y</span><span class="si">)</span><span class="s">)&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“on the x-axis with an x value of 2”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/coordinateGraphMedium_2x.png" alt="image" title="" ></span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面的例子中，<code>switch</code> 语句会判断某个点是否在红色的 x 轴上，是否在橘黄色的 y 轴上，或者不在坐标轴上。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这三个 case 都声明了常量 <code>x</code> 和 <code>y</code> 的占位符，用于临时获取元组 <code>anotherPoint</code> 的一个或两个值。第一个 case ——<code>case (let x, 0)</code> 将匹配一个纵坐标为 <code>0</code> 的点，并把这个点的横坐标赋给临时的常量 <code>x</code>。类似的，第二个 case ——<code>case (0, let y)</code> 将匹配一个横坐标为 <code>0</code> 的点，并把这个点的纵坐标赋给临时的常量 <code>y</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">一旦声明了这些临时的常量，它们就可以在其对应的 case 分支里使用。在这个例子中，它们用于打印给定点的类型。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">请注意，这个 <code>switch</code> 语句不包含默认分支。这是因为最后一个 case ——<code>case let(x, y)</code> 声明了一个可以匹配余下所有值的元组。这使得 <code>switch</code> 语句已经完备了，因此不需要再书写默认分支。</span>
+</p>
+
+<h4 id="toc_12" class="h16"><span class="span_for_h">Where {#where}</span></h4>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">case 分支的模式可以使用 <code>where</code> 语句来判断额外的条件。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子把下图中的点 (x, y)进行了分类：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">yetAnotherPoint</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">switch</span> <span class="n">yetAnotherPoint</span> <span class="p">{</span>
+<span class="k">case</span> <span class="kd">let</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">where</span> <span class="n">x</span> <span class="p">==</span> <span class="n">y</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;(</span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">, </span><span class="si">\(</span><span class="n">y</span><span class="si">)</span><span class="s">) is on the line x == y&quot;</span><span class="p">)</span>
+<span class="k">case</span> <span class="kd">let</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">where</span> <span class="n">x</span> <span class="p">==</span> <span class="o">-</span><span class="n">y</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;(</span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">, </span><span class="si">\(</span><span class="n">y</span><span class="si">)</span><span class="s">) is on the line x == -y&quot;</span><span class="p">)</span>
+<span class="k">case</span> <span class="kd">let</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;(</span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">, </span><span class="si">\(</span><span class="n">y</span><span class="si">)</span><span class="s">) is just some arbitrary point&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“(1, -1) is on the line x == -y”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/coordinateGraphComplex_2x.png" alt="image" title="" ></span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面的例子中，<code>switch</code> 语句会判断某个点是否在绿色的对角线 <code>x == y</code> 上，是否在紫色的对角线 <code>x == -y</code> 上，或者不在对角线上。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这三个 case 都声明了常量 <code>x</code> 和 <code>y</code> 的占位符，用于临时获取元组 <code>yetAnotherPoint</code> 的两个值。这两个常量被用作 <code>where</code> 语句的一部分，从而创建一个动态的过滤器（filter）。当且仅当 <code>where</code> 语句的条件为 <code>true</code> 时，匹配到的 case 分支才会被执行。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">就像是值绑定中的例子，由于最后一个 case 分支匹配了余下所有可能的值，<code>switch</code> 语句就已经完备了，因此不需要再书写默认分支。</span>
+</p>
+
+<h4 id="toc_13" class="h16"><span class="span_for_h">复合型 Cases {#compound-cases}</span></h4>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">当多个条件可以使用同一种方法来处理时，可以将这几种可能放在同一个 <code>case</code> 后面，并且用逗号隔开。当 case 后面的任意一种模式匹配的时候，这条分支就会被匹配。并且，如果匹配列表过长，还可以分行书写：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">someCharacter</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;e&quot;</span>
+<span class="k">switch</span> <span class="n">someCharacter</span> <span class="p">{</span>
+<span class="k">case</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">,</span> <span class="s">&quot;i&quot;</span><span class="p">,</span> <span class="s">&quot;o&quot;</span><span class="p">,</span> <span class="s">&quot;u&quot;</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">someCharacter</span><span class="si">)</span><span class="s"> is a vowel&quot;</span><span class="p">)</span>
+<span class="k">case</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;d&quot;</span><span class="p">,</span> <span class="s">&quot;f&quot;</span><span class="p">,</span> <span class="s">&quot;g&quot;</span><span class="p">,</span> <span class="s">&quot;h&quot;</span><span class="p">,</span> <span class="s">&quot;j&quot;</span><span class="p">,</span> <span class="s">&quot;k&quot;</span><span class="p">,</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="s">&quot;m&quot;</span><span class="p">,</span>
+     <span class="s">&quot;n&quot;</span><span class="p">,</span> <span class="s">&quot;p&quot;</span><span class="p">,</span> <span class="s">&quot;q&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">,</span> <span class="s">&quot;s&quot;</span><span class="p">,</span> <span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="s">&quot;v&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">,</span> <span class="s">&quot;y&quot;</span><span class="p">,</span> <span class="s">&quot;z&quot;</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">someCharacter</span><span class="si">)</span><span class="s"> is a consonant&quot;</span><span class="p">)</span>
+<span class="k">default</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">someCharacter</span><span class="si">)</span><span class="s"> is not a vowel or a consonant&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“e is a vowel”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个 <code>switch</code> 语句中的第一个 case，匹配了英语中的五个小写元音字母。相似的，第二个 case 匹配了英语中所有的小写辅音字母。最终，<code>default</code> 分支匹配了其它所有字符。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">复合匹配同样可以包含值绑定。复合匹配里所有的匹配模式，都必须包含相同的值绑定。并且每一个绑定都必须获取到相同类型的值。这保证了，无论复合匹配中的哪个模式发生了匹配，分支体内的代码，都能获取到绑定的值，并且绑定的值都有一样的类型。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">stillAnotherPoint</span> <span class="p">=</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">switch</span> <span class="n">stillAnotherPoint</span> <span class="p">{</span>
+<span class="k">case</span> <span class="p">(</span><span class="kd">let</span> <span class="nv">distance</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kd">let</span> <span class="nv">distance</span><span class="p">):</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;On an axis, </span><span class="si">\(</span><span class="bp">distance</span><span class="si">)</span><span class="s"> from the origin&quot;</span><span class="p">)</span>
+<span class="k">default</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Not on an axis&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“On an axis, 9 from the origin”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面的 case 有两个模式：<code>(let distance, 0)</code> 匹配了在 x 轴上的值，<code>(0, let distance)</code> 匹配了在 y 轴上的值。两个模式都绑定了 <code>distance</code>，并且 <code>distance</code> 在两种模式下，都是整型——这意味着分支体内的代码，只要 case 匹配，都可以获取到 <code>distance</code> 值。</span>
+</p>
+
+<h2 id="toc_14" class="h16"><span class="span_for_h">控制转移语句 {#control-transfer-statements}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">控制转移语句改变你代码的执行顺序，通过它可以实现代码的跳转。Swift 有五种控制转移语句：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span><code>continue</code></span></li>
+<li class="md_li"><span><code>break</code></span></li>
+<li class="md_li"><span><code>fallthrough</code></span></li>
+<li class="md_li"><span><code>return</code></span></li>
+<li class="md_li"><span><code>throw</code></span></li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">我们将会在下面讨论 <code>continue</code>、<code>break</code> 和 <code>fallthrough</code> 语句。<code>return</code> 语句将会在 <a class="md_compiled" href="./06_Functions.md">函数</a> 章节讨论，<code>throw</code> 语句会在 <a class="md_compiled" href="./18_Error_Handling.md#throwing-errors">错误抛出</a> 章节讨论。</span>
+</p>
+
+<h3 id="toc_15" class="h16"><span class="span_for_h">Continue {#continue}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>continue</code> 语句告诉一个循环体立刻停止本次循环，重新开始下次循环。就好像在说“本次循环我已经执行完了”，但是并不会离开整个循环体。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子把一个小写字符串中的元音字母和空格字符移除，生成了一个含义模糊的短句：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">puzzleInput</span> <span class="p">=</span> <span class="s">&quot;great minds think alike&quot;</span>
+<span class="kd">var</span> <span class="nv">puzzleOutput</span> <span class="p">=</span> <span class="s">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">character</span> <span class="k">in</span> <span class="n">puzzleInput</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="n">character</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">,</span> <span class="s">&quot;i&quot;</span><span class="p">,</span> <span class="s">&quot;o&quot;</span><span class="p">,</span> <span class="s">&quot;u&quot;</span><span class="p">,</span> <span class="s">&quot; &quot;</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="n">puzzleOutput</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">puzzleOutput</span><span class="p">)</span>
+    <span class="c1">// 输出“grtmndsthnklk”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面的代码中，只要匹配到元音字母或者空格字符，就调用 <code>continue</code> 语句，使本次循环结束，重新开始下次循环。这种行为使 <code>switch</code> 匹配到元音字母和空格字符时不做处理，而不是让每一个匹配到的字符都被打印。</span>
+</p>
+
+<h3 id="toc_16" class="h16"><span class="span_for_h">Break {#break}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>break</code> 语句会立刻结束整个控制流的执行。<code>break</code> 可以在 <code>switch</code> 或循环语句中使用，用来提前结束 <code>switch</code> 或循环语句。</span>
+</p>
+
+<h4 id="toc_17" class="h16"><span class="span_for_h">循环语句中的 break {#break-in-a-loop-statement}</span></h4>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当在一个循环体中使用 <code>break</code> 时，会立刻中断该循环体的执行，然后跳转到表示循环体结束的大括号（<code>}</code>）后的第一行代码。不会再有本次循环的代码被执行，也不会再有下次的循环产生。</span>
+</p>
+
+<h4 id="toc_18" class="h16"><span class="span_for_h">Switch 语句中的 break {#break-in-a-switch-statement}</span></h4>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当在一个 <code>switch</code> 代码块中使用 <code>break</code> 时，会立即中断该 <code>switch</code> 代码块的执行，并且跳转到表示 <code>switch</code> 代码块结束的大括号（<code>}</code>）后的第一行代码。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">这种特性可以被用来匹配或者忽略一个或多个分支。因为 Swift 的 <code>switch</code> 需要包含所有的分支而且不允许有为空的分支，有时为了使你的意图更明显，需要特意匹配或者忽略某个分支。那么当你想忽略某个分支时，可以在该分支内写上 <code>break</code> 语句。当那个分支被匹配到时，分支内的 <code>break</code> 语句立即结束 <code>switch</code> 代码块。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">当一个 <code>switch</code> 分支仅仅包含注释时，会被报编译时错误。注释不是代码语句而且也不能让 <code>switch</code> 分支达到被忽略的效果。你应该使用 <code>break</code> 来忽略某个分支。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子通过 <code>switch</code> 来判断一个 <code>Character</code> 值是否代表下面四种语言之一。为了简洁，多个值被包含在了同一个分支情况中。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">numberSymbol</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;三&quot;</span>  <span class="c1">// 简体中文里的数字 3</span>
+<span class="kd">var</span> <span class="nv">possibleIntegerValue</span><span class="p">:</span> <span class="nb">Int</span><span class="p">?</span>
+<span class="k">switch</span> <span class="n">numberSymbol</span> <span class="p">{</span>
+<span class="k">case</span> <span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="s">&quot;١&quot;</span><span class="p">,</span> <span class="s">&quot;一&quot;</span><span class="p">,</span> <span class="s">&quot;๑&quot;</span><span class="p">:</span>
+    <span class="n">possibleIntegerValue</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="k">case</span> <span class="s">&quot;2&quot;</span><span class="p">,</span> <span class="s">&quot;٢&quot;</span><span class="p">,</span> <span class="s">&quot;二&quot;</span><span class="p">,</span> <span class="s">&quot;๒&quot;</span><span class="p">:</span>
+    <span class="n">possibleIntegerValue</span> <span class="p">=</span> <span class="mi">2</span>
+<span class="k">case</span> <span class="s">&quot;3&quot;</span><span class="p">,</span> <span class="s">&quot;٣&quot;</span><span class="p">,</span> <span class="s">&quot;三&quot;</span><span class="p">,</span> <span class="s">&quot;๓&quot;</span><span class="p">:</span>
+    <span class="n">possibleIntegerValue</span> <span class="p">=</span> <span class="mi">3</span>
+<span class="k">case</span> <span class="s">&quot;4&quot;</span><span class="p">,</span> <span class="s">&quot;٤&quot;</span><span class="p">,</span> <span class="s">&quot;四&quot;</span><span class="p">,</span> <span class="s">&quot;๔&quot;</span><span class="p">:</span>
+    <span class="n">possibleIntegerValue</span> <span class="p">=</span> <span class="mi">4</span>
+<span class="k">default</span><span class="p">:</span>
+    <span class="k">break</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">integerValue</span> <span class="p">=</span> <span class="n">possibleIntegerValue</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The integer value of </span><span class="si">\(</span><span class="n">numberSymbol</span><span class="si">)</span><span class="s"> is </span><span class="si">\(</span><span class="n">integerValue</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;An integer value could not be found for </span><span class="si">\(</span><span class="n">numberSymbol</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“The integer value of 三 is 3.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个例子检查 <code>numberSymbol</code> 是否是拉丁，阿拉伯，中文或者泰语中的 <code>1</code> 到 <code>4</code> 之一。如果被匹配到，该 <code>switch</code> 分支语句给 <code>Int?</code> 类型变量 <code>possibleIntegerValue</code> 设置一个整数值。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当 <code>switch</code> 代码块执行完后，接下来的代码通过使用可选绑定来判断 <code>possibleIntegerValue</code> 是否曾经被设置过值。因为是可选类型的缘故，<code>possibleIntegerValue</code> 有一个隐式的初始值 <code>nil</code>，所以仅仅当 <code>possibleIntegerValue</code> 曾被 <code>switch</code> 代码块的前四个分支中的某个设置过一个值时，可选的绑定才会被判定为成功。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面的例子中，想要把 <code>Character</code> 所有的的可能性都枚举出来是不现实的，所以使用 <code>default</code> 分支来包含所有上面没有匹配到字符的情况。由于这个 <code>default</code> 分支不需要执行任何动作，所以它只写了一条 <code>break</code> 语句。一旦落入到 <code>default</code> 分支中后，<code>break</code> 语句就完成了该分支的所有代码操作，代码继续向下，开始执行 <code>if let</code> 语句。</span>
+</p>
+
+<h3 id="toc_19" class="h16"><span class="span_for_h">贯穿（Fallthrough） {#fallthrough}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在 Swift 里，<code>switch</code> 语句不会从上一个 case 分支跳转到下一个 case 分支中。相反，只要第一个匹配到的 case 分支完成了它需要执行的语句，整个 <code>switch</code> 代码块完成了它的执行。相比之下，C 语言要求你显式地插入 <code>break</code> 语句到每个 case 分支的末尾来阻止自动落入到下一个 case 分支中。Swift 的这种避免默认落入到下一个分支中的特性意味着它的 <code>switch</code> 功能要比 C 语言的更加清晰和可预测，可以避免无意识地执行多个 case 分支从而引发的错误。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你确实需要 C 风格的贯穿的特性，你可以在每个需要该特性的 case 分支中使用 <code>fallthrough</code> 关键字。下面的例子使用 <code>fallthrough</code> 来创建一个数字的描述语句。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">integerToDescribe</span> <span class="p">=</span> <span class="mi">5</span>
+<span class="kd">var</span> <span class="nv">description</span> <span class="p">=</span> <span class="s">&quot;The number </span><span class="si">\(</span><span class="n">integerToDescribe</span><span class="si">)</span><span class="s"> is&quot;</span>
+<span class="k">switch</span> <span class="n">integerToDescribe</span> <span class="p">{</span>
+<span class="k">case</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">:</span>
+    <span class="n">description</span> <span class="o">+=</span> <span class="s">&quot; a prime number, and also&quot;</span>
+    <span class="k">fallthrough</span>
+<span class="k">default</span><span class="p">:</span>
+    <span class="n">description</span> <span class="o">+=</span> <span class="s">&quot; an integer.&quot;</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+<span class="c1">// 输出“The number 5 is a prime number, and also an integer.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个例子定义了一个 <code>String</code> 类型的变量 <code>description</code> 并且给它设置了一个初始值。函数使用 <code>switch</code> 逻辑来判断 <code>integerToDescribe</code> 变量的值。当 <code>integerToDescribe</code> 的值属于列表中的质数之一时，该函数在 <code>description</code> 后添加一段文字，来表明这个数字是一个质数。然后它使用 <code>fallthrough</code> 关键字来“贯穿”到 <code>default</code> 分支中。<code>default</code> 分支在 <code>description</code> 的最后添加一段额外的文字，至此 <code>switch</code> 代码块执行完了。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果 <code>integerToDescribe</code> 的值不属于列表中的任何质数，那么它不会匹配到第一个 <code>switch</code> 分支。而这里没有其他特别的分支情况，所以 <code>integerToDescribe</code> 匹配到 <code>default</code> 分支中。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">当 <code>switch</code> 代码块执行完后，使用 <code>print(_:separator:terminator:)</code> 函数打印该数字的描述。在这个例子中，数字 <code>5</code> 被准确的识别为了一个质数。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end"><code>fallthrough</code> 关键字不会检查它下一个将会落入执行的 case 中的匹配条件。<code>fallthrough</code> 简单地使代码继续连接到下一个 case 中的代码，这和 C 语言标准中的 <code>switch</code> 语句特性是一样的。</span>
+</p>
+
+</blockquote>
+<h3 id="toc_20" class="h16"><span class="span_for_h">带标签的语句 {#labeled-statements}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在 Swift 中，你可以在循环体和条件语句中嵌套循环体和条件语句来创造复杂的控制流结构。并且，循环体和条件语句都可以使用 <code>break</code> 语句来提前结束整个代码块。因此，显式地指明 <code>break</code> 语句想要终止的是哪个循环体或者条件语句，会很有用。类似地，如果你有许多嵌套的循环体，显式指明 <code>continue</code> 语句想要影响哪一个循环体也会非常有用。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">为了实现这个目的，你可以使用标签（<em class="md_patched_em">statement label</em>）来标记一个循环体或者条件语句，对于一个条件语句，你可以使用 <code>break</code> 加标签的方式，来结束这个被标记的语句。对于一个循环语句，你可以使用 <code>break</code> 或者 <code>continue</code> 加标签，来结束或者继续这条被标记语句的执行。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">声明一个带标签的语句是通过在该语句的关键词的同一行前面放置一个标签，作为这个语句的前导关键字（introducor keyword），并且该标签后面跟随一个冒号。下面是一个针对 <code>while</code> 循环体的标签语法，同样的规则适用于所有的循环体和条件语句。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span> <span class="n">label</span> <span class="n">name</span><span class="p">:</span> <span class="k">while</span> <span class="n">condition</span> <span class="p">{</span>
+     <span class="n">statements</span>
+ <span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">下面的例子是前面章节中<em class="md_patched_em">蛇和梯子</em>的适配版本，在此版本中，我们将使用一个带有标签的 <code>while</code> 循环体中调用 <code>break</code> 和 <code>continue</code> 语句。这次，游戏增加了一条额外的规则：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>为了获胜，你必须<em class="md_patched_em">刚好</em>落在第 25 个方块中。
+</span></li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果某次掷骰子使你的移动超出第 25 个方块，你必须重新掷骰子，直到你掷出的骰子数刚好使你能落在第 25 个方块中。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">游戏的棋盘和之前一样：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/snakesAndLadders_2x.png" alt="image" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>finalSquare</code>、<code>board</code>、<code>square</code> 和 <code>diceRoll</code> 值被和之前一样的方式初始化：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">finalSquare</span> <span class="p">=</span> <span class="mi">25</span>
+<span class="kd">var</span> <span class="nv">board</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">](</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">finalSquare</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">board</span><span class="p">[</span><span class="mi">03</span><span class="p">]</span> <span class="p">=</span> <span class="o">+</span><span class="mi">08</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">06</span><span class="p">]</span> <span class="p">=</span> <span class="o">+</span><span class="mi">11</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">09</span><span class="p">]</span> <span class="p">=</span> <span class="o">+</span><span class="mi">09</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="p">=</span> <span class="o">+</span><span class="mi">02</span>
+<span class="n">board</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="p">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">19</span><span class="p">]</span> <span class="p">=</span> <span class="o">-</span><span class="mi">11</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">22</span><span class="p">]</span> <span class="p">=</span> <span class="o">-</span><span class="mi">02</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="mi">24</span><span class="p">]</span> <span class="p">=</span> <span class="o">-</span><span class="mi">08</span>
+<span class="kd">var</span> <span class="nv">square</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="kd">var</span> <span class="nv">diceRoll</span> <span class="p">=</span> <span class="mi">0</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个版本的游戏使用 <code>while</code> 循环和 <code>switch</code> 语句来实现游戏的逻辑。<code>while</code> 循环有一个标签名 <code>gameLoop</code>，来表明它是游戏的主循环。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">该 <code>while</code> 循环体的条件判断语句是 <code>while square !=finalSquare</code>，这表明你必须刚好落在方格25中。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">gameLoop</span><span class="p">:</span> <span class="k">while</span> <span class="n">square</span> <span class="o">!=</span> <span class="n">finalSquare</span> <span class="p">{</span>
+    <span class="n">diceRoll</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">diceRoll</span> <span class="p">==</span> <span class="mi">7</span> <span class="p">{</span> <span class="n">diceRoll</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">}</span>
+    <span class="k">switch</span> <span class="n">square</span> <span class="o">+</span> <span class="n">diceRoll</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">finalSquare</span><span class="p">:</span>
+        <span class="c1">// 骰子数刚好使玩家移动到最终的方格里，游戏结束。</span>
+        <span class="k">break</span> <span class="n">gameLoop</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="nv">newSquare</span> <span class="k">where</span> <span class="n">newSquare</span> <span class="o">&gt;</span> <span class="n">finalSquare</span><span class="p">:</span>
+        <span class="c1">// 骰子数将会使玩家的移动超出最后的方格，那么这种移动是不合法的，玩家需要重新掷骰子</span>
+        <span class="k">continue</span> <span class="n">gameLoop</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="c1">// 合法移动，做正常的处理</span>
+        <span class="n">square</span> <span class="o">+=</span> <span class="n">diceRoll</span>
+        <span class="n">square</span> <span class="o">+=</span> <span class="n">board</span><span class="p">[</span><span class="n">square</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;Game over!&quot;</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">每次循环迭代开始时掷骰子。与之前玩家掷完骰子就立即移动不同，这里使用了 <code>switch</code> 语句来考虑每次移动可能产生的结果，从而决定玩家本次是否能够移动。</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>如果骰子数刚好使玩家移动到最终的方格里，游戏结束。<code>break gameLoop</code> 语句跳转控制去执行 <code>while</code> 循环体后的第一行代码，意味着游戏结束。
+
+</span></li>
+<li class="md_li"><span>如果骰子数将会使玩家的移动超出最后的方格，那么这种移动是不合法的，玩家需要重新掷骰子。<code>continue gameLoop</code> 语句结束本次 <code>while</code> 循环，开始下一次循环。
+
+</span></li>
+<li class="md_li"><span>在剩余的所有情况中，骰子数产生的都是合法的移动。玩家向前移动 <code>diceRoll</code> 个方格，然后游戏逻辑再处理玩家当前是否处于蛇头或者梯子的底部。接着本次循环结束，控制跳转到 <code>while</code> 循环体的条件判断语句处，再决定是否需要继续执行下次循环。
+
+</span></li>
+</ul>
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line">如果上述的 <code>break</code> 语句没有使用 <code>gameLoop</code> 标签，那么它将会中断 <code>switch</code> 语句而不是 <code>while</code> 循环。使用 <code>gameLoop</code> 标签清晰的表明了 <code>break</code> 想要中断的是哪个代码块。<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">同时请注意，当调用 <code>continue gameLoop</code> 去跳转到下一次循环迭代时，这里使用 <code>gameLoop</code> 标签并不是严格必须的。因为在这个游戏中，只有一个循环体，所以 <code>continue</code> 语句会影响到哪个循环体是没有歧义的。然而，<code>continue</code> 语句使用 <code>gameLoop</code> 标签也是没有危害的。这样做符合标签的使用规则，同时参照旁边的 <code>break gameLoop</code>，能够使游戏的逻辑更加清晰和易于理解。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_21" class="h16"><span class="span_for_h">提前退出 {#early-exit}</span></h2>
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">像 <code>if</code> 语句一样，<code>guard</code> 的执行取决于一个表达式的布尔值。我们可以使用 <code>guard</code> 语句来要求条件必须为真时，以执行 <code>guard</code> 语句后的代码。不同于 <code>if</code> 语句，一个 <code>guard</code> 语句总是有一个 <code>else</code> 从句，如果条件不为真则执行 <code>else</code> 从句中的代码。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">greet</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">String</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="n">person</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Hello </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">!&quot;</span><span class="p">)</span>
+
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">location</span> <span class="p">=</span> <span class="n">person</span><span class="p">[</span><span class="s">&quot;location&quot;</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;I hope the weather is nice near you.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;I hope the weather is nice in </span><span class="si">\(</span><span class="n">location</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">greet</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;John&quot;</span><span class="p">])</span>
+<span class="c1">// 输出“Hello John!”</span>
+<span class="c1">// 输出“I hope the weather is nice near you.”</span>
+<span class="n">greet</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Jane&quot;</span><span class="p">,</span> <span class="s">&quot;location&quot;</span><span class="p">:</span> <span class="s">&quot;Cupertino&quot;</span><span class="p">])</span>
+<span class="c1">// 输出“Hello Jane!”</span>
+<span class="c1">// 输出“I hope the weather is nice in Cupertino.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果 <code>guard</code> 语句的条件被满足，则继续执行 <code>guard</code> 语句大括号后的代码。将变量或者常量的可选绑定作为 <code>guard</code> 语句的条件，都可以保护 <code>guard</code> 语句后面的代码。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果条件不被满足，在 <code>else</code> 分支上的代码就会被执行。这个分支必须转移控制以退出 <code>guard</code> 语句出现的代码段。它可以用控制转移语句如 <code>return</code>、<code>break</code>、<code>continue</code> 或者 <code>throw</code> 做这件事，或者调用一个不返回的方法或函数，例如 <code>fatalError()</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">相比于可以实现同样功能的 <code>if</code> 语句，按需使用 <code>guard</code> 语句会提升我们代码的可读性。它可以使你的代码连贯的被执行而不需要将它包在 <code>else</code> 块中，它可以使你在紧邻条件判断的地方，处理违规的情况。</span>
+</p>
+
+<h2 id="toc_22" class="h16"><span class="span_for_h">检测 API 可用性 {#checking-api-availability}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 内置支持检查 API 可用性，这可以确保我们不会在当前部署机器上，不小心地使用了不可用的 API。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">编译器使用 SDK 中的可用信息来验证我们的代码中使用的所有 API 在项目指定的部署目标上是否可用。如果我们尝试使用一个不可用的 API，Swift 会在编译时报错。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">我们在 <code>if</code> 或 <code>guard</code> 语句中使用 <code>可用性条件（availability condition)</code>去有条件的执行一段代码，来在运行时判断调用的 API 是否可用。编译器使用从可用性条件语句中获取的信息去验证，在这个代码块中调用的 API 是否可用。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="cp">#available</span><span class="p">(</span><span class="cp">iOS</span> <span class="mi">10</span><span class="p">,</span> <span class="cp">macOS</span> <span class="mf">10.12</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 在 iOS 使用 iOS 10 的 API, 在 macOS 使用 macOS 10.12 的 API</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// 使用先前版本的 iOS 和 macOS 的 API</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">以上可用性条件指定，<code>if</code> 语句的代码块仅仅在 iOS 10 或 macOS 10.12 及更高版本才运行。最后一个参数，<code>&#42;</code>，是必须的，用于指定在所有其它平台中，如果版本号高于你的设备指定的最低版本，if 语句的代码块将会运行。</span>
+</p>
+
+
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start md_line_end">在它一般的形式中，可用性条件使用了一个平台名字和版本的列表。平台名字可以是 <code>iOS</code>，<code>macOS</code>，<code>watchOS</code> 和 <code>tvOS</code>——请访问 <a class="md_compiled" href="../03_language_reference/06_Attributes.html">声明属性</a> 来获取完整列表。除了指定像 iOS 8 或 macOS 10.10 的大版本号，也可以指定像 iOS 11.2.6 以及 macOS 10.13.3 的小版本号。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="cp">#available</span><span class="p">(</span><span class="err">平台名称</span> <span class="err">版本号</span><span class="p">,</span> <span class="p">...,</span> <span class="o">*</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">APIs</span> <span class="err">可用，语句将执行</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">APIs</span> <span class="err">不可用，语句将不执行</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+        </div>
+    </div>
+    <!--mathjax-->
+    <!--mermaid-->
+</body>
+</html>

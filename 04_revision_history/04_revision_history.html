@@ -1,0 +1,755 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>Swift 文档修订历史</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">Swift 文档修订历史</span></h1>
+<h3 id="toc_1" class="h16"><span class="span_for_h">2019-09-10</span></h3>
+
+<ul>
+<li class="md_li"><span>更新至 Swift 5.1。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/27_Opaque_Types.md">不透明类型</a> 篇章中新增了有关函数返回值遵循指定协议，而不需要提供指定返回类型的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/10_Properties.md#property-wrappers">属性包装器</a> 章节中新增了有关属性包装器的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#frozen">冻结</a> 章节中新增了有关因库演变而需要的枚举和结构体冻结。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/06_Functions.md#functions-with-an-implicit-return">隐式返回的函数</a> 和 <a class="md_compiled" href="../02_language_guide/10_Properties.md#shorthand-getter-declaration">简化 Getter 声明</a> 章节，其中包含函数省略 <code>return</code> 的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/12_Subscripts.md#type-subscripts">类型下标</a> 章节中新增了有关在类型中使用下标的内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/08_Patterns.md#enumeration-case-pattern">枚举 Case 模式匹配</a> 章节，现在枚举 case 模式匹配支持匹配可选值。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/14_Initialization.md#memberwise-initializers-for-structure-types">结构体的逐一成员构造器</a> 章节，现在逐一成员构造器支持在属性有默认值时省略形参。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#dynamicmemberlookup">动态查找成员</a> 章节中新增了有关在运行时用 key path 查找动态成员的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/05_Statements.md#Conditional-Compilation-Block">条件编译代码块</a> 中的目标环境里添加了 <code>macCatalyst</code>。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/03_Types.md#self-type-h">自身类型</a> 章节，现在 <code>Self</code> 可以指向当前类，结构体或者枚举声明时的类型。
+
+</span></li>
+</ul>
+<h3 id="toc_2" class="h16"><span class="span_for_h">2019-03-25</span></h3>
+
+<ul>
+<li class="md_li"><span>更新至 Swift 5。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/03_Strings_And_Characters.md#extended-string-delimiters">拓展字符串分隔符</a> 章节。更新 <a class="md_compiled" href="../03-language-reference/03-Lexical-Structure.md#string-literal">字符串字面量</a> 章节，拓展有关字符串分隔符的内容。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#dynamiccallable">动态调用</a> 章节，其中包含使用 <code>dynamicCallable</code> 属性动态调用实例作为函数的内容。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#unknown">unknown</a> 和 <a class="md_compiled" href="../03-language-reference/05-Statements.md#future-case2">未来枚举匹配</a> 章节，其中包含了使用 <code>unknown</code> 来处理未来枚举可能发生改变的情形。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/04_Expressions.md#key-path-expression">Key-Path 表达式</a> 章节新增了有关标示 key path (\.self) 的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/05_Statements.md#Conditional-Compilation-Block">可选编译块</a> 章节新增了有关小于比较符 <code>&lt;</code> 的内容。
+
+</span></li>
+</ul>
+<h3 id="toc_3" class="h16"><span class="span_for_h">2018-09-17</span></h3>
+
+<ul>
+<li class="md_li"><span>更新至 Swift 4.2。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/08_Enumerations.md#iterating-over-enumeration-cases">遍历枚举情形</a> 章节新增了有关访问所有枚举情形的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/05_Statements.md#compile-time-diagnostic-statement">编译诊断</a> 章节新增了有关 <code>#error</code> 和 <code>#warning</code> 的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#Ideclaration-attributes">属性声明</a> 章节中新增了有关 <code>inlinable</code> 和 <code>usableFromInline</code> 属性的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#Ideclaration-attributes">属性声明</a> 章节中新增了有关 <code>requires-stored-property-inits</code> 和 <code>warn-unqualified-access</code> 属性的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/05_Statements.md#Conditional-Compilation-Block">可选编译块</a> 章节新增了有关如何根据 Swift 编译器版本对代码进行对应编译处理的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/04_Expressions.md#literal-expression">字面量语法</a> 章节新增了有关 <code>#dsohandle</code> 的内容。
+
+</span></li>
+</ul>
+<h3 id="toc_4" class="h16"><span class="span_for_h">2018-03-29</span></h3>
+
+<ul>
+<li class="md_li"><span>更新至 Swift 4.1。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/27_Advanced_Operators.md#equivalence-operators">等价运算符</a> 章节新增了有关等价运算符的合成实现的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/06_Declarations.md">声明</a> 篇章中 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#extension-declaration">申明拓展</a> 章节和 <a class="md_compiled" href="../02-language-guide/21-Protocols.md">协议</a> 篇章中 <a class="md_compiled" href="../02-language-guide/21-Protocols.md#Conditionally-Conforming-to-a-Protocol">有条件地遵循协议</a> 章节新增了有关协议有条件遵循的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/22_Generics.md#using-a-protocol-in-its-associated-types-constraints">关联类型约束中使用协议</a> 章节中新增了有关递归协议约束的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/05_Statements.md#Conditional-Compilation-Block">条件编译块</a> 章节中新增了有关 <code>canImport()</code> 和 <code>targetEnvironment()</code> 平台条件的内容。
+
+</span></li>
+</ul>
+<h3 id="toc_5" class="h16"><span class="span_for_h">2017-12-04</span></h3>
+
+<ul>
+<li class="md_li"><span>更新至 Swift 4.0.3。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/04_Expressions.md#key-path-expression">Key-Path 表达式</a> 章节，现在 key path 支持下标子路径。
+
+</span></li>
+</ul>
+<h3 id="toc_6" class="h16"><span class="span_for_h">2017-09-19</span></h3>
+
+<ul>
+<li class="md_li"><span>更新至 Swift 4.0。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/24_MemorySafety.md">内存安全</a> 章节新增了有关内存互斥访问的内容。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/22_Generics.md#associated-types-with-a-generic-where-clause">带有泛型 Where 子句联类型</a> 章节，现在可以使用泛型 <code>where</code> 子句约束关联类型。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/03_Strings_And_Characters.md">字符串和字符</a> 篇章中 <a class="md_compiled" href="../02_language_guide/03_Strings_And_Characters.md#string-literals">字面量</a> 章节以及 <a class="md_compiled" href="../03-language-reference/02-Lexical-Structure.md">词法结构</a> 篇章的 <a class="md_compiled" href="../03-language-reference/02-Lexical-Structure.md#string-literal">字符串字面量</a> 章节中新增了有关多行字符串字面量的内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#Ideclaration-attributes">声明属性</a> 中 <code>objc</code> 属性的讨论，现在该属性会在更少的位置被推断出来。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/22_Generics.md#generic-subscripts">范型下标</a> 章节，现在下标也支持范型特性了。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/21_Protocols.md">协议</a> 篇章中 <a class="md_compiled" href="../02_language_guide/21_Protocols.md#protocol-composition">协议组合</a> 章节和 <a class="md_compiled" href="../03-language-reference/03-Types.md">类型</a> 篇章中 <a class="md_compiled" href="../03-language-reference/03-Types.md#protocol-composition-type-h">协议组合类型</a> 章节的讨论，现在协议组合类型支持进行父类约束了。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#extension-declaration">拓展声明</a> 中有关协议扩展的讨论，现在它们不支持 <code>final</code> 特性了。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/01_TheBasics.md#assertions-and-preconditions">断言和前置条件</a> 章节中新增了部分前置条件和致命错误的内容。
+
+</span></li>
+</ul>
+<h3 id="toc_7" class="h16"><span class="span_for_h">2017-03-27</span></h3>
+
+<ul>
+<li class="md_li"><span>更新至 Swift 3.1。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/22_Generics.md#extensions-with-a-generic-where-clause">范型 Where 子句扩展</a> 章节，包含需要的扩展内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/05_Control_Flow.md#for-in-loops">For-In 循环</a> 章节中新增了区间迭代的例子。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="http://typora-app/02_language_guide/14_Initialization.md#failable-initializers">到可失败构造器</a> 章节中新增了可失败数值转换的例子。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#Ideclaration-attributes">声明特性</a> 章节中新增了有关使用 Swift 语言版本的 <code>available</code> 特性的内容 。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/03_Types.md#function-type-h">函数类型</a> 章节中的讨论，注意在写函数类型时不允许使用参数标签。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/05_Statements.md#Conditional-Compilation-Block">条件编译块</a> 章节中的 Swift 语言版本号的讨论，现在可以使用可选的补丁版本号。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/03_Types.md#function-type-h">函数类型</a> 章节的讨论，现在 Swift 区分了采用多参数的函数和采用元组类型的单个参数的函数。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/04_Expressions.md">表达式</a> 篇章中删除了动态表达式的章节，现在 <code>type(of:)</code> 是 Swift 标准库函数。        
+
+</span></li>
+</ul>
+<h3 id="toc_8" class="h16"><span class="span_for_h">2016-10-27</span></h3>
+
+<ul>
+<li class="md_li"><span>更新至 Swift 3.0.1。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/24_Automatic_Reference_Counting.md">自动引用计数</a> 章节中有关 weak 和 unowned 引用的讨论。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#declaration-modifiers">声明标识符</a> 章节中新增了有关新的标识符 <code>unowned</code>，<code>unowend(safe)</code> 和 <code>unowned(unsafe)</code> 的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/18_Type_Casting.md#type-casting-for-any-and-anyobject">Any 和 AnyObject 的类型转换</a> 章节中新增了一处说明，有关使用类型 <code>Any</code> 作为可选值。               
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/04_Expressions.md">表达式</a> 章节，把括号表达式和元组表达式的描述分开。
+
+</span></li>
+</ul>
+<h3 id="toc_9" class="h16"><span class="span_for_h">2016-09-13</span></h3>
+
+<ul>
+<li class="md_li"><span>更新至 Swift 3.0。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/06_Functions.md">函数</a> 篇章和 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#function-declaration">函数声明</a> 章节中有关函数的讨论，所有函数参数默认都有函数标签。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/27_Advanced_Operators.md">高级操作符</a> 篇章中有关操作符的讨论，现在你可以作为类型函数来实现，替代之前的全局函数实现方式。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/26_Access_Control.md">访问控制</a> 章节中新增有关对新的访问级别描述符 <code>open</code> 和 <code>fileprivate</code> 的内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#function-declaration">函数声明</a> 章节中有关 <code>inout</code> 的讨论，注意它现在出现在参数类型的前面，而不是在参数名称的前面。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/07_Closures.md#escaping-closures">逃逸闭包</a> 和 <a class="md_compiled" href="../02-language-guide/07-Closures.md#autoclosures">自动闭包</a> 章节还有 <a class="md_compiled" href="../03-language-reference/07-Attributes.md">属性</a> 篇章中有关 <code>@noescape</code> 和 <code>@autoclosure</code> 的讨论，现在他们是类型属性，而不是定义属性。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/27_Advanced_Operators.md">高级操作符</a> 篇章中 <a class="md_compiled" href="./02_language_guide/27_Advanced_Operators.md#precedence-and-associativity-for-custom-infix-operators">自定义中缀操作符的优先级</a> 章节和 <a class="md_compiled" href="../03-language-reference/06-Declarations.md">定义</a> 篇章中 <a class="md_compiled" href="../03-language-reference/06-Declarations.md#precedence-group-declaration-modifiers">优先级组声明</a> 章节中新增了有关操作符优先级组的内容。
+
+</span></li>
+<li class="md_li"><span>更新一些讨论，使用 macOS 替换掉 OS X， Error 替换掉 ErrorProtocol。更新一些协议名称，比如使用 ExpressibleByStringLiteral 替换掉 StringLiteralConvertible。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/22_Generics.md">泛型</a> 篇章中 <a class="md_compiled" href="../02_language_guide/22_Generics.md#extensions-with-a-generic-where-clause">泛型 Where 语句</a> 章节和 <a class="md_compiled" href="../03-language-reference/09-Generic-Parameters-And-Arguments.md">泛型形参和实参</a> 篇章的讨论，现在泛型的 where 语句写在一个声明的最后。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/07_Closures.md#escaping-closures">逃逸闭包</a> 章节中的讨论，现在闭包默认为非逃逸的。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/01_TheBasics.md">基础部分</a> 篇章中 <a class="md_compiled" href="../02_language_guide/01_TheBasics.md#optional-binding">可选绑定</a> 章节和 <a class="md_compiled" href="../03-language-reference/05-Statements.md">语句</a> 篇章中 <a class="md_compiled" href="../03-language-reference/05-Statements.md#while-statement">While 语句</a> 章节中的讨论，现在 if，<code>while</code> 和 <code>guard</code> 语句使用逗号分隔条件列表，不需要使用 <code>where</code> 语句。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/05_Control_Flow.md">控制流</a> 篇章中 <a class="md_compiled" href="../02_language_guide/05_Control_Flow.md#switch">Switch</a> 章节和 <a class="md_compiled" href="../03-language-reference/05-Statements.md">语句</a> 篇章中 <a class="md_compiled" href="../03-language-reference/05-Statements.md#switch-statement">Switch 语句</a> 章节中新增了 switch cases 可以使用多模式的内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/03_Types.md#function-type-h">函数类型</a> 章节有关现在函数参数标签不包含在函数类型中的讨论。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/21_Protocols.md">协议</a> 篇章中 <a class="md_compiled" href="../02_language_guide/21_Protocols.md#protocol-composition">协议组合</a> 章节和 <a class="md_compiled" href="../03-language-reference/03-Types.md">类型</a> 篇章中 <a class="md_compiled" href="../03-language-reference/03-Types.md#protocol-composition-type-h">协议组合类型</a> 章节中有关使用新的 Protocol1 &amp; Protocol2 语法的内容。
+
+</span></li>
+<li class="md_li"><span>更新动态类型表达式章节中使用新的 <code>type(of:)</code> 表达式的讨论。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/05_Statements.md#line-control-statement">行控制表达式</a> 章节中使用 <code>#sourceLocation(file:line:)</code> 表达式的讨论。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#functions-that-never-return">永不返回函数</a> 章节中使用 新的 <code>Never</code> 类型的讨论。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/04_Expressions.md#literal-expression">字面量表达式</a> 章节中新增了有关 <code>playground</code> 字面量的内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#in-out-parameters">In-Out 参数</a> 章节，标明只有非逃逸闭包能捕获 <code>in-out</code> 参数。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/06_Functions.md#default-parameter-values">默认参数值</a> 章节，现在默认参数不能在调用时候重新排序。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/07_Attributes.md">属性</a> 篇章中有关属性参数使用分号的说明。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#rethrowing-functions-and-methods">重新抛出函数和方法</a> 章节中新增了有关在 catch 代码块中抛出错误的重新抛出函数的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/04_Expressions.md#selector-expression7">Selector 表达式</a> 章节中新增了中有关访问 Objective-C 中 Selector 的 getter 和 setter 的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#type-alias-declaration">类型别名声明</a> 章节中中新增了有关泛型类型别名和在协议内使用类型别名的内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/03_Types.md#function-type-h">函数类型</a> 章节中有关函数类型的讨论，标明函数类型作为参数类型必须使用括号包裹。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/07_Attributes.md">属性</a> 篇章，标明 <code>@IBAction</code>，<code>@IBOutlet</code> 和 <code>@NSManaged</code> 隐式含有 <code>@objc</code> 属性。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#Ideclaration-attributes">声明属性</a> 章节中新增了有关 <code>@GKInspectable</code> 的内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/21_Protocols.md#optional-protocol-requirements">可选协议要求</a> 章节中有关只能在与 <code>Objective-C</code> 交互的代码中才能使用可选协议要求的内容。
+
+</span></li>
+<li class="md_li"><span>删除 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#function-declaration">函数声明</a> 章节中有关显式使用 <code>let</code> 关键字作为函数参数的内容。
+
+</span></li>
+<li class="md_li"><span>删除 <a class="md_compiled" href="../03_language_reference/05_Statements.md">语句</a> 章节中有关 <code>Boolean</code> 协议的内容， 现在这个协议已经被 Swift 标准库删除。
+
+</span></li>
+<li class="md_li"><span>更正 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#Ideclaration-attributes">声明属性</a> 章节中有关 <code>@NSApplicationMain</code> 协议的内容。
+
+</span></li>
+</ul>
+<h3 id="toc_10" class="h16"><span class="span_for_h">2016-03-21</span></h3>
+
+<ul>
+<li class="md_li"><span>更新至 Swift 2.2。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/05_Statements.md#Conditional-Compilation-Block">编译配置语句</a> 章节新增了中有关如何根据 Swift 版本进行条件编译。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/04_Expressions.md#explicit-member-expression">显示成员表达式</a> 章节中新增了有关如何区分只有参数名不同的方法和构造器的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/04_Expressions.md#selector-expression7">选择器表达式</a> 章节中新增了了针对 Objective-C 选择器的 <code>#selector</code> 语法。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/22_Generics.md#associated-types">关联类型</a> 和 <a class="md_compiled" href="../03-language-reference/06-Declarations.md#protocol-associated-type-declaration">协议关联类型声明</a> 章节中有关使用 <code>associatedtype</code> 关键词修饰关联类型的讨论。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/14_Initialization.md#failable-initializers">可失败构造器</a> 章节中有关当构造器在实例完全初始化之前返回 <code>nil</code> 的相关内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/BasicOperators.md#comparison-operators">比较运算符</a> 章节中新增了比较元组的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/02_Lexical_Structure.md#keywords-and-punctuation">关键字和标点符号</a> 章节中新增了使用关键字作为外部参数名的内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#Ideclaration-attributes">声明特性</a> 章节中有关 <code>@objc</code> 特性的讨论，并指出枚举和枚举用例。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/02_Lexical_Structure.md#operator">操作符</a> 章节中对于自定义运算符的包含了 <code>.</code> 的讨论。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#rethrowing-functions-and-methods">重新抛出错误的函数和方法</a> 章节中新增了一处说明，重新抛出错误函数不能直接抛出错误。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/10_Properties.md#property-observers">属性观察器</a> 章节中新增了一处说明，当作为 in-out 参数传递属性时，属性观察器的调用行为。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="./03_a_swift_tour.md">Swift 初见</a> 篇章中新增了错误处理的章节。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/24_Automatic_Reference_Counting.md#weak-references">弱引用</a> 章节中的图片用以更清楚的展示重新分配过程。
+
+</span></li>
+<li class="md_li"><span>删除 C 语言风格的 <code>for</code> 循环，<code>++</code> 前缀和后缀运算符，以及 <code>--</code> 前缀和后缀运算符。
+
+</span></li>
+<li class="md_li"><span>删除对变量函数参数和柯里化函数的特殊语法的讨论。
+
+</span></li>
+</ul>
+<h3 id="toc_11" class="h16"><span class="span_for_h">2015-10-20</span></h3>
+
+<ul>
+<li class="md_li"><span>更新至 Swift 2.1。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/03_Strings_And_Characters.md#string-interpolation">字符串插值</a> 和 <a class="md_compiled" href="../03-language-reference/02-Lexical-Structure.md#string-literal">字符串字面量</a> 章节，现在字符串插值可包含字符串字面量。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/07_Closures.md#escaping-closures">逃逸闭包</a> 章节中新增了有关 <code>@noescape</code> 属性的相关内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#Ideclaration-attributes">声明特性</a> 和 <a class="md_compiled" href="../03-language-reference/05-Statements.md#Conditional-Compilation-Block">编译配置语句</a> 章节中与 tvOS 相关的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#in-out-parameters">In-Out 参数</a> 章节中新增了与 in-out 参数行为相关的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/04_Expressions.md#capture-lists">捕获列表</a> 章节新增了有关指定闭包捕获列表被捕获时捕获值的相关内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/16_Optional_Chaining.md#accessing-properties-through-optional-chaining">可选链式调用访问属性</a> 章节，阐明了如何通过可选链式调用进行赋值。
+
+</span></li>
+<li class="md_li"><span>改进 <a class="md_compiled" href="../02_language_guide/07_Closures.md#autoclosures">自动闭包</a> 章节中对自闭包的讨论。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="./03_a_swift_tour.md">Swift 初见</a> 篇章中新增了一个使用 <code>??</code> 操作符的例子。
+
+</span></li>
+</ul>
+<h3 id="toc_12" class="h16"><span class="span_for_h">2015-09-16</span></h3>
+
+<ul>
+<li class="md_li"><span>更新至 Swift 2.0。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/17_Error_Handling.md">错误处理</a> 篇章中新增了有关错误处理的相关内容，包括 <a class="md_compiled" href="../03_language_reference/05_Statements.md#do-statement">Do 语句</a>、 <a class="md_compiled" href="../03-language-reference/05-Statements.md#throw-statement">Throw 语句</a>、 <a class="md_compiled" href="../03-language-reference/05-Statements.md##defer-statements">Defer 语句</a> 以及 <a class="md_compiled" href="../03-language-reference/04-Expressions.md#try-operator">try 运算符</a>。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/17_Error_Handling.md#representing-and-throwing-errors">错误表示和抛出</a> 章节，现在所有类型都可以遵循 <code>ErrorType</code> 协议了。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/17_Error_Handling.md#converting-errors-to-optional-values">将错误装换成可选值</a> 篇章增加了 <code>try?</code> 关键字相关内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/08_Enumerations.md">枚举</a> 篇章的 <a class="md_compiled" href="../02_language_guide/08_Enumerations.md#recursive-enumerations">递归枚举</a> 章节以及以及 <a class="md_compiled" href="../03-language-reference/06-Declarations.md">声明</a> 篇章的 <a class="md_compiled" href="../03-language-reference/06-Declarations.md#enumerations-with-cases-of-any-type">任意类型用例的枚举</a> 章节中新增了递归枚举相关内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/05_Control_Flow.md">控制流</a> 篇章的 <a class="md_compiled" href="../02_language_guide/05_Control_Flow.md#checking-api-availability">API 可用性检查</a> 章节和 <a class="md_compiled" href="../03-language-reference/05-Statements.md">语句</a> 篇章的 <a class="md_compiled" href="../03-language-reference/05-Statements.md#availability-condition">可用性条件</a>  章节中新增了有关 API 可用性检查相关的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/05_Control_Flow.md">控制流</a> 篇章的 <a class="md_compiled" href="../02_language_guide/05_Control_Flow.md#early-exit">尽早退出</a> 章节和 <a class="md_compiled" href="../03-language-reference/05-Statements.md">语句</a> 篇章的 <a class="md_compiled" href="../03-language-reference/05-Statements.md#guard-statement">Guard 语句</a> 章节新增了与 <code>guard</code> 语句相关的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/21_Protocols.md">协议</a> 篇章中 <a class="md_compiled" href="../02_language_guide/21_Protocols.md#protocol-extensions">协议扩展</a> 章节中新增了有关协议扩展的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/26_Access_Control.md">访问控制</a> 篇章的 <a class="md_compiled" href="../02_language_guide/26_Access_Control.md#access-levels-for-unit-test-targets">单元测试 target 的访问级别</a> 章节中新增了有关单元测试访问控制相关的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/08_Patterns.md">模式</a> 篇章的 <a class="md_compiled" href="../03_language_reference/08_Patterns.md#optional-pattern">可选模式</a> 章节中新增了可选模式相关内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/05_Control_Flow.md#repeat-while">Repeat-While</a> 章节中有关 <code>repeat-while</code> 循环相关的内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/03_Strings_And_Characters.md">字符串和字符</a> 章节，现在 <code>String</code> 类型在 Swift 标准库中不再遵循 <code>CollectionType</code> 协议。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/01_TheBasics.md#printing">常量与变量打印</a> 章节中新增了新 Swift 标准库中有关 <code>print(-:separator:terminator)</code> 相关内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/08_Enumerations.md">枚举</a> 篇章的 <a class="md_compiled" href="../02_language_guide/08_Enumerations.md#implicitly-assigned-raw-values">原始值的隐式赋值</a> 章节和 <a class="md_compiled" href="../03-language-reference/06-Declarations.md">声明</a> 篇章的 <a class="md_compiled" href="../03-language-reference/06-Declarations.md#enumerations-with-cases-of-a-raw-value-type">包含原始值类型的枚举</a> 章节中新增了有关包含 <code>String</code> 原始值的枚举用例的行为相关内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/07_Closures.md#autoclosures">自动闭包</a> 章节中新增了有关 <code>@autoclosure</code> 特性的相关内容，包括它的 <code>@autoclosure(escaping)</code> 形式。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#Ideclaration-attributes">声明特性</a> 章节中有关 <code>@avaliable</code> 和 <code>warn-unused-result</code> 特性的相关内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#type-attributes">类型特性</a> 章节中有关 <code>@convention</code> 特性的相关内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/01_TheBasics.md#optional-binding">可选绑定</a> 章节中新增了有关使用 <code>where</code> 子句进行多可选绑定的相关内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/02_Lexical_Structure.md#string-literal">字符串字面量</a> 章节中新增了有关在编译时使用 <code>+</code> 运算符拼接字符串字面量的相关内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/03_Types.md#metatype-type-h">元类型</a> 章节中新增了有关元类型值的比较和使用它们通过构造器表达式构造实例相关内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/01_TheBasics.md#debugging-with-assertions">断言调试</a> 章节中新增了一处说明，有关用户定义断言何时会失效。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#Ideclaration-attributes">声明特性</a> 章节中对 <code>@NSManaged</code> 特性的讨论，现在这个特性可以被应用到一个确定实例方法。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/06_Functions.md#variadic-parameters">可变参数</a> 章节，现在可变参数可以声明在函数参数列表的任意位置中。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/14_Initialization.md#overriding-a-failable-initializer">重写可失败构造器</a> 章节中新增了有关非可失败构造器相当于一个可失败构造器通过父类构造器的结果进行强制拆包的相关内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#enumerations-with-cases-of-any-type">任意类型用例的枚举</a> 章节中新增了有关枚举用例作为函数的内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/04_Expressions.md#initializer-expression">构造器表达式</a> 章节中新增了有关显式引用一个构造器相关内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/05_Statements.md#compiler-control-statements">编译控制语句</a> 章节中新增了有关编译内容以及行控制语句相关内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/03_Types.md#metatype-type-h">元类型</a> 章节新增了一处说明，有关如何从元类型值中构造类实例相关内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/24_Automatic_Reference_Counting.md#weak-references">弱引用</a> 章节新增了一处说明，有关弱引用作为缓存所存在的不足。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/10_Properties.md#type-properties">类型特性</a> 章节，提到了存储型特性其实是懒加载。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/07_Closures.md#capturing-values">捕获类型</a> 章节，阐明了变量和常量在闭包中如何被捕获。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#Ideclaration-attributes">声明特性</a> 章节，用以描述何时在类中使用 <code>@objc</code> 关键字。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/17_Error_Handling.md#handling-errors">错误处理</a> 章节中新增了一处说明，有关执行 <code>throw</code> 语句的性能。在 <a class="md_compiled" href="../03-language-reference/05-Statements.md#do-statement">Do 语句</a> 章节的 do 语句部分也新增了类似内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/10_Properties.md#type-properties">类型特性</a> 章节中有关类、结构体和枚举的存储型和计算型特性相关的内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/05_Statements.md#break-statement">Break 语句</a> 章节中有关带标签的 break 语句相关内容。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/10_Properties.md#property-observers">属性观察器</a> 章节更新了一处说明，用来明确 <code>willSet</code> 和 <code>didSet</code> 观察器的行为。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/26_Access_Control.md#access-levels">访问级别</a> 章节新增了有关 <code>private</code> 作用域的相关内容说明。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/24_Automatic_Reference_Counting.md#weak-references">弱引用</a> 章节新增了有关弱应用在垃圾回收系统和 ARC 之间的区别的说明。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/03_Strings_And_Characters.md#special-characters-in-string-literals">字符串字面量中特殊字符</a> 章节，对 Unicode 标量更精确定义。
+
+</span></li>
+</ul>
+<h3 id="toc_13" class="h16"><span class="span_for_h">2015-04-08</span></h3>
+
+<ul>
+<li class="md_li"><span>更新至 Swift 1.2。
+
+</span></li>
+<li class="md_li"><span>Swift 现在自身提供了一个 <code>Set</code> 集合类型，更多内容，请看 <a class="md_compiled" href="../02_language_guide/CollectionTypes.md#sets">Sets</a> 。
+
+</span></li>
+<li class="md_li"><span><code>@autoclosure</code> 现在是一个参数声明的属性，而不是参数类型的属性。这里还有一个新的参数声明属性 <code>@noescape</code>。更多内容，请看 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#Ideclaration-attributes">属性声明</a> 。
+
+</span></li>
+<li class="md_li"><span>对于类型属性和方法现在可以使用 <code>static</code> 关键字作为声明描述符，更多内容，请看 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#type-variable-properties">类型变量属性</a>。
+
+</span></li>
+<li class="md_li"><span>Swift 现在包含一个 <code>as?</code> 和 <code>as!</code> 的向下可失败类型转换运算符。更多内容，请看 <a class="md_compiled" href="../02_language_guide/21_Protocols.md#checking-for-protocol-conformance">协议遵循性检查</a>。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/03_Strings_And_Characters.md#string-indices">字符串索引</a> 的新指导章节。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../02_language_guide/27_Advanced_Operators.md#overflow-operators">溢出运算符</a> 一节中删除了溢出除运算符（<code>&amp;/</code>）和求余溢出运算符（<code>&amp;%</code>）。
+
+</span></li>
+<li class="md_li"><span>更新常量和常量属性在声明和构造时的规则，更多内容，请看 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#constant-declaration">常量声明</a> 。
+
+</span></li>
+<li class="md_li"><span>更新字符串字面量中 Unicode 标量集的定义，请看 <a class="md_compiled" href="../02_language_guide/03_Strings_And_Characters.md#special-characters-in-string-literals">字符串字面量中的特殊字符</a> 。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/BasicOperators.md#range-operators">区间运算符</a> 章节，注意当半开区间运算符含有相同的起止索引时，其区间为空。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/07_Closures.md#closures-are-reference-types">闭包引用类型</a> 章节，对于变量的捕获规则进行了阐明。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/27_Advanced_Operators.md#value-overflow">值溢出</a> 章节，对有符号整数和无符号整数的溢出行为进行了阐明。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#protocol-declaration">协议声明</a> 章节，对协议声明时的作用域和成员等内容进行了阐明。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/24_Automatic_Reference_Counting.md#defining-a-capture-list">捕获列表</a> 章节，对于闭包捕获列表中的弱引用和无主引用的使用语法进行了阐明。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../03_language_reference/02_Lexical_Structure.md#operator">运算符</a> 章节，明确指明一些例子来说明自定义运算符所支持的特性，如数学运算符，各种符号，Unicode 符号块等。
+
+</span></li>
+<li class="md_li"><span>在函数作用域中的常量声明时可以不被初始化，它必须在第一次使用前被赋值。更多的内容，请看 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#constant-declaration">常量声明</a>。
+
+</span></li>
+<li class="md_li"><span>在构造器中，常量属性有且仅能被赋值一次。更多内容，请看 <a class="md_compiled" href="../02_language_guide/14_Initialization.md%7B#assigning-constant-properties-during-initialization">在构造过程中给常量属性赋值</a>。
+
+</span></li>
+<li class="md_li"><span>多个可选绑定现在可以在<code>if</code>语句后面以逗号分隔的赋值列表的方式出现，更多内容，请看 <a class="md_compiled" href="../02_language_guide/01_TheBasics.md#optional-binding">可选绑定</a>。
+
+</span></li>
+<li class="md_li"><span>一个 <a class="md_compiled" href="../03_language_reference/04_Expressions.md#optional-chaining-expression">可选链表达式</a> 必须出现在后缀表达式中。
+
+</span></li>
+<li class="md_li"><span>协议类型转换不再局限于 <code>@obj</code> 修饰的协议了。
+
+</span></li>
+<li class="md_li"><span>在运行时可能会失败的类型转换可以使用 <code>as?</code> 和 <code>as!</code> 运算符，而确保不会失败的类型转换现在使用 <code>as</code> 运算符。更多内容，请看 <a class="md_compiled" href="../03_language_reference/04_Expressions.md#type-casting-operator">类型转换运算符</a>。
+
+</span></li>
+</ul>
+<h3 id="toc_14" class="h16"><span class="span_for_h">2014-10-16</span></h3>
+
+<ul>
+<li class="md_li"><span>更新至 Swift 1.1。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/14_Initialization.md#failable-initializers">失败构造器</a> 的完整指引。
+
+</span></li>
+<li class="md_li"><span>在协议中新增了 <a class="md_compiled" href="../02_language_guide/21_Protocols.md#failable-initializer-requirements">失败构造器要求</a> 的描述。
+
+</span></li>
+<li class="md_li"><span>常量和变量的 <code>Any</code> 类型现可以包含函数实例。更新了有关 <code>Any</code> 相关的示例来展示如何在 <code>switch</code> 语句中如何检查并转换到一个函数类型。
+
+</span></li>
+<li class="md_li"><span>带有原始值的枚举类型增加了一个 <code>rawValue</code> 属性替代 <code>toRaw()</code> 方法，同时使用了一个以 <code>rawValue</code> 为参数的失败构造器来替代 <code>fromRaw()</code> 方法。更多的内容，请看 <a class="md_compiled" href="../02_language_guide/08_Enumerations.md#raw-values">原始值</a> 和 <a class="md_compiled" href="../03-language-reference/06-Declarations.md#enumerations-with-cases-of-a-raw-value-type">带原始值的枚举类型</a>。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#failable-initializers">Failable Initializer</a>  的参考章节，它可以触发初始化失败。
+
+</span></li>
+<li class="md_li"><span>自定义运算符现在可以包含 <code>?</code> 字符，更新了 <a class="md_compiled" href="../03_language_reference/02_Lexical_Structure.md#operator">运算符</a> 涉及改进后的规则的部分，并且在 <a class="md_compiled" href="../02-language-guide/27-Advanced-Operators.md#custom-operators">自定义运算符</a> 章节中删除了重复的运算符有效字符集合。
+
+</span></li>
+</ul>
+<h3 id="toc_15" class="h16"><span class="span_for_h">2014-08-18</span></h3>
+
+<ul>
+<li class="md_li"><span>描述 Swift 1.0 的新文档。Swift 是苹果公司发布的全新编程语言，用于 iOS 和 OS X 应用开发。
+
+</span></li>
+<li class="md_li"><span>在协议中新增了 <a class="md_compiled" href="../02_language_guide/21_Protocols.md#initializer-requirements">对构造器的规定</a> 章节。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/21_Protocols.md#class-only-protocol">类专属协议</a> 章节。
+
+</span></li>
+<li class="md_li"><span> <a class="md_compiled" href="../02_language_guide/01_TheBasics.md#assertions-and-preconditions">断言</a> 现在可以使用字符串内插语法，并删除了文档中有冲突的注释。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/03_Strings_And_Characters.md#concatenating-strings-and-characters">连接字符串和字符</a> 章节来说明字符串和字符不能再用 <code>+</code> 号运算符或者复合加法运算符 <code>+=</code> 相互连接，这两种运算符现在只能用于字符串之间相连。请使用 <code>String</code> 类型的 <code>append</code> 方法在一个字符串的尾部增加单个字符。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/07_Attributes.md#Ideclaration-attributes">属性申明</a> 章节增加了有关  <code>availability</code> 特性的一些内容。
+
+</span></li>
+<li class="md_li"><span> <a class="md_compiled" href="../02_language_guide/01_TheBasics.md#optionals">可选类型</a> 若有值时，不再隐式的转换为 <code>true</code>，同样，若无值时，也不再隐式的转换为 <code>false</code>，这是为了避免在判别 optional <code>Bool</code> 的值时产生困惑。 替代的方案是，用<code>==</code> 或 <code>!=</code> 运算符显式地去判断 Optinal 是否是 <code>nil</code>，以确认其是否包含值。
+
+</span></li>
+<li class="md_li"><span>Swift 新增了一个 <a class="md_compiled" href="../02_language_guide/BasicOperators.md#nil-coalescing-operator">Nil 合并运算符</a>  (<code>a ?? b</code>) , 该表达式中，如果 Optional <code>a</code> 的值存在，则取得它并返回，若 Optional <code>a</code> 为 <code>nil</code>，则返回默认值 <code>b</code>
+
+</span></li>
+<li class="md_li"><span>更新和扩展 <a class="md_compiled" href="../02_language_guide/03_Strings_And_Characters.md#comparing-strings">字符串的比较</a> ，用以反映和展示&#39;字符串和字符的比较&#39;，以及&#39;前缀（prefix）/后缀（postfix）比较&#39;都开始基于扩展字符集（extended grapheme clusters）规范的等价比较。
+
+</span></li>
+<li class="md_li"><span>现在，你可以通过下标赋值或者 <a class="md_compiled" href="../02_language_guide/16_Optional_Chaining.md">可选调用链</a> 中的可变方法和操作符来给属性设值。相应地更新了有关 <a class="md_compiled" href="../02_language_guide/16_Optional_Chaining.md#accessing-properties-through-optional-chaining">通过可选链接访问属性</a> 的内容，并扩展了 <a class="md_compiled" href="../02-language-guide/16-Optional-Chaining.md#calling-methods-through-optional-chaining">通过可选链接调用方法</a> 时检查方法调用成功的示例，以显示如何检查属性设置是否成功。
+
+</span></li>
+<li class="md_li"><span>在可选链中新增了 <a class="md_compiled" href="../02_language_guide/16_Optional_Chaining.md#accessing-subscripts-through-optional-chaining">访问可选类型的下标脚注</a> 章节。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/CollectionTypes.md#accessing-and-modifying-a-dictionary">访问和修改数组</a> 章节以标示，从该版本起，不能再通过 <code>+=</code> 运算符给一个数组新增一个新的项。对应的替代方案是，使 <code>append</code> 方法，或者通过 <code>+=</code> 运算符来新增一个只有一个项的数组。
+
+</span></li>
+<li class="md_li"><span>新增一处说明，在 <a class="md_compiled" href="../02_language_guide/BasicOperators.md#range-operators">范围运算符</a> 中，比如， <code>a..b</code> 和 <code>a..&lt;b</code> ，起始值 <code>a</code> 不能大于结束值 <code>b</code>。
+
+</span></li>
+<li class="md_li"><span>重写 <a class="md_compiled" href="../02_language_guide/13_Inheritance.md">继承</a> 篇章：删除了本章中有关构造器重写的介绍性报道；转而将更多的注意力放到新增的部分——子类的新功能，以及如何通过重写（overrides）修改已有的功能。另外， <a class="md_compiled" href="../02_language_guide/13_Inheritance.md#overriding-property-etters-and-setters">重写属性的 Getters 和 Setters</a> 中的例子已经被替换为展示如何重写一个 <code>description</code> 属性。 (而有关如何在子类的构造器中修改继承属性的默认值的例子，已经被移到 <a class="md_compiled" href="../02-language-guide/14-Initialization.md">构造过程</a> 篇章。) 
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/14_Initialization.md#initializer-inheritance-and-overriding">构造器的继承与重写</a> 章节以标示： 重写一个特定的构造器必须使用 <code>override</code> 修饰符。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/14_Initialization.md#required-initializers">Required 构造器</a> 章节以标示：<code>required</code> 修饰符现在需要出现在所有子类的 required 构造器的声明中，而 required 构造器的实现，现在可以仅从父类自动继承。
+
+</span></li>
+<li class="md_li"><span>中置（Infix）的 <a class="md_compiled" href="../02_language_guide/27_Advanced_Operators.md#operator-functions">运算符函数</a> 不再需要 <code>@infix</code> 属性。
+
+</span></li>
+<li class="md_li"><span><a class="md_compiled" href="../02_language_guide/27_Advanced_Operators.md#prefix-and-postfix-operators">前置和后置运算符</a> 的 <code>@prefix</code> 和 <code>@postfix</code> 属性，已变更为 <code>prefix</code> 和 <code>postfix</code> 声明修饰符。
+
+</span></li>
+<li class="md_li"><span>新增一处说明，在 Prefix 和 postfix 运算符被作用于同一个操作数时 <a class="md_compiled" href="../02_language_guide/27_Advanced_Operators.md#prefix-and-postfix-operators">前置和后置运算符</a> 的执行顺序。
+
+</span></li>
+<li class="md_li"><span><a class="md_compiled" href="../02_language_guide/27_Advanced_Operators.md#compound-assignment-operators">组合赋值运算符</a> 的运算符函数不再使用 <code>@assignment</code> 属性来定义函数。
+
+</span></li>
+<li class="md_li"><span>在定义 <a class="md_compiled" href="../02_language_guide/27_Advanced_Operators.md#custom-operators">自定义操作符</a> 时，<code>修饰符（Modifiers）的出现顺序发生变化</code>。比如现在，你该编写 <code>prefix operator</code>， 而不是 <code>operator prefix</code>。
+
+</span></li>
+<li class="md_li"><span>在 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#declaration-modifiers">声明修饰符</a> 章节新增了有关 <code>dynamic</code> 声明修饰符的内容。
+
+</span></li>
+<li class="md_li"><span>新增有关 <a class="md_compiled" href="../03_language_reference/02_Lexical_Structure.md#literal">字面量</a> 类型推导内容的内容。
+
+</span></li>
+<li class="md_li"><span>新增更多有关柯里化函数的内容。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/26_Access_Control.md">权限控制</a> 篇章。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/03_Strings_And_Characters.md">字符串和字符</a> 章节，在 Swift 中现在 <code>Character</code> 类型代表的是扩展字符集（extended grapheme cluster）中的一个 Unicode，为此，新增了 <a class="md_compiled" href="../02_language_guide/03_Strings_And_Characters.md#extended-grapheme-clusters">Extended Grapheme Clusters</a> 章节。同时，<a class="md_compiled" href="../02-language-guide/03-Strings-And-Characters.md#unicode-scalars-representation">Unicode 标量</a> 和 <a class="md_compiled" href="../02-language-guide/03-Strings-And-Characters.md#comparing-strings">字符串比较</a> 章节新增了更多内容。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/03_Strings_And_Characters.md#string-literals">字符串字面量</a> 章节，在一个字符串中，Unicode 标量（Unicode scalars）以 <code>\u{n}</code>的形式来表示，<code>n</code> 是一个最大可以有8位的16进制数。
+
+</span></li>
+<li class="md_li"><span><code>NSString</code> <code>length</code> 属性已被映射到 Swift 的内建 <code>String</code>类型。（注意，这两属性的类型是<code>utf16Count</code>，而非 <code>utf16count</code>）。
+
+</span></li>
+<li class="md_li"><span>Swift 的内建 <code>String</code> 类型不再拥有 <code>uppercaseString</code> 和 <code>lowercaseString</code> 属性。在 <a class="md_compiled" href="../02_language_guide/03_Strings_And_Characters.md">字符串和字符</a> 章节中删除了对应部分，并更新了各种对应的代码用例。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/14_Initialization.md#initializer-parameters-without-external-names">没有外部名的构造器参数</a> 章节。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/14_Initialization.md#required-initializers">Required 构造器</a> 章节。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/06_Functions.md#optional-tuple-return-types">可选元组返回类型</a> 章节。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/01_TheBasics.md#type-annotations">类型注解</a> 章节，多个相关变量可以用&quot;类型注解”在同一行中声明为同一类型。
+
+</span></li>
+<li class="md_li"><span><code>@optional</code>, <code>@lazy</code>, <code>@final</code>,  <code>@required</code> 等关键字被更新为 <code>optional</code>, <code>lazy</code>, <code>final</code>, <code>required</code> 参见 <a class="md_compiled" href="../03_language_reference/06_Declarations.md#declaration-modifiers">声明修饰符</a>。
+
+</span></li>
+<li class="md_li"><span>更新了整本书中有关 <code>..&lt;</code> 的引用，从半闭区间改为了 <a class="md_compiled" href="../02_language_guide/BasicOperators.md#half-open-range-operator">半开区间</a>。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/CollectionTypes.md#accessing-and-modifying-a-dictionary">读取和修改字典</a> 章节， <code>Dictionary</code> 现在增加了一个 Boolean 型的属性：<code>isEmpty</code>。
+
+</span></li>
+<li class="md_li"><span>解释了哪些字符（集）可被用来定义 <a class="md_compiled" href="../02_language_guide/27_Advanced_Operators.md#custom-operators">自定义操作符</a>。
+
+</span></li>
+<li class="md_li"><span><code>nil</code> 和布尔运算中的 <code>true</code> 和 <code>false</code> 现在被定义为 <a class="md_compiled" href="../03_language_reference/02_Lexical_Structure.md#literal">字面量</a>。
+
+</span></li>
+<li class="md_li"><span>Swift 中的数组 （<code>Array</code>） 类型从现在起具备了完整的值语义。具体内容被更新到 <a class="md_compiled" href="../02_language_guide/CollectionTypes.md#mutability-of-collections">集合的可变性</a> 和 <a class="md_compiled" href="../02-language-guide/CollectionTypes.md#arrays">数组</a> 两小节，以反映这个新的变化。 此外，还解释了如何给 Strings, Arrays 和 Dictionaries 进行赋值和拷贝。
+
+</span></li>
+<li class="md_li"><span><a class="md_compiled" href="../02_language_guide/CollectionTypes.md#array-type-shorthand-syntax">数组类型速记语法</a> 从 <code>SomeType []</code> 更新为 <code>[SomeType]</code>。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/CollectionTypes.md#dictionary-type-shorthand-syntax">字典类型的速记语法</a> 章节，现在书写格式为： <code>[KeyType: ValueType]</code>。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/CollectionTypes.md#hash-values-for-set-types">字典键类型的哈希值</a> 章节。
+
+</span></li>
+<li class="md_li"><span><a class="md_compiled" href="../02_language_guide/07_Closures.md#closure-expressions">闭包表达式</a> 示例中使用新的全局函数 <code>sorted</code> 取代原先的全局函数 <code>sort</code> 去展示如何返回一个全新的数组。
+
+</span></li>
+<li class="md_li"><span>更新 <a class="md_compiled" href="../02_language_guide/14_Initialization.md#memberwise-initializers-for-structure-types">结构体逐一成员构造器</a> 章节，即使结构体的成员 <code>没有默认值</code>，逐一成员构造器也可以自动获得。
+
+</span></li>
+<li class="md_li"><span><a class="md_compiled" href="../02_language_guide/BasicOperators.md#half-open-range-operator">半开区间运算符</a> 中<code>..</code> 更新为 <code>..&lt;</code>。
+
+</span></li>
+<li class="md_li"><span>新增 <a class="md_compiled" href="../02_language_guide/22_Generics.md#extending-a-generic-type">泛型拓展</a> 的示例。
+
+</span></li>
+</ul>
+        </div>
+    </div>
+    <!--mathjax-->
+    <!--mermaid-->
+</body>
+</html>

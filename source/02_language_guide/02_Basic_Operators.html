@@ -1,0 +1,767 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>基本运算符</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">基本运算符</span></h1>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>运算符</em>是检查、改变、合并值的特殊符号或短语。例如，加号（<code>+</code>）将两个数相加（如 <code>let i = 1 + 2</code>）。更复杂的运算例子包括逻辑与运算符 <code>&amp;&amp;</code>（如 <code>if enteredDoorCode &amp;&amp; passedRetinaScan</code>）。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 支持大部分标准 C 语言的运算符，且为了减少常见编码错误做了部分改进。如：赋值符（<code>=</code>）不再有返回值，这样就消除了手误将判等运算符（<code>==</code>）写成赋值符导致代码错误的缺陷。算术运算符（<code>+</code>，<code>-</code>，<code>&#42;</code>，<code>/</code>，<code>%</code> 等）的结果会被检测并禁止值溢出，以此来避免保存变量时由于变量大于或小于其类型所能承载的范围时导致的异常结果。当然允许你使用 Swift 的溢出运算符来实现溢出。详情参见 <a class="md_compiled" href="./27_Advanced_Operators.md#overflow-operators">溢出运算符</a>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 还提供了 C 语言没有的区间运算符，例如 <code>a..&lt;b</code> 或 <code>a...b</code>，这方便我们表达一个区间内的数值。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">本章节只描述了 Swift 中的基本运算符，<a class="md_compiled" href="./27_Advanced_Operators.md">高级运算符</a> 这章会包含 Swift 中的高级运算符，及如何自定义运算符，及如何进行自定义类型的运算符重载。</span>
+</p>
+
+<h2 id="toc_1" class="h16"><span class="span_for_h">术语 {#terminology}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">运算符分为一元、二元和三元运算符:</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span><em>一元</em>运算符对单一操作对象操作（如 <code>-a</code>）。一元运算符分前置运算符和后置运算符，*前置运算符*需紧跟在操作对象之前（如 <code>!b</code>），*后置运算符*需紧跟在操作对象之后（如 <code>c!</code>）。
+
+</span></li>
+<li class="md_li"><span><em>二元</em>运算符操作两个操作对象（如 <code>2 + 3</code>），是<em class="md_patched_em">中置</em>的，因为它们出现在两个操作对象之间。
+
+</span></li>
+<li class="md_li"><span><em>三元</em>运算符操作三个操作对象，和 C 语言一样，Swift 只有一个三元运算符，就是三目运算符（<code>a ? b : c</code>）。
+
+</span></li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">受运算符影响的值叫<em class="md_patched_em">操作数</em>，在表达式 <code>1 + 2</code> 中，加号 <code>+</code> 是二元运算符，它的两个操作数是值 <code>1</code> 和 <code>2</code>。</span>
+</p>
+
+<h2 id="toc_2" class="h16"><span class="span_for_h">赋值运算符 {#assignment-operator}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><em>赋值运算符</em>（<code>a = b</code>），表示用 <code>b</code> 的值来初始化或更新 <code>a</code> 的值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">b</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="kd">var</span> <span class="nv">a</span> <span class="p">=</span> <span class="mi">5</span>
+<span class="n">a</span> <span class="p">=</span> <span class="n">b</span>
+<span class="c1">// a 现在等于 10</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果赋值的右边是一个多元组，它的元素可以马上被分解成多个常量或变量：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1">// 现在 x 等于 1，y 等于 2</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">与 C 语言和 Objective-C 不同，Swift 的赋值操作并不返回任何值。所以下面语句是无效的：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="p">=</span> <span class="n">y</span> <span class="p">{</span>
+    <span class="c1">// 此句错误，因为 x = y 并不返回任何值</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">通过将 <code>if x = y</code> 标记为无效语句，Swift 能帮你避免把 （<code>==</code>）错写成（<code>=</code>）这类错误的出现。</span>
+</p>
+
+<h2 id="toc_3" class="h16"><span class="span_for_h">算术运算符 {#arithmetic-operators}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">Swift 中所有数值类型都支持了基本的四则<em class="md_patched_em">算术运算符</em>：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>加法（<code>+</code>）
+
+</span></li>
+<li class="md_li"><span>减法（<code>-</code>）
+
+</span></li>
+<li class="md_li"><span>乘法（<code>&#42;</code>）
+
+</span></li>
+<li class="md_li"><span>除法（<code>/</code>）
+
+</span></li>
+</ul>
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>       <span class="c1">// 等于 3</span>
+<span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span>       <span class="c1">// 等于 2</span>
+<span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>       <span class="c1">// 等于 6</span>
+<span class="mf">10.0</span> <span class="o">/</span> <span class="mf">2.5</span>  <span class="c1">// 等于 4.0</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">与 C 语言和 Objective-C 不同的是，Swift 默认情况下不允许在数值运算中出现溢出情况。但是你可以使用 Swift 的溢出运算符来实现溢出运算（如 <code>a &amp;+ b</code>）。详情参见 <a class="md_compiled" href="./27_Advanced_Operators.md#overflow-operators">溢出运算符</a>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">加法运算符也可用于 <code>String</code> 的拼接：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="s">&quot;hello, &quot;</span> <span class="o">+</span> <span class="s">&quot;world&quot;</span>  <span class="c1">// 等于 &quot;hello, world&quot;</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_4" class="h16"><span class="span_for_h">求余运算符 {#remainder-operator}</span></h3>
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end"><em>求余运算符</em>（<code>a % b</code>）是计算 <code>b</code> 的多少倍刚刚好可以容入 <code>a</code>，返回多出来的那部分（余数）。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">求余运算符（<code>%</code>）在其他语言也叫<em class="md_patched_em">取模运算符</em>。但是严格说来，我们看该运算符对负数的操作结果，「求余」比「取模」更合适些。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">我们来谈谈取余是怎么回事，计算 <code>9 % 4</code>，你先计算出 <code>4</code> 的多少倍会刚好可以容入 <code>9</code> 中：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/remainderInteger_2x.png" alt="Art/remainderInteger_2x.png" title="Art/remainderInteger_2x.png" ></span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以在 <code>9</code> 中放入两个 <code>4</code>，那余数是 1（用橙色标出）。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在 Swift 中可以表达为：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="mi">9</span> <span class="o">%</span> <span class="mi">4</span>    <span class="c1">// 等于 1</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">为了得到 <code>a % b</code> 的结果，<code>%</code> 计算了以下等式，并输出 <code>余数</code>作为结果：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">    a = (b × 倍数) + 余数</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当 <code>倍数</code>取最大值的时候，就会刚好可以容入 <code>a</code> 中。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">把 <code>9</code> 和 <code>4</code> 代入等式中，我们得 <code>1</code>：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">    9 = (4 × 2) + 1</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">同样的方法，我们来计算 <code>-9 % 4</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="o">-</span><span class="mi">9</span> <span class="o">%</span> <span class="mi">4</span>   <span class="c1">// 等于 -1</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">把 <code>-9</code> 和 <code>4</code> 代入等式，<code>-2</code> 是取到的最大整数：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">    -9 = (4 × -2) + -1</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">余数是 <code>-1</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在对负数 <code>b</code> 求余时，<code>b</code> 的符号会被忽略。这意味着 <code>a % b</code> 和 <code>a % -b</code> 的结果是相同的。</span>
+</p>
+
+<h3 id="toc_5" class="h16"><span class="span_for_h">一元负号运算符 {#unary-minus-operator}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">数值的正负号可以使用前缀 <code>-</code>（即<em class="md_patched_em">一元负号符</em>）来切换：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">three</span> <span class="p">=</span> <span class="mi">3</span>
+<span class="kd">let</span> <span class="nv">minusThree</span> <span class="p">=</span> <span class="o">-</span><span class="n">three</span>       <span class="c1">// minusThree 等于 -3</span>
+<span class="kd">let</span> <span class="nv">plusThree</span> <span class="p">=</span> <span class="o">-</span><span class="n">minusThree</span>   <span class="c1">// plusThree 等于 3, 或 &quot;负负3&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">一元负号符（<code>-</code>）写在操作数之前，中间没有空格。</span>
+</p>
+
+<h3 id="toc_6" class="h16"><span class="span_for_h">一元正号运算符 {#unary-plus-operator}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><em>一元正号符</em>（<code>+</code>）不做任何改变地返回操作数的值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">minusSix</span> <span class="p">=</span> <span class="o">-</span><span class="mi">6</span>
+<span class="kd">let</span> <span class="nv">alsoMinusSix</span> <span class="p">=</span> <span class="o">+</span><span class="n">minusSix</span>  <span class="c1">// alsoMinusSix 等于 -6</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">虽然一元正号符什么都不会改变，但当你在使用一元负号来表达负数时，你可以使用一元正号来表达正数，如此你的代码会具有对称美。</span>
+</p>
+
+<h2 id="toc_7" class="h16"><span class="span_for_h">组合赋值运算符 {#compound-assignment-operators}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如同 C 语言，Swift 也提供把其他运算符和赋值运算（<code>=</code>）组合的*组合赋值运算符*，组合加运算（<code>+=</code>）是其中一个例子：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">a</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="n">a</span> <span class="o">+=</span> <span class="mi">2</span>
+<span class="c1">// a 现在是 3</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">表达式 <code>a += 2</code> 是 <code>a = a + 2</code> 的简写，一个组合加运算就是把加法运算和赋值运算组合成进一个运算符里，同时完成两个运算任务。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">复合赋值运算没有返回值，<code>let b = a += 2</code> 这类代码是错误。这不同于上面提到的自增和自减运算符。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start">更多 Swift 标准库运算符的信息，请看 <a class="md_compiled" href="https://developer.apple.com/documentation/swift/operator_declarations">运算符声明</a>。<br /></span>
+    <span class="md_line md_line_end">‌</span>
+</p>
+
+<h2 id="toc_8" class="h16"><span class="span_for_h">比较运算符（Comparison Operators） {#comparison-operators}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">所有标准 C 语言中的<em class="md_patched_em">比较运算符</em>都可以在 Swift 中使用：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>等于（<code>a == b</code>）
+
+</span></li>
+<li class="md_li"><span>不等于（<code>a != b</code>）
+
+</span></li>
+<li class="md_li"><span>大于（<code>a &gt; b</code>）
+
+</span></li>
+<li class="md_li"><span>小于（<code>a &lt; b</code>）
+
+</span></li>
+<li class="md_li"><span>大于等于（<code>a &gt;= b</code>）
+
+</span></li>
+<li class="md_li"><span>小于等于（<code>a &lt;= b</code>）
+
+</span></li>
+</ul>
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">Swift 也提供恒等（<code>===</code>）和不恒等（<code>!==</code>）这两个比较符来判断两个对象是否引用同一个对象实例。更多细节在 <a class="md_compiled" href="./09_Classes_and_Structures.md">类与结构</a> 章节的 <strong>Identity Operators</strong> 部分。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">每个比较运算都返回了一个标识表达式是否成立的布尔值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="mi">1</span> <span class="p">==</span> <span class="mi">1</span>   <span class="c1">// true, 因为 1 等于 1</span>
+<span class="mi">2</span> <span class="o">!=</span> <span class="mi">1</span>   <span class="c1">// true, 因为 2 不等于 1</span>
+<span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span>    <span class="c1">// true, 因为 2 大于 1</span>
+<span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span>    <span class="c1">// true, 因为 1 小于2</span>
+<span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">1</span>   <span class="c1">// true, 因为 1 大于等于 1</span>
+<span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">1</span>   <span class="c1">// false, 因为 2 并不小于等于 1</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">比较运算多用于条件语句，如 <code>if</code> 条件：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="s">&quot;world&quot;</span>
+<span class="k">if</span> <span class="n">name</span> <span class="p">==</span> <span class="s">&quot;world&quot;</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;hello, world&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;I&#39;m sorry </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">, but I don&#39;t recognize you&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“hello, world&quot;, 因为 `name` 就是等于 &quot;world”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">关于 <code>if</code> 语句，请看 <a class="md_compiled" href="./05_Control_Flow.md">控制流</a>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果两个元组的元素相同，且长度相同的话，元组就可以被比较。比较元组大小会按照从左到右、逐值比较的方式，直到发现有两个值不等时停止。如果所有的值都相等，那么这一对元组我们就称它们是相等的。例如：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;zebra&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;apple&quot;</span><span class="p">)</span>   <span class="c1">// true，因为 1 小于 2</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">&quot;apple&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">&quot;bird&quot;</span><span class="p">)</span>    <span class="c1">// true，因为 3 等于 3，但是 apple 小于 bird</span>
+<span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">&quot;dog&quot;</span><span class="p">)</span> <span class="p">==</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">&quot;dog&quot;</span><span class="p">)</span>      <span class="c1">// true，因为 4 等于 4，dog 等于 dog</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面的例子中，你可以看到，在第一行中从左到右的比较行为。因为 <code>1</code> 小于 <code>2</code>，所以 <code>(1, "zebra")</code> 小于 <code>(2, "apple")</code>，不管元组剩下的值如何。所以 <code>"zebra"</code> 大于 <code>"apple"</code> 对结果没有任何影响，因为元组的比较结果已经被第一个元素决定了。不过，当元组的第一个元素相同时候，第二个元素将会用作比较-第二行和第三行代码就发生了这样的比较。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">当元组中的元素都可以被比较时，你也可以使用这些运算符来比较它们的大小。例如，像下面展示的代码，你可以比较两个类型为 <code>(String, Int)</code> 的元组，因为 <code>Int</code> 和 <code>String</code> 类型的值可以比较。相反，<code>Bool</code> 不能被比较，也意味着存有布尔类型的元组不能被比较。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="s">&quot;purple&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="c1">// 正常，比较的结果为 true</span>
+<span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="s">&quot;purple&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span> <span class="c1">// 错误，因为 &lt; 不能比较布尔类型</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">Swift 标准库只能比较七个以内元素的元组比较函数。如果你的元组元素超过七个时，你需要自己实现比较运算符。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_9" class="h16"><span class="span_for_h">三元运算符（Ternary Conditional Operator） {#ternary-conditional-operator}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>三元运算符</em>的特殊在于它是有三个操作数的运算符，它的形式是 <code>问题 ? 答案 1 : 答案 2</code>。它简洁地表达根据 <code>问题</code>成立与否作出二选一的操作。如果 <code>问题</code> 成立，返回 <code>答案 1</code> 的结果；反之返回 <code>答案 2</code> 的结果。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">三元运算符是以下代码的缩写形式：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="n">question</span> <span class="p">{</span>
+    <span class="n">answer1</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">answer2</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">这里有个计算表格行高的例子。如果有表头，那行高应比内容高度要高出 50 点；如果没有表头，只需高出 20 点：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">contentHeight</span> <span class="p">=</span> <span class="mi">40</span>
+<span class="kd">let</span> <span class="nv">hasHeader</span> <span class="p">=</span> <span class="kc">true</span>
+<span class="kd">let</span> <span class="nv">rowHeight</span> <span class="p">=</span> <span class="n">contentHeight</span> <span class="o">+</span> <span class="p">(</span><span class="n">hasHeader</span> <span class="p">?</span> <span class="mi">50</span> <span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+<span class="c1">// rowHeight 现在是 90</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">上面的写法比下面的代码更简洁：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">contentHeight</span> <span class="p">=</span> <span class="mi">40</span>
+<span class="kd">let</span> <span class="nv">hasHeader</span> <span class="p">=</span> <span class="kc">true</span>
+<span class="kd">var</span> <span class="nv">rowHeight</span> <span class="p">=</span> <span class="n">contentHeight</span>
+<span class="k">if</span> <span class="n">hasHeader</span> <span class="p">{</span>
+    <span class="n">rowHeight</span> <span class="p">=</span> <span class="n">rowHeight</span> <span class="o">+</span> <span class="mi">50</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">rowHeight</span> <span class="p">=</span> <span class="n">rowHeight</span> <span class="o">+</span> <span class="mi">20</span>
+<span class="p">}</span>
+<span class="c1">// rowHeight 现在是 90</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">第一段代码例子使用了三元运算，所以一行代码就能让我们得到正确答案。这比第二段代码简洁得多，无需将 <code>rowHeight</code> 定义成变量，因为它的值无需在 <code>if</code> 语句中改变。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">三元运算为二选一场景提供了一个非常便捷的表达形式。不过需要注意的是，滥用三元运算符会降低代码可读性。所以我们应避免在一个复合语句中使用多个三元运算符。</span>
+</p>
+
+<h2 id="toc_10" class="h16"><span class="span_for_h">空合运算符（Nil Coalescing Operator） {#nil-coalescing-operator}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>空合运算符</em>（<code>a ?? b</code>）将对可选类型 <code>a</code> 进行空判断，如果 <code>a</code> 包含一个值就进行解包，否则就返回一个默认值 <code>b</code>。表达式 <code>a</code> 必须是 Optional 类型。默认值 <code>b</code> 的类型必须要和 <code>a</code> 存储值的类型保持一致。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">空合运算符是对以下代码的简短表达方法：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">a</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">?</span> <span class="n">a</span><span class="p">!</span> <span class="p">:</span> <span class="n">b</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">上述代码使用了三元运算符。当可选类型 <code>a</code> 的值不为空时，进行强制解封（<code>a!</code>），访问 <code>a</code> 中的值；反之返回默认值 <code>b</code>。无疑空合运算符（<code>??</code>）提供了一种更为优雅的方式去封装条件判断和解封两种行为，显得简洁以及更具可读性。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">如果 <code>a</code> 为非空值（<code>non-nil</code>），那么值 <code>b</code> 将不会被计算。这也就是所谓的<em class="md_patched_em">短路求值</em>。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下文例子采用空合运算符，实现了在默认颜色名和可选自定义颜色名之间抉择：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">defaultColorName</span> <span class="p">=</span> <span class="s">&quot;red&quot;</span>
+<span class="kd">var</span> <span class="nv">userDefinedColorName</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>   <span class="c1">//默认值为 nil</span>
+
+<span class="kd">var</span> <span class="nv">colorNameToUse</span> <span class="p">=</span> <span class="n">userDefinedColorName</span> <span class="p">??</span> <span class="n">defaultColorName</span>
+<span class="c1">// userDefinedColorName 的值为空，所以 colorNameToUse 的值为 &quot;red&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start"><code>userDefinedColorName</code> 变量被定义为一个可选的 <code>String</code> 类型，默认值为 <code>nil</code>。由于 <code>userDefinedColorName</code> 是一个可选类型，我们可以使用空合运算符去判断其值。在上一个例子中，通过空合运算符为一个名为 <code>colorNameToUse</code> 的变量赋予一个字符串类型初始值。<br /></span>
+    <span class="md_line md_line_end">由于 <code>userDefinedColorName</code> 值为空，因此表达式 <code>userDefinedColorName ?? defaultColorName</code> 返回 <code>defaultColorName</code> 的值，即 <code>red</code>。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你分配一个非空值（<code>non-nil</code>）给 <code>userDefinedColorName</code>，再次执行空合运算，运算结果为封包在 <code>userDefinedColorName</code> 中的值，而非默认值。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">userDefinedColorName</span> <span class="p">=</span> <span class="s">&quot;green&quot;</span>
+<span class="n">colorNameToUse</span> <span class="p">=</span> <span class="n">userDefinedColorName</span> <span class="p">??</span> <span class="n">defaultColorName</span>
+<span class="c1">// userDefinedColorName 非空，因此 colorNameToUse 的值为 &quot;green&quot;</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_11" class="h16"><span class="span_for_h">区间运算符（Range Operators） {#range-operators}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 提供了几种方便表达一个区间的值的<em class="md_patched_em">区间运算符</em>。</span>
+</p>
+
+<h3 id="toc_12" class="h16"><span class="span_for_h">闭区间运算符 {#closed-range-operator}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>闭区间运算符</em>（<code>a...b</code>）定义一个包含从 <code>a</code> 到 <code>b</code>（包括 <code>a</code> 和 <code>b</code>）的所有值的区间。<code>a</code> 的值不能超过 <code>b</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">闭区间运算符在迭代一个区间的所有值时是非常有用的，如在 <code>for-in</code> 循环中：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="mf">1.</span><span class="p">..</span><span class="mi">5</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">index</span><span class="si">)</span><span class="s"> * 5 = </span><span class="si">\(</span><span class="n">index</span> <span class="o">*</span> <span class="mi">5</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 1 * 5 = 5</span>
+<span class="c1">// 2 * 5 = 10</span>
+<span class="c1">// 3 * 5 = 15</span>
+<span class="c1">// 4 * 5 = 20</span>
+<span class="c1">// 5 * 5 = 25</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">关于 <code>for-in</code> 循环，请看 <a class="md_compiled" href="./05_Control_Flow.md">控制流</a>。</span>
+</p>
+
+<h3 id="toc_13" class="h16"><span class="span_for_h">半开区间运算符 {#half-open-range-operator}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start"><em>半开区间运算符</em>（<code>a..&lt;b</code>）定义一个从 <code>a</code> 到 <code>b</code> 但不包括 <code>b</code> 的区间。<br /></span>
+    <span class="md_line md_line_end">之所以称为<em class="md_patched_em">半开区间</em>，是因为该区间包含第一个值而不包括最后的值。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">半开区间的实用性在于当你使用一个从 0 开始的列表（如数组）时，非常方便地从0数到列表的长度。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">names</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Anna&quot;</span><span class="p">,</span> <span class="s">&quot;Alex&quot;</span><span class="p">,</span> <span class="s">&quot;Brian&quot;</span><span class="p">,</span> <span class="s">&quot;Jack&quot;</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nv">count</span> <span class="p">=</span> <span class="n">names</span><span class="p">.</span><span class="bp">count</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="bp">count</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;第 </span><span class="si">\(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="si">)</span><span class="s"> 个人叫 </span><span class="si">\(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 第 1 个人叫 Anna</span>
+<span class="c1">// 第 2 个人叫 Alex</span>
+<span class="c1">// 第 3 个人叫 Brian</span>
+<span class="c1">// 第 4 个人叫 Jack</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">数组有 4 个元素，但 <code>0..&lt;count</code> 只数到3（最后一个元素的下标），因为它是半开区间。关于数组，请查阅 <a class="md_compiled" href="./04_Collection_Types.md#arrays">数组</a>。</span>
+</p>
+
+<h3 id="toc_14" class="h16"><span class="span_for_h">单侧区间 {#one-sided-ranges}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">闭区间操作符有另一个表达形式，可以表达往一侧无限延伸的区间 —— 例如，一个包含了数组从索引 2 到结尾的所有值的区间。在这些情况下，你可以省略掉区间操作符一侧的值。这种区间叫做单侧区间，因为操作符只有一侧有值。例如：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">name</span> <span class="k">in</span> <span class="n">names</span><span class="p">[</span><span class="mf">2.</span><span class="p">..]</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// Brian</span>
+<span class="c1">// Jack</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="k">in</span> <span class="n">names</span><span class="p">[...</span><span class="mi">2</span><span class="p">]</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// Anna</span>
+<span class="c1">// Alex</span>
+<span class="c1">// Brian</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">半开区间操作符也有单侧表达形式，附带上它的最终值。就像你使用区间去包含一个值，最终值并不会落在区间内。例如：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">name</span> <span class="k">in</span> <span class="n">names</span><span class="p">[..&lt;</span><span class="mi">2</span><span class="p">]</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// Anna</span>
+<span class="c1">// Alex</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">单侧区间不止可以在下标里使用，也可以在别的情境下使用。你不能遍历省略了初始值的单侧区间，因为遍历的开端并不明显。你可以遍历一个省略最终值的单侧区间；然而，由于这种区间无限延伸的特性，请保证你在循环里有一个结束循环的分支。你也可以查看一个单侧区间是否包含某个特定的值，就像下面展示的那样。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">range</span> <span class="p">=</span> <span class="p">...</span><span class="mi">5</span>
+<span class="n">range</span><span class="p">.</span><span class="bp">contains</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>   <span class="c1">// false</span>
+<span class="n">range</span><span class="p">.</span><span class="bp">contains</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>   <span class="c1">// true</span>
+<span class="n">range</span><span class="p">.</span><span class="bp">contains</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1">// true</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_15" class="h16"><span class="span_for_h">逻辑运算符（Logical Operators） {#logical-operators}</span></h2>
+
+<p class="md_block  md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end"><em>逻辑运算符</em>的操作对象是逻辑布尔值。Swift 支持基于 C 语言的三个标准逻辑运算。</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>逻辑非（<code>!a</code>）
+
+</span></li>
+<li class="md_li"><span>逻辑与（<code>a &amp;&amp; b</code>）
+
+</span></li>
+<li class="md_li"><span>逻辑或（<code>a || b</code>）
+
+</span></li>
+</ul>
+<h3 id="toc_16" class="h16"><span class="span_for_h">逻辑非运算符</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>逻辑非运算符</em>（<code>!a</code>）对一个布尔值取反，使得 <code>true</code> 变 <code>false</code>，<code>false</code> 变 <code>true</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">它是一个前置运算符，需紧跟在操作数之前，且不加空格。读作 <code>非 a</code> ，例子如下：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">allowedEntry</span> <span class="p">=</span> <span class="kc">false</span>
+<span class="k">if</span> <span class="o">!</span><span class="n">allowedEntry</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;ACCESS DENIED&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“ACCESS DENIED”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>if !allowedEntry</code> 语句可以读作「如果非 allowedEntry」，接下一行代码只有在「非 allowedEntry」为 <code>true</code>，即 <code>allowEntry</code> 为 <code>false</code> 时被执行。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在示例代码中，小心地选择布尔常量或变量有助于代码的可读性，并且避免使用双重逻辑非运算，或混乱的逻辑语句。</span>
+</p>
+
+<h3 id="toc_17" class="h16"><span class="span_for_h">逻辑与运算符 {#logical-and-operator}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>逻辑与运算符</em>（<code>a &amp;&amp; b</code>）表达了只有 <code>a</code> 和 <code>b</code> 的值都为 <code>true</code> 时，整个表达式的值才会是 <code>true</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">只要任意一个值为 <code>false</code>，整个表达式的值就为 <code>false</code>。事实上，如果第一个值为 <code>false</code>，那么是不去计算第二个值的，因为它已经不可能影响整个表达式的结果了。这被称做<em class="md_patched_em">短路计算（short-circuit evaluation）</em>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">以下例子，只有两个 <code>Bool</code> 值都为 <code>true</code> 的时候才允许进入 if：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">enteredDoorCode</span> <span class="p">=</span> <span class="kc">true</span>
+<span class="kd">let</span> <span class="nv">passedRetinaScan</span> <span class="p">=</span> <span class="kc">false</span>
+<span class="k">if</span> <span class="n">enteredDoorCode</span> <span class="o">&amp;&amp;</span> <span class="n">passedRetinaScan</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Welcome!&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;ACCESS DENIED&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“ACCESS DENIED”</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_18" class="h16"><span class="span_for_h">逻辑或运算符 {#logical-or-operator}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">逻辑或运算符（<code>a || b</code>）是一个由两个连续的 <code>|</code> 组成的中置运算符。它表示了两个逻辑表达式的其中一个为 <code>true</code>，整个表达式就为 <code>true</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">同逻辑与运算符类似，逻辑或也是「短路计算」的，当左端的表达式为 <code>true</code> 时，将不计算右边的表达式了，因为它不可能改变整个表达式的值了。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">以下示例代码中，第一个布尔值（<code>hasDoorKey</code>）为 <code>false</code>，但第二个值（<code>knowsOverridePassword</code>）为 <code>true</code>，所以整个表达是 <code>true</code>，于是允许进入：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">hasDoorKey</span> <span class="p">=</span> <span class="kc">false</span>
+<span class="kd">let</span> <span class="nv">knowsOverridePassword</span> <span class="p">=</span> <span class="kc">true</span>
+<span class="k">if</span> <span class="n">hasDoorKey</span> <span class="o">||</span> <span class="n">knowsOverridePassword</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Welcome!&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;ACCESS DENIED&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“Welcome!”</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_19" class="h16"><span class="span_for_h">逻辑运算符组合计算 {#combining-logical-operators}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">我们可以组合多个逻辑运算符来表达一个复合逻辑：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="n">enteredDoorCode</span> <span class="o">&amp;&amp;</span> <span class="n">passedRetinaScan</span> <span class="o">||</span> <span class="n">hasDoorKey</span> <span class="o">||</span> <span class="n">knowsOverridePassword</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Welcome!&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;ACCESS DENIED&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“Welcome!”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个例子使用了含多个 <code>&amp;&amp;</code> 和 <code>||</code> 的复合逻辑。但无论怎样，<code>&amp;&amp;</code> 和 <code>||</code> 始终只能操作两个值。所以这实际是三个简单逻辑连续操作的结果。我们来解读一下：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果我们输入了正确的密码并通过了视网膜扫描，或者我们有一把有效的钥匙，又或者我们知道紧急情况下重置的密码，我们就能把门打开进入。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">前两种情况，我们都不满足，所以前两个简单逻辑的结果是 <code>false</code>，但是我们是知道紧急情况下重置的密码的，所以整个复杂表达式的值还是 <code>true</code>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">Swift 逻辑操作符 <code>&amp;&amp;</code> 和 <code>||</code> 是左结合的，这意味着拥有多元逻辑操作符的复合表达式优先计算最左边的子表达式。</span>
+</p>
+
+</blockquote>
+<h3 id="toc_20" class="h16"><span class="span_for_h">使用括号来明确优先级 {#explicit-parentheses}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">为了一个复杂表达式更容易读懂，在合适的地方使用括号来明确优先级是很有效的，虽然它并非必要的。在上个关于门的权限的例子中，我们给第一个部分加个括号，使它看起来逻辑更明确：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">enteredDoorCode</span> <span class="o">&amp;&amp;</span> <span class="n">passedRetinaScan</span><span class="p">)</span> <span class="o">||</span> <span class="n">hasDoorKey</span> <span class="o">||</span> <span class="n">knowsOverridePassword</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Welcome!&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;ACCESS DENIED&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“Welcome!”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start md_line_end">这括号使得前两个值被看成整个逻辑表达中独立的一个部分。虽然有括号和没括号的输出结果是一样的，但对于读代码的人来说有括号的代码更清晰。可读性比简洁性更重要，请在可以让你代码变清晰的地方加个括号吧！</span>
+</p>
+        </div>
+    </div>
+    <!--mathjax-->
+    <!--mermaid-->
+</body>
+</html>

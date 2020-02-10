@@ -1,0 +1,1200 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>词法结构（Lexical Structure）</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">词法结构（Lexical Structure）</span></h1>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 的<em class="md_patched_em">“词法结构（lexical structure）”</em> 描述了能构成该语言中有效符号（token）的字符序列。这些合法符号组成了语言中最底层的构建基块，并在之后的章节中用于描述语言的其他部分。一个合法符号由一个标识符（identifier）、关键字（keyword）、标点符号（punctuation）、字面量（literal）或运算符（operator）组成。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">通常情况下，符号是考虑了输入文本中最长可能的子字符串，并被随后将介绍的语法约束，根据 Swift 源文件的字符生成的。这种方法称为<em class="md_patched_em">“最长匹配（longest match）”</em>，或者<em class="md_patched_em">“最大适合（maximal munch）”</em>。</span>
+</p>
+
+<h2 id="toc_1" class="h16"><span class="span_for_h">空白与注释 {#whitespace}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">空白（whitespace）有两个用途：分隔源文件中的符号以及帮助区分运算符属于前缀还是后缀（参见 <a class="md_compiled" href="#operators">运算符</a>），在其他情况下空白则会被忽略。以下的字符会被当作空白：空格（U+0020）、换行符（U+000A）、回车符（U+000D）、水平制表符（U+0009）、垂直制表符（U+000B）、换页符（U+000C）以及空字符（U+0000）。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">注释被编译器当作空白处理。单行注释由 <code>//</code> 开始直至遇到换行符（U+000A）或者回车符（U+000D）。多行注释由 <code>/&#42;</code> 开始，以 <code>&#42;/</code> 结束。多行注释允许嵌套，但注释标记必须成对出现。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">注释可以包含其他的格式和标记，如 <a class="md_compiled" href="https://developer.apple.com/library/archive/documentation/Xcode/Reference/xcode_markup_formatting_ref/index.html">标记格式参考</a>中所述。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">空白语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>空白</em> → <a class="md_compiled" href="#whitespace-item">空白项</a> <a class="md_compiled" href="#whitespace">空白</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_2" class="h16"><span class="span_for_h">whitespace-item {#whitespace-item}</span></h4>
+
+<blockquote class="blockquote_lines_6 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>空白项</em> → <a class="md_compiled" href="#line-break">断行符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>空白项</em> → <a class="md_compiled" href="#comment">注释</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>空白项</em> → <a class="md_compiled" href="#multiline-comment">多行注释</a>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>空白项</em> → U+0000，U+0009，U+000B，U+000C 或者 U+0020<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_3" class="h16"><span class="span_for_h">line-break {#line-break}</span></h4>
+
+<blockquote class="blockquote_lines_7 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+    <span class="md_line"><em>断行符</em> → U+000A<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>断行符</em> → U+000D<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>断行符</em> → U+000D 接着是 U+000A<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_4" class="h16"><span class="span_for_h">comment {#comment}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>注释</em> → // <a class="md_compiled" href="#comment-text">注释内容</a>  <a class="md_compiled" href="#line-break">断行符</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_5" class="h16"><span class="span_for_h">multiline-comment {#multiline-comment}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>多行注释</em> → <code>/&#42;</code> <a class="md_compiled" href="#multiline-commnet-text">多行注释内容</a> <code>&#42;/</code>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_6" class="h16"><span class="span_for_h">comment-text {#comment-text}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>注释内容</em> → <a class="md_compiled" href="#comment-text-item">注释内容项</a> <a class="md_compiled" href="#comment-text">注释内容</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_7" class="h16"><span class="span_for_h">comment-text-item {#comment-text-item}</span></h4>
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+    <span class="md_line"><em>注释内容项</em> → 任何 Unicode 标量值，除了 U+000A 或者 U+000D<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_8" class="h16"><span class="span_for_h">multiline-commnet-text {#multiline-commnet-text}</span></h4>
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>多行注释内容</em> → <a class="md_compiled" href="#multiline-comment-text-item">多行注释内容项</a> <a class="md_compiled" href="#multiline-comment-text">多行注释内容</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>多行注释内容项</em> → <a class="md_compiled" href="#multiline-comment">多行注释</a>.<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行注释内容项</em> → <a class="md_compiled" href="#comment-text-item">注释内容项</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行注释内容项</em> → 任何 Unicode 标量值，除了 <code>/&#42;</code> 或者 <code>&#42;/</code></p>
+
+</blockquote>
+<h2 id="toc_9" class="h16"><span class="span_for_h">标识符 {#identifiers}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>标识符（identifier）</em> 可以由以下的字符开始：大写或小写的字母 <code>A</code> 到 <code>Z</code>、下划线（<code>_</code>）、基本多文种平面（Basic Multilingual Plane）中非字符数字组合的 Unicode 字符以及基本多文种平面以外的非个人专用区字符。在首字符之后，允许使用数字和组合 Unicode 字符。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">使用保留字作为标识符，需要在其前后增加反引号（<code>`</code>）。例如，<code>class</code> 不是合法的标识符，但可以使用 <code>`class`</code>。反引号不属于标识符的一部分，<code>`x`</code> 和 <code>x</code> 表示同一标识符。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">闭包中如果没有明确指定参数名称，参数将被隐式命名为 <code>$0</code>、<code>$1</code>、<code>$2</code> 等等。这些命名在闭包作用域范围内是合法的标识符。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">编译器给含有属性包装器呈现值的属性自动合成以美元符号（<em class="md_patched_em">$</em>）开头的标识符。你的代码可以与这些标识符进行交互，，但是不能使用该前缀声明标识符。更详细的介绍，请查看 <a class="md_compiled" href="./07_Attributes.md">特性</a> 章节中的 <a class="md_compiled" href="./07_Attributes.md#propertywrapper">属性包装器</a> 部分。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_7 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">标识符语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标识符</em> → <a class="md_compiled" href="#identifier-head">头部标识符</a> <a class="md_compiled" href="#identifier-characters">标识符字符组</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符</em> → `<a class="md_compiled" href="#identifier-head">头部标识符</a> <a class="md_compiled" href="#identifier-characters">标识符字符组</a><sub>可选</sub>`<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标识符</em> → <a class="md_compiled" href="#implicit-parameter-name">隐式参数名</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标识符列表</em> → <a class="md_compiled" href="#identifier">标识符</a> | <a class="md_compiled" href="#identifier">标识符</a> <strong>,</strong> <a class="md_compiled" href="#identifier">标识符列表</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_10" class="h16"><span class="span_for_h">identifier-head {#identifier-head}</span></h4>
+
+<blockquote class="blockquote_lines_32 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → 大写或小写字母 A - Z<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>头部标识符</em> → <strong>_</strong>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → U+00A8，U+00AA，U+00AD，U+00AF，U+00B2–U+00B5，或者 U+00B7–U+00BA<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → U+00BC–U+00BE，U+00C0–U+00D6，U+00D8–U+00F6，或者 U+00F8–U+00FF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → U+0100–U+02FF，U+0370–U+167F，U+1681–U+180D，或者 U+180F–U+1DBF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → U+1E00–U+1FFF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → U+200B–U+200D，U+202A–U+202E，U+203F–U+2040，U+2054，或者 U+2060–U+206F<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → U+2070–U+20CF，U+2100–U+218F，U+2460–U+24FF，或者 U+2776–U+2793<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → U+2C00–U+2DFF 或者 U+2E80–U+2FFF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → U+3004–U+3007，U+3021–U+302F，U+3031–U+303F，或者 U+3040–U+D7FF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → U+F900–U+FD3D，U+FD40–U+FDCF，U+FDF0–U+FE1F，或者 U+FE30–U+FE44<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → U+FE47–U+FFFD<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → U+10000–U+1FFFD，U+20000–U+2FFFD，U+30000–U+3FFFD，或者 U+40000–U+4FFFD<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → U+50000–U+5FFFD，U+60000–U+6FFFD，U+70000–U+7FFFD，或者 U+80000–U+8FFFD<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → U+90000–U+9FFFD，U+A0000–U+AFFFD，U+B0000–U+BFFFD，或者 U+C0000–U+CFFFD<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部标识符</em> → U+D0000–U+DFFFD 或者 U+E0000–U+EFFFD<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_11" class="h16"><span class="span_for_h">identifier-character {#identifier-character}</span></h4>
+
+<blockquote class="blockquote_lines_6 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符字符</em> → 数值 0 - 9<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>标识符字符</em> → U+0300–U+036F，U+1DC0–U+1DFF，U+20D0–U+20FF，或者 U+FE20–U+FE2F<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>标识符字符</em> → <a class="md_compiled" href="#identifier-head">头部标识符</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_12" class="h16"><span class="span_for_h">identifier-characters {#identifier-characters}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>标识符字符组</em> → <a class="md_compiled" href="#identifier-character">标识符字符</a> <a class="md_compiled" href="#identifier-characters">标识符字符组</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_13" class="h16"><span class="span_for_h">implicit-parameter-name {#implicit-parameter-name}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block  md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>隐式参数名</em> → <strong>$</strong> <a class="md_compiled" href="#decimal-digit">十进制数字列表</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_14" class="h16"><span class="span_for_h">property-wrapper-projection {#property-wrapper-projection}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>属性包装器呈现值</em> → <strong>$</strong> <a class="md_compiled" href="#identifier-characters">标识符字符组</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h2 id="toc_15" class="h16"><span class="span_for_h">关键字和标点符号 {#keywords-and-punctuation}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">下面这些被保留的关键字不允许用作标识符，除非使用反引号转义，具体描述请参考 <a class="md_compiled" href="#identifiers">标识符</a>。除了 <code>inout</code>、<code>var</code> 以及 <code>let</code> 之外的关键字可以用作某个函数声明或者函数调用当中的外部参数名，无需添加反引号转义。当一个成员与一个关键字具有相同的名称时，不需要使用反引号来转义对该成员的引用，除非在引用该成员和使用该关键字之间存在歧义 - 例如，<code>self</code>，<code>Type</code> 和 <code>Protocol</code> 在显式的成员表达式中具有特殊的含义，因此它们必须在该上下文中使用反引号进行转义。</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>用在声明中的关键字：<code>associatedtype</code>、<code>class</code>、<code>deinit</code>、<code>enum</code>、<code>extension</code>、<code>fileprivate</code>、<code>func</code>、<code>import</code>、<code>init</code>、<code>inout</code>、<code>internal</code>、<code>let</code>、<code>open</code>、<code>operator</code>、<code>private</code>、<code>protocol</code>、<code>public</code>、<code>rethrows</code>、<code>static</code>、<code>struct</code>、<code>subscript</code>、<code>typealias</code> 以及 <code>var</code>。
+
+</span></li>
+<li class="md_li"><span>用在语句中的关键字：<code>break</code>、<code>case</code>、<code>continue</code>、<code>default</code>、<code>defer</code>、<code>do</code>、<code>else</code>、<code>fallthrough</code>、<code>for</code>、<code>guard</code>、<code>if</code>、<code>in</code>、<code>repeat</code>、<code>return</code>、<code>switch</code>、<code>where</code> 以及 <code>while</code>。
+
+</span></li>
+<li class="md_li"><span>用在表达式和类型中的关键字：<code>as</code>、<code>Any</code>、<code>catch</code>、<code>false</code>、<code>is</code>、<code>nil</code>、<code>super</code>、<code>self</code>、<code>Self</code>、<code>throw</code>、<code>throws</code>、<code>true</code> 以及 <code>try</code>。
+
+</span></li>
+<li class="md_li"><span>用在模式中的关键字：<code>_</code>。
+
+</span></li>
+<li class="md_li"><span>以井字号（<code>#</code>）开头的关键字：<code>#available</code>、<code>#colorLiteral</code>、<code>#column</code>、<code>#else</code>、<code>#elseif</code>、<code>#endif</code>、<code>#error</code>、<code>#file</code>、<code>#fileLiteral</code>、<code>#function</code>、<code>#if</code>、<code>#imageLiteral</code>、<code>#line</code>、<code>#selector</code>、<code>#sourceLocation</code>以及 <code>#warning</code>。
+
+</span></li>
+<li class="md_li"><span>特定上下文中被保留的关键字：<code>associativity</code>、<code>convenience</code>、<code>dynamic</code>、<code>didSet</code>、<code>final</code>、<code>get</code>、<code>infix</code>、<code>indirect</code>、<code>lazy</code>、<code>left</code>、<code>mutating</code>、<code>none</code>、<code>nonmutating</code>、<code>optional</code>、<code>override</code>、<code>postfix</code>、<code>precedence</code>、<code>prefix</code>、<code>Protocol</code>、<code>required</code>、<code>right</code>、<code>set</code>、<code>Type</code>、<code>unowned</code>、<code>weak</code> 以及 <code>willSet</code>。这些关键字在特定上下文之外可以被用做标识符。
+
+</span></li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">以下符号被保留为标点符号，不能用于自定义运算符：<code>(</code>、<code>)</code>、<code>{</code>、<code>}</code>、<code>[</code>、<code>]</code>、<code>.</code>、<code>,</code>、<code>:</code>、<code>;</code>、<code>=</code>、<code>@</code>、<code>#</code>、<code>&amp;</code>（作为前缀运算符）、<code>-&gt;</code>、<code>`</code>、<code>?</code>、以及 <code>!</code>（作为后缀运算符）。</span>
+</p>
+
+<h2 id="toc_16" class="h16"><span class="span_for_h">字面量 {#literal}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>字面量（literal）</em> 用来表示源码中某种特定类型的值，比如一个数字或字符串。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面是字面量的一些示例：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="mi">42</span>              <span class="c1">// 整数字面量</span>
+<span class="mf">3.14159</span>         <span class="c1">// 浮点数字面量</span>
+<span class="s">&quot;Hello, world!&quot;</span> <span class="c1">// 字符串字面量</span>
+<span class="kc">true</span>            <span class="c1">// 布尔值字面量</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">字面量本身并不包含类型信息。事实上，一个字面量会被解析为拥有无限的精度，然后 Swift 的类型推导会尝试去推导出这个字面量的类型。比如，在 <code>let x: Int8 = 42</code> 这个声明中，Swift 使用了显式类型注解（<code>: Int8</code>）来推导出 <code>42</code> 这个整数字面量的类型是 <code>Int8</code>。如果没有可用的类型信息，Swift 则会从标准库中定义的字面量类型中推导出一个默认的类型。整数字面量的默认类型是 <code>Int</code>，浮点数字面量的默认类型是 <code>Double</code>，字符串字面量的默认类型是 <code>String</code>，布尔值字面量的默认类型是 <code>Bool</code>。比如，在 <code>let str = "Hello, world"</code> 这个声明中，字符串 <code>"Hello, world"</code> 的默认推导类型就是 <code>String</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当为一个字面量值指定了类型注解的时候，这个注解类型必须能通过这个字面量值实例化。也就是说，这个类型必须符合这些 Swift 标准库协议中的一个：整数字面量的 <code>ExpressibleByIntegerLiteral</code> 协议、浮点数字面量的 <code>ExpressibleByFloatLiteral</code> 协议、字符串字面量的 <code>ExpressibleByStringLiteral</code> 协议、布尔值字面量的 <code>ExpressibleByBooleanLiteral</code> 协议、只包含单个 Unicode 标量字符串文本的 <code>ExpressibleByUnicodeScalarLiteral</code> 协议以及只包含单个扩展字形簇（grapheme cluster）字符串文字的 <code>ExpressibleByExtendedGraphemeClusterLiteral</code> 协议。比如，<code>Int8</code> 符合 <code>ExpressibleByIntegerLiteral</code> 协议，因此它能在 <code>let x: Int8 = 42</code> 这个声明中作为整数字面量 <code>42</code> 的类型注解。</span>
+</p>
+
+<span class="md_repeated_n md_repeated_n_1"></span>
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">字面量语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>字面量</em> → <a class="md_compiled" href="#integer-literal">数值字面量</a> | <a class="md_compiled" href="#string-literal">字符串字面量</a> | <a class="md_compiled" href="#integer-literal">布尔值字面量</a> | <a class="md_compiled" href="#integer-literal">nil 字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>数值字面量</em> → <strong>-</strong><sub>可选</sub> <a class="md_compiled" href="#integer-literal">整数字面量</a> | <strong>-</strong><sub>可选</sub> <a class="md_compiled" href="#floating-point-literal">浮点数字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>布尔值字面量</em> → <strong>true</strong> | <strong>false</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>nil 字面量</em> → <strong>nil</strong></p>
+
+</blockquote>
+<h3 id="toc_17" class="h16"><span class="span_for_h">整数字面量{#integer-literal}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>整数字面量（Integer Literals）</em> 表示未指定精度的整数值。整数字面量默认用十进制表示；可以加前缀来指定其他的进制。二进制字面量加 <code>0b</code>，八进制字面量加 <code>0o</code>，十六进制字面量加 <code>0x</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">十进制字面量包含数字 <code>0</code> 至 <code>9</code>。二进制字面量包含 <code>0</code> 和 <code>1</code>，八进制字面量包含数字 <code>0</code> 至 <code>7</code>，十六进制字面量包含数字 <code>0</code> 至 <code>9</code> 以及字母 <code>A</code> 至 <code>F</code>（大小写均可）。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">负整数字面量的表示方式为在整数字面量前加负号 <code>-</code>，比如 <code>-42</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">整型字面面可以使用下划线（<code>_</code>）来增加数字的可读性，下划线会被系统忽略，因此不会影响字面量的值。同样地，也可以在数字前加 <code>0</code>，这同样也会被系统所忽略，并不会影响字面量的值。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">除非特别指定，整数字面量的默认推导类型为 Swift 标准库类型中的 <code>Int</code>。Swift 标准库还定义了其他不同长度以及是否带符号的整数类型，请参考 <a class="md_compiled" href="../02_language_guide/01_The_Basics.md#integers">整数</a>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">整数字面量语法<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_18" class="h16"><span class="span_for_h">integer-literal {#integer-literal}</span></h4>
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>整数字面量</em> → <a class="md_compiled" href="#binary-literal">二进制字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>整数字面量</em> → <a class="md_compiled" href="#octal-literal">八进制字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>整数字面量</em> → <a class="md_compiled" href="#decimal-literal">十进制字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>整数字面量</em> → <a class="md_compiled" href="#hexadecimal-literal">十六进制字面量</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_19" class="h16"><span class="span_for_h">binary-literal {#binary-literal}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>二进制字面量</em> → <strong>0b</strong> <a class="md_compiled" href="#binary-digit">二进制数字</a> <a class="md_compiled" href="#binary-literal-characters">二进制字面量字符组</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_20" class="h16"><span class="span_for_h">binary-digit {#binary-digit}</span></h4>
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+    <span class="md_line"><em>二进制数字</em> → 数值 0 或 1<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>二进制字面量字符</em> → <a class="md_compiled" href="#binary-digit">二进制数字</a> | <strong>_</strong>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_21" class="h16"><span class="span_for_h">binary-literal-characters {#binary-literal-characters}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>二进制字面量字符组</em> → <a class="md_compiled" href="#binary-literal-character">二进制字面量字符</a> <a class="md_compiled" href="#binary-literal-characters">二进制字面量字符组</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_22" class="h16"><span class="span_for_h">octal-literal {#octal-literal}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>八进制字面量</em> → <strong>0o</strong> <a class="md_compiled" href="#octal-digit">八进字数字</a> <a class="md_compiled" href="#octal-literal-characters">八进制字符组</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_23" class="h16"><span class="span_for_h">octal-digit {#octal-digit}</span></h4>
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+    <span class="md_line"><em>八进字数字</em> → 数值 0 到 7<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>八进制字符</em> → <a class="md_compiled" href="#octal-digit">八进字数字</a> | <strong>_</strong>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_24" class="h16"><span class="span_for_h">octal-literal-characters {#octal-literal-characters}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>八进制字符组</em> → <a class="md_compiled" href="#octal-literal-character">八进制字符</a> <a class="md_compiled" href="#octal-literal-characters">八进制字符组</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_25" class="h16"><span class="span_for_h">decimal-literal {#decimal-literal}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>十进制字面量</em> → <a class="md_compiled" href="#decimal-digit">十进制数字</a> <a class="md_compiled" href="#decimal-literal-characters">十进制字符组</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_26" class="h16"><span class="span_for_h">decimal-digit {#decimal-digit}</span></h4>
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+    <span class="md_line"><em>十进制数字</em> → 数值 0 到 9<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_27" class="h16"><span class="span_for_h">decimal-literal-characters {#decimal-literal-characters}</span></h4>
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>十进制数字组</em> → <a class="md_compiled" href="#decimal-digit">十进制数字</a> <a class="md_compiled" href="#decimal-literal-characters">十进制数字组</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>十进制字符</em> → <a class="md_compiled" href="#decimal-digit">十进制数字</a> | <strong>_</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>十进制字符组</em> → <a class="md_compiled" href="#decimal-literal-characters">十进制字符</a> <a class="md_compiled" href="#decimal-literal-characters">十进制字符组</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_28" class="h16"><span class="span_for_h">hexadecimal-literal {#hexadecimal-literal}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>十六进制字面量</em> → <strong>0x</strong> <a class="md_compiled" href="#hexadecimal-digit">十六进制数字</a> <a class="md_compiled" href="#hexadecimal-literal-characters">十六进制字面量字符组</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_29" class="h16"><span class="span_for_h">hexadecimal-digit {#hexadecimal-digit}</span></h4>
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+    <span class="md_line"><em>十六进制数字</em> → 数值 0 到 9, 字母 a 到 f, 或 A 到 F<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>十六进制字符</em> → <a class="md_compiled" href="#hexadecimal-digit">十六进制数字</a> | <strong>-</strong>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_30" class="h16"><span class="span_for_h">hexadecimal-literal-characters {#hexadecimal-literal-characters}</span></h4>
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>十六进制字面量字符组</em> → <a class="md_compiled" href="#hexadecimal-literal-characters">十六进制字符</a> <a class="md_compiled" href="#hexadecimal-literal-characters">十六进制字面量字符组</a><sub>可选</sub></p>
+
+</blockquote>
+<h3 id="toc_31" class="h16"><span class="span_for_h">浮点数字面量{#floating-point-literal}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>浮点数字面量（Floating-point literals）</em>表示未指定精度浮点数的值。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">浮点数字面量默认用十进制表示（无前缀），也可以用十六进制表示（加前缀 <code>0x</code>）。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">十进制浮点数字面量由十进制数字串后跟十进制小数部分或十进制指数部分（或两者皆有）组成。十进制小数部分由小数点（<code>.</code>）后跟十进制数字串组成。指数部分由大写或小写字母 <code>e</code> 为前缀后跟十进制数字串组成，这串数字表示 <code>e</code> 之前的数值乘以 10 的几次方。例如：<code>1.25e2</code> 表示 1.25 x 10²，也就是 <code>125.0</code>。同样，<code>1.25e－2</code> 表示 1.25 x 10¯²，也就是 <code>0.0125</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">十六进制浮点数字面量由前缀 <code>0x</code> 后跟可选的十六进制小数部分以及十六进制指数部分组成。十六进制小数部分由小数点后跟十六进制数字串组成。指数部分由大写或小写字母 <code>p</code> 为前缀后跟十进制数字串组成，这串数字表示 <code>p</code> 之前的数量乘以 2 的几次方。例如：<code>0xFp2</code> 表示 15 x 2²，也就是 <code>60</code>。同样，<code>0xFp-2</code> 表示 15 x 2¯²，也就是 <code>3.75</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">负数的浮点数字面量由负号（<code>-</code>）和浮点数字面量组成，例如 <code>-42.5</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">浮点数字面量允许使用下划线（<code>_</code>）来增强数字的可读性，下划线会被系统忽略，因此不会影响字面量的值。同样地，也可以在数字前加 <code>0</code>，并不会影响字面量的值。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">除非特别指定，浮点数字面量的默认推导类型为 Swift 标准库类型中的 <code>Double</code>，表示 64 位浮点数。Swift 标准库也定义了 <code>Float</code> 类型，表示 32 位浮点数。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">浮点数字面量语法<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_32" class="h16"><span class="span_for_h">floating-point-literal {#floating-point-literal}</span></h4>
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>浮点数字面量</em> → <a class="md_compiled" href="#decimal-literal">十进制字面量</a> <a class="md_compiled" href="#decimal-fraction">十进制分数</a><sub>可选</sub> <a class="md_compiled" href="#decimal-exponent">十进制指数</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>浮点数字面量</em> → <a class="md_compiled" href="#hexadecimal-literal">十六进制字面量</a> <a class="md_compiled" href="#hexadecimal-fraction">十六进制分数</a><sub>可选</sub> <a class="md_compiled" href="#hexadecimal-exponent">十六进制指数</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_33" class="h16"><span class="span_for_h">decimal-fraction {#decimal-fraction}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>十进制分数</em> → <strong>.</strong> <a class="md_compiled" href="#decimal-literal">十进制字面量</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_34" class="h16"><span class="span_for_h">decimal-exponent {#decimal-exponent}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>十进制指数</em> → <a class="md_compiled" href="#floating-point-e">十进制指数 e</a> <a class="md_compiled" href="#sign">正负号</a><sub>可选</sub> <a class="md_compiled" href="#decimal-literal">十进制字面量</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_35" class="h16"><span class="span_for_h">hexadecimal-fraction {#hexadecimal-fraction}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>十六进制分数</em> → <strong>.</strong> <a class="md_compiled" href="#hexadecimal-digit">十六进制数字</a> <a class="md_compiled" href="#hexadecimal-literal-characters">十六进制字面量字符组</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_36" class="h16"><span class="span_for_h">hexadecimal-exponent {#hexadecimal-exponent}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>十六进制指数</em> → <a class="md_compiled" href="#floating-point-p">十六进制指数 p</a> <a class="md_compiled" href="#sign">正负号</a><sub>可选</sub> <a class="md_compiled" href="#decimal-literal">十进制字面量</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_37" class="h16"><span class="span_for_h">floating-point-e {#floating-point-e}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>十进制指数 e</em> → <strong>e</strong> | <strong>E</strong>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_38" class="h16"><span class="span_for_h">floating-point-p {#floating-point-p}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>十六进制指数 p</em> → <strong>p</strong> | <strong>P</strong>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_39" class="h16"><span class="span_for_h">sign {#sign}</span></h4>
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>正负号</em> → <strong>+</strong> | <strong>-</strong></p>
+
+</blockquote>
+<h3 id="toc_40" class="h16"><span class="span_for_h">字符串字面量 {#string-literal}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">字符串字面量是被引号包括的一串字符组成。单行字符串字面量是被包在双引号中的一串字符组成，形式如下：</span>
+</p>
+
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">&quot;<code>字符</code>&quot;</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">字符串字面量中不能包含未转义的双引号（<code>"</code>）、未转义的反斜线（<code>\</code>）、回车符、换行符。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">多行字符串字面量被包在三个双引号中的一串字符组成，形式如下：</span>
+</p>
+
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&quot;&quot;&quot;<br /></span>
+<code>字符</code>
+    <span class="md_line md_line_end">&quot;&quot;&quot;</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">与单行字符串字面量不同的是，多行字符串字面量可以包含不转义的双引号（&quot;），回车以及换行。它不能包含三个未转义的连续双引号。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>"""</code> 之后的回车或者换行开始多行字符串字面量，它们不是字符串的一部分。结束部分的 <code>"""</code> 以及它之前的回车或者换行，也不是字符串的一部分。要让多行字符串字面量的开始或结束带有换行，就在第一行或者最后一行写一个空行。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">多行字符串字面量可以使用任何空格或制表符组合进行缩进；这些缩进不会包含在字符串中。<code>"""</code> 的结束符号决定了缩进：字面量中的每一个非空行开头都必须与结束符 <code>"""</code> 之前出现的缩进完全一致；空格和制表符不会被转换。你可以在缩进后包含额外的空格和制表符；这些空格和制表符会在字符串中出现。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">多行字符串字面量中的一行结束使用规范化的换行符号。尽管你的源代码混用了回车和换行符，字符串中所有的行结束都必须一样.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在多行字符串字面量里，在行末用反斜线（<code>\</code>）可以省略字符串行间中断。反斜线和换行符之间的空白也将被忽略。你可以在你的代码里用这种语法硬包裹多行字符串字面量，而不改变结果字符串的值。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">可以在字符串字面量中使用的转义特殊符号如下：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>空字符 （<code>\0</code>）
+
+</span></li>
+<li class="md_li"><span>反斜线 （<code>\\</code>）
+
+</span></li>
+<li class="md_li"><span>水平制表符 （<code>\t</code>）
+
+</span></li>
+<li class="md_li"><span>换行符 （<code>\n</code>）
+
+</span></li>
+<li class="md_li"><span>回车符 （<code>\r</code>）
+
+</span></li>
+<li class="md_li"><span>双引号 （<code>\"</code>）
+
+</span></li>
+<li class="md_li"><span>单引号 （<code>\'</code>）
+
+</span></li>
+<li class="md_li"><span>Unicode 标量 （<code>\u{</code>n<code>}</code>），n 为一到八位的十六进制数字
+
+</span></li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">字符串字面量允许在反斜杠（<code>\</code>）后的括号 <code>()</code> 中插入表达式的值。插入表达式可以包含字符串字面量，但不能包含未转义的反斜线（<code>\</code>）、回车符以及换行符。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">例如，以下所有字符串字面量的值都是相同的：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="s">&quot;1 2 3&quot;</span>
+<span class="s">&quot;1 2 </span><span class="si">\(</span><span class="s">&quot;3&quot;</span><span class="si">)</span><span class="s">&quot;</span>
+<span class="s">&quot;1 2 </span><span class="si">\(</span><span class="mi">3</span><span class="si">)</span><span class="s">&quot;</span>
+<span class="s">&quot;1 2 </span><span class="si">\(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="si">)</span><span class="s">&quot;</span>
+<span class="kd">let</span> <span class="nv">x</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span> <span class="s">&quot;1 2 </span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">由扩展分隔符包裹的字符串，它是由引号以及成对出现的数字符号（<code>#</code>）包裹的字符串序列。由扩展分隔符包裹的字符串形式如下所示：</span>
+</p>
+
+
+<blockquote class="blockquote_lines_6 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">#&quot;<code>characters</code>&quot;#<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line">#&quot;&quot;&quot;<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<code>characters</code>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">&quot;&quot;&quot;#</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">特殊字符在被扩展分隔符分隔的结果字符串中会展示为普通字符，而不是特殊字符。你可以使用扩展分隔符来创建一些通常情况下具有特殊效果的字符串。例如，生成字符串插值，启动转义序列或终止字符串。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">以下所示，由字符串字面量和扩展分隔符所创建的字符串是等价的:</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">string</span> <span class="p">=</span> <span class="p">#</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s"> \ &quot;</span> <span class="err">\</span><span class="n">u</span><span class="p">{</span><span class="mi">2603</span><span class="p">}</span><span class="s">&quot;#</span>
+<span class="s">let escaped = &quot;</span><span class="err">\\</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="err">\\</span> <span class="err">\</span><span class="s">&quot; </span><span class="se">\\</span><span class="s">u{2603}&quot;</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="c1">// Prints &quot;\(x) \ &quot; \u{2603}&quot;</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">string</span> <span class="p">==</span> <span class="n">escaped</span><span class="p">)</span>
+<span class="c1">// Prints &quot;true&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果在一个字符串中使用多对扩展分隔符，请不要在分隔符之间使用空格。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="bp">print</span><span class="p">(###</span><span class="s">&quot;Line 1\###nLine 2&quot;</span><span class="p">###)</span> <span class="c1">// OK</span>
+<span class="bp">print</span><span class="p">(#</span> <span class="p">#</span> <span class="p">#</span><span class="s">&quot;Line 1\# # #nLine 2&quot;</span><span class="p">#</span> <span class="p">#</span> <span class="p">#)</span> <span class="c1">// Error</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">使用扩展分隔符创建的多行字符串字面量与普通多行字符串字面量具有相同的缩进要求。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">字符串字面量的默认推导类型为 <code>String</code>。更多有关 <code>String</code> 类型的信息请参考 <a class="md_compiled" href="../02_language_guide/03_Strings_and_Characters.md">字符串和字符</a> 以及 <a class="md_compiled" href="https://developer.apple.com/documentation/swift/string"><em>字符串结构参考</em></a>。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">用 <code>＋</code> 操作符连接的字符型字面量是在编译时进行连接的。比如下面的 <code>textA</code> 和 <code>textB</code> 是完全一样的，<code>textA</code> 没有任何运行时的连接操作。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">textA</span> <span class="p">=</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="s">&quot;world&quot;</span>
+<span class="kd">let</span> <span class="nv">textB</span> <span class="p">=</span> <span class="s">&quot;Hello world&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">字符串字面量语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>字符串字面量</em> → <a class="md_compiled" href="#static-string-literal">静态字符串字面量</a> | <a class="md_compiled" href="#interpolated-string-literal">插值字符串字面量</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>字符串开分隔定界符</em> → <a class="md_compiled" href="#extended-string-literal-delimiter">字符串扩展分隔符</a> <strong>&quot;</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>字符串闭分隔定界符</em> → <strong>&quot;</strong> <a class="md_compiled" href="#extended-string-literal-delimiter">字符串扩展分隔符</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_41" class="h16"><span class="span_for_h">static-string-literal {#static-string-literal}</span></h4>
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>静态字符串字面量</em> → <a class="md_compiled" href="#extended-string-literal-delimiter">字符串开分隔定界符</a> <a class="md_compiled" href="#quoted-text">引用文本</a><sub>可选</sub> <a class="md_compiled" href="#extended-string-literal-delimiter">字符串闭分隔定界符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>静态字符串字面量</em> → <a class="md_compiled" href="#extended-string-literal-delimiter">多行字符串开分隔定界符</a> <a class="md_compiled" href="#multiline-quoted-text">多行引用文本</a><sub>可选</sub> <a class="md_compiled" href="#extended-string-literal-delimiter">多行字符串闭分隔定界符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行字符串开分隔定界符</em> → <a class="md_compiled" href="#extended-string-literal-delimiter">字符串扩展分隔符</a> <strong>&quot;&quot;&quot;</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行字符串闭分隔定界符</em> → <strong>&quot;&quot;&quot;</strong> <a class="md_compiled" href="#extended-string-literal-delimiter">字符串扩展分隔符</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_42" class="h16"><span class="span_for_h">extended-string-literal-delimiter {#extended-string-literal-delimiter}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>字符串扩展分隔符</em> → <strong>#</strong> <a class="md_compiled" href="#extended-string-literal-delimiter">字符串扩展分隔符</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_43" class="h16"><span class="span_for_h">quoted-text {#quoted-text}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>引用文本</em> → <a class="md_compiled" href="#quoted-text-item">引用文本项</a> <a class="md_compiled" href="#quoted-text">引用文本</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_44" class="h16"><span class="span_for_h">quoted-text-item {#quoted-text-item}</span></h4>
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>引用文本项</em> → <a class="md_compiled" href="#escaped-character">转义字符</a>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>引用文本项</em> → 除了 <strong>&quot;</strong>、<strong>\</strong>、U+000A、U+000D 以外的所有 Unicode 字符<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_45" class="h16"><span class="span_for_h">multiline-quoted-text {#multiline-quoted-text}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>多行引用文本</em> → <a class="md_compiled" href="#multiline-quoted-text-item">多行引用文本项</a> <a class="md_compiled" href="#multiline-quoted-text">多行引用文本</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_46" class="h16"><span class="span_for_h">multiline-quoted-text-item {#multiline-quoted-text-item}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>多行引用文本项</em> <a class="md_compiled" href="#escaped-character">转义字符</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_47" class="h16"><span class="span_for_h">multiline-quoted-text {#multiline-quoted-text}</span></h4>
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+    <span class="md_line"><em>多行引用文本</em> → 除了 <strong>\</strong> 以外的任何 Unicode 标量值<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行引用文本</em> → <a class="md_compiled" href="#escaped-newline">转义换行</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_48" class="h16"><span class="span_for_h">interpolated-string-literal {#interpolated-string-literal}</span></h4>
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>插值字符串字面量</em> → <a class="md_compiled" href="#extended-string-literal-delimiter">字符串开分隔定界符</a> <a class="md_compiled" href="#interpolated-text">插值文本</a><sub>可选</sub> <a class="md_compiled" href="#extended-string-literal-delimiter">字符串闭分隔定界符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>插值字符串字面量</em> → <a class="md_compiled" href="#extended-string-literal-delimiter">多行字符串开分隔定界符</a> <a class="md_compiled" href="#interpolated-text">插值文本</a><sub>可选</sub> <a class="md_compiled" href="#extended-string-literal-delimiter">多行字符串闭分隔定界符</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_49" class="h16"><span class="span_for_h">interpolated-text {#interpolated-text}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>插值文本</em> → <a class="md_compiled" href="#interpolated-text-item">插值文本项</a> <a class="md_compiled" href="#interpolated-text">插值文本</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_50" class="h16"><span class="span_for_h">interpolated-text-item {#interpolated-text-item}</span></h4>
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>插值文本项</em> → <strong>\(</strong><a class="md_compiled" href="./04_Expressions.md"> 表达式 </a><strong>)</strong> | <a class="md_compiled" href="#quoted-text-item">引用文本项</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行插值文本</em> → <a class="md_compiled" href="#multiline-quoted-text-item">多行插值文本项</a> <a class="md_compiled" href="#multiline-quoted-text">多行插值文本</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>多行插值文本项</em> → <strong>\(</strong> <a class="md_compiled" href="./04_Expressions.md">表达式</a> <strong>)</strong> | <a class="md_compiled" href="#multiline-quoted-text-item">多行引用文本项</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_51" class="h16"><span class="span_for_h">escape-sequence {#escape-sequence}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>转义序列</em> → <strong>\</strong> <a class="md_compiled" href="#extended-string-literal-delimiter">字符串扩展分隔符</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_52" class="h16"><span class="span_for_h">escaped-character {#escaped-character}</span></h4>
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>转义字符</em> → <a class="md_compiled" href="#escape-sequence">转义序列</a> <strong>0</strong> | <a class="md_compiled" href="#escape-sequence">转义序列</a> <strong>\</strong> | <a class="md_compiled" href="#escape-sequence">转义序列</a> <strong>t</strong> | <a class="md_compiled" href="#escape-sequence">转义序列</a> <strong>n</strong> | <a class="md_compiled" href="#escape-sequence">转义序列</a> <strong>r</strong> | <a class="md_compiled" href="#escape-sequence">转义序列</a> <strong>&quot;</strong> | <a class="md_compiled" href="#escape-sequence">转义序列</a> <strong>&#39;</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>转义字符</em> → <a class="md_compiled" href="#escape-sequence">转义序列</a> <strong>u {</strong> <a class="md_compiled" href="#unicode-scalar-digits">unicode 标量数字</a> <strong>}</strong>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_53" class="h16"><span class="span_for_h">unicode-scalar-digits {#unicode-scalar-digits}</span></h4>
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+    <span class="md_line"><em>unicode 标量数字</em> → 一到八位的十六进制数字<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_54" class="h16"><span class="span_for_h">escaped-newline {#escaped-newline}</span></h4>
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>转义换行符</em> → <a class="md_compiled" href="#escape-sequence">转义序列</a> <a class="md_compiled" href="#whitespace">空白</a><sub>可选</sub> <a class="md_compiled" href="#line-break">断行符</a></p>
+
+</blockquote>
+<h2 id="toc_55" class="h16"><span class="span_for_h">运算符 {#operator}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 标准库定义了许多可供使用的运算符，其中大部分在 <a class="md_compiled" href="../02_language_guide/02_Basic_Operators.md">基础运算符</a> 和 <a class="md_compiled" href="../02_language_guide/27_Advanced_Operators.md">高级运算符</a> 中进行了阐述。这一小节将描述哪些字符能用于自定义运算符。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">自定义运算符可以由以下其中之一的 ASCII 字符 <code>/</code>、<code>=</code>、<code>-</code>、<code>+</code>、<code>!</code>、<code>&#42;</code>、<code>%</code>、<code>&lt;</code>、<code>&gt;</code>、<code>&amp;</code>、<code>|</code>、<code>^</code>、<code>?</code> 以及 <code>~</code>，或者后面语法中规定的任一个 Unicode 字符（其中包含了<em class="md_patched_em">数学运算符</em>、<em class="md_patched_em">零散符号（Miscellaneous Symbols）</em> 以及<em class="md_patched_em">印刷符号（Dingbats）</em>之类的 Unicode 块）开始。在第一个字符之后，允许使用组合型 Unicode 字符。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">您也可以以点号（<code>.</code>）开头来定义自定义运算符。这些运算符可以包含额外的点。例如 <code>.+.</code> 会被看作一个单独的运算符。如果某个运算符不是以点号开头的，那么它就无法再包含另外的点号了。例如，<code>+.+</code> 就会被看作为一个 <code>+</code> 运算符后面跟着一个 <code>.+</code> 运算符。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">虽然您可以用问号 <code>（?）</code> 来自定义运算符，但是这个运算符不能只包含单独的一个问号。此外，虽然运算符可以包含一个惊叹号 <code>（!）</code>，但是前缀运算符不能够以问号或者惊叹号开头。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">以下这些标记 <code>=</code>、<code>-&gt;</code>、<code>//</code>、<code>/&#42;</code>、<code>&#42;/</code>、<code>.</code>，前缀运算符 <code>&lt;</code>、<code>&amp;</code> 和 <code>?</code>，中缀运算符 <code>?</code>，后缀运算符 <code>&gt;</code>、<code>!</code> 和 <code>?</code> 是被系统保留的。这些符号不能被重载，也不能用作自定义运算符。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">运算符两侧的空白被用来区分该运算符是否为前缀运算符、后缀运算符或二元运算符。规则总结如下：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>如果运算符两侧都有空白或两侧都无空白，将被看作二元运算符。例如：<code>a+++b</code> 和 <code>a +++ b</code> 当中的 <code>+++</code> 运算符会被看作二元运算符。
+
+</span></li>
+<li class="md_li"><span>如果运算符只有左侧空白，将被看作一元前缀运算符。例如 <code>a +++b</code> 中的 <code>+++</code> 运算符会被看做是一元前缀运算符。
+
+</span></li>
+<li class="md_li"><span>如果运算符只有右侧空白，将被看作一元后缀运算符。例如 <code>a+++ b</code> 中的 <code>+++</code> 运算符会被看作是一元后缀运算符。
+
+</span></li>
+<li class="md_li"><span>如果运算符左侧没有空白并紧跟 <code>（.）</code>，将被看作一元后缀运算符。例如 <code>a+++.b</code> 中的 <code>+++</code> 运算符会被视为一元后缀运算符（即上式被视为 <code>a+++ .b</code> 而不是 <code>a +++ .b</code>）。
+
+</span></li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">鉴于这些规则，<code>(</code>、<code>[</code> 和 <code>{</code> 是在运算符前面，<code>)</code>、<code>]</code> 和 <code>}</code> 是在运算符后面，以及字符 <code>,</code>、<code>;</code> 和 <code>:</code> 都被视为空白。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">以上规则需注意一点。如果预定义运算符 <code>!</code> 或 <code>?</code> 左侧没有空白，则不管右侧是否有空白都将被看作后缀运算符。如果将 <code>?</code> 用作可选链式调用运算符，左侧必须无空白。如果用于条件运算符 <code>（? :）</code>，必须两侧都有空白。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在某些特定的设计中，以 <code>&lt;</code> 或 <code>&gt;</code> 开头的运算符会被分离成两个或多个符号。剩余部分可能会以同样的方式被再次分离。因此，在 <code>Dictionary&lt;String, Array&lt;Int&gt;&gt;</code> 中没有必要添加空白来消除闭合字符 <code>&gt;</code> 的歧义。在这个例子中，闭合字符 <code>&gt;</code> 不会被视为单独的符号，因而不会被错误解析为 <code>&gt;&gt;</code> 运算符。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">要学习如何自定义运算符，请参考 <a class="md_compiled" href="../02_language_guide/27_Advanced_Operators.md#custom-operators">自定义运算符</a> 和 <a class="md_compiled" href="./06_Declarations.md#operator-declaration">运算符声明</a>。要学习如何重载运算符，请参考 <a class="md_compiled" href="../02_language_guide/27_Advanced_Operators.md#operator-functions">运算符函数</a>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">运算符语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>运算符</em> → <a class="md_compiled" href="#operator-head">头部运算符</a> <a class="md_compiled" href="#operator-characters">运算符字符组</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>运算符</em> → <a class="md_compiled" href="#dot-operator-head">头部点运算符</a> <a class="md_compiled" href="#dot-operator-characters">点运算符字符组</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_56" class="h16"><span class="span_for_h">operator-head {#operator-head}</span></h4>
+
+<blockquote class="blockquote_lines_36 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>头部运算符</em> → <strong>/</strong> | <strong>=</strong> | <strong>-</strong> | <strong>+</strong> | <strong>!</strong> | __*__ | <strong>%</strong> | <strong>&lt;</strong> | <strong>&gt;</strong> | <strong>&amp;</strong> | <strong>|</strong> | <strong>^</strong> | <strong>~</strong> | <strong>?</strong>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+00A1–U+00A7<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+00A9 或 U+00AB<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+00AC 或 U+00AE<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+00B0–U+00B1<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+00B6，U+00BB，U+00BF，U+00D7，或 U+00F7<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+2016–U+2017<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+2020–U+2027<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+2030–U+203E<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+2041–U+2053<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+2055–U+205E<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+2190–U+23FF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+2500–U+2775<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+2794–U+2BFF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+2E00–U+2E7F<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+3001–U+3003<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+3008–U+3020<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>头部运算符</em> → U+3030<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_57" class="h16"><span class="span_for_h">operator-character {#operator-character}</span></h4>
+
+<blockquote class="blockquote_lines_14 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>运算符字符</em> → <a class="md_compiled" href="#operator-head">头部运算符</a>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符字符</em> → U+0300–U+036F<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符字符</em> → U+1DC0–U+1DFF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符字符</em> → U+20D0–U+20FF<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符字符</em> → U+FE00–U+FE0F<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符字符</em> → U+FE20–U+FE2F<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line"><em>运算符字符</em> → U+E0100–U+E01EF<br /></span>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_58" class="h16"><span class="span_for_h">operator-characters {#operator-characters}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>运算符字符组</em> → <a class="md_compiled" href="#operator-character">运算符字符</a> <a class="md_compiled" href="#operator-characters">运算符字符组</a><sub>可选</sub>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_59" class="h16"><span class="span_for_h">dot-operator-head {#dot-operator-head}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>头部点运算符</em> → <strong>.</strong>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_60" class="h16"><span class="span_for_h">dot-operator-character {#dot-operator-character}</span></h4>
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>点运算符字符</em> → <strong>.</strong> | <a class="md_compiled" href="#operator-character">运算符字符</a>
+    <span class="md_line md_line_end">&nbsp;</span>
+</p>
+
+</blockquote>
+<h4 id="toc_61" class="h16"><span class="span_for_h">dot-operator-characters {#dot-operator-characters}</span></h4>
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start">&nbsp;<br /></span>
+<em>点运算符字符组</em> → <a class="md_compiled" href="#dot-operator-character">点运算符字符</a> <a class="md_compiled" href="#dot-operator-characters">点运算符字符组</a><sub>可选</sub>
+    <span class="md_line">&nbsp;<br /></span>
+<em>二元运算符</em> → <a class="md_compiled" href="#operator">运算符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>前缀运算符</em> → <a class="md_compiled" href="#operator">运算符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>后缀运算符</em> → <a class="md_compiled" href="#operator">运算符</a>
+<!--blockquote--></p>
+
+</blockquote>
+        </div>
+    </div>
+    
+        <script type= "text/javascript">
+            window.MathJax = {
+              tex: {
+                inlineMath: [ ['$','$']],
+                displayMath: [ ['$$','$$'] ]
+              },
+              svg: {fontCache: 'none'},
+              startup: {
+                    ready: () => {
+                      MathJax.startup.defaultReady();
+                      MathJax.startup.promise.then(() => {
+                        if (typeof(send_to_app_client)!='undefined'){send_to_app_client({'action': 'start_to_export_pdf'})}
+                      });
+                    }
+                  },
+              options: {
+                renderActions: {
+                  addMenu: [0]
+                }
+              }
+            };
+        </script>
+        <script src="https://markeditor-files.oss-cn-hangzhou.aliyuncs.com/fb_static/lib/markdown/MathJax/tex-svg.js" type= "text/javascript"></script>
+        
+        
+    <!--mermaid-->
+</body>
+</html>

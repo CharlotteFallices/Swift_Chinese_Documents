@@ -1,0 +1,926 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>自动引用计数</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">自动引用计数</span></h1>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 使用<em class="md_patched_em">自动引用计数（ARC）</em>机制来跟踪和管理你的应用程序的内存。通常情况下，Swift 内存管理机制会一直起作用，你无须自己来考虑内存的管理。ARC 会在类的实例不再被使用时，自动释放其占用的内存。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">然而在少数情况下，为了能帮助你管理内存，ARC 需要更多的，代码之间关系的信息。本章描述了这些情况，并且为你示范怎样才能使 ARC 来管理你的应用程序的所有内存。在 Swift 使用 ARC 与在 Obejctive-C 中使用 ARC 非常类似，具体请参考 <a class="md_compiled" href="https://developer.apple.com/library/content/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html#//apple-ref/doc/uid/TP40011226">过渡到 ARC 的发布说明</a>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">引用计数仅仅应用于类的实例。结构体和枚举类型是值类型，不是引用类型，也不是通过引用的方式存储和传递。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_1" class="h16"><span class="span_for_h">自动引用计数的工作机制 {#how-arc-works}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">每当你创建一个新的类实例时，ARC 会分配一块内存来储存该实例的信息。内存中会包含实例的类型信息，以及这个实例所关联的任何存储属性的值。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">此外，当实例不再被使用时，ARC 释放实例所占用的内存，并让释放的内存能挪作他用。这确保了不再被使用的实例，不会一直占用内存空间。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">然而，当 ARC 回收并释放了正在被使用中的实例后，该实例的属性和方法将不能再被访问和调用。实际上，如果你试图访问这个实例，你的应用程序很可能会崩溃。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">为了确保使用中的实例不会被销毁，ARC 会跟踪和计算每一个实例正在被多少属性，常量和变量所引用。哪怕实例的引用数为 1，ARC 都不会销毁这个实例。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">为了使上述成为可能，无论你将实例赋值给属性、常量或变量，它们都会创建此实例的强引用。之所以称之为“强”引用，是因为它会将实例牢牢地保持住，只要强引用还在，实例是不允许被销毁的。</span>
+</p>
+
+<h2 id="toc_2" class="h16"><span class="span_for_h">自动引用计数实践 {#arc-in-action}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子展示了自动引用计数的工作机制。例子以一个简单的 <code>Person</code> 类开始，并定义了一个叫 <code>name</code> 的常量属性：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Person</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s"> is being initialized&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kd">deinit</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s"> is being deinitialized&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>Person</code> 类有一个构造器，此构造器给实例的 <code>name</code> 属性赋值，并打印一条消息以表明初始化过程生效。<code>Person</code> 类也拥有一个析构器，这个析构器会在实例被销毁时打印一条消息。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">接下来的代码片段定义了三个类型为 <code>Person?</code> 的变量，按照代码片段中的顺序，为新的 <code>Person</code> 实例建立多个引用。由于这些变量是被定义为可选类型（<code>Person?</code>，而不是 <code>Person</code>），它们的值会被自动初始化为 <code>nil</code>，目前还不会引用到 <code>Person</code> 类的实例。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">reference1</span><span class="p">:</span> <span class="n">Person</span><span class="p">?</span>
+<span class="kd">var</span> <span class="nv">reference2</span><span class="p">:</span> <span class="n">Person</span><span class="p">?</span>
+<span class="kd">var</span> <span class="nv">reference3</span><span class="p">:</span> <span class="n">Person</span><span class="p">?</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">现在你可以创建 <code>Person</code> 类的新实例，并且将它赋值给三个变量中的一个：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">reference1</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;John Appleseed&quot;</span><span class="p">)</span>
+<span class="c1">// 打印“John Appleseed is being initialized”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">应当注意到当你调用 <code>Person</code> 类的构造器的时候，<code>"John Appleseed is being initialized"</code> 会被打印出来。由此可以确定构造器被执行。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">由于 <code>Person</code> 类的新实例被赋值给了 <code>reference1</code> 变量，所以 <code>reference1</code> 到 <code>Person</code> 类的新实例之间建立了一个强引用。正是因为这一个强引用，ARC 会保证 <code>Person</code> 实例被保持在内存中不被销毁。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你将同一个 <code>Person</code> 实例也赋值给其他两个变量，该实例又会多出两个强引用：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">reference2</span> <span class="p">=</span> <span class="n">reference1</span>
+<span class="n">reference3</span> <span class="p">=</span> <span class="n">reference1</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">现在这一个 <code>Person</code> 实例已经有三个强引用了。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你通过给其中两个变量赋值 <code>nil</code> 的方式断开两个强引用（包括最先的那个强引用），只留下一个强引用，<code>Person</code> 实例不会被销毁：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">reference1</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="n">reference2</span> <span class="p">=</span> <span class="kc">nil</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在你清楚地表明不再使用这个 <code>Person</code> 实例时，即第三个也就是最后一个强引用被断开时，ARC 会销毁它：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">reference3</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="c1">// 打印“John Appleseed is being deinitialized”</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_3" class="h16"><span class="span_for_h">类实例之间的循环强引用 {#strong-reference-cycles-between-class-instances}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面的例子中，ARC 会跟踪你所新创建的 <code>Person</code> 实例的引用数量，并且会在 <code>Person</code> 实例不再被需要时销毁它。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">然而，我们可能会写出一个类实例的强引用数<em class="md_patched_em">永远不能</em>变成 <code>0</code> 的代码。如果两个类实例互相持有对方的强引用，因而每个实例都让对方一直存在，就是这种情况。这就是所谓的<em class="md_patched_em">循环强引用</em>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以通过定义类之间的关系为弱引用或无主引用，来替代强引用，从而解决循环强引用的问题。具体的过程在 <a class="md_compiled" href="#resolving-strong-reference-cycles-between-class-instances">解决类实例之间的循环强引用</a> 中有描述。不管怎样，在你学习怎样解决循环强引用之前，很有必要了解一下它是怎样产生的。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面展示了一个不经意产生循环强引用的例子。例子定义了两个类：<code>Person</code> 和 <code>Apartment</code>，用来建模公寓和它其中的居民：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Person</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span> <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span> <span class="p">}</span>
+    <span class="kd">var</span> <span class="nv">apartment</span><span class="p">:</span> <span class="n">Apartment</span><span class="p">?</span>
+    <span class="kd">deinit</span> <span class="p">{</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s"> is being deinitialized&quot;</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Apartment</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">unit</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">init</span><span class="p">(</span><span class="n">unit</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span> <span class="kc">self</span><span class="p">.</span><span class="n">unit</span> <span class="p">=</span> <span class="n">unit</span> <span class="p">}</span>
+    <span class="kd">var</span> <span class="nv">tenant</span><span class="p">:</span> <span class="n">Person</span><span class="p">?</span>
+    <span class="kd">deinit</span> <span class="p">{</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Apartment </span><span class="si">\(</span><span class="n">unit</span><span class="si">)</span><span class="s"> is being deinitialized&quot;</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">每一个 <code>Person</code> 实例有一个类型为 <code>String</code>，名字为 <code>name</code> 的属性，并有一个可选的初始化为 <code>nil</code> 的 <code>apartment</code> 属性。<code>apartment</code> 属性是可选的，因为一个人并不总是拥有公寓。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">类似的，每个 <code>Apartment</code> 实例有一个叫 <code>unit</code>，类型为 <code>String</code> 的属性，并有一个可选的初始化为 <code>nil</code> 的 <code>tenant</code> 属性。<code>tenant</code> 属性是可选的，因为一栋公寓并不总是有居民。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这两个类都定义了析构器，在类实例被析构的时候输出信息。这让你能够知晓 <code>Person</code> 和 <code>Apartment</code> 的实例是否像预期的那样被销毁。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">接下来的代码片段定义了两个可选类型的变量 <code>john</code> 和 <code>unit4A</code>，并分别被设为下面的 <code>Apartment</code> 和 <code>Person</code> 的实例。这两个变量都被初始化为 <code>nil</code>，这正是可选类型的优点：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">john</span><span class="p">:</span> <span class="n">Person</span><span class="p">?</span>
+<span class="kd">var</span> <span class="nv">unit4A</span><span class="p">:</span> <span class="n">Apartment</span><span class="p">?</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">现在你可以创建特定的 <code>Person</code> 和 <code>Apartment</code> 实例并将赋值给 <code>john</code> 和 <code>unit4A</code> 变量：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">john</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;John Appleseed&quot;</span><span class="p">)</span>
+<span class="n">unit4A</span> <span class="p">=</span> <span class="n">Apartment</span><span class="p">(</span><span class="n">unit</span><span class="p">:</span> <span class="s">&quot;4A&quot;</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在两个实例被创建和赋值后，下图表现了强引用的关系。变量 <code>john</code> 现在有一个指向 <code>Person</code> 实例的强引用，而变量 <code>unit4A</code> 有一个指向 <code>Apartment</code> 实例的强引用：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/referenceCycle01_2x.png" alt="" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">现在你能够将这两个实例关联在一起，这样人就能有公寓住了，而公寓也有了房客。注意感叹号是用来展开和访问可选变量 <code>john</code> 和 <code>unit4A</code> 中的实例，这样实例的属性才能被赋值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">john</span><span class="p">!.</span><span class="n">apartment</span> <span class="p">=</span> <span class="n">unit4A</span>
+<span class="n">unit4A</span><span class="p">!.</span><span class="n">tenant</span> <span class="p">=</span> <span class="n">john</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在将两个实例联系在一起之后，强引用的关系如图所示：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/referenceCycle02_2x.png" alt="" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">不幸的是，这两个实例关联后会产生一个循环强引用。<code>Person</code> 实例现在有了一个指向 <code>Apartment</code> 实例的强引用，而 <code>Apartment</code> 实例也有了一个指向 <code>Person</code> 实例的强引用。因此，当你断开 <code>john</code> 和 <code>unit4A</code> 变量所持有的强引用时，引用计数并不会降为 <code>0</code>，实例也不会被 ARC 销毁：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">john</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="n">unit4A</span> <span class="p">=</span> <span class="kc">nil</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">注意，当你把这两个变量设为 <code>nil</code> 时，没有任何一个析构器被调用。循环强引用会一直阻止 <code>Person</code> 和 <code>Apartment</code> 类实例的销毁，这就在你的应用程序中造成了内存泄漏。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在你将 <code>john</code> 和 <code>unit4A</code> 赋值为 <code>nil</code> 后，强引用关系如下图：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/referenceCycle03_2x.png" alt="" title="" ></span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>Person</code> 和 <code>Apartment</code> 实例之间的强引用关系保留了下来并且不会被断开。</span>
+</p>
+
+<h2 id="toc_4" class="h16"><span class="span_for_h">解决实例之间的循环强引用 {#resolving-strong-reference-cycles-between-class-instances}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 提供了两种办法用来解决你在使用类的属性时所遇到的循环强引用问题：弱引用（weak reference）和无主引用（unowned reference）。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">弱引用和无主引用允许循环引用中的一个实例引用另一个实例而<em class="md_patched_em">不</em>保持强引用。这样实例能够互相引用而不产生循环强引用。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当其他的实例有更短的生命周期时，使用弱引用，也就是说，当其他实例析构在先时。在上面公寓的例子中，很显然一个公寓在它的生命周期内会在某个时间段没有它的主人，所以一个弱引用就加在公寓类里面，避免循环引用。相比之下，当其他实例有相同的或者更长生命周期时，请使用无主引用。</span>
+</p>
+
+<h3 id="toc_5" class="h16"><span class="span_for_h">弱引用 {#weak-references}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>弱引用</em>不会对其引用的实例保持强引用，因而不会阻止 ARC 销毁被引用的实例。这个特性阻止了引用变为循环强引用。声明属性或者变量时，在前面加上 <code>weak</code> 关键字表明这是一个弱引用。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">因为弱引用不会保持所引用的实例，即使引用存在，实例也有可能被销毁。因此，ARC 会在引用的实例被销毁后自动将其弱引用赋值为 <code>nil</code>。并且因为弱引用需要在运行时允许被赋值为 <code>nil</code>，所以它们会被定义为可选类型变量，而不是常量。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">你可以像其他可选值一样，检查弱引用的值是否存在，这样可以避免访问已销毁的实例的引用。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">当 ARC 设置弱引用为 <code>nil</code> 时，属性观察不会被触发。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子跟上面 <code>Person</code> 和 <code>Apartment</code> 的例子一致，但是有一个重要的区别。这一次，<code>Apartment</code> 的 <code>tenant</code> 属性被声明为弱引用：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Person</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span> <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span> <span class="p">}</span>
+    <span class="kd">var</span> <span class="nv">apartment</span><span class="p">:</span> <span class="n">Apartment</span><span class="p">?</span>
+    <span class="kd">deinit</span> <span class="p">{</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s"> is being deinitialized&quot;</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Apartment</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">unit</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">init</span><span class="p">(</span><span class="n">unit</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span> <span class="kc">self</span><span class="p">.</span><span class="n">unit</span> <span class="p">=</span> <span class="n">unit</span> <span class="p">}</span>
+    <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">tenant</span><span class="p">:</span> <span class="n">Person</span><span class="p">?</span>
+    <span class="kd">deinit</span> <span class="p">{</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Apartment </span><span class="si">\(</span><span class="n">unit</span><span class="si">)</span><span class="s"> is being deinitialized&quot;</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">然后跟之前一样，建立两个变量（<code>john</code> 和 <code>unit4A</code>）之间的强引用，并关联两个实例：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">john</span><span class="p">:</span> <span class="n">Person</span><span class="p">?</span>
+<span class="kd">var</span> <span class="nv">unit4A</span><span class="p">:</span> <span class="n">Apartment</span><span class="p">?</span>
+
+<span class="n">john</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;John Appleseed&quot;</span><span class="p">)</span>
+<span class="n">unit4A</span> <span class="p">=</span> <span class="n">Apartment</span><span class="p">(</span><span class="n">unit</span><span class="p">:</span> <span class="s">&quot;4A&quot;</span><span class="p">)</span>
+
+<span class="n">john</span><span class="p">!.</span><span class="n">apartment</span> <span class="p">=</span> <span class="n">unit4A</span>
+<span class="n">unit4A</span><span class="p">!.</span><span class="n">tenant</span> <span class="p">=</span> <span class="n">john</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">现在，两个关联在一起的实例的引用关系如下图所示：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/weakReference01_2x.png" alt="" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>Person</code> 实例依然保持对 <code>Apartment</code> 实例的强引用，但是 <code>Apartment</code> 实例只持有对 <code>Person</code> 实例的弱引用。这意味着当你通过把 <code>john</code> 变量赋值为 <code>nil</code> 而断开其所保持的强引用时，再也没有指向 <code>Person</code> 实例的强引用了：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">john</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="c1">// 打印“John Appleseed is being deinitialized”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">由于再也没有指向 <code>Person</code> 实例的强引用，该实例会被销毁，且 <code>tenant</code> 属性会被赋值为 <code>nil</code>：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/weakReference02_2x.png" alt="" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">唯一剩下的指向 <code>Apartment</code> 实例的强引用来自于变量 <code>unit4A</code>。如果你断开这个强引用，再也没有指向 <code>Apartment</code> 实例的强引用了：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">unit4A</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="c1">// 打印“Apartment 4A is being deinitialized”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">由于再也没有指向 <code>Person</code> 实例的强引用，该实例会被销毁：</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/weakReference03_2x.png" alt="" title="" ></span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">在使用垃圾收集的系统里，弱指针有时用来实现简单的缓冲机制，因为没有强引用的对象只会在内存压力触发垃圾收集时才被销毁。但是在 ARC 中，一旦值的最后一个强引用被移除，就会被立即销毁，这导致弱引用并不适合上面的用途。</span>
+</p>
+
+</blockquote>
+<h3 id="toc_6" class="h16"><span class="span_for_h">无主引用 {#unowned-references}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">和弱引用类似，<em class="md_patched_em">无主引用</em>不会牢牢保持住引用的实例。和弱引用不同的是，无主引用在其他实例有相同或者更长的生命周期时使用。你可以在声明属性或者变量时，在前面加上关键字 <code>unowned</code> 表示这是一个无主引用。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">无主引用通常都被期望拥有值。不过 ARC 无法在实例被销毁后将无主引用设为 <code>nil</code>，因为非可选类型的变量不允许被赋值为 <code>nil</code>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">重点<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line">使用无主引用，你<em class="md_patched_em">必须</em>确保引用始终指向一个未销毁的实例。<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">如果你试图在实例被销毁后，访问该实例的无主引用，会触发运行时错误。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">下面的例子定义了两个类，<code>Customer</code> 和 <code>CreditCard</code>，模拟了银行客户和客户的信用卡。这两个类中，每一个都将另外一个类的实例作为自身的属性。这种关系可能会造成循环强引用。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>Customer</code> 和 <code>CreditCard</code> 之间的关系与前面弱引用例子中 <code>Apartment</code> 和 <code>Person</code> 的关系略微不同。在这个数据模型中，一个客户可能有或者没有信用卡，但是一张信用卡总是关联着一个客户。为了表示这种关系，<code>Customer</code> 类有一个可选类型的 <code>card</code> 属性，但是 <code>CreditCard</code> 类有一个非可选类型的 <code>customer</code> 属性。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">此外，只能通过将一个 <code>number</code> 值和 <code>customer</code> 实例传递给 <code>CreditCard</code> 构造器的方式来创建 <code>CreditCard</code> 实例。这样可以确保当创建 <code>CreditCard</code> 实例时总是有一个 <code>customer</code> 实例与之关联。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">由于信用卡总是关联着一个客户，因此将 <code>customer</code> 属性定义为无主引用，用以避免循环强引用：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Customer</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">var</span> <span class="nv">card</span><span class="p">:</span> <span class="n">CreditCard</span><span class="p">?</span>
+    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
+    <span class="p">}</span>
+    <span class="kd">deinit</span> <span class="p">{</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s"> is being deinitialized&quot;</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">CreditCard</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">number</span><span class="p">:</span> <span class="nb">UInt64</span>
+    <span class="kr">unowned</span> <span class="kd">let</span> <span class="nv">customer</span><span class="p">:</span> <span class="n">Customer</span>
+    <span class="kd">init</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">UInt64</span><span class="p">,</span> <span class="n">customer</span><span class="p">:</span> <span class="n">Customer</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">number</span> <span class="p">=</span> <span class="n">number</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">customer</span> <span class="p">=</span> <span class="n">customer</span>
+    <span class="p">}</span>
+    <span class="kd">deinit</span> <span class="p">{</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Card #</span><span class="si">\(</span><span class="n">number</span><span class="si">)</span><span class="s"> is being deinitialized&quot;</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end"><code>CreditCard</code> 类的 <code>number</code> 属性被定义为 <code>UInt64</code> 类型而不是 <code>Int</code> 类型，以确保 <code>number</code> 属性的存储量在 32 位和 64 位系统上都能足够容纳 16 位的卡号。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的代码片段定义了一个叫 <code>john</code> 的可选类型 <code>Customer</code> 变量，用来保存某个特定客户的引用。由于是可选类型，所以变量被初始化为 <code>nil</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">john</span><span class="p">:</span> <span class="n">Customer</span><span class="p">?</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">现在你可以创建 <code>Customer</code> 类的实例，用它初始化 <code>CreditCard</code> 实例，并将新创建的 <code>CreditCard</code> 实例赋值为客户的 <code>card</code> 属性：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">john</span> <span class="p">=</span> <span class="n">Customer</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;John Appleseed&quot;</span><span class="p">)</span>
+<span class="n">john</span><span class="p">!.</span><span class="n">card</span> <span class="p">=</span> <span class="n">CreditCard</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="mi">1234_5678_9012_3456</span><span class="p">,</span> <span class="n">customer</span><span class="p">:</span> <span class="n">john</span><span class="p">!)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在你关联两个实例后，它们的引用关系如下图所示：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/unownedReference01_2x.png" alt="" title="" ></span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>Customer</code> 实例持有对 <code>CreditCard</code> 实例的强引用，而 <code>CreditCard</code> 实例持有对 <code>Customer</code> 实例的无主引用。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">由于 <code>customer</code> 的无主引用，当你断开 <code>john</code> 变量持有的强引用时，再也没有指向 <code>Customer</code> 实例的强引用了：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/unownedReference02_2x.png" alt="" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">由于再也没有指向 <code>Customer</code> 实例的强引用，该实例被销毁了。其后，再也没有指向 <code>CreditCard</code> 实例的强引用，该实例也随之被销毁了：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">john</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="c1">// 打印“John Appleseed is being deinitialized”</span>
+<span class="c1">// 打印“Card #1234567890123456 is being deinitialized”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">最后的代码展示了在 <code>john</code> 变量被设为 <code>nil</code> 后 <code>Customer</code> 实例和 <code>CreditCard</code> 实例的析构器都打印出了“销毁”的信息。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line">上面的例子展示了如何使用安全的无主引用。对于需要禁用运行时的安全检查的情况（例如，出于性能方面的原因），Swift 还提供了不安全的无主引用。与所有不安全的操作一样，你需要负责检查代码以确保其安全性。<br /></span>
+    <span class="md_line md_line_end">你可以通过 <code>unowned(unsafe)</code> 来声明不安全无主引用。如果你试图在实例被销毁后，访问该实例的不安全无主引用，你的程序会尝试访问该实例之前所在的内存地址，这是一个不安全的操作。</span>
+</p>
+
+</blockquote>
+<h3 id="toc_7" class="h16"><span class="span_for_h">无主引用和隐式解包可选值属性 {#unowned-references-and-implicitly-unwrapped-optional-properties}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面弱引用和无主引用的例子涵盖了两种常用的需要打破循环强引用的场景。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>Person</code> 和 <code>Apartment</code> 的例子展示了两个属性的值都允许为 <code>nil</code>，并会潜在的产生循环强引用。这种场景最适合用弱引用来解决。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>Customer</code> 和 <code>CreditCard</code> 的例子展示了一个属性的值允许为 <code>nil</code>，而另一个属性的值不允许为 <code>nil</code>，这也可能会产生循环强引用。这种场景最适合通过无主引用来解决。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">然而，存在着第三种场景，在这种场景中，两个属性都必须有值，并且初始化完成后永远不会为 <code>nil</code>。在这种场景中，需要一个类使用无主属性，而另外一个类使用隐式解包可选值属性。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这使两个属性在初始化完成后能被直接访问（不需要可选展开），同时避免了循环引用。这一节将为你展示如何建立这种关系。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子定义了两个类，<code>Country</code> 和 <code>City</code>，每个类将另外一个类的实例保存为属性。在这个模型中，每个国家必须有首都，每个城市必须属于一个国家。为了实现这种关系，<code>Country</code> 类拥有一个 <code>capitalCity</code> 属性，而 <code>City</code> 类有一个 <code>country</code> 属性：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Country</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">var</span> <span class="nv">capitalCity</span><span class="p">:</span> <span class="n">City</span><span class="p">!</span>
+    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">capitalName</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">capitalCity</span> <span class="p">=</span> <span class="n">City</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">capitalName</span><span class="p">,</span> <span class="n">country</span><span class="p">:</span> <span class="kc">self</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">City</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kr">unowned</span> <span class="kd">let</span> <span class="nv">country</span><span class="p">:</span> <span class="n">Country</span>
+    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">country</span><span class="p">:</span> <span class="n">Country</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">country</span> <span class="p">=</span> <span class="n">country</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">为了建立两个类的依赖关系，<code>City</code> 的构造器接受一个 <code>Country</code> 实例作为参数，并且将实例保存到 <code>country</code> 属性。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>Country</code> 的构造器调用了 <code>City</code> 的构造器。然而，只有 <code>Country</code> 的实例完全初始化后，<code>Country</code> 的构造器才能把 <code>self</code> 传给 <code>City</code> 的构造器。在 <a class="md_compiled" href="./14_Initialization.md#two-phase-initialization">两段式构造过程</a> 中有具体描述。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">为了满足这种需求，通过在类型结尾处加上感叹号（<code>City!</code>）的方式，将 <code>Country</code> 的 <code>capitalCity</code> 属性声明为隐式解包可选值类型的属性。这意味着像其他可选类型一样，<code>capitalCity</code> 属性的默认值为 <code>nil</code>，但是不需要展开它的值就能访问它。在 <a class="md_compiled" href="./01_The_Basics.md#implicityly-unwrapped-optionals">隐式解包可选值</a> 中有描述。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">由于 <code>capitalCity</code> 默认值为 <code>nil</code>，一旦 <code>Country</code> 的实例在构造器中给 <code>name</code> 属性赋值后，整个初始化过程就完成了。这意味着一旦 <code>name</code> 属性被赋值后，<code>Country</code> 的构造器就能引用并传递隐式的 <code>self</code>。<code>Country</code> 的构造器在赋值 <code>capitalCity</code> 时，就能将 <code>self</code> 作为参数传递给 <code>City</code> 的构造器。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">上述的意义在于你可以通过一条语句同时创建 <code>Country</code> 和 <code>City</code> 的实例，而不产生循环强引用，并且 <code>capitalCity</code> 的属性能被直接访问，而不需要通过感叹号来展开它的可选值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">country</span> <span class="p">=</span> <span class="n">Country</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;Canada&quot;</span><span class="p">,</span> <span class="n">capitalName</span><span class="p">:</span> <span class="s">&quot;Ottawa&quot;</span><span class="p">)</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">country</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">&#39;s capital city is called </span><span class="si">\(</span><span class="n">country</span><span class="p">.</span><span class="n">capitalCity</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="c1">// 打印“Canada&#39;s capital city is called Ottawa”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面的例子中，使用隐式解包可选值值意味着满足了类的构造器的两个构造阶段的要求。<code>capitalCity</code> 属性在初始化完成后，能像非可选值一样使用和存取，同时还避免了循环强引用。</span>
+</p>
+
+<h2 id="toc_8" class="h16"><span class="span_for_h">闭包的循环强引用 {#strong-reference-cycles-for-closures}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">前面我们看到了循环强引用是在两个类实例属性互相保持对方的强引用时产生的，还知道了如何用弱引用和无主引用来打破这些循环强引用。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">循环强引用还会发生在当你将一个闭包赋值给类实例的某个属性，并且这个闭包体中又使用了这个类实例时。这个闭包体中可能访问了实例的某个属性，例如 <code>self.someProperty</code>，或者闭包中调用了实例的某个方法，例如 <code>self.someMethod()</code>。这两种情况都导致了闭包“捕获”<code>self</code>，从而产生了循环强引用。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">循环强引用的产生，是因为闭包和类相似，都是引用类型。当你把一个闭包赋值给某个属性时，你是将这个闭包的引用赋值给了属性。实质上，这跟之前的问题是一样的——两个强引用让彼此一直有效。但是，和两个类实例不同，这次一个是类实例，另一个是闭包。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 提供了一种优雅的方法来解决这个问题，称之为 <code>闭包捕获列表</code>（closure capture list）。同样的，在学习如何用闭包捕获列表打破循环强引用之前，先来了解一下这里的循环强引用是如何产生的，这对我们很有帮助。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子为你展示了当一个闭包引用了 <code>self</code> 后是如何产生一个循环强引用的。例子中定义了一个叫 <code>HTMLElement</code> 的类，用一种简单的模型表示 HTML 文档中的一个单独的元素：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">HTMLElement</span> <span class="p">{</span>
+
+    <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">let</span> <span class="nv">text</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
+
+    <span class="kr">lazy</span> <span class="kd">var</span> <span class="nv">asHTML</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">=</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="kd">let</span> <span class="nv">text</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">text</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s">&quot;&lt;</span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">&gt;</span><span class="si">\(</span><span class="n">text</span><span class="si">)</span><span class="s">&lt;/</span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">&gt;&quot;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s">&quot;&lt;</span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s"> /&gt;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">text</span>
+    <span class="p">}</span>
+    
+    <span class="kd">deinit</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s"> is being deinitialized&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>HTMLElement</code> 类定义了一个 <code>name</code> 属性来表示这个元素的名称，例如代表头部元素的 <code>"h1"</code>，代表段落的 <code>"p"</code>，或者代表换行的 <code>"br"</code>。<code>HTMLElement</code> 还定义了一个可选属性 <code>text</code>，用来设置 HTML 元素呈现的文本。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">除了上面的两个属性，<code>HTMLElement</code> 还定义了一个 <code>lazy</code> 属性 <code>asHTML</code>。这个属性引用了一个将 <code>name</code> 和 <code>text</code> 组合成 HTML 字符串片段的闭包。该属性是 <code>Void -&gt; String</code> 类型，或者可以理解为“一个没有参数，返回 <code>String</code> 的函数”。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">默认情况下，闭包赋值给了 <code>asHTML</code> 属性，这个闭包返回一个代表 HTML 标签的字符串。如果 <code>text</code> 值存在，该标签就包含可选值 <code>text</code>；如果 <code>text</code> 不存在，该标签就不包含文本。对于段落元素，根据 <code>text</code> 是 <code>"some text"</code> 还是 <code>nil</code>，闭包会返回 <code>"&lt;p&gt;some text&lt;/p&gt;"</code> 或者 <code>"&lt;p /&gt;"</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">可以像实例方法那样去命名、使用 <code>asHTML</code> 属性。然而，由于 <code>asHTML</code> 是闭包而不是实例方法，如果你想改变特定 HTML 元素的处理方式的话，可以用自定义的闭包来取代默认值。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">例如，可以将一个闭包赋值给 <code>asHTML</code> 属性，这个闭包能在 <code>text</code> 属性是 <code>nil</code> 时使用默认文本，这是为了避免返回一个空的 HTML 标签：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">heading</span> <span class="p">=</span> <span class="n">HTMLElement</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;h1&quot;</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">defaultText</span> <span class="p">=</span> <span class="s">&quot;some default text&quot;</span>
+<span class="n">heading</span><span class="p">.</span><span class="n">asHTML</span> <span class="p">=</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">&quot;&lt;</span><span class="si">\(</span><span class="n">heading</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">&gt;</span><span class="si">\(</span><span class="n">heading</span><span class="p">.</span><span class="n">text</span> <span class="p">??</span> <span class="n">defaultText</span><span class="si">)</span><span class="s">&lt;/</span><span class="si">\(</span><span class="n">heading</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">&gt;&quot;</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">heading</span><span class="p">.</span><span class="n">asHTML</span><span class="p">())</span>
+<span class="c1">// 打印“&lt;h1&gt;some default text&lt;/h1&gt;”</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end"><code>asHTML</code> 声明为 <code>lazy</code> 属性，因为只有当元素确实需要被处理为 HTML 输出的字符串时，才需要使用 <code>asHTML</code>。也就是说，在默认的闭包中可以使用 <code>self</code>，因为只有当初始化完成以及 <code>self</code> 确实存在后，才能访问 <code>lazy</code> 属性。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>HTMLElement</code> 类只提供了一个构造器，通过 <code>name</code> 和 <code>text</code>（如果有的话）参数来初始化一个新元素。该类也定义了一个析构器，当 <code>HTMLElement</code> 实例被销毁时，打印一条消息。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的代码展示了如何用 <code>HTMLElement</code> 类创建实例并打印消息：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">paragraph</span><span class="p">:</span> <span class="n">HTMLElement</span><span class="p">?</span> <span class="p">=</span> <span class="n">HTMLElement</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;p&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="s">&quot;hello, world&quot;</span><span class="p">)</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">paragraph</span><span class="p">!.</span><span class="n">asHTML</span><span class="p">())</span>
+<span class="c1">// 打印“&lt;p&gt;hello, world&lt;/p&gt;”</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">上面的 <code>paragraph</code> 变量定义为可选类型的 <code>HTMLElement</code>，因此我们可以赋值 <code>nil</code> 给它来演示循环强引用。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">不幸的是，上面写的 <code>HTMLElement</code> 类产生了类实例和作为 <code>asHTML</code> 默认值的闭包之间的循环强引用。循环强引用如下图所示：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/closureReferenceCycle01_2x.png" alt="" title="" ></span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">实例的 <code>asHTML</code> 属性持有闭包的强引用。但是，闭包在其闭包体内使用了 <code>self</code>（引用了 <code>self.name</code> 和 <code>self.text</code>），因此闭包捕获了 <code>self</code>，这意味着闭包又反过来持有了 <code>HTMLElement</code> 实例的强引用。这样两个对象就产生了循环强引用。（更多关于闭包捕获值的信息，请参考 <a class="md_compiled" href="./07_Closures.md#capturing-values">值捕获</a>）。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">虽然闭包多次使用了 <code>self</code>，它只捕获 <code>HTMLElement</code> 实例的一个强引用。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果设置 <code>paragraph</code> 变量为 <code>nil</code>，打破它持有的 <code>HTMLElement</code> 实例的强引用，<code>HTMLElement</code> 实例和它的闭包都不会被销毁，也是因为循环强引用：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">paragraph</span> <span class="p">=</span> <span class="kc">nil</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">注意，<code>HTMLElement</code> 的析构器中的消息并没有被打印，证明了 <code>HTMLElement</code> 实例并没有被销毁。</span>
+</p>
+
+<h2 id="toc_9" class="h16"><span class="span_for_h">解决闭包的循环强引用 {#resolving-strong-reference-cycles-for-closures}</span></h2>
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">在定义闭包时同时定义捕获列表作为闭包的一部分，通过这种方式可以解决闭包和类实例之间的循环强引用。捕获列表定义了闭包体内捕获一个或者多个引用类型的规则。跟解决两个类实例间的循环强引用一样，声明每个捕获的引用为弱引用或无主引用，而不是强引用。应当根据代码关系来决定使用弱引用还是无主引用。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">Swift 有如下要求：只要在闭包内使用 <code>self</code> 的成员，就要用 <code>self.someProperty</code> 或者 <code>self.someMethod()</code>（而不只是 <code>someProperty</code> 或 <code>someMethod()</code>）。这提醒你可能会一不小心就捕获了 <code>self</code>。</span>
+</p>
+
+</blockquote>
+<h3 id="toc_10" class="h16"><span class="span_for_h">定义捕获列表 {#defining-a-capture-list}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">捕获列表中的每一项都由一对元素组成，一个元素是 <code>weak</code> 或 <code>unowned</code> 关键字，另一个元素是类实例的引用（例如 <code>self</code>）或初始化过的变量（如 <code>delegate = self.delegate</code>）。这些项在方括号中用逗号分开。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果闭包有参数列表和返回类型，把捕获列表放在它们前面：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kr">lazy</span> <span class="kd">var</span> <span class="nv">someClosure</span> <span class="p">=</span> <span class="p">{</span>
+    <span class="p">[</span><span class="kr">unowned</span> <span class="kc">self</span><span class="p">,</span> <span class="kr">weak</span> <span class="n">delegate</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">delegate</span><span class="p">]</span>
+    <span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">stringToProcess</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="k">in</span>
+    <span class="c1">// 这里是闭包的函数体</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果闭包没有指明参数列表或者返回类型，它们会通过上下文推断，那么可以把捕获列表和关键字 <code>in</code> 放在闭包最开始的地方：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kr">lazy</span> <span class="kd">var</span> <span class="nv">someClosure</span> <span class="p">=</span> <span class="p">{</span>
+    <span class="p">[</span><span class="kr">unowned</span> <span class="kc">self</span><span class="p">,</span> <span class="kr">weak</span> <span class="n">delegate</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">delegate</span><span class="p">]</span> <span class="k">in</span>
+    <span class="c1">// 这里是闭包的函数体</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_11" class="h16"><span class="span_for_h">弱引用和无主引用 {#weak-and-unowned-references}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在闭包和捕获的实例总是互相引用并且总是同时销毁时，将闭包内的捕获定义为 <code>无主引用</code>。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">相反的，在被捕获的引用可能会变为 <code>nil</code> 时，将闭包内的捕获定义为 <code>弱引用</code>。弱引用总是可选类型，并且当引用的实例被销毁后，弱引用的值会自动置为 <code>nil</code>。这使我们可以在闭包体内检查它们是否存在。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">如果被捕获的引用绝对不会变为 <code>nil</code>，应该用无主引用，而不是弱引用。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">前面的 <code>HTMLElement</code> 例子中，无主引用是正确的解决循环强引用的方法。这样编写 <code>HTMLElement</code> 类来避免循环强引用：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">HTMLElement</span> <span class="p">{</span>
+
+    <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">let</span> <span class="nv">text</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
+
+    <span class="kr">lazy</span> <span class="kd">var</span> <span class="nv">asHTML</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">=</span> <span class="p">{</span>
+        <span class="p">[</span><span class="kr">unowned</span> <span class="kc">self</span><span class="p">]</span> <span class="k">in</span>
+        <span class="k">if</span> <span class="kd">let</span> <span class="nv">text</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">text</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s">&quot;&lt;</span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">&gt;</span><span class="si">\(</span><span class="n">text</span><span class="si">)</span><span class="s">&lt;/</span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">&gt;&quot;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s">&quot;&lt;</span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s"> /&gt;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">text</span>
+    <span class="p">}</span>
+
+    <span class="kd">deinit</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s"> is being deinitialized&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面的 <code>HTMLElement</code> 实现和之前的实现一致，除了在 <code>asHTML</code> 闭包中多了一个捕获列表。这里，捕获列表是 <code>[unowned self]</code>，表示“将 <code>self</code> 捕获为无主引用而不是强引用”。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">和之前一样，我们可以创建并打印 <code>HTMLElement</code> 实例：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">paragraph</span><span class="p">:</span> <span class="n">HTMLElement</span><span class="p">?</span> <span class="p">=</span> <span class="n">HTMLElement</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;p&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="s">&quot;hello, world&quot;</span><span class="p">)</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">paragraph</span><span class="p">!.</span><span class="n">asHTML</span><span class="p">())</span>
+<span class="c1">// 打印“&lt;p&gt;hello, world&lt;/p&gt;”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">使用捕获列表后引用关系如下图所示：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/closureReferenceCycle02_2x.png" alt="" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">这一次，闭包以无主引用的形式捕获 <code>self</code>，并不会持有 <code>HTMLElement</code> 实例的强引用。如果将 <code>paragraph</code> 赋值为 <code>nil</code>，<code>HTMLElement</code> 实例将会被销毁，并能看到它的析构器打印出的消息：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">paragraph</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="c1">// 打印“p is being deinitialized”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start md_line_end">你可以查看 <a class="md_compiled" href="../03_language_reference/04_Expressions.html">捕获列表</a> 章节，获取更多关于捕获列表的信息。</span>
+</p>
+        </div>
+    </div>
+    <!--mathjax-->
+    <!--mermaid-->
+</body>
+</html>

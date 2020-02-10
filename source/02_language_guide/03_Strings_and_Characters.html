@@ -1,0 +1,1019 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>字符串和字符</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">字符串和字符</span></h1>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>字符串</em>是一系列字符的集合，例如 <code>"hello, world"</code>，<code>"albatross"</code>。Swift 的字符串通过 <code>String</code> 类型来表示。而 <code>String</code> 内容的访问方式有多种，例如以 <code>Character</code> 值的集合。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 的 <code>String</code> 和 <code>Character</code> 类型提供了一种快速且兼容 Unicode 的方式来处理代码中的文本内容。创建和操作字符串的语法与 C 语言中字符串操作相似，轻量并且易读。通过 <code>+</code> 符号就可以非常简单的实现两个字符串的拼接操作。与 Swift 中其他值一样，能否更改字符串的值，取决于其被定义为常量还是变量。你可以在已有字符串中插入常量、变量、字面量和表达式从而形成更长的字符串，这一过程也被称为字符串插值。尤其是在为显示、存储和打印创建自定义字符串值时，字符串插值操作尤其有用。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">尽管语法简易，但 Swift 中的 <code>String</code> 类型的实现却很快速和现代化。每一个字符串都是由编码无关的 Unicode 字符组成，并支持访问字符的多种 Unicode 表示形式。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line">Swift 的 <code>String</code> 类型与 Foundation <code>NSString</code> 类进行了无缝桥接。Foundation 还对 <code>String</code> 进行扩展使其可以访问 <code>NSString</code> 类型中定义的方法。这意味着调用那些 <code>NSString</code> 的方法，你无需进行任何类型转换。<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">更多关于在 Foundation 和 Cocoa 中使用 <code>String</code> 的信息请查看 <em><a class="md_compiled" href="https://developer.apple.com/documentation/swift/string#2919514">Bridging Between String and NSString</a></em>。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_1" class="h16"><span class="span_for_h">字符串字面量 {#string-literals}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以在代码里使用一段预定义的字符串值作为字符串字面量。字符串字面量是由一对双引号包裹着的具有固定顺序的字符集。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">字符串字面量可以用于为常量和变量提供初始值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">someString</span> <span class="p">=</span> <span class="s">&quot;Some string literal value&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">注意，Swift 之所以推断 <code>someString</code> 常量为字符串类型，是因为它使用了字面量方式进行初始化。</span>
+</p>
+
+<h3 id="toc_2" class="h16"><span class="span_for_h">多行字符串字面量 {#multiline-string-literals}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你需要一个字符串是跨越多行的，那就使用多行字符串字面量 — 由一对三个双引号包裹着的具有固定顺序的文本字符集：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">quotation</span> <span class="p">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">The White Rabbit put on his spectacles.  &quot;</span><span class="n">Where</span> <span class="n">shall</span> <span class="n">I</span> <span class="n">begin</span><span class="p">,</span>
+<span class="n">please</span> <span class="n">your</span> <span class="n">Majesty</span><span class="p">?</span><span class="s">&quot; he asked.</span>
+
+<span class="s">&quot;</span><span class="n">Begin</span> <span class="n">at</span> <span class="n">the</span> <span class="n">beginning</span><span class="p">,</span><span class="s">&quot; the King said gravely, &quot;</span><span class="n">and</span> <span class="n">go</span> <span class="n">on</span>
+<span class="n">till</span> <span class="n">you</span> <span class="n">come</span> <span class="n">to</span> <span class="n">the</span> <span class="n">end</span><span class="p">;</span> <span class="n">then</span> <span class="n">stop</span><span class="p">.</span><span class="s">&quot;</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">一个多行字符串字面量包含了所有的在开启和关闭引号（<code>"""</code>）中的行。这个字符从开启引号（<code>"""</code>）之后的第一行开始，到关闭引号（<code>"""</code>）之前为止。这就意味着字符串开启引号之后（<code>"""</code>）或者结束引号（<code>"""</code>）之前都没有换行符号。（译者：下面两个字符串其实是一样的，虽然第二个使用了多行字符串的形式）</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">singleLineString</span> <span class="p">=</span> <span class="s">&quot;These are the same.&quot;</span>
+<span class="kd">let</span> <span class="nv">multilineString</span> <span class="p">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">These are the same.</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你的代码中，多行字符串字面量包含换行符的话，则多行字符串字面量中也会包含换行符。如果你想换行，以便加强代码的可读性，但是你又不想在你的多行字符串字面量中出现换行符的话，你可以用在行尾写一个反斜杠（<code>\</code>）作为续行符。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">softWrappedQuotation</span> <span class="p">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">The White Rabbit put on his spectacles.  &quot;</span><span class="n">Where</span> <span class="n">shall</span> <span class="n">I</span> <span class="n">begin</span><span class="p">,</span> <span class="err">\</span>
+<span class="n">please</span> <span class="n">your</span> <span class="n">Majesty</span><span class="p">?</span><span class="s">&quot; he asked.</span>
+
+<span class="s">&quot;</span><span class="n">Begin</span> <span class="n">at</span> <span class="n">the</span> <span class="n">beginning</span><span class="p">,</span><span class="s">&quot; the King said gravely, &quot;</span><span class="n">and</span> <span class="n">go</span> <span class="n">on</span> <span class="err">\</span>
+<span class="n">till</span> <span class="n">you</span> <span class="n">come</span> <span class="n">to</span> <span class="n">the</span> <span class="n">end</span><span class="p">;</span> <span class="n">then</span> <span class="n">stop</span><span class="p">.</span><span class="s">&quot;</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">为了让一个多行字符串字面量开始和结束于换行符，请将换行写在第一行和最后一行，例如：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">lineBreaks</span> <span class="p">=</span> <span class="s">&quot;&quot;&quot;</span>
+
+<span class="s">This string starts with a line break.</span>
+<span class="s">It also ends with a line break.</span>
+
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">一个多行字符串字面量能够缩进来匹配周围的代码。关闭引号（<code>"""</code>）之前的空白字符串告诉 Swift 编译器其他各行多少空白字符串需要忽略。然而，如果你在某行的前面写的空白字符串超出了关闭引号（<code>"""</code>）之前的空白字符串，则超出部分将被包含在多行字符串字面量中。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/multilineStringWhitespace_2x.png" alt="" title="" ></span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面的例子中，尽管整个多行字符串字面量都是缩进的（源代码缩进），第一行和最后一行没有以空白字符串开始（实际的变量值）。中间一行的缩进用空白字符串（源代码缩进）比关闭引号（<code>"""</code>）之前的空白字符串多，所以，它的行首将有4个空格。</span>
+</p>
+
+<h3 id="toc_3" class="h16"><span class="span_for_h">字符串字面量的特殊字符 {#special-characters-in-string-literals}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">字符串字面量可以包含以下特殊字符：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>转义字符 <code>\0</code>(空字符)、<code>\\</code>(反斜线)、<code>\t</code>(水平制表符)、<code>\n</code>(换行符)、<code>\r</code>(回车符)、<code>\"</code>(双引号)、<code>\'</code>(单引号)。
+
+</span></li>
+<li class="md_li"><span>Unicode 标量，写成 <code>\u{n}</code>(u 为小写)，其中 <code>n</code> 为任意一到八位十六进制数且可用的 Unicode 位码。
+
+</span></li>
+</ul>
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start">下面的代码为各种特殊字符的使用示例。<br /></span>
+    <span class="md_line"><code>wiseWords</code> 常量包含了两个双引号。<br /></span>
+    <span class="md_line md_line_end"><code>dollarSign</code>、<code>blackHeart</code> 和 <code>sparklingHeart</code> 常量演示了三种不同格式的 Unicode 标量：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">wiseWords</span> <span class="p">=</span> <span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">Imagination is more important than knowledge</span><span class="se">\&quot;</span><span class="s"> - Einstein&quot;</span>
+<span class="c1">// &quot;Imageination is more important than knowledge&quot; - Enistein</span>
+<span class="kd">let</span> <span class="nv">dollarSign</span> <span class="p">=</span> <span class="s">&quot;\u{24}&quot;</span>             <span class="c1">// $，Unicode 标量 U+0024</span>
+<span class="kd">let</span> <span class="nv">blackHeart</span> <span class="p">=</span> <span class="s">&quot;\u{2665}&quot;</span>           <span class="c1">// ♥，Unicode 标量 U+2665</span>
+<span class="kd">let</span> <span class="nv">sparklingHeart</span> <span class="p">=</span> <span class="s">&quot;\u{1F496}&quot;</span>      <span class="c1">// 💖，Unicode 标量 U+1F496</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">由于多行字符串字面量使用了三个双引号，而不是一个，所以你可以在多行字符串字面量里直接使用双引号（<code>"</code>）而不必加上转义符（<code>\</code>）。要在多行字符串字面量中使用 <code>"""</code> 的话，就需要使用至少一个转义符（<code>\</code>）：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">threeDoubleQuotes</span> <span class="p">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">Escaping the first quote </span><span class="se">\&quot;</span><span class="s">&quot;&quot;</span>
+<span class="s">Escaping all three quotes </span><span class="se">\&quot;\&quot;\&quot;</span><span class="s"></span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_4" class="h16"><span class="span_for_h">扩展字符串分隔符 {#extended-string-delimiters}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">您可以将字符串文字放在扩展分隔符中，这样字符串中的特殊字符将会被直接包含而非转义后的效果。将字符串放在引号（<code>"</code>）中并用数字符号（<code>#</code>）括起来。例如，打印字符串文字 <code>#"Line 1 \nLine 2"#</code> 会打印换行符转义序列（<code>\n</code>）而不是给文字换行。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果需要字符串文字中字符的特殊效果，请匹配转义字符（<code>\</code>）后面添加与起始位置个数相匹配的 <code>#</code> 符。 例如，如果您的字符串是 <code>#"Line 1 \nLine 2"#</code> 并且您想要换行，则可以使用 <code>#"Line 1 \#nLine 2"#</code> 来代替。 同样，<code>###"Line1 \###nLine2"###</code> 也可以实现换行效果。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">扩展分隔符创建的字符串文字也可以是多行字符串文字。 您可以使用扩展分隔符在多行字符串中包含文本 <code>"""</code>，覆盖原有的结束文字的默认行为。例如：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">threeMoreDoubleQuotationMarks</span> <span class="p">=</span> <span class="p">#</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">Here are three more double quotes: &quot;&quot;&quot;</span>
+<span class="s">&quot;&quot;&quot;#</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_5" class="h16"><span class="span_for_h">初始化空字符串 {#initializing-an-empty-string}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">要创建一个空字符串作为初始值，可以将空的字符串字面量赋值给变量，也可以初始化一个新的 <code>String</code> 实例：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">emptyString</span> <span class="p">=</span> <span class="s">&quot;&quot;</span>               <span class="c1">// 空字符串字面量</span>
+<span class="kd">var</span> <span class="nv">anotherEmptyString</span> <span class="p">=</span> <span class="nb">String</span><span class="p">()</span>  <span class="c1">// 初始化方法</span>
+<span class="c1">// 两个字符串均为空并等价。</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以通过检查 <code>Bool</code> 类型的 <code>isEmpty</code> 属性来判断该字符串是否为空：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="n">emptyString</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Nothing to see here&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印输出：“Nothing to see here”</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_6" class="h16"><span class="span_for_h">字符串可变性 {#string-mutability}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以通过将一个特定字符串分配给一个变量来对其进行修改，或者分配给一个常量来保证其不会被修改：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">variableString</span> <span class="p">=</span> <span class="s">&quot;Horse&quot;</span>
+<span class="n">variableString</span> <span class="o">+=</span> <span class="s">&quot; and carriage&quot;</span>
+<span class="c1">// variableString 现在为 &quot;Horse and carriage&quot;</span>
+
+<span class="kd">let</span> <span class="nv">constantString</span> <span class="p">=</span> <span class="s">&quot;Highlander&quot;</span>
+<span class="n">constantString</span> <span class="o">+=</span> <span class="s">&quot; and another Highlander&quot;</span>
+<span class="c1">// 这会报告一个编译错误（compile-time error） - 常量字符串不可以被修改。</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">在 Objective-C 和 Cocoa 中，需要通过选择两个不同的类（<code>NSString</code> 和 <code>NSMutableString</code>）来指定字符串是否可以被修改。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_7" class="h16"><span class="span_for_h">字符串是值类型 {#strings-are-value-types}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在 Swift 中 <code>String</code> 类型是*值类型*。如果你创建了一个新的字符串，那么当其进行常量、变量赋值操作，或在函数/方法中传递时，会进行值拷贝。在前述任一情况下，都会对已有字符串值创建新副本，并对该新副本而非原始字符串进行传递或赋值操作。值类型在 <a class="md_compiled" href="./09_Classes_and_Structures.md#structures-and-enumerations-are-value-types">结构体和枚举是值类型</a> 中进行了详细描述。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 默认拷贝字符串的行为保证了在函数/方法向你传递的字符串所属权属于你，无论该值来自于哪里。你可以确信传递的字符串不会被修改，除非你自己去修改它。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在实际编译时，Swift 编译器会优化字符串的使用，使实际的复制只发生在绝对必要的情况下，这意味着你将字符串作为值类型的同时可以获得极高的性能。</span>
+</p>
+
+<h2 id="toc_8" class="h16"><span class="span_for_h">使用字符 {#working-with-characters}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可通过 <code>for-in</code> 循环来遍历字符串，获取字符串中每一个字符的值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">character</span> <span class="k">in</span> <span class="s">&quot;Dog!🐶&quot;</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// D</span>
+<span class="c1">// o</span>
+<span class="c1">// g</span>
+<span class="c1">// !</span>
+<span class="c1">// 🐶</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>for-in</code> 循环在 <a class="md_compiled" href="./05_Control_Flow.md#for-loops">For 循环</a> 中进行了详细描述。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">另外，通过标明一个 <code>Character</code> 类型并用字符字面量进行赋值，可以建立一个独立的字符常量或变量：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">exclamationMark</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;!&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">字符串可以通过传递一个值类型为 <code>Character</code> 的数组作为自变量来初始化：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">catCharacters</span><span class="p">:</span> <span class="p">[</span><span class="nb">Character</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;C&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="s">&quot;!&quot;</span><span class="p">,</span> <span class="s">&quot;🐱&quot;</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nv">catString</span> <span class="p">=</span> <span class="nb">String</span><span class="p">(</span><span class="n">catCharacters</span><span class="p">)</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">catString</span><span class="p">)</span>
+<span class="c1">// 打印输出：“Cat!🐱”</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_9" class="h16"><span class="span_for_h">连接字符串和字符 {#concatenating-strings-and-characters}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">字符串可以通过加法运算符（<code>+</code>）相加在一起（或称“连接”）创建一个新的字符串：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">string1</span> <span class="p">=</span> <span class="s">&quot;hello&quot;</span>
+<span class="kd">let</span> <span class="nv">string2</span> <span class="p">=</span> <span class="s">&quot; there&quot;</span>
+<span class="kd">var</span> <span class="nv">welcome</span> <span class="p">=</span> <span class="n">string1</span> <span class="o">+</span> <span class="n">string2</span>
+<span class="c1">// welcome 现在等于 &quot;hello there&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你也可以通过加法赋值运算符（<code>+=</code>）将一个字符串添加到一个已经存在字符串变量上：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">instruction</span> <span class="p">=</span> <span class="s">&quot;look over&quot;</span>
+<span class="n">instruction</span> <span class="o">+=</span> <span class="n">string2</span>
+<span class="c1">// instruction 现在等于 &quot;look over there&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以用 <code>append()</code> 方法将一个字符附加到一个字符串变量的尾部：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">exclamationMark</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;!&quot;</span>
+<span class="n">welcome</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">exclamationMark</span><span class="p">)</span>
+<span class="c1">// welcome 现在等于 &quot;hello there!&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">你不能将一个字符串或者字符添加到一个已经存在的字符变量上，因为字符变量只能包含一个字符。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你需要使用多行字符串字面量来拼接字符串，并且你需要字符串每一行都以换行符结尾，包括最后一行：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">badStart</span> <span class="p">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">one</span>
+<span class="s">two</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="kd">let</span> <span class="nv">end</span> <span class="p">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">three</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">badStart</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span>
+<span class="c1">// 打印两行:</span>
+<span class="c1">// one</span>
+<span class="c1">// twothree</span>
+
+<span class="kd">let</span> <span class="nv">goodStart</span> <span class="p">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">one</span>
+<span class="s">two</span>
+
+<span class="s">&quot;&quot;&quot;</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">goodStart</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span>
+<span class="c1">// 打印三行:</span>
+<span class="c1">// one</span>
+<span class="c1">// two</span>
+<span class="c1">// three</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面的代码，把 <code>badStart</code> 和 <code>end</code> 拼接起来的字符串非我们想要的结果。因为 <code>badStart</code> 最后一行没有换行符，它与 <code>end</code> 的第一行结合到了一起。相反的，<code>goodStart</code> 的每一行都以换行符结尾，所以它与 <code>end</code> 拼接的字符串总共有三行，正如我们期望的那样。</span>
+</p>
+
+<h2 id="toc_10" class="h16"><span class="span_for_h">字符串插值 {#string-interpolation}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><em>字符串插值</em>是一种构建新字符串的方式，可以在其中包含常量、变量、字面量和表达式。<strong>字符串字面量</strong>和<strong>多行字符串字面量</strong>都可以使用字符串插值。你插入的字符串字面量的每一项都在以反斜线为前缀的圆括号中：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">multiplier</span> <span class="p">=</span> <span class="mi">3</span>
+<span class="kd">let</span> <span class="nv">message</span> <span class="p">=</span> <span class="s">&quot;</span><span class="si">\(</span><span class="n">multiplier</span><span class="si">)</span><span class="s"> times 2.5 is </span><span class="si">\(</span><span class="nb">Double</span><span class="si">(</span><span class="n">multiplier</span><span class="si">)</span> <span class="o">*</span> <span class="mf">2.5</span><span class="si">)</span><span class="s">&quot;</span>
+<span class="c1">// message 是 &quot;3 times 2.5 is 7.5&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面的例子中，<code>multiplier</code> 作为 <code>\(multiplier)</code> 被插入到一个字符串常量量中。当创建字符串执行插值计算时此占位符会被替换为 <code>multiplier</code> 实际的值。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end"><code>multiplier</code> 的值也作为字符串中后面表达式的一部分。该表达式计算 <code>Double(multiplier) &#42; 2.5</code> 的值并将结果（<code>7.5</code>）插入到字符串中。在这个例子中，表达式写为 <code>\(Double(multiplier) &#42; 2.5)</code> 并包含在字符串字面量中。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">插值字符串中写在括号中的表达式不能包含非转义反斜杠（<code>\</code>），并且不能包含回车或换行符。不过，插值字符串可以包含其他字面量。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_11" class="h16"><span class="span_for_h">Unicode {#unicode}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>Unicode</em>是一个用于在不同书写系统中对文本进行编码、表示和处理的国际标准。它使你可以用标准格式表示来自任意语言几乎所有的字符，并能够对文本文件或网页这样的外部资源中的字符进行读写操作。Swift 的 <code>String</code> 和 <code>Character</code> 类型是完全兼容 Unicode 标准的。</span>
+</p>
+
+<h3 id="toc_12" class="h16"><span class="span_for_h">Unicode 标量 {#unicode-scalars}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 的 <code>String</code> 类型是基于 <em>Unicode 标量</em> 建立的。Unicode 标量是对应字符或者修饰符的唯一的 21 位数字，例如 <code>U+0061</code> 表示小写的拉丁字母（<code>LATIN SMALL LETTER A</code>）（&quot;<code>a</code>&quot;），<code>U+1F425</code> 表示小鸡表情（<code>FRONT-FACING BABY CHICK</code>）（&quot;<code>🐥</code>&quot;）。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">请注意，并非所有 21 位 Unicode 标量值都分配给字符，某些标量被保留用于将来分配或用于 UTF-16 编码。已分配的标量值通常也有一个名称，例如上面示例中的 LATIN SMALL LETTER A 和 FRONT-FACING BABY CHICK。</span>
+</p>
+
+<h3 id="toc_13" class="h16"><span class="span_for_h">可扩展的字形群集 {#extended-grapheme-clusters}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">每一个 Swift 的 <code>Character</code> 类型代表一个<em class="md_patched_em">可扩展的字形群</em>。而一个可扩展的字形群构成了人类可读的单个字符，它由一个或多个（当组合时） Unicode 标量的序列组成。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start">举个例子，字母 <code>é</code> 可以用单一的 Unicode 标量 <code>é</code>(<code>LATIN SMALL LETTER E WITH ACUTE</code>, 或者 <code>U+00E9</code>)来表示。然而一个标准的字母 <code>e</code>(<code>LATIN SMALL LETTER E</code> 或者 <code>U+0065</code>) 加上一个急促重音（<code>COMBINING ACTUE ACCENT</code>）的标量（<code>U+0301</code>），这样一对标量就表示了同样的字母 <code>é</code>。<br /></span>
+    <span class="md_line md_line_end">这个急促重音的标量形象的将 <code>e</code> 转换成了 <code>é</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在这两种情况中，字母 <code>é</code> 代表了一个单一的 Swift 的 <code>Character</code> 值，同时代表了一个可扩展的字形群。在第一种情况，这个字形群包含一个单一标量；而在第二种情况，它是包含两个标量的字形群：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">eAcute</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;\u{E9}&quot;</span>                         <span class="c1">// é</span>
+<span class="kd">let</span> <span class="nv">combinedEAcute</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;\u{65}\u{301}&quot;</span>          <span class="c1">// e 后面加上  ́</span>
+<span class="c1">// eAcute 是 é, combinedEAcute 是 é</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">可扩展的字形集是一个将许多复杂的脚本字符表示为单个字符值的灵活方式。例如，来自朝鲜语字母表的韩语音节能表示为组合或分解的有序排列。在 Swift 都会表示为同一个单一的 <code>Character</code> 值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">precomposed</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;\u{D55C}&quot;</span>                  <span class="c1">// 한</span>
+<span class="kd">let</span> <span class="nv">decomposed</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;\u{1112}\u{1161}\u{11AB}&quot;</span>   <span class="c1">// ᄒ, ᅡ, ᆫ</span>
+<span class="c1">// precomposed 是 한, decomposed 是 한</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">可拓展的字符群集可以使包围记号（例如 <code>COMBINING ENCLOSING CIRCLE</code> 或者 <code>U+20DD</code>）的标量包围其他 Unicode 标量，作为一个单一的 <code>Character</code> 值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">enclosedEAcute</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;\u{E9}\u{20DD}&quot;</span>
+<span class="c1">// enclosedEAcute 是 é⃝</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">地域性指示符号的 Unicode 标量可以组合成一个单一的 <code>Character</code> 值，例如 <code>REGIONAL INDICATOR SYMBOL LETTER U</code>(<code>U+1F1FA</code>)和 <code>REGIONAL INDICATOR SYMBOL LETTER S</code>(<code>U+1F1F8</code>)：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">regionalIndicatorForUS</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;\u{1F1FA}\u{1F1F8}&quot;</span>
+<span class="c1">// regionalIndicatorForUS 是 🇺🇸</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_14" class="h16"><span class="span_for_h">计算字符数量 {#counting-characters}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果想要获得一个字符串中 <code>Character</code> 值的数量，可以使用 <code>count</code> 属性：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">unusualMenagerie</span> <span class="p">=</span> <span class="s">&quot;Koala 🐨, Snail 🐌, Penguin 🐧, Dromedary 🐪&quot;</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;unusualMenagerie has </span><span class="si">\(</span><span class="n">unusualMenagerie</span><span class="p">.</span><span class="bp">count</span><span class="si">)</span><span class="s"> characters&quot;</span><span class="p">)</span>
+<span class="c1">// 打印输出“unusualMenagerie has 40 characters”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">注意在 Swift 中，使用可拓展的字符群集作为 <code>Character</code> 值来连接或改变字符串时，并不一定会更改字符串的字符数量。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">例如，如果你用四个字符的单词 <code>cafe</code> 初始化一个新的字符串，然后添加一个 <code>COMBINING ACTUE ACCENT</code>(<code>U+0301</code>)作为字符串的结尾。最终这个字符串的字符数量仍然是 <code>4</code>，因为第四个字符是 <code>é</code>，而不是 <code>e</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">word</span> <span class="p">=</span> <span class="s">&quot;cafe&quot;</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;the number of characters in </span><span class="si">\(</span><span class="n">word</span><span class="si">)</span><span class="s"> is </span><span class="si">\(</span><span class="n">word</span><span class="p">.</span><span class="bp">count</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="c1">// 打印输出“the number of characters in cafe is 4”</span>
+
+<span class="n">word</span> <span class="o">+=</span> <span class="s">&quot;\u{301}&quot;</span>    <span class="c1">// 拼接一个重音，U+0301</span>
+
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;the number of characters in </span><span class="si">\(</span><span class="n">word</span><span class="si">)</span><span class="s"> is </span><span class="si">\(</span><span class="n">word</span><span class="p">.</span><span class="bp">count</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="c1">// 打印输出“the number of characters in café is 4”</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line">可扩展的字形群可以由多个 Unicode 标量组成。这意味着不同的字符以及相同字符的不同表示方式可能需要不同数量的内存空间来存储。所以 Swift 中的字符在一个字符串中并不一定占用相同的内存空间数量。因此在没有获取字符串的可扩展的字符群的范围时候，就不能计算出字符串的字符数量。如果你正在处理一个长字符串，需要注意 <code>count</code> 属性必须遍历全部的 Unicode 标量，来确定字符串的字符数量。<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">另外需要注意的是通过 <code>count</code> 属性返回的字符数量并不总是与包含相同字符的 <code>NSString</code> 的 <code>length</code> 属性相同。<code>NSString</code> 的 <code>length</code> 属性是利用 UTF-16 表示的十六位代码单元数字，而不是 Unicode 可扩展的字符群集。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_15" class="h16"><span class="span_for_h">访问和修改字符串 {#accessing-and-modifying-a-string}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以通过字符串的属性和方法来访问和修改它，当然也可以用下标语法完成。</span>
+</p>
+
+<h3 id="toc_16" class="h16"><span class="span_for_h">字符串索引 {#string-indices}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">每一个 <code>String</code> 值都有一个关联的索引（*index*）类型，<code>String.Index</code>，它对应着字符串中的每一个 <code>Character</code> 的位置。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">前面提到，不同的字符可能会占用不同数量的内存空间，所以要知道 <code>Character</code> 的确定位置，就必须从 <code>String</code> 开头遍历每一个 Unicode 标量直到结尾。因此，Swift 的字符串不能用整数（integer）做索引。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">使用 <code>startIndex</code> 属性可以获取一个 <code>String</code> 的第一个 <code>Character</code> 的索引。使用 <code>endIndex</code> 属性可以获取最后一个 <code>Character</code> 的后一个位置的索引。因此，<code>endIndex</code> 属性不能作为一个字符串的有效下标。如果 <code>String</code> 是空串，<code>startIndex</code> 和 <code>endIndex</code> 是相等的。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">通过调用 <code>String</code> 的 <code>index(before:)</code> 或 <code>index(after:)</code> 方法，可以立即得到前面或后面的一个索引。你还可以通过调用 <code>index(_:offsetBy:)</code> 方法来获取对应偏移量的索引，这种方式可以避免多次调用 <code>index(before:)</code> 或 <code>index(after:)</code> 方法。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以使用下标语法来访问 <code>String</code> 特定索引的 <code>Character</code>。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">greeting</span> <span class="p">=</span> <span class="s">&quot;Guten Tag!&quot;</span>
+<span class="n">greeting</span><span class="p">[</span><span class="n">greeting</span><span class="p">.</span><span class="n">startIndex</span><span class="p">]</span>
+<span class="c1">// G</span>
+<span class="n">greeting</span><span class="p">[</span><span class="n">greeting</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">before</span><span class="p">:</span> <span class="n">greeting</span><span class="p">.</span><span class="n">endIndex</span><span class="p">)]</span>
+<span class="c1">// !</span>
+<span class="n">greeting</span><span class="p">[</span><span class="n">greeting</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">after</span><span class="p">:</span> <span class="n">greeting</span><span class="p">.</span><span class="n">startIndex</span><span class="p">)]</span>
+<span class="c1">// u</span>
+<span class="kd">let</span> <span class="nv">index</span> <span class="p">=</span> <span class="n">greeting</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">greeting</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span> <span class="n">offsetBy</span><span class="p">:</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">greeting</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<span class="c1">// a</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">试图获取越界索引对应的 <code>Character</code>，将引发一个运行时错误。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">greeting</span><span class="p">[</span><span class="n">greeting</span><span class="p">.</span><span class="n">endIndex</span><span class="p">]</span> <span class="c1">// error</span>
+<span class="n">greeting</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">after</span><span class="p">:</span> <span class="n">greeting</span><span class="p">.</span><span class="n">endIndex</span><span class="p">)</span> <span class="c1">// error</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">使用 <code>indices</code> 属性会创建一个包含全部索引的范围（<code>Range</code>），用来在一个字符串中访问单个字符。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="n">greeting</span><span class="p">.</span><span class="bp">indices</span> <span class="p">{</span>
+   <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">greeting</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="si">)</span><span class="s"> &quot;</span><span class="p">,</span> <span class="n">terminator</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印输出“G u t e n   T a g ! ”</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">你可以使用 <code>startIndex</code> 和 <code>endIndex</code> 属性或者 <code>index(before:)</code> 、<code>index(after:)</code> 和 <code>index(_:offsetBy:)</code> 方法在任意一个确认的并遵循 <code>Collection</code> 协议的类型里面，如上文所示是使用在 <code>String</code> 中，你也可以使用在 <code>Array</code>、<code>Dictionary</code> 和 <code>Set</code> 中。</span>
+</p>
+
+</blockquote>
+<h3 id="toc_17" class="h16"><span class="span_for_h">插入和删除 {#inserting-and-removing}</span></h3>
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">调用 <code>insert(_:at:)</code> 方法可以在一个字符串的指定索引插入一个字符，调用 <code>insert(contentsOf:at:)</code> 方法可以在一个字符串的指定索引插入一个段字符串。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">welcome</span> <span class="p">=</span> <span class="s">&quot;hello&quot;</span>
+<span class="n">welcome</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">,</span> <span class="n">at</span><span class="p">:</span> <span class="n">welcome</span><span class="p">.</span><span class="n">endIndex</span><span class="p">)</span>
+<span class="c1">// welcome 变量现在等于 &quot;hello!&quot;</span>
+
+<span class="n">welcome</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="n">contentsOf</span><span class="p">:</span><span class="s">&quot; there&quot;</span><span class="p">,</span> <span class="n">at</span><span class="p">:</span> <span class="n">welcome</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">before</span><span class="p">:</span> <span class="n">welcome</span><span class="p">.</span><span class="n">endIndex</span><span class="p">))</span>
+<span class="c1">// welcome 变量现在等于 &quot;hello there!&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">调用 <code>remove(at:)</code> 方法可以在一个字符串的指定索引删除一个字符，调用 <code>removeSubrange(_:)</code> 方法可以在一个字符串的指定索引删除一个子字符串。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">welcome</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="n">welcome</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">before</span><span class="p">:</span> <span class="n">welcome</span><span class="p">.</span><span class="n">endIndex</span><span class="p">))</span>
+<span class="c1">// welcome 现在等于 &quot;hello there&quot;</span>
+
+<span class="kd">let</span> <span class="nv">range</span> <span class="p">=</span> <span class="n">welcome</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">welcome</span><span class="p">.</span><span class="n">endIndex</span><span class="p">,</span> <span class="n">offsetBy</span><span class="p">:</span> <span class="o">-</span><span class="mi">6</span><span class="p">)..&lt;</span><span class="n">welcome</span><span class="p">.</span><span class="n">endIndex</span>
+<span class="n">welcome</span><span class="p">.</span><span class="n">removeSubrange</span><span class="p">(</span><span class="n">range</span><span class="p">)</span>
+<span class="c1">// welcome 现在等于 &quot;hello&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">你可以使用 <code>insert(_:at:)</code>、<code>insert(contentsOf:at:)</code>、<code>remove(at:)</code> 和 <code>removeSubrange(_:)</code> 方法在任意一个确认的并遵循 <code>RangeReplaceableCollection</code> 协议的类型里面，如上文所示是使用在 <code>String</code> 中，你也可以使用在 <code>Array</code>、<code>Dictionary</code> 和 <code>Set</code> 中。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_18" class="h16"><span class="span_for_h">子字符串 {#substrings}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">当你从字符串中获取一个子字符串 —— 例如，使用下标或者 <code>prefix(_:)</code> 之类的方法 —— 就可以得到一个 <code>Substring</code> 的实例，而非另外一个 <code>String</code>。Swift 里的 <code>Substring</code> 绝大部分函数都跟 <code>String</code> 一样，意味着你可以使用同样的方式去操作 <code>Substring</code> 和 <code>String</code>。然而，跟 <code>String</code> 不同的是，你只有在短时间内需要操作字符串时，才会使用 <code>Substring</code>。当你需要长时间保存结果时，就把 <code>Substring</code> 转化为 <code>String</code> 的实例：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">greeting</span> <span class="p">=</span> <span class="s">&quot;Hello, world!&quot;</span>
+<span class="kd">let</span> <span class="nv">index</span> <span class="p">=</span> <span class="n">greeting</span><span class="p">.</span><span class="n">firstIndex</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="s">&quot;,&quot;</span><span class="p">)</span> <span class="p">??</span> <span class="n">greeting</span><span class="p">.</span><span class="n">endIndex</span>
+<span class="kd">let</span> <span class="nv">beginning</span> <span class="p">=</span> <span class="n">greeting</span><span class="p">[..&lt;</span><span class="n">index</span><span class="p">]</span>
+<span class="c1">// beginning 的值为 &quot;Hello&quot;</span>
+
+<span class="c1">// 把结果转化为 String 以便长期存储。</span>
+<span class="kd">let</span> <span class="nv">newString</span> <span class="p">=</span> <span class="nb">String</span><span class="p">(</span><span class="n">beginning</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">就像 <code>String</code>，每一个 <code>Substring</code> 都会在内存里保存字符集。而 <code>String</code> 和 <code>Substring</code> 的区别在于性能优化上，<code>Substring</code> 可以重用原 <code>String</code> 的内存空间，或者另一个 <code>Substring</code> 的内存空间（<code>String</code> 也有同样的优化，但如果两个 <code>String</code> 共享内存的话，它们就会相等）。这一优化意味着你在修改 <code>String</code> 和 <code>Substring</code> 之前都不需要消耗性能去复制内存。就像前面说的那样，<code>Substring</code> 不适合长期存储 —— 因为它重用了原 <code>String</code> 的内存空间，原 <code>String</code> 的内存空间必须保留直到它的 <code>Substring</code> 不再被使用为止。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面的例子，<code>greeting</code> 是一个 <code>String</code>，意味着它在内存里有一片空间保存字符集。而由于 <code>beginning</code> 是 <code>greeting</code> 的 <code>Substring</code>，它重用了 <code>greeting</code> 的内存空间。相反，<code>newString</code> 是一个 <code>String</code> —— 它是使用 <code>Substring</code> 创建的，拥有一片自己的内存空间。下面的图展示了他们之间的关系：</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/stringSubstring_2x.png" alt="" title="" ></span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end"><code>String</code> 和 <code>Substring</code> 都遵循 <a class="md_compiled" href="https://developer.apple.com/documentation/swift/stringprotocol"><code>StringProtocol</code></a> 协议，这意味着操作字符串的函数使用 <code>StringProtocol</code> 会更加方便。你可以传入 <code>String</code> 或 <code>Substring</code> 去调用函数。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_19" class="h16"><span class="span_for_h">比较字符串 {#comparing-strings}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 提供了三种方式来比较文本值：字符串字符相等、前缀相等和后缀相等。</span>
+</p>
+
+<h3 id="toc_20" class="h16"><span class="span_for_h">字符串/字符相等 {#string-and-character-equality}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">字符串/字符可以用等于操作符（<code>==</code>）和不等于操作符（<code>!=</code>），详细描述在 <a class="md_compiled" href="./02_Basic_Operators.md#comparison-operators">比较运算符</a>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">quotation</span> <span class="p">=</span> <span class="s">&quot;We&#39;re a lot alike, you and I.&quot;</span>
+<span class="kd">let</span> <span class="nv">sameQuotation</span> <span class="p">=</span> <span class="s">&quot;We&#39;re a lot alike, you and I.&quot;</span>
+<span class="k">if</span> <span class="n">quotation</span> <span class="p">==</span> <span class="n">sameQuotation</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;These two strings are considered equal&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印输出“These two strings are considered equal”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果两个字符串（或者两个字符）的可扩展的字形群集是标准相等，那就认为它们是相等的。只要可扩展的字形群集有同样的语言意义和外观则认为它们标准相等，即使它们是由不同的 Unicode 标量构成。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">例如，<code>LATIN SMALL LETTER E WITH ACUTE</code>(<code>U+00E9</code>)就是标准相等于 <code>LATIN SMALL LETTER E</code>(<code>U+0065</code>)后面加上 <code>COMBINING ACUTE ACCENT</code>(<code>U+0301</code>)。这两个字符群集都是表示字符 <code>é</code> 的有效方式，所以它们被认为是标准相等的：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="c1">// &quot;Voulez-vous un café?&quot; 使用 LATIN SMALL LETTER E WITH ACUTE</span>
+<span class="kd">let</span> <span class="nv">eAcuteQuestion</span> <span class="p">=</span> <span class="s">&quot;Voulez-vous un caf\u{E9}?&quot;</span>
+
+<span class="c1">// &quot;Voulez-vous un café?&quot; 使用 LATIN SMALL LETTER E and COMBINING ACUTE ACCENT</span>
+<span class="kd">let</span> <span class="nv">combinedEAcuteQuestion</span> <span class="p">=</span> <span class="s">&quot;Voulez-vous un caf\u{65}\u{301}?&quot;</span>
+
+<span class="k">if</span> <span class="n">eAcuteQuestion</span> <span class="p">==</span> <span class="n">combinedEAcuteQuestion</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;These two strings are considered equal&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印输出“These two strings are considered equal”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">相反，英语中的 <code>LATIN CAPITAL LETTER A</code>(<code>U+0041</code>，或者 <code>A</code>)不等于俄语中的 <code>CYRILLIC CAPITAL LETTER A</code>(<code>U+0410</code>，或者 <code>A</code>)。两个字符看着是一样的，但却有不同的语言意义：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">latinCapitalLetterA</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;\u{41}&quot;</span>
+
+<span class="kd">let</span> <span class="nv">cyrillicCapitalLetterA</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;\u{0410}&quot;</span>
+
+<span class="k">if</span> <span class="n">latinCapitalLetterA</span> <span class="o">!=</span> <span class="n">cyrillicCapitalLetterA</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;These two characters are not equivalent&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“These two characters are not equivalent”</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">在 Swift 中，字符串和字符并不区分地域（not locale-sensitive）。</span>
+</p>
+
+</blockquote>
+<h3 id="toc_21" class="h16"><span class="span_for_h">前缀/后缀相等 {#prefix-and-suffix-equality}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">通过调用字符串的 <code>hasPrefix(_:)</code>/<code>hasSuffix(_:)</code> 方法来检查字符串是否拥有特定前缀/后缀，两个方法均接收一个 <code>String</code> 类型的参数，并返回一个布尔值。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子以一个字符串数组表示莎士比亚话剧《罗密欧与朱丽叶》中前两场的场景位置：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">romeoAndJuliet</span> <span class="p">=</span> <span class="p">[</span>
+    <span class="s">&quot;Act 1 Scene 1: Verona, A public place&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Act 1 Scene 2: Capulet&#39;s mansion&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Act 1 Scene 3: A room in Capulet&#39;s mansion&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Act 1 Scene 4: A street outside Capulet&#39;s mansion&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Act 1 Scene 5: The Great Hall in Capulet&#39;s mansion&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Act 2 Scene 1: Outside Capulet&#39;s mansion&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Act 2 Scene 2: Capulet&#39;s orchard&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Act 2 Scene 3: Outside Friar Lawrence&#39;s cell&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Act 2 Scene 4: A street in Verona&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Act 2 Scene 5: Capulet&#39;s mansion&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Act 2 Scene 6: Friar Lawrence&#39;s cell&quot;</span>
+<span class="p">]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以调用 <code>hasPrefix(_:)</code> 方法来计算话剧中第一幕的场景数：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">act1SceneCount</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">scene</span> <span class="k">in</span> <span class="n">romeoAndJuliet</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">scene</span><span class="p">.</span><span class="n">hasPrefix</span><span class="p">(</span><span class="s">&quot;Act 1 &quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">act1SceneCount</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;There are </span><span class="si">\(</span><span class="n">act1SceneCount</span><span class="si">)</span><span class="s"> scenes in Act 1&quot;</span><span class="p">)</span>
+<span class="c1">// 打印输出“There are 5 scenes in Act 1”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">相似地，你可以用 <code>hasSuffix(_:)</code> 方法来计算发生在不同地方的场景数：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">mansionCount</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="kd">var</span> <span class="nv">cellCount</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">scene</span> <span class="k">in</span> <span class="n">romeoAndJuliet</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">scene</span><span class="p">.</span><span class="n">hasSuffix</span><span class="p">(</span><span class="s">&quot;Capulet&#39;s mansion&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">mansionCount</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">scene</span><span class="p">.</span><span class="n">hasSuffix</span><span class="p">(</span><span class="s">&quot;Friar Lawrence&#39;s cell&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cellCount</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">mansionCount</span><span class="si">)</span><span class="s"> mansion scenes; </span><span class="si">\(</span><span class="n">cellCount</span><span class="si">)</span><span class="s"> cell scenes&quot;</span><span class="p">)</span>
+<span class="c1">// 打印输出“6 mansion scenes; 2 cell scenes”</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end"><code>hasPrefix(_:)</code> 和 <code>hasSuffix(_:)</code> 方法都是在每个字符串中逐字符比较其可扩展的字符群集是否标准相等，详细描述在 <a class="md_compiled" href="#string-and-character-equality">字符串/字符相等</a>。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_22" class="h16"><span class="span_for_h">字符串的 Unicode 表示形式 {#unicode-representations-of-strings}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当一个 Unicode 字符串被写进文本文件或者其他储存时，字符串中的 Unicode 标量会用 Unicode 定义的几种 <code>编码格式</code>（encoding forms）编码。每一个字符串中的小块编码都被称 <code>代码单元</code>（code units）。这些包括 UTF-8 编码格式（编码字符串为 8 位的代码单元）， UTF-16 编码格式（编码字符串位 16 位的代码单元），以及 UTF-32 编码格式（编码字符串32位的代码单元）。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 提供了几种不同的方式来访问字符串的 Unicode 表示形式。你可以利用 <code>for-in</code> 来对字符串进行遍历，从而以 Unicode 可扩展的字符群集的方式访问每一个 <code>Character</code> 值。该过程在 <a class="md_compiled" href="#working-with-characters">使用字符</a> 中进行了描述。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">另外，能够以其他三种 Unicode 兼容的方式访问字符串的值：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>UTF-8 代码单元集合（利用字符串的 <code>utf8</code> 属性进行访问）
+
+</span></li>
+<li class="md_li"><span>UTF-16 代码单元集合（利用字符串的 <code>utf16</code> 属性进行访问）
+
+</span></li>
+<li class="md_li"><span>21 位的 Unicode 标量值集合，也就是字符串的 UTF-32 编码格式（利用字符串的 <code>unicodeScalars</code> 属性进行访问）
+
+</span></li>
+</ul>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面由 <code>D</code>,<code>o</code>,<code>g</code>,<code>‼</code>(<code>DOUBLE EXCLAMATION MARK</code>, Unicode 标量 <code>U+203C</code>)和 <code>🐶</code>(<code>DOG FACE</code>，Unicode 标量为 <code>U+1F436</code>)组成的字符串中的每一个字符代表着一种不同的表示：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">dogString</span> <span class="p">=</span> <span class="s">&quot;Dog‼🐶&quot;</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_23" class="h16"><span class="span_for_h">UTF-8 表示 {#UTF-8-representation}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以通过遍历 <code>String</code> 的 <code>utf8</code> 属性来访问它的 <code>UTF-8</code> 表示。其为 <code>String.UTF8View</code> 类型的属性，<code>UTF8View</code> 是无符号 8 位（<code>UInt8</code>）值的集合，每一个 <code>UInt8</code> 值都是一个字符的 UTF-8 表示：</span>
+</p>
+
+<table style='text-align:center'>
+ <tr height="77">
+  <td>Character</td>
+  <td>D<br>U+0044</td>
+  <td>o<br>U+006F</td>
+  <td>g<br>U+0067</td>
+  <td colspan="3">‼<br>U+203C</td>
+  <td colspan="4">🐶<br>U+1F436</td>
+ </tr>
+ <tr height="77">
+  <td height="77">UTF-8<br>Code Unit</td>
+  <td>68</td>
+  <td>111</td>
+  <td>103</td>
+  <td>226</td>
+  <td>128</td>
+  <td>188</td>
+  <td>240</td>
+  <td>159</td>
+  <td>144</td>
+  <td>182</td>
+ </tr>
+ <tr>
+  <td height="77">Position</td>
+  <td>0</td>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+  <td>4</td>
+  <td>5</td>
+  <td>6</td>
+  <td>7</td>
+  <td>8</td>
+  <td>9</td>
+ </tr>
+</table>
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">codeUnit</span> <span class="k">in</span> <span class="n">dogString</span><span class="p">.</span><span class="n">utf8</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">codeUnit</span><span class="si">)</span><span class="s"> &quot;</span><span class="p">,</span> <span class="n">terminator</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="c1">// 68 111 103 226 128 188 240 159 144 182</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面的例子中，前三个 10 进制 <code>codeUnit</code> 值（<code>68</code>、<code>111</code>、<code>103</code>）代表了字符 <code>D</code>、<code>o</code> 和 <code>g</code>，它们的 UTF-8 表示与 ASCII 表示相同。接下来的三个 10 进制 <code>codeUnit</code> 值（<code>226</code>、<code>128</code>、<code>188</code>）是 <code>DOUBLE EXCLAMATION MARK</code> 的3字节 UTF-8 表示。最后的四个 <code>codeUnit</code> 值（<code>240</code>、<code>159</code>、<code>144</code>、<code>182</code>）是 <code>DOG FACE</code> 的4字节 UTF-8 表示。</span>
+</p>
+
+<h3 id="toc_24" class="h16"><span class="span_for_h">UTF-16 表示 {#UTF-16-representation}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以通过遍历 <code>String</code> 的 <code>utf16</code> 属性来访问它的 <code>UTF-16</code> 表示。其为 <code>String.UTF16View</code> 类型的属性，<code>UTF16View</code> 是无符号16位（<code>UInt16</code>）值的集合，每一个 <code>UInt16</code> 都是一个字符的 UTF-16 表示：</span>
+</p>
+
+<table style='text-align:center'>
+ <tr height="77">
+  <td>Character</td>
+  <td>D<br>U+0044</td>
+  <td>o<br>U+006F</td>
+  <td>g<br>U+0067</td>
+  <td>‼<br>U+203C</td>
+  <td colspan="2">🐶<br>U+1F436</td>
+ </tr>
+ <tr height="77">
+  <td height="77">UTF-16<br>Code Unit</td>
+  <td>68</td>
+  <td>111</td>
+  <td>103</td>
+  <td>8252</td>
+  <td>55357</td>
+  <td>56374</td>
+ </tr>
+ <tr>
+  <td height="77">Position</td>
+  <td>0</td>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+  <td>4</td>
+  <td>5</td>
+ </tr>
+</table>
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">codeUnit</span> <span class="k">in</span> <span class="n">dogString</span><span class="p">.</span><span class="n">utf16</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">codeUnit</span><span class="si">)</span><span class="s"> &quot;</span><span class="p">,</span> <span class="n">terminator</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="c1">// 68 111 103 8252 55357 56374</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">同样，前三个 <code>codeUnit</code> 值（<code>68</code>、<code>111</code>、<code>103</code>）代表了字符 <code>D</code>、<code>o</code> 和 <code>g</code>，它们的 UTF-16 代码单元和 UTF-8 完全相同（因为这些 Unicode 标量表示 ASCII 字符）。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">第四个 <code>codeUnit</code> 值（<code>8252</code>）是一个等于十六进制 <code>203C</code> 的的十进制值。这个代表了 <code>DOUBLE EXCLAMATION MARK</code> 字符的 Unicode 标量值 <code>U+203C</code>。这个字符在 UTF-16 中可以用一个代码单元表示。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">第五和第六个 <code>codeUnit</code> 值（<code>55357</code> 和 <code>56374</code>）是 <code>DOG FACE</code> 字符的 UTF-16 表示。第一个值为 <code>U+D83D</code>(十进制值为 <code>55357</code>)，第二个值为 <code>U+DC36</code>(十进制值为 <code>56374</code>)。</span>
+</p>
+
+<h3 id="toc_25" class="h16"><span class="span_for_h">Unicode 标量表示 {#unicode-scalars-representation}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以通过遍历 <code>String</code> 值的 <code>unicodeScalars</code> 属性来访问它的 Unicode 标量表示。其为 <code>UnicodeScalarView</code> 类型的属性，<code>UnicodeScalarView</code> 是 <code>UnicodeScalar</code> 类型的值的集合。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">每一个 <code>UnicodeScalar</code> 拥有一个 <code>value</code> 属性，可以返回对应的 21 位数值，用 <code>UInt32</code> 来表示：</span>
+</p>
+
+<table style='text-align:center'>
+ <tr height="77">
+  <td>Character</td>
+  <td>D<br>U+0044</td>
+  <td>o<br>U+006F</td>
+  <td>g<br>U+0067</td>
+  <td>‼<br>U+203C</td>
+  <td>🐶<br>U+1F436</td>
+ </tr>
+ <tr height="77">
+  <td height="77">Unicode Scalar<br>Code Unit</td>
+  <td>68</td>
+  <td>111</td>
+  <td>103</td>
+  <td>8252</td>
+  <td>128054</td>
+ </tr>
+ <tr>
+  <td height="77">Position</td>
+  <td>0</td>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+  <td>4</td>
+ </tr>
+</table>
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">scalar</span> <span class="k">in</span> <span class="n">dogString</span><span class="p">.</span><span class="n">unicodeScalars</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">scalar</span><span class="p">.</span><span class="n">value</span><span class="si">)</span><span class="s"> &quot;</span><span class="p">,</span> <span class="n">terminator</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="c1">// 68 111 103 8252 128054</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">前三个 <code>UnicodeScalar</code> 值（<code>68</code>、<code>111</code>、<code>103</code>）的 <code>value</code> 属性仍然代表字符 <code>D</code>、<code>o</code> 和 <code>g</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">第四个 <code>codeUnit</code> 值（<code>8252</code>）仍然是一个等于十六进制 <code>203C</code> 的十进制值。这个代表了 <code>DOUBLE EXCLAMATION MARK</code> 字符的 Unicode 标量 <code>U+203C</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">第五个 <code>UnicodeScalar</code> 值的 <code>value</code> 属性，<code>128054</code>，是一个十六进制 <code>1F436</code> 的十进制表示。其等同于 <code>DOG FACE</code> 的 Unicode 标量 <code>U+1F436</code>。</span>
+</p>
+
+
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start md_line_end">作为查询它们的 <code>value</code> 属性的一种替代方法，每个 <code>UnicodeScalar</code> 值也可以用来构建一个新的 <code>String</code> 值，比如在字符串插值中使用：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">scalar</span> <span class="k">in</span> <span class="n">dogString</span><span class="p">.</span><span class="n">unicodeScalars</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">scalar</span><span class="si">)</span><span class="s"> &quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// D</span>
+<span class="c1">// o</span>
+<span class="c1">// g</span>
+<span class="c1">// ‼</span>
+<span class="c1">// 🐶</span>
+</pre></div>
+
+<!--block_code_end-->
+        </div>
+    </div>
+    <!--mathjax-->
+    <!--mermaid-->
+</body>
+</html>

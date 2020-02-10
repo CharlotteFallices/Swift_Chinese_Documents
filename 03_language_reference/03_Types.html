@@ -1,0 +1,925 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>类型（Types）</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">类型（Types）</span></h1>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 语言存在两种类型：命名型类型和复合型类型。<em class="md_patched_em">命名型类型</em>是指定义时可以给定名字的类型。命名型类型包括类、结构体、枚举和协议。比如，一个用户定义类 <code>MyClass</code> 的实例拥有类型 <code>MyClass</code>。除了用户定义的命名型类型，Swift 标准库也定义了很多常用的命名型类型，包括那些表示数组、字典和可选值的类型。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">那些通常被其它语言认为是基本或原始的数据型类型，比如表示数字、字符和字符串的类型，实际上就是命名型类型，这些类型在 Swift 标准库中是使用结构体来定义和实现的。因为它们是命名型类型，因此你可以按照 <a class="md_compiled" href="../02_language_guide/20_Extensions.md">扩展</a> 和 <a class="md_compiled" href="./06_Declarations.md#extension-declaration">扩展声明</a> 中讨论的那样，声明一个扩展来增加它们的行为以满足你程序的需求。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>复合型类型</em>是没有名字的类型，它由 Swift 本身定义。Swift 存在两种复合型类型：函数类型和元组类型。一个复合型类型可以包含命名型类型和其它复合型类型。例如，元组类型 <code>(Int, (Int, Int))</code> 包含两个元素：第一个是命名型类型 <code>Int</code>，第二个是另一个复合型类型 <code>(Int, Int)</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以在命名型类型和复合型类型使用小括号。但是在类型旁加小括号没有任何作用。举个例子，<code>(Int)</code> 等同于 <code>Int</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">本节讨论 Swift 语言本身定义的类型，并描述 Swift 中的类型推断行为。</span>
+</p>
+
+<h4 id="toc_1" class="h16"><span class="span_for_h">type {#type}</span></h4>
+
+<blockquote class="blockquote_lines_14 blockquote_without_image">
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start">类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="#function-type">函数类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="#array-type">数组类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="#dictionary-type">字典类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="#type-identifier">类型标识</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="#tuple-type">元组类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="#optional-type">可选类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="#implicitly-unwrapped-optional-type">隐式解析可选类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="#protocol-composition-type">协议合成类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> →<a class="md_compiled" href="#opaque-type">不透明类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="#metatype-type">元型类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <a class="md_compiled" href="#self-type">自身类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <strong>Any</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<em>类型</em> → <strong>（</strong> <a class="md_compiled" href="#type">类型</a> <strong>）</strong></p>
+
+</blockquote>
+<h2 id="toc_2" class="h16"><span class="span_for_h">类型注解 {#type-annotation-h}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>类型注解</em>显式地指定一个变量或表达式的类型。类型注解从冒号 （<code>:</code>）开始， 以类型结尾，比如下面两个例子：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">someTuple</span><span class="p">:</span> <span class="p">(</span><span class="nb">Double</span><span class="p">,</span> <span class="nb">Double</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="mf">3.14159</span><span class="p">,</span> <span class="mf">2.71828</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">someFunction</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在第一个例子中，表达式 <code>someTuple</code> 的类型被指定为 <code>(Double, Double)</code>。在第二个例子中，函数 <code>someFunction</code> 的形参 <code>a</code> 的类型被指定为 <code>Int</code>。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">类型注解可以在类型之前包含一个类型特性的可选列表。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">类型注解语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_3" class="h16"><span class="span_for_h">type-annotation {#type-annotation}</span></h4>
+
+<blockquote class=" blockquote_without_image"><em>类型注解</em> → <strong>:</strong> <a class="md_compiled" href="./07_Attributes.md#attributes">特性列表</a><sub>可选</sub> <strong>输入输出参数</strong><sub>可选</sub> <a class="md_compiled" href="#type">类型</a></blockquote>
+<h2 id="toc_4" class="h16"><span class="span_for_h">类型标识符 {#type-identifier-h}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>类型标识符</em>可以引用命名型类型，还可引用命名型或复合型类型的别名。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">大多数情况下，类型标识符引用的是与之同名的命名型类型。例如类型标识符 <code>Int</code> 引用命名型类型 <code>Int</code>，同样，类型标识符 <code>Dictionary&lt;String, Int&gt;</code> 引用命名型类型 <code>Dictionary&lt;String, Int&gt;</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在两种情况下类型标识符不引用同名的类型。情况一，类型标识符引用的是命名型或复合型类型的类型别名。比如，在下面的例子中，类型标识符使用 <code>Point</code> 来引用元组 <code>(Int, Int)</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">typealias</span> <span class="n">Point</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Int</span><span class="p">,</span> <span class="nb">Int</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">origin</span><span class="p">:</span> <span class="n">Point</span> <span class="p">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">情况二，类型标识符使用点语法（<code>.</code>）来表示在其它模块或其它类型嵌套内声明的命名型类型。例如，下面例子中的类型标识符引用在 <code>ExampleModule</code> 模块中声明的命名型类型 <code>MyType</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">someValue</span><span class="p">:</span> <span class="n">ExampleModule</span><span class="p">.</span><span class="n">MyType</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">类型标识符语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_5" class="h16"><span class="span_for_h">type-identifier {#type-identifier}</span></h4>
+
+<blockquote class=" blockquote_without_image"><em>类型标识符</em> → <a class="md_compiled" href="#type-name">类型名称</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-argument-clause">泛型实参子句</a><sub>可选</sub> | <a class="md_compiled" href="#type-name">类型名称</a> <a class="md_compiled" href="./09-Generic-Parameters-and-Arguments.md#generic-argument-clause">泛型实参子句</a><sub>可选</sub> <strong>.</strong> <a class="md_compiled" href="#type-identifier">类型标识符</a></blockquote>
+<h4 id="toc_6" class="h16"><span class="span_for_h">type-name {#type-name}</span></h4>
+
+<blockquote class=" blockquote_without_image"><em>类型名称</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a></blockquote>
+<h2 id="toc_7" class="h16"><span class="span_for_h">元组类型 {#tuple-type-h}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>元组类型</em>是使用括号括起来的零个或多个类型，类型间用逗号隔开。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以使用元组类型作为一个函数的返回类型，这样就可以使函数返回多个值。你也可以命名元组类型中的元素，然后用这些名字来引用每个元素的值。元素的名字由一个标识符紧跟一个冒号 <code>(:)</code> 组成。<a class="md_compiled" href="../02_language_guide/06_Functions.md#functions-with-multiple-return-values">函数和多返回值</a> 章节里有一个展示上述特性的例子。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">当一个元组类型的元素有名字的时候，这个名字就是类型的一部分。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">someTuple</span> <span class="p">=</span> <span class="p">(</span><span class="n">top</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="n">bottom</span><span class="p">:</span> <span class="mi">12</span><span class="p">)</span>  <span class="c1">// someTuple 的类型为 (top: Int, bottom: Int)</span>
+<span class="n">someTuple</span> <span class="p">=</span> <span class="p">(</span><span class="n">top</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="n">bottom</span><span class="p">:</span> <span class="mi">42</span><span class="p">)</span> <span class="c1">// 正确：命名类型匹配</span>
+<span class="n">someTuple</span> <span class="p">=</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>              <span class="c1">// 正确：命名类型被自动推断</span>
+<span class="n">someTuple</span> <span class="p">=</span> <span class="p">(</span><span class="kr">left</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="kr">right</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1">// 错误：命名类型不匹配</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">所有的元组类型都包含两个及以上元素， 除了 <code>Void</code>。<code>Void</code> 是空元组类型 <code>()</code> 的别名。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start">元组类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_8" class="h16"><span class="span_for_h">tuple-type {#tuple-type}</span></h4>
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+<em>元组类型</em> → <strong>(</strong> <strong>)</strong> | <strong>(</strong> <a class="md_compiled" href="#tuple-type-element">元组类型元素</a> <strong>,</strong> <a class="md_compiled" href="#tuple-type-element-list">元组类型元素列表</a> <strong>)</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_9" class="h16"><span class="span_for_h">tuple-type-element-list {#tuple-type-element-list}</span></h4>
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+<em>元组类型元素列表</em> → <a class="md_compiled" href="#tuple-type-element">元组类型元素</a> | <a class="md_compiled" href="#tuple-type-element">元组类型元素</a> <strong>,</strong> <a class="md_compiled" href="#tuple-type-element-list">元组类型元素列表</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_10" class="h16"><span class="span_for_h">tuple-type-element {#tuple-type-element}</span></h4>
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+<em>元组类型元素</em> → <a class="md_compiled" href="#element-name">元素名</a> <a class="md_compiled" href="#type-annotation">类型注解</a> | <a class="md_compiled" href="#type">类型</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_11" class="h16"><span class="span_for_h">element-name {#element-name}</span></h4>
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+<em>元素名</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h2 id="toc_12" class="h16"><span class="span_for_h">函数类型 {#function-type-h}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>函数类型</em>表示一个函数、方法或闭包的类型，它由形参类型和返回值类型组成，中间用箭头（<code>-&gt;</code>）隔开：</span>
+</p>
+
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">（<code>形参类型</code>）-&gt;（<code>返回值类型</code>）</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>形参类型</em>是由逗号间隔的类型列表。由于<em class="md_patched_em">返回值类型</em>可以是元组类型，所以函数类型支持多返回值的函数与方法。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以对形参类型为 <code>() -&gt; T</code>（其中 T 是任何类型）的函数使用 <code>autoclosure</code> 特性，这会在调用侧隐式创建一个闭包。这从语法结构上提供了一种便捷：延迟对表达式的求值，直到其值在函数体中被调用。以自动闭包做为形参的函数类型的例子详见 <a class="md_compiled" href="../02_language_guide/07_Closures.md#autoclosures">自动闭包</a>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">函数类型可以拥有一个可变参数在<em class="md_patched_em">形参类型</em>中。从语法角度上讲，可变参数由一个基础类型名字紧随三个点（<code>...</code>）组成，如 <code>Int...</code>。可变参数被认为是一个包含了基础类型元素的数组。即 <code>Int...</code> 就是 <code>[Int]</code>。关于使用可变参数的例子，请参阅 <a class="md_compiled" href="../02_language_guide/06_Functions.md#variadic-parameters">可变参数</a>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">为了指定一个 <code>in-out</code> 参数，可以在形参类型前加 <code>inout</code> 前缀。但是你不可以对可变参数或返回值类型使用 <code>inout</code>。关于这种形参的详细讲解请参阅 <a class="md_compiled" href="../02_language_guide/06_Functions.md#in-out-parameters">输入输出参数</a>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果函数类型只有一个类型是元组类型的一个形参，那么元组类型在写函数类型的时候必须用圆括号括起来。比如说，<code>((Int, Int)) -&gt; Void</code> 是接收一个元组 <code>(Int, Int)</code> 作为形参并且不返回任何值的函数类型。与此相对，不加括号的 <code>(Int, Int) -&gt; Void</code> 是一个接收两个 <code>Int</code> 作为形参并且不返回任何值的函数类型。相似地，因为 <code>Void</code> 是空元组类型 <code>()</code> 的别名，函数类型 <code>(Void)-&gt; Void</code> 与 <code>(()) -&gt; ()</code> 是一样的 - 一个将空元组作为唯一实参的函数。但这些类型和 <code>() -&gt; ()</code> 是不一样的 - 一个无实参的函数。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">函数和方法中的实参名并不是函数类型的一部分。例如：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">someFunction</span><span class="p">(</span><span class="kr">left</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="kr">right</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{}</span>
+<span class="kd">func</span> <span class="nf">anotherFunction</span><span class="p">(</span><span class="kr">left</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="kr">right</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{}</span>
+<span class="kd">func</span> <span class="nf">functionWithDifferentLabels</span><span class="p">(</span><span class="n">top</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">bottom</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{}</span>
+
+<span class="kd">var</span> <span class="nv">f</span> <span class="p">=</span> <span class="n">someFunction</span> <span class="c1">// 函数 f 的类型为 (Int, Int) -&gt; Void, 而不是 (left: Int, right: Int) -&gt; Void.</span>
+ 
+<span class="n">f</span> <span class="p">=</span> <span class="n">anotherFunction</span>              <span class="c1">// 正确</span>
+<span class="n">f</span> <span class="p">=</span> <span class="n">functionWithDifferentLabels</span>  <span class="c1">// 正确</span>
+
+<span class="kd">func</span> <span class="nf">functionWithDifferentArgumentTypes</span><span class="p">(</span><span class="kr">left</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="kr">right</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{}</span>
+<span class="n">f</span> <span class="p">=</span> <span class="n">functionWithDifferentArgumentTypes</span>     <span class="c1">// 错误</span>
+
+<span class="kd">func</span> <span class="nf">functionWithDifferentNumberOfArguments</span><span class="p">(</span><span class="kr">left</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="kr">right</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">top</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{}</span>
+<span class="n">f</span> <span class="p">=</span> <span class="n">functionWithDifferentNumberOfArguments</span> <span class="c1">// 错误</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">由于实参标签不是函数类型的一部分，你可以在写函数类型的时候省略它们。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">operation</span><span class="p">:</span> <span class="p">(</span><span class="n">lhs</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">rhs</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span>      <span class="c1">// 错误</span>
+<span class="kd">var</span> <span class="nv">operation</span><span class="p">:</span> <span class="p">(</span><span class="kc">_</span> <span class="n">lhs</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="kc">_</span> <span class="n">rhs</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span>  <span class="c1">// 正确</span>
+<span class="kd">var</span> <span class="nv">operation</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">,</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span>                <span class="c1">// 正确</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果一个函数类型包涵多个箭头（-&gt;），那么函数类型将从右向左进行组合。例如，函数类型 <code>(Int) -&gt; (Int) -&gt; Int</code> 可以理解为 <code>(Int) -&gt; ((Int) -&gt; Int)</code>，也就是说，该函数传入 <code>Int</code>，并返回另一个传入并返回 <code>Int</code> 的函数。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">函数类型若要抛出或重抛错误就必须使用 <code>throws</code> 关键字来标记。<code>throws</code> 关键字是函数类型的一部分，非抛出函数是抛出函数的子类型。因此，在使用抛出函数的地方也可以使用不抛出函数。抛出和重抛函数的相关描述见章节 <a class="md_compiled" href="./06_Declarations.md#throwing-functions-and-methods">抛出函数与方法</a> 和 <a class="md_compiled" href="./06-Declarations.md#rethrowing-functions-and-methods">重抛函数与方法</a>。</span>
+</p>
+
+<h3 id="toc_13" class="h16"><span class="span_for_h">对非逃逸闭包的限制 {#Restrictions for Nonescaping Closures}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当非逃逸闭包函数是形参时，不能存储在属性、变量或任何 <code>Any</code> 类型的常量中，因为这可能导致值的逃逸。  </span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">当非逃逸闭包函数是形参时，不能作为实参传递到另一个非逃逸闭包函数中。这样的限制可以让 Swift 在编译时就完成更好的内存访问冲突检查，而不是在运行时。举个例子：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">external</span><span class="p">:</span> <span class="p">(</span><span class="nb">Any</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span> <span class="p">=</span> <span class="p">{</span> <span class="kc">_</span> <span class="k">in</span> <span class="p">()</span> <span class="p">}</span>
+<span class="kd">func</span> <span class="nf">takesTwoFunctions</span><span class="p">(</span><span class="bp">first</span><span class="p">:</span> <span class="p">(</span><span class="nb">Any</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">,</span> <span class="n">second</span><span class="p">:</span> <span class="p">(</span><span class="nb">Any</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">first</span><span class="p">(</span><span class="bp">first</span><span class="p">)</span>    <span class="c1">// 错误</span>
+    <span class="n">second</span><span class="p">(</span><span class="n">second</span><span class="p">)</span>  <span class="c1">// 错误</span>
+    
+    <span class="bp">first</span><span class="p">(</span><span class="n">second</span><span class="p">)</span>   <span class="c1">// 错误</span>
+    <span class="n">second</span><span class="p">(</span><span class="bp">first</span><span class="p">)</span>   <span class="c1">// 错误</span>
+    
+    <span class="bp">first</span><span class="p">(</span><span class="n">external</span><span class="p">)</span> <span class="c1">// 正确</span>
+    <span class="n">external</span><span class="p">(</span><span class="bp">first</span><span class="p">)</span> <span class="c1">// 正确</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面代码里，<code>takesTwoFunctions(first:second:)</code> 的两个形参都是函数。它们都没有标记为 <code>@escaping</code>, 因此它们都是非逃逸的。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上述例子里的被标记为“错误”的四个函数调用会产生编译错误。因为形参 <code>first</code> 和 <code>second</code> 是非逃逸函数，它们不能够作为实参被传递到另一个非闭包函数。相对的, 标记“正确”的两个函数不会产生编译错误。这些函数调用不会违反限制，因为 <code>external</code> 不是 <code>takesTwoFunctions(first:second:)</code> 的形参之一。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">如果你需要避免这个限制，标记其中一个形参为逃逸，或者使用 <code>withoutActuallyEscaping(_:do:)</code> 函数临时转换其中一个非逃逸函数形参为逃逸函数。关于避免内存访问冲突，可以参阅 <a class="md_compiled" href="../02_language_guide/25_Memory_Safety.md">内存安全</a>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start">函数类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_14" class="h16"><span class="span_for_h">function-type {#function-type}</span></h4>
+
+<blockquote class=" blockquote_without_image"><em>函数类型</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性列表</a><sub>可选</sub> <a class="md_compiled" href="#function-type-argument-clause">函数类型子句</a> <strong>throws</strong><sub>可选</sub> <strong>-&gt;</strong> <a class="md_compiled" href="#type">类型</a></blockquote>
+<h4 id="toc_15" class="h16"><span class="span_for_h">function-type-argument-clause {#function-type-argument-clause}</span></h4>
+
+<blockquote class=" blockquote_without_image"><em>函数类型子句</em> → <strong>(</strong>  <strong>)</strong><br>
+<em>函数类型子句</em> → <strong>(</strong> <a class="md_compiled" href="#function-type-argument-list">函数类型实参列表</a> <em>...</em> <sub>可选</sub> <strong>)</strong>  </blockquote>
+<h4 id="toc_16" class="h16"><span class="span_for_h">function-type-argument-list {#function-type-argument-list}</span></h4>
+
+<blockquote class=" blockquote_without_image"><em>函数类型实参列表</em> → <a class="md_compiled" href="function-type-argument">函数类型实参</a> | <a class="md_compiled" href="function-type-argument">函数类型实参</a>， <a class="md_compiled" href="#function-type-argument-list">函数类型实参列表</a></blockquote>
+<h4 id="toc_17" class="h16"><span class="span_for_h">function-type-argument {#function-type-argument}</span></h4>
+
+<blockquote class=" blockquote_without_image"><em>函数类型实参</em> → <a class="md_compiled" href="./07_Attributes.md#attributes">特性列表</a><sub>可选</sub> <strong>输入输出参数</strong><sub>可选</sub> <a class="md_compiled" href="#type">类型</a> | <a class="md_compiled" href="#argument-label">实参标签</a> <a class="md_compiled" href="#type-annotation">类型注解</a></blockquote>
+<h4 id="toc_18" class="h16"><span class="span_for_h">argument-label {#argument-label}</span></h4>
+
+<blockquote class=" blockquote_without_image"><em>形参标签</em> → <a class="md_compiled" href="./02_Lexical_Structure.md#identifier">标识符</a></blockquote>
+<h2 id="toc_19" class="h16"><span class="span_for_h">数组类型 {#array-type-h}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 语言为标准库中定义的 <code>Array&lt;Element&gt;</code> 类型提供了如下语法糖：</span>
+</p>
+
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span style='font-family:类型'  class="md_line md_line_start">[<code>类型</code>]<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">换句话说，下面两个声明是等价的：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">someArray</span><span class="p">:</span> <span class="nb">Array</span><span class="p">&lt;</span><span class="nb">String</span><span class="p">&gt;</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alex&quot;</span><span class="p">,</span> <span class="s">&quot;Brian&quot;</span><span class="p">,</span> <span class="s">&quot;Dave&quot;</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nv">someArray</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alex&quot;</span><span class="p">,</span> <span class="s">&quot;Brian&quot;</span><span class="p">,</span> <span class="s">&quot;Dave&quot;</span><span class="p">]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面两种情况下，常量 <code>someArray</code> 都被声明为字符串数组。数组的元素也可以通过下标访问：<code>someArray[0]</code> 是指第 0 个元素 <code>"Alex"</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你也可以嵌套多对方括号来创建多维数组，最里面的方括号中指明数组元素的基本类型。比如，下面例子中使用三对方括号创建三维整数数组：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">array3D</span><span class="p">:</span> <span class="p">[[[</span><span class="nb">Int</span><span class="p">]]]</span> <span class="p">=</span> <span class="p">[[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">访问一个多维数组的元素时，最左边的下标指向最外层数组的相应位置元素。接下来往右的下标指向第一层嵌入的相应位置元素，依次类推。这就意味着，在上面的例子中，<code>array3D[0]</code> 是 <code>[[1, 2], [3, 4]]</code>，<code>array3D[0][1]</code> 是 <code>[3, 4]</code>，<code>array3D[0][1][1]</code> 则是 <code>4</code>。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">关于 Swift 标准库中 <code>Array</code> 类型的详细讨论，请参阅 <a class="md_compiled" href="../02_language_guide/04_Collection_Types.md#arrays">数组</a>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start">数组类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_20" class="h16"><span class="span_for_h">array-type {#array-type}</span></h4>
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+<em>数组类型</em> → <strong>[</strong> <a class="md_compiled" href="#type">类型</a> <strong>]</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h2 id="toc_21" class="h16"><span class="span_for_h">字典类型 {#dictionary-type-h}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 语言为标准库中定义的 <code>Dictionary&lt;Key, Value&gt;</code> 类型提供了如下语法糖：</span>
+</p>
+
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start">[<code>键类型</code> : <code>值类型</code>]<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">换句话说，下面两个声明是等价的：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">someDictionary</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Int</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alex&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s">&quot;Paul&quot;</span><span class="p">:</span> <span class="mi">39</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nv">someDictionary</span><span class="p">:</span> <span class="nb">Dictionary</span><span class="p">&lt;</span><span class="nb">String</span><span class="p">,</span> <span class="nb">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alex&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s">&quot;Paul&quot;</span><span class="p">:</span> <span class="mi">39</span><span class="p">]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面两种情况，常量 <code>someDictionary</code> 被声明为一个字典，其中键为 <code>String</code> 类型，值为 <code>Int</code> 类型。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">字典中的值可以通过下标来访问，这个下标在方括号中指明了具体的键：<code>someDictionary["Alex"]</code> 返回键 <code>Alex</code> 对应的值。通过下标访问会获取对应值的可选类型。如果键在字典中不存在的话，则这个下标返回 <code>nil</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">字典中键的类型必须符合 Swift 标准库中的 <code>Hashable</code> 协议。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">关于 Swift 标准库中 <code>Dictionary</code> 类型的详细讨论，请参阅 <a class="md_compiled" href="../02_language_guide/04_Collection_Types.md#dictionaries">字典</a>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start">字典类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_22" class="h16"><span class="span_for_h">dictionary-type {#dictionary-type}</span></h4>
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+<em>字典类型</em> → <strong>[</strong> <a class="md_compiled" href="#type">类型</a> <strong>:</strong> <a class="md_compiled" href="#type">类型</a> <strong>]</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h2 id="toc_23" class="h16"><span class="span_for_h">可选类型 {#optional-type-h}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 定义后缀 <code>?</code> 来作为标准库中定义的命名型类型 <code>Optional&lt;Wrapped&gt;</code> 的语法糖。换句话说，下面两个声明是等价的：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">optionalInteger</span><span class="p">:</span> <span class="nb">Int</span><span class="p">?</span>
+<span class="kd">var</span> <span class="nv">optionalInteger</span><span class="p">:</span> <span class="nb">Optional</span><span class="p">&lt;</span><span class="nb">Int</span><span class="p">&gt;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上述两种情况下，变量 <code>optionalInteger</code> 都被声明为可选整型类型。注意在类型和 <code>?</code> 之间没有空格。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">类型 <code>Optional&lt;Wrapped&gt;</code> 是一个枚举，有两个成员，<code>none</code> 和 <code>some(Wrapped)</code>，用来表示可能有也可能没有的值。任意类型都可以被显式地声明（或隐式地转换）为可选类型。如果你在声明可选变量或属性的时候没有提供初始值，它的值则会自动赋为默认值 <code>nil</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果一个可选类型的实例包含一个值，那么你就可以使用后缀运算符 <code>!</code> 来获取该值，正如下面描述的：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">optionalInteger</span> <span class="p">=</span> <span class="mi">42</span>
+<span class="n">optionalInteger</span><span class="p">!</span> <span class="c1">// 42</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">使用 <code>!</code> 运算符解包值为 <code>nil</code> 的可选值会导致运行错误。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你也可以使用可选链式调用和可选绑定来选择性在可选表达式上执行操作。如果值为 <code>nil</code>，不会执行任何操作，因此也就没有运行错误产生。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">更多细节以及更多如何使用可选类型的例子，请参阅 <a class="md_compiled" href="../02_language_guide/01_The_Basics.md#optionals">可选类型</a>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start">可选类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_24" class="h16"><span class="span_for_h">optional-type {#optional-type}</span></h4>
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+<em>可选类型</em> → <a class="md_compiled" href="#type">类型</a> <strong>?</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h2 id="toc_25" class="h16"><span class="span_for_h">隐式解析可选类型 {#implicitly-unwrapped-optional-type-h}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当可以被访问时，Swift 语言定义后缀 <code>!</code> 作为标准库中命名类型 <code>Optional&lt;Wrapped&gt;</code> 的语法糖，来实现自动解包的功能。如果尝试对一个值为 <code>nil</code> 的可选类型进行隐式解包，将会产生运行时错误。因为隐式解包，下面两个声明等价：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">implicitlyUnwrappedString</span><span class="p">:</span> <span class="nb">String</span><span class="p">!</span>
+<span class="kd">var</span> <span class="nv">explicitlyUnwrappedString</span><span class="p">:</span> <span class="nb">Optional</span><span class="p">&lt;</span><span class="nb">String</span><span class="p">&gt;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">注意类型与 <code>!</code> 之间没有空格。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">由于隐式解包会更改包含该类型的声明语义，嵌套在元组类型或泛型中可选类型（比如字典元素类型或数组元素类型），不能被标记为隐式解包。例如：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">tupleOfImplicitlyUnwrappedElements</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">!,</span> <span class="nb">Int</span><span class="p">!)</span>  <span class="c1">// 错误</span>
+<span class="kd">let</span> <span class="nv">implicitlyUnwrappedTuple</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">,</span> <span class="nb">Int</span><span class="p">)</span><span class="o">!</span>             <span class="c1">// 正确</span>
+
+<span class="kd">let</span> <span class="nv">arrayOfImplicitlyUnwrappedElements</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">!]</span>        <span class="c1">// 错误</span>
+<span class="kd">let</span> <span class="nv">implicitlyUnwrappedArray</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="o">!</span>                  <span class="c1">// 正确</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">由于隐式解析可选类型和可选类型有同样的类型 <code>Optional&lt;Wrapped&gt;</code>，你可以在所有使用可选类型的地方使用隐式解析可选类型。比如，你可以将隐式解析可选类型的值赋给变量、常量和可选属性，反之亦然。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">正如可选类型一样，如果你在声明隐式解析可选类型的变量或属性的时候没有指定初始值，它的值则会自动赋为默认值 <code>nil</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">可以使用可选链式调用对隐式解析可选表达式选择性地执行操作。如果值为 <code>nil</code>，就不会执行任何操作，因此也不会产生运行错误。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">关于隐式解析可选类型的更多细节，请参阅 <a class="md_compiled" href="../02_language_guide/01_The_Basics.md#implicityly-unwrapped-optionals">隐式解析可选类型</a>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">隐式解析可选类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_26" class="h16"><span class="span_for_h">implicitly-unwrapped-optional-type {#implicitly-unwrapped-optional-type}</span></h4>
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+<em>隐式解析可选类型</em> → <a class="md_compiled" href="#type">类型</a> <strong>!</strong>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h2 id="toc_27" class="h16"><span class="span_for_h">协议合成类型 {#protocol-composition-type-h}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>协议合成类型</em>定义了一种遵循协议列表中每个指定协议的类型，或者一个现有类型的子类并遵循协议列表中每个指定协议。协议合成类型只能用在类型注解、泛型形参子句和泛型 <code>where</code> 子句中指定类型。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">协议合成类型的形式如下：</span>
+</p>
+
+
+<blockquote class=" blockquote_without_image"><code>Protocol 1</code> &amp; <code>Procotol 2</code></blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">协议合成类型允许你指定一个值，其类型遵循多个协议的要求而不需要定义一个新的命名型协议来继承它想要符合的各个协议。比如，协议合成类型 <code>Protocol A &amp; Protocol B &amp; Protocol C</code> 等效于一个从 <code>Protocol A</code>，<code>Protocol B</code>，<code>Protocol C</code> 继承而来的新协议。同样的，你可以使用 <code>SuperClass &amp; ProtocolA</code> 来取代申明一个新的协议作为 <code>SuperClass</code> 的子类并遵循 <code>ProtocolA</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">协议合成列表中的每一项都必须是下面所列情况之一，列表中最多只能包含一个类：  </span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>类名  
+
+</span></li>
+<li class="md_li"><span>协议名  
+
+</span></li>
+<li class="md_li"><span>一个类型别名，它的潜在类型是一个协议合成类型、一个协议或者一个类  
+
+</span></li>
+</ul>
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">当协议合成类型包含类型别名时，同一个协议可能多次出现在定义中 — 重复被忽略。例如，下面代码中定义的 <code>PQR</code> 等同于 <code>P &amp; Q &amp; R</code>。  </span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">typealias</span> <span class="n">PQ</span> <span class="p">=</span> <span class="n">P</span> <span class="o">&amp;</span> <span class="n">Q</span>
+<span class="kd">typealias</span> <span class="n">PQR</span> <span class="p">=</span> <span class="n">PQ</span> <span class="o">&amp;</span> <span class="n">Q</span> <span class="o">&amp;</span> <span class="n">R</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">协议合成类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_28" class="h16"><span class="span_for_h">protocol-composition-type {#protocol-composition-type}</span></h4>
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+<em>协议合成类型</em> → <a class="md_compiled" href="#protocol-identifier">协议标识符</a> &amp; <a class="md_compiled" href="#protocol-composition-continuation">协议合成延续</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_29" class="h16"><span class="span_for_h">protocol-composition-continuation {#protocol-composition-continuation}</span></h4>
+
+<blockquote class=" blockquote_without_image"><em>协议合成延续</em> → <a class="md_compiled" href="#protocol-identifier">协议标识符</a> | <a class="md_compiled" href="#protocol-composition-type">协议合成类型</a></blockquote>
+<h2 id="toc_30" class="h16"><span class="span_for_h">不透明类型 {#opaque-type-h}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>不透明类型</em>定义了遵循某个协议或者合成协议的类型，但不需要指明底层的具体类型。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">不透明类型可以作为函数或下标的返回值，亦或是属性的类型使用。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">不透明类型不能作为元组类型的一部分或范型类型使用，比如数组元素类型或者可选值的包装类型。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">不透明类型的形式如下：</span>
+</p>
+
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">some <code>constraint</code></span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>constraint</em> 可以是类类型，协议类型，协议组合类型或者 <code>Any</code>。值只有当它遵循该协议或者组合协议，或者从该类继承的时候，才能作为这个不透明类型的实例使用。和不透明值交互的代码只能使用该值定义在 <em>constraint</em> 上的接口。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">协议声明里不能包括不透明类型。类不能使用不透明类型作为非 final 方法的返回值。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">使用不透明类型作为返回值的函数必须返回单一公用底层类型。返回的类型可以包含函数范型类型形参的一部分。举个例子，函数 <code>someFunction&lt;T&gt;()</code> 可以返回类型 <code>T</code> 或者 <code>Dictionary&lt;String,T&gt;</code> 的值。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">不透明类型语法</span>
+</p>
+
+</blockquote>
+<h4 id="toc_31" class="h16"><span class="span_for_h">opaque-type {#opaque-type}</span></h4>
+
+<blockquote class=" blockquote_without_image"><em>不透明类型</em> → <strong>some</strong> <a class="md_compiled" href="#type">type</a></blockquote>
+<h2 id="toc_32" class="h16"><span class="span_for_h">元类型 {#metatype-type-h}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>元类型</em>是指任意类型的类型，包括类类型、结构体类型、枚举类型和协议类型。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">类、结构体或枚举类型的元类型是相应的类型名紧跟 <code>.Type</code>。协议类型的元类型——并不是运行时遵循该协议的具体类型——是该协议名字紧跟 <code>.Protocol</code>。比如，类 <code>SomeClass</code> 的元类型就是 <code>SomeClass.Type</code>，协议 <code>SomeProtocol</code> 的元类型就是 <code>SomeProtocal.Protocol</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以使用后缀 <code>self</code> 表达式来获取类型。比如，<code>SomeClass.self</code> 返回 <code>SomeClass</code> 本身，而不是 <code>SomeClass</code> 的一个实例。同样，<code>SomeProtocol.self</code> 返回 <code>SomeProtocol</code> 本身，而不是运行时遵循 <code>SomeProtocol</code> 的某个类型的实例。还可以对类型的实例使用 <code>type(of:)</code> 表达式来获取该实例动态的、在运行阶段的类型，如下所示：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">SomeBaseClass</span> <span class="p">{</span>
+    <span class="kd">class</span> <span class="nc">func</span> <span class="n">printClassName</span><span class="p">()</span> <span class="p">{</span>
+        <span class="bp">println</span><span class="p">(</span><span class="s">&quot;SomeBaseClass&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nc">SomeSubClass</span><span class="p">:</span> <span class="n">SomeBaseClass</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="kd">class</span> <span class="nc">func</span> <span class="n">printClassName</span><span class="p">()</span> <span class="p">{</span>
+        <span class="bp">println</span><span class="p">(</span><span class="s">&quot;SomeSubClass&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nv">someInstance</span><span class="p">:</span> <span class="n">SomeBaseClass</span> <span class="p">=</span> <span class="n">SomeSubClass</span><span class="p">()</span>
+<span class="c1">// someInstance 在编译期是 SomeBaseClass 类型，</span>
+<span class="c1">// 但是在运行期则是 SomeSubClass 类型</span>
+<span class="n">type</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">someInstance</span><span class="p">).</span><span class="n">printClassName</span><span class="p">()</span>
+<span class="c1">// 打印“SomeSubClass”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">更多信息可以查看 Swift 标准库里的 <a class="md_compiled" href="https://developer.apple.com/documentation/swift/2885064-type">type(of:)</a>。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">可以使用初始化表达式从某个类型的元类型构造出一个该类型的实例。对于类实例，被调用的构造器必须使用 <code>required</code> 关键字标记，或者整个类使用 <code>final</code> 关键字标记。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">AnotherSubClass</span><span class="p">:</span> <span class="n">SomeBaseClass</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">string</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kr">required</span> <span class="kd">init</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">string</span> <span class="p">=</span> <span class="n">string</span>
+    <span class="p">}</span>
+    <span class="kr">override</span> <span class="kd">class</span> <span class="nc">func</span> <span class="n">printClassName</span><span class="p">()</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;AnotherSubClass&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nv">metatype</span><span class="p">:</span> <span class="n">AnotherSubClass</span><span class="p">.</span><span class="kr">Type</span> <span class="p">=</span> <span class="n">AnotherSubClass</span><span class="p">.</span><span class="kc">self</span>
+<span class="kd">let</span> <span class="nv">anotherInstance</span> <span class="p">=</span> <span class="n">metatype</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&quot;some string&quot;</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">元类型语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_33" class="h16"><span class="span_for_h">metatype-type {#metatype-type}</span></h4>
+
+<blockquote class=" blockquote_without_image"><em>元类型</em> → <a class="md_compiled" href="#type">类型</a> <strong>.</strong> <strong>Type</strong> | <a class="md_compiled" href="#type">类型</a> <strong>.</strong> <strong>Protocol</strong></blockquote>
+<h2 id="toc_34" class="h16"><span class="span_for_h">自身类型 {#self-type-h}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>Self</code> 类型不是具体的类型，而是让你更方便的引用当前类型，不需要重复或者知道该类的名字。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在协议声明或者协议成员声明时，<code>Self</code> 类型引用的是最终遵循该协议的类型。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在结构体，类或者枚举值声明时，<code>Self</code> 类型引用的是声明的类型。在某个类型成员声明时，<code>Self</code> 类型引用的是该类型。在类成员声明时，<code>Self</code> 可以在方法的返回值和方法体中使用，但不能在其他上下文中使用。举个例子，下面的代码演示了返回值是 <code>Self</code> 的实例方法 <code>f</code> 。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Superclass</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">f</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="kc">Self</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">self</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nv">x</span> <span class="p">=</span> <span class="n">Superclass</span><span class="p">()</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">type</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">x</span><span class="p">.</span><span class="n">f</span><span class="p">()))</span>
+<span class="c1">// 打印 &quot;Superclass&quot;</span>
+
+<span class="kd">class</span> <span class="nc">Subclass</span><span class="p">:</span> <span class="n">Superclass</span> <span class="p">{</span> <span class="p">}</span>
+<span class="kd">let</span> <span class="nv">y</span> <span class="p">=</span> <span class="n">Subclass</span><span class="p">()</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">type</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">y</span><span class="p">.</span><span class="n">f</span><span class="p">()))</span>
+<span class="c1">// 打印 &quot;Subclass&quot;</span>
+
+<span class="kd">let</span> <span class="nv">z</span><span class="p">:</span> <span class="n">Superclass</span> <span class="p">=</span> <span class="n">Subclass</span><span class="p">()</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">type</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">z</span><span class="p">.</span><span class="n">f</span><span class="p">()))</span>
+<span class="c1">// 打印 &quot;Subclass&quot;</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面例子的最后一部分表明 <code>Self</code> 引用的是值 <code>z</code> 的运行时类型 <code>Subclass</code> ，而不是变量本身的编译时类型 <code>Superclass</code> 。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在嵌套类型声明时，<code>Self</code> 类型引用的是最内层声明的类型。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end"><code>Self</code> 类型引用的类型和 Swift 标准库中 <a class="md_compiled" href="https://developer.apple.com/documentation/swift/2885064-type">type(of:)</a> 函数的结果一样。使用 <code>Self.someStaticMember</code> 访问当前类型中的成员和使用 <code>type(of: self).someStaticMember</code> 是一样的。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">自身类型语法</span>
+</p>
+
+</blockquote>
+<h4 id="toc_35" class="h16"><span class="span_for_h">self-type{#self-type}</span></h4>
+
+<blockquote class=" blockquote_without_image"><em>自身类型</em> → <strong>Self</strong></blockquote>
+<h2 id="toc_36" class="h16"><span class="span_for_h">类型继承子句 {#type-inheritance-clause-h}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>类型继承子句</em>被用来指定一个命名型类型继承自哪个类、采纳哪些协议。类型继承子句开始于冒号 <code>:</code>，其后是类型标识符列表。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">类可以继承自单个超类，并遵循任意数量的协议。当定义一个类时，超类的名字必须出现在类型标识符列表首位，然后跟上该类需要遵循的任意数量的协议。如果一个类不是从其它类继承而来，那么列表可以以协议开头。关于类继承更多的讨论和例子，请参阅 <a class="md_compiled" href="../02_language_guide/13_Inheritance.md">继承</a>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">其它命名型类型只能继承自或采纳一系列协议。协议类型可以继承自任意数量的其他协议。当一个协议类型继承自其它协议时，其它协议中定义的要求会被整合在一起，然后从当前协议继承的任意类型必须符合所有这些条件。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">枚举定义中的类型继承子句可以是一系列协议，或者是指定单一的命名类型，此时枚举为其用例分配原始值。在枚举定义中使用类型继承子句来指定原始值类型的例子，请参阅 <a class="md_compiled" href="../02_language_guide/08_Enumerations.md#raw-values">原始值</a>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_2 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">类型继承子句语法<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_37" class="h16"><span class="span_for_h">type-inheritance-clause {#type-inheritance-clause}</span></h4>
+
+<blockquote class="blockquote_lines_1 blockquote_without_image">
+<p class="md_block">
+<em>类型继承子句</em> → <strong>:</strong> <a class="md_compiled" href="#type-inheritance-list">类型继承列表</a>
+    <span class="md_line">&nbsp;<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+<h4 id="toc_38" class="h16"><span class="span_for_h">type-inheritance-list {#type-inheritance-list}</span></h4>
+
+<blockquote class=" blockquote_without_image"><em>类型继承列表</em> → <a class="md_compiled" href="#type-identifier">类型标识符</a> | <a class="md_compiled" href="#type-identifier">类型标识符</a> <strong>,</strong> <a class="md_compiled" href="#type-inheritance-list">类型继承列表</a></blockquote>
+<h2 id="toc_39" class="h16"><span class="span_for_h">类型推断</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 广泛使用<em class="md_patched_em">类型推断</em>，从而允许你省略代码中很多变量和表达式的类型或部分类型。比如，对于 <code>var x: Int = 0</code>，你可以完全省略类型而简写成 <code>var x = 0</code>，编译器会正确推断出 <code>x</code> 的类型 <code>Int</code>。类似的，当完整的类型可以从上下文推断出来时，你也可以省略类型的一部分。比如，如果你写了 <code>let dict: Dictionary = ["A" : 1]</code>，编译器能推断出 <code>dict</code> 的类型是 <code>Dictionary&lt;String, Int&gt;</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在上面的两个例子中，类型信息从表达式树的叶子节点传向根节点。也就是说，<code>var x: Int = 0</code> 中 <code>x</code> 的类型首先根据 <code>0</code> 的类型进行推断，然后将该类型信息传递到根节点（变量 <code>x</code>）。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在 Swift 中，类型信息也可以反方向流动——从根节点传向叶子节点。在下面的例子中，常量 <code>eFloat</code> 上的显式类型注解（<code>: Float</code>）将导致数字字面量 <code>2.71828</code> 的类型是 <code>Float</code> 而非 <code>Double</code>。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">e</span> <span class="p">=</span> <span class="mf">2.71828</span> <span class="c1">// e 的类型会被推断为 Double</span>
+<span class="kd">let</span> <span class="nv">eFloat</span><span class="p">:</span> <span class="nb">Float</span> <span class="p">=</span> <span class="mf">2.71828</span> <span class="c1">// eFloat 的类型为 Float</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start md_line_end">Swift 中的类型推断在单独的表达式或语句上进行。这意味着所有用于类型推断的信息必须可以从表达式或其某个子表达式的类型检查中获取到。</span>
+</p>
+        </div>
+    </div>
+    <!--mathjax-->
+    <!--mermaid-->
+</body>
+</html>

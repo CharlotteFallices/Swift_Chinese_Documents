@@ -1,0 +1,952 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>Swift Programming Language</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNnB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAoubWRfcmVwZWF0ZWRfbntkaXNwbGF5OmJsb2NrO30KLm1kX3JlcGVhdGVkX25fMSB7aGVpZ2h0OjIuNGVtfS5tZF9yZXBlYXRlZF9uXzIge2hlaWdodDo0LjhlbX0ubWRfcmVwZWF0ZWRfbl8zIHtoZWlnaHQ6Ny4yZW19Lm1kX3JlcGVhdGVkX25fNCB7aGVpZ2h0OjkuNmVtfS5tZF9yZXBlYXRlZF9uXzUge2hlaWdodDoxMi4wZW19Lm1kX3JlcGVhdGVkX25fNiB7aGVpZ2h0OjE0LjRlbX0ubWRfcmVwZWF0ZWRfbl83IHtoZWlnaHQ6MTYuOGVtfS5tZF9yZXBlYXRlZF9uXzgge2hlaWdodDoxOS4yZW19Lm1kX3JlcGVhdGVkX25fOSB7aGVpZ2h0OjIxLjZlbX0ubWRfcmVwZWF0ZWRfbl8xMCB7aGVpZ2h0OjI0LjBlbX0ubWRfcmVwZWF0ZWRfbl8xMSB7aGVpZ2h0OjI2LjRlbX0ubWRfcmVwZWF0ZWRfbl8xMiB7aGVpZ2h0OjI4LjhlbX0ubWRfcmVwZWF0ZWRfbl8xMyB7aGVpZ2h0OjMxLjJlbX0ubWRfcmVwZWF0ZWRfbl8xNCB7aGVpZ2h0OjMzLjZlbX0ubWRfcmVwZWF0ZWRfbl8xNSB7aGVpZ2h0OjM2LjBlbX0ubWRfcmVwZWF0ZWRfbl8xNiB7aGVpZ2h0OjM4LjRlbX0ubWRfcmVwZWF0ZWRfbl8xNyB7aGVpZ2h0OjQwLjhlbX0ubWRfcmVwZWF0ZWRfbl8xOCB7aGVpZ2h0OjQzLjJlbX0ubWRfcmVwZWF0ZWRfbl8xOSB7aGVpZ2h0OjQ1LjZlbX0ubWRfcmVwZWF0ZWRfbl8yMCB7aGVpZ2h0OjQ4LjBlbX0ubWRfcmVwZWF0ZWRfbl8yMSB7aGVpZ2h0OjUwLjRlbX0ubWRfcmVwZWF0ZWRfbl8yMiB7aGVpZ2h0OjUyLjhlbX0ubWRfcmVwZWF0ZWRfbl8yMyB7aGVpZ2h0OjU1LjJlbX0ubWRfcmVwZWF0ZWRfbl8yNCB7aGVpZ2h0OjU3LjZlbX0ubWRfcmVwZWF0ZWRfbl8yNSB7aGVpZ2h0OjYwLjBlbX0ubWRfcmVwZWF0ZWRfbl8yNiB7aGVpZ2h0OjYyLjRlbX0ubWRfcmVwZWF0ZWRfbl8yNyB7aGVpZ2h0OjY0LjhlbX0ubWRfcmVwZWF0ZWRfbl8yOCB7aGVpZ2h0OjY3LjJlbX0ubWRfcmVwZWF0ZWRfbl8yOSB7aGVpZ2h0OjY5LjZlbX0ubWRfcmVwZWF0ZWRfbl8zMCB7aGVpZ2h0OjcyLjBlbX0ubWRfcmVwZWF0ZWRfbl8zMSB7aGVpZ2h0Ojc0LjRlbX0ubWRfcmVwZWF0ZWRfbl8zMiB7aGVpZ2h0Ojc2LjhlbX0ubWRfcmVwZWF0ZWRfbl8zMyB7aGVpZ2h0Ojc5LjJlbX0ubWRfcmVwZWF0ZWRfbl8zNCB7aGVpZ2h0OjgxLjZlbX0ubWRfcmVwZWF0ZWRfbl8zNSB7aGVpZ2h0Ojg0LjBlbX0ubWRfcmVwZWF0ZWRfbl8zNiB7aGVpZ2h0Ojg2LjRlbX0ubWRfcmVwZWF0ZWRfbl8zNyB7aGVpZ2h0Ojg4LjhlbX0ubWRfcmVwZWF0ZWRfbl8zOCB7aGVpZ2h0OjkxLjJlbX0ubWRfcmVwZWF0ZWRfbl8zOSB7aGVpZ2h0OjkzLjZlbX0ubWRfcmVwZWF0ZWRfbl80MCB7aGVpZ2h0Ojk2LjBlbX0ubWRfcmVwZWF0ZWRfbl80MSB7aGVpZ2h0Ojk4LjRlbX0ubWRfcmVwZWF0ZWRfbl80MiB7aGVpZ2h0OjEwMC44ZW19Lm1kX3JlcGVhdGVkX25fNDMge2hlaWdodDoxMDMuMmVtfS5tZF9yZXBlYXRlZF9uXzQ0IHtoZWlnaHQ6MTA1LjZlbX0ubWRfcmVwZWF0ZWRfbl80NSB7aGVpZ2h0OjEwOC4wZW19Lm1kX3JlcGVhdGVkX25fNDYge2hlaWdodDoxMTAuNGVtfS5tZF9yZXBlYXRlZF9uXzQ3IHtoZWlnaHQ6MTEyLjhlbX0ubWRfcmVwZWF0ZWRfbl80OCB7aGVpZ2h0OjExNS4yZW19Lm1kX3JlcGVhdGVkX25fNDkge2hlaWdodDoxMTcuNmVtfQ==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <p class="md_compiled md_paragraph_html"><img src="https://swift.org/assets/images/swift.svg" alt="Swift logo" height="70" ></p><h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">Swift Programming Language</span></h1>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center"><strong>Architecture</strong></th>
+<th style="text-align: center"><strong>Master</strong></th>
+<th style="text-align: center"><strong>Package</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>macOS</strong></td>
+<td style="text-align: center">x86_64</td>
+<td style="text-align: center"><a class="md_compiled" href="https://ci.swift.org/job/oss-swift-incremental-RA-osx"><img class="md_compiled " src="https://ci.swift.org/job/oss-swift-incremental-RA-osx/lastCompletedBuild/badge/icon" alt="Build Status" title="" ></a></td>
+<td style="text-align: center"><a class="md_compiled" href="https://ci.swift.org/job/oss-swift-package-osx"><img class="md_compiled " src="https://ci.swift.org/job/oss-swift-package-osx/lastCompletedBuild/badge/icon" alt="Build Status" title="" ></a></td>
+</tr>
+<tr>
+<td><strong>Ubuntu 16.04</strong></td>
+<td style="text-align: center">x86_64</td>
+<td style="text-align: center"><a class="md_compiled" href="https://ci.swift.org/job/oss-swift-incremental-RA-linux-ubuntu-16_04"><img class="md_compiled " src="https://ci.swift.org/job/oss-swift-incremental-RA-linux-ubuntu-16_04/lastCompletedBuild/badge/icon" alt="Build Status" title="" ></a></td>
+<td style="text-align: center"><a class="md_compiled" href="https://ci.swift.org/job/oss-swift-package-linux-ubuntu-16_04"><img class="md_compiled " src="https://ci.swift.org/job/oss-swift-package-linux-ubuntu-16_04/lastCompletedBuild/badge/icon" alt="Build Status" title="" ></a></td>
+</tr>
+<tr>
+<td><strong>Ubuntu 18.04</strong></td>
+<td style="text-align: center">x86_64</td>
+<td style="text-align: center"><a class="md_compiled" href="https://ci.swift.org/job/oss-swift-incremental-RA-linux-ubuntu-18_04"><img class="md_compiled " src="https://ci.swift.org/job/oss-swift-incremental-RA-linux-ubuntu-18_04/lastCompletedBuild/badge/icon" alt="Build Status" title="" ></a></td>
+<td style="text-align: center"><a class="md_compiled" href="https://ci.swift.org/job/oss-swift-package-linux-ubuntu-18_04"><img class="md_compiled " src="https://ci.swift.org/job/oss-swift-package-linux-ubuntu-18_04/lastCompletedBuild/badge/icon" alt="Build Status" title="" ></a></td>
+</tr>
+</tbody>
+</table>
+<strong>来自Swift社区</strong>
+<table>
+<thead>
+<tr>
+<th><strong>OS</strong></th>
+<th style="text-align: center"><strong>Architecture</strong></th>
+<th style="text-align: center"><strong>Build</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong><a class="md_compiled" href="https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/ppc64le_ubuntu_16_04.json">Ubuntu 16.04 </a></strong></td>
+<td style="text-align: center">PPC64LE</td>
+<td style="text-align: center"><a class="md_compiled" href="https://ci-external.swift.org/job/oss-swift-5.1-RA-linux-ubuntu-16.04-ppc64le"><img class="md_compiled " src="https://ci-external.swift.org/job/oss-swift-5.1-RA-linux-ubuntu-16.04-ppc64le/lastCompletedBuild/badge/icon" alt="Build Status" title="" ></a></td>
+</tr>
+<tr>
+<td><strong><a class="md_compiled" href="https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/aarch64_ubuntu_16.04.json">Ubuntu 16.04 </a></strong></td>
+<td style="text-align: center">AArch64</td>
+<td style="text-align: center"><a class="md_compiled" href="https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-aarch64"><img class="md_compiled " src="https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-aarch64/lastCompletedBuild/badge/icon" alt="Build Status" title="" ></a></td>
+</tr>
+<tr>
+<td><strong><a class="md_compiled" href="https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/x86_64_ubuntu_16_04_LTS_android.json">Android</a></strong></td>
+<td style="text-align: center">ARMv7</td>
+<td style="text-align: center"><a class="md_compiled" href="https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-android"><img class="md_compiled " src="https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-android/lastCompletedBuild/badge/icon" alt="Build Status" title="" ></a></td>
+</tr>
+<tr>
+<td><strong><a class="md_compiled" href="https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/x86_64_ubuntu_16_04_LTS_android.json">Android</a></strong></td>
+<td style="text-align: center">AArch64</td>
+<td style="text-align: center"><a class="md_compiled" href="https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-android-arm64"><img class="md_compiled " src="https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-android-arm64/lastCompletedBuild/badge/icon" alt="Build Status" title="" ></a></td>
+</tr>
+<tr>
+<td><strong><a class="md_compiled" href="https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/x86_64_windows_2019.json">Windows 2019</a></strong></td>
+<td style="text-align: center">x86_64</td>
+<td style="text-align: center"><a class="md_compiled" href="https://ci-external.swift.org/job/oss-swift-windows-x86_64"><img class="md_compiled " src="https://ci-external.swift.org/job/oss-swift-windows-x86_64/lastCompletedBuild/badge/icon" alt="Build Status" title="" ></a></td>
+</tr>
+</tbody>
+</table>
+<strong>来自Swift TensorFlow社区</strong>
+<table>
+<thead>
+<tr>
+<th><strong>OS</strong></th>
+<th style="text-align: center"><strong>Architecture</strong></th>
+<th style="text-align: center"><strong>Build</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong><a class="md_compiled" href="https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/x86_64_ubuntu_16_04_tensorflow.json">Ubuntu 16.04</a></strong></td>
+<td style="text-align: center">x86_64</td>
+<td style="text-align: center"><a class="md_compiled" href="https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-tensorflow"><img class="md_compiled " src="https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-tensorflow/lastCompletedBuild/badge/icon" alt="Build Status" title="" ></a></td>
+</tr>
+<tr>
+<td><strong><a class="md_compiled" href="https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/x86_64_macos_high_sierra_tensorflow.json">macOS 10.13</a></strong></td>
+<td style="text-align: center">x86_64</td>
+<td style="text-align: center"><a class="md_compiled" href="https://ci-external.swift.org/job/oss-swift-RA-macOS-tensorflow"><img class="md_compiled " src="https://ci-external.swift.org/job/oss-swift-RA-macOS-tensorflow/lastCompletedBuild/badge/icon" alt="Build Status" title="" ></a></td>
+</tr>
+<tr>
+<td><strong><a class="md_compiled" href="https://github.com/apple/swift-community-hosted-continuous-integration/blob/master/nodes/x86_64_ubuntu_16_04_tensorflow_gpu.json">Ubuntu 16.04 (GPU)</a></strong></td>
+<td style="text-align: center">x86_64</td>
+<td style="text-align: center"><a class="md_compiled" href="https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-tensorflow-gpu"><img class="md_compiled " src="https://ci-external.swift.org/job/oss-swift-RA-linux-ubuntu-16.04-tensorflow-gpu/lastCompletedBuild/badge/icon" alt="Build Status" title="" ></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="toc_1" class="h16"><span class="span_for_h">Welcome to Swift</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift是一种高性能的系统编程语言,它具有简洁现代的语法,可以用桥接头访问现有的C和OC代码以及框架,并且默认情况下是内存安全的</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">尽管受OC和许多其他语言的启发,但是Swift本身并不是由C衍生的语言.作为一种完整且独立的语言,Swift同时包含了诸如流控制,数据结构和函数之类的核心功能与对象,和协议,闭包和泛型之类的结构(constructs).Swift通过模块消除了对标头(headers)和它们所需要的重复的代码</span>
+</p>
+
+<a class="md_compiled" href="https://swift.org/documentation/">官网</a> | <a class="md_compiled" href="https://charlottefallices.github.io/swift-docs_ZH-CN/">文档</a> | <a class="md_compiled" href="./light.html">浅色模式</a> | <a class="md_compiled" href="./basic.html">经典模式</a>
+<ul>
+<li class="md_li"><span><a class="md_compiled" href="#contributing-to-swift">Contributing to Swift</a></span></li>
+<li class="md_li"><span><a class="md_compiled" href="#getting-started">Getting Started</a>
+<ul>
+<li class="md_li"><span><a class="md_compiled" href="#system-requirements">System Requirements</a></span></li>
+<li class="md_li"><span><a class="md_compiled" href="#getting-sources-for-swift-and-related-projects">Getting Sources for Swift and Related Projects</a></span></li>
+<li class="md_li"><span><a class="md_compiled" href="#building-swift">Building Swift</a></span></li>
+<li class="md_li"><span><a class="md_compiled" href="#swift-toolchains">Swift Toolchains</a></span></li>
+<li class="md_li"><span><a class="md_compiled" href="#build-failures">Build Failures</a></span></li>
+</ul>
+</span></li>
+<li class="md_li"><span><a class="md_compiled" href="#testing-swift">Testing Swift</a></span></li>
+<li class="md_li"><span><a class="md_compiled" href="#learning-more">Learning More</a></span></li>
+<li class="md_li"><span><a class="md_compiled" href="#build-dependencies">Build Dependencies</a></span></li>
+</ul>
+<h2 id="toc_2" class="h16"><span class="span_for_h">Contributing to Swift</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start">我们欢迎每一个人参与到Swift的开发中.<br /></span>
+    <span class="md_line md_line_end">首先,请参见<a class="md_compiled" href="https://swift.org/contributing/">编辑指南</a>.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">为了使<a class="md_compiled" href="https://swift.org/">Swift.org</a>社区更加完善,我们欢迎各行各业的,具有不同背景的开发人员,这将使得这一多元化而友好的社区拥有更多的创意和观点并产生更多优秀的代码.我们将努力使Swift社区受到大家的欢迎.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">为了明确说明我们的目的,Swift采用了<code>参与者公约</code><strong>(the Contributor Covenant)</strong>所定义的行为准则, 该文档已在许多开源社区中使用,我们认为它很好地表达了我们的价值观,有关更多信息,请参见<a class="md_compiled" href="https://github.com/CharlotteFallices/swift_ZH-CN/blob/master/参与者公约.md">行为准则</a>.</span>
+</p>
+
+<h2 id="toc_3" class="h16"><span class="span_for_h">Getting Started</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这些说明为获取Swift的开发环境提供了最直接的途径.要对源代码进行编译,您将需要<code>大约2GB</code>的磁盘空间用于保存源代码,并需要<code>70GB</code>的磁盘空间用于搭载完整的构建,所需的时间取决于您的计算机,完整的构建(clean build)可能需要几分钟到几个小时,当然,在线(incremental)构建则要快得多.</span>
+</p>
+
+<h3 id="toc_4" class="h16"><span class="span_for_h">System Requirements</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start">支持macOS,Ubuntu Linux LTS和最新的Ubuntu Linux版本.<br /></span>
+    <span class="md_line md_line_end">请使用Python2.x,目前暂时不支持Python3.x.</span>
+</p>
+
+<h4 id="toc_5" class="h16"><span class="span_for_h">macOS</span></h4>
+
+<p class="md_block">
+    <span class="md_line md_line_start">要在macOS上进行编辑,您需要<a class="md_compiled" href="https://download.developer.apple.com/Developer_Tools/Xcode_11.4_beta/Xcode_11.4_beta.xip">Xcode 11.3</a>.所需的Xcode版本经常更改,并且通常是beta版本.<br /></span>
+    <span class="md_line md_line_end">您可以在<a href="https://ci.swift.org">https://ci.swift.org</a>上查看当前设备的所需版本.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">您还需要<a class="md_compiled" href="https://github.com/CharlotteFallices/CMake_ZH-CN">CMake</a>和<a class="md_compiled" href="https://github.com/CharlotteFallices/ninja_ZH-CN">Ninja</a>,您可以通过软件包管理器来安装它们：</span>
+</p>
+
+<strong><a class="md_compiled" href="https://brew.sh/">Homebrew</a></strong>
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">    brew install cmake ninja</span>
+</p>
+
+<strong><a class="md_compiled" href="https://macports.org">MacPorts</a></strong>
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">    sudo port install cmake ninja</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">可以在<a class="md_compiled" href="#build-dependencies">下面</a>找到直接安装CMake和Ninja的说明.</span>
+</p>
+
+<h4 id="toc_6" class="h16"><span class="span_for_h">Linux</span></h4>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在Ubuntu中,您需要安装以下依赖项：</span>
+</p>
+
+
+<pre><code>    sudo apt-get install git cmake ninja-build clang python uuid-dev libicu-dev icu-devtools libedit-dev libxml2-dev libsqlite3-dev swig libpython-dev libncurses5-dev pkg-config libcurl4-openssl-dev systemtap-sdt-dev tzdata rsync</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><strong>注意</strong>:LLDB至少需要swig-1.3.40版本,但可以使用Ubuntu自带的版本进行构建.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">可以在<a class="md_compiled" href="#for-ubuntu14">这里</a>找到对于Ubuntu 14.04 LTS的构建说明</span>
+</p>
+
+<h3 id="toc_7" class="h16"><span class="span_for_h">Getting Sources for Swift and Related Projects</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">首先为Swift创建一个目录:</span>
+</p>
+
+
+<pre><code>    mkdir swift-source
+    cd swift-source</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">注意：这很重要,因为update-checkout(请参阅下文)将使用Swift源目录旁边的存储库. 这意味着如果克隆和Swift其他不相关的存储库,则update-checkout可能不会克隆那些存储库,而是会对其进行更新.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><strong>使用HTTPS</strong>  (只能读取):</span>
+</p>
+
+
+<pre><code>    git clone https://github.com/apple/swift.git
+    ./swift/utils/update-checkout --clone</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><strong>使用SSH</strong>  (需要将SSH密钥<a class="md_compiled" href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">上传到GitHub</a>):</span>
+</p>
+
+
+<pre><code>    git clone git@github.com:apple/swift.git
+    ./swift/utils/update-checkout --clone-with-ssh</code></pre>
+
+<!--block_code_end--><h3 id="toc_8" class="h16"><span class="span_for_h">Building Swift</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>build-script</code>是一个自动化脚本,它仅支持基本选项,例如构建与Swift兼容的LLDB,构建Swift软件包管理器,为各种平台进行构建,在构建后运行测试等.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start">有两个主要的构建系统可以使用:Xcode和Ninja.<br /></span>
+    <span class="md_line md_line_end"> Xcode构建系统允许您在Xcode中工作,但是Ninja速度更快,并且支持更多环境.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">首先,请确保您位于Swift目录中:</span>
+</p>
+
+
+<pre><code>    cd swift</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">要使用Ninja进行构建,请运行:</span>
+</p>
+
+
+<pre><code>    utils/build-script --release-debuginfo</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">使用Swift时可以在调试配置中构建您正在处理的内容,同时优化构建项目的其余部分.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">限制编译器中的调试代码数量会对Swift编译时间以及测试执行时间产生很大的影响.如果要在调试中构建整个项目.则可以运行:</span>
+</p>
+
+
+<pre><code>    utils/build-script --debug</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">有关所有可用参数的文档以及其他用法信息,请参考:</span>
+</p>
+
+
+<pre><code>    utils/build-script -h</code></pre>
+
+<!--block_code_end--><h4 id="toc_9" class="h16"><span class="span_for_h">Xcode</span></h4>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">要使用Xcode进行构建,请在上述任何命令上指定<code>--xcode</code>参数.Xcode可用于编译Swift源代码,但目前尚不完全支持Xcode作为macOS以外的构建环境.生成的Xcode项目未与测试运行器集成,但是可以使用<code>check-swift</code>目标运行测试.</span>
+</p>
+
+<h4 id="toc_10" class="h16"><span class="span_for_h">Build Products</span></h4>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">所有编译结果(build products)都放置在<code>swift-source/build/${TOOL}-${MODE}/${PRODUCT}-${PLATFORM}/</code>中,如果构建了带有DebugAssert模式下的Ninja的macOS Swift,则所有编译结果(products)将位于<code>swift-source/build/Ninja-DebugAssert/swift-macosx-x86_64/</code>中,它将有助于将该目录另存为环境变量,以备将来使用.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">export SWIFT_BUILD_DIR=&quot;~/swift-source/build/Ninja-DebugAssert/swift-macosx-x86_64&quot;//所以这行代码是个啥</span>
+</p>
+
+<h4 id="toc_11" class="h16"><span class="span_for_h">Ninja</span></h4>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">一旦第一个编译被完成,Ninja即可执行各种快速在线(incremental)构建.这些增量版本能够在开发和调试时节省大量时间.</span>
+</p>
+
+
+<pre><code>    cd ${SWIFT_BUILD_DIR}
+    ninja swift</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这将构建Swift编译器,但不会重建标准库或任何其他目标.将<code>swift-stdlib</code>目标作为附加调试器也是一个好主意.要仅构建标准库,请运行:</span>
+</p>
+
+
+<pre><code>    ninja swift-stdlib</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">值得一提的是,在进行完整构建之前使用<code>update-checkout</code>将始终是一个好主意.</span>
+</p>
+
+<h4 id="toc_12" class="h16"><span class="span_for_h">Using Xcode</span></h4>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">若要在Xcode中打开Swift项目,请打开<code>${SWIFT_BUILD_DIR}/Swift.xcodeproj</code>,它将为<strong>所有</strong>可用目标自动创建很多解决方案,常见的调试流程将有:</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>选择<code>swift</code>选项卡.
+
+</span></li>
+<li class="md_li"><span>调出解决方案编辑器<strong>(⌘-⇧-&lt;)</strong>.
+
+</span></li>
+<li class="md_li"><span>选择<code>Arguments</code>选项卡然后点击<code>+</code>.
+
+</span></li>
+<li class="md_li"><span>添加<code>command line</code>选项.
+
+</span></li>
+<li class="md_li"><span>关闭解决方案编辑器.
+
+</span></li>
+<li class="md_li"><span>编译并运行.
+
+</span></li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">另一个选择是将解决方案更改为<code>Wait for executable to be launched</code>,然后在<code>Terminal</code>中运行编译结果(build product)</span>
+</p>
+
+<h3 id="toc_13" class="h16"><span class="span_for_h">Swift Toolchains</span></h3>
+<h4 id="toc_14" class="h16"><span class="span_for_h">Building</span></h4>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift工具链(toolchains)是使用脚本<code>build-toolchain</code>创建的,swift.org的持续集成(Continuous Integration),将会使用使用此脚本来生成快照,并且可以允许该脚本在本地复制此类构建以进行开发或分发,典型的调用如下所示:</span>
+</p>
+
+
+<pre><code>  $ ./swift/utils/build-toolchain $BUNDLE_PREFIX</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start">其中<code>$ BUNDLE_PREFIX</code>是将在构建之前添加的字符串,它将给出工具链(toolchain)的<code>Info.plist</code>的捆绑包标识符(bundle identifier)的日期.<br /></span>
+    <span class="md_line">例如,如果<code>$ BUNDLE_PREFIX</code>是<code>com.example</code>,则该工具链<br /></span>
+    <span class="md_line">产生的包标识符为<code>com.example.YYYYMMDD</code>.<br /></span>
+    <span class="md_line md_line_end"> 它将在您运行脚本的目录中创建的格式为:<code>swift-LOCAL-YYYY-MM-DD-a-osx.tar.gz</code>.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">除了构建工具链之外,<code>build-toolchain</code>还支持以下选项:</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start"><code>--dry-run</code>:执行试运行构建, 默认关闭.<br /></span>
+    <span class="md_line"><code>--test</code>:在编译后测试工具链,默认关闭.<br /></span>
+    <span class="md_line"><code>--distcc</code>:使用distcc通过分发swift构建的c++模块(part)来加快构建速度,默认关闭.<br /></span>
+    <span class="md_line md_line_end">随后可能添加更多选项,请使用<code>build-toolchain --help</code>以查看完整的选项集.</span>
+</p>
+
+<h4 id="toc_15" class="h16"><span class="span_for_h">Installing into Xcode</span></h4>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ol">
+    <span class="md_line md_line_start md_line_end">在macOS上,如果要将像这样的工具链(toolchain)安装到Xcode中:</span>
+</p>
+
+
+<ol>
+<li class="md_li"><span>解压并复制工具链(toolchain)<code>/Library/Developer/Toolchains/</code> 或是
+</span></li>
+</ol>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">&nbsp;&nbsp;&nbsp;<code>~/Library/Developer/Toolchains/</code>.</span>
+</p>
+
+
+<pre><code>  $ sudo tar -xzf swift-LOCAL-YYYY-MM-DD-a-osx.tar.gz -C /
+  $ tar -xzf swift-LOCAL-YYYY-MM-DD-a-osx.tar.gz -C ~/</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">该脚本还会生成一个包含调试符号(debug symbols)的文件,可以将其安装在主归档文件上(main archive),从而可以用符号表示任何编译器崩溃.</span>
+</p>
+
+
+<pre><code>  $ sudo tar -xzf swift-LOCAL-YYYY-MM-DD-a-osx-symbols.tar.gz -C /
+  $ tar -xzf swift-LOCAL-YYYY-MM-DD-a-osx-symbols.tar.gz -C ~/</code></pre>
+
+<!--block_code_end-->
+<ol>
+<li class="md_li"><span>通过<code>Xcode-&gt; Toolchains</code>指定供Xcode使用的本地工具链(toolchain).
+</span></li>
+</ol>
+<h3 id="toc_16" class="h16"><span class="span_for_h">Build Failures</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">确保您使用的是Xcode的<a class="md_compiled" href="#macos">正确版本</a>.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果您已经更改了Xcode版本,但仍然遇到错误,请尝试将<code>--clean</code>传递给<code>build-script</code>.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当发布新版本的Xcode时,您可以直接更新构建,而无需通过传递<code>--reconfigure</code>选项并重新编译整个项目.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如上所述,请使用<code>update-checkout</code>命令确保所有存储库都是最新版本.</span>
+</p>
+
+<h2 id="toc_17" class="h16"><span class="span_for_h">Testing Swift</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">请参阅<a class="md_compiled" href="docs/Testing.md">docs/Testing.md</a>和<a class="md_compiled" href="docs/Testing.md#using-litpy">lit.py</a>上的部分.</span>
+</p>
+
+<h2 id="toc_18" class="h16"><span class="span_for_h">Learning More</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">请浏览<a class="md_compiled" href="/tree/master/docs">docs</a>目录以获取有关编译器的更多信息,特别是<a class="md_compiled" href="/docs/DebuggingTheCompiler.rst">Debugging the Swift Compiler</a>和<a class="md_compiled" href="/docs/ContinuousIntegration.md">Continuous Integration for Swift</a>这两篇文档在提交您的第一个<code>Pull requests</code>时非常有用.</span>
+</p>
+
+<h3 id="toc_19" class="h16"><span class="span_for_h">Building Documentation</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">要阅读编译器文档,请先运行以下命令来安装<a class="md_compiled" href="https://github.com/CharlotteFallices/sphinx_ZH-CN">Sphinx</a>:</span>
+</p>
+
+
+<pre><code>     easy_install -U“ Sphinx &lt;2.0”</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">完成后,您可以通过将目录更改为<a class="md_compiled" href="/tree/master/docs">docs</a>并键入<code>make</code>来构建Swift文档这会将<a class="md_compiled" href="/tree/master/docs">docs</a>目录中的<code>.rst</code>文件编译至<code>docs/_build/html</code>目录中的HTML中.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">许多文档虽然已经过时,但是您仍可以在<code>docs</code>目录中看到一些历史设计文档.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">文档的另一个来源是标准库本身,位于<code>stdlib</code>中.许多语言实际上是在库中实现的,它通常是具有时效性的.</span>
+</p>
+
+<h2 id="toc_20" class="h16"><span class="span_for_h">Build Dependencies</span></h2>
+<h3 id="toc_21" class="h16"><span class="span_for_h">CMake</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><a class="md_compiled" href="https://github.com/CharlotteFallices/CMake_ZH-CN">CMake</a>是用于配置Swift及其附属项目的核心架构,至少需要3.4.3版本.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在macOS上,您可以下载<a class="md_compiled" href="https://cmake.org/download">二进制文件</a>(<a class="md_compiled" href="https://github-production-release-asset-2e65be.s3.amazonaws.com/537699/ba921080-4811-11ea-9a8c-c839ff358bf0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200208%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200208T083521Z&X-Amz-Expires=300&X-Amz-Signature=8a637fc18438a730f6ed19d67c9f65a674cdbc5813280e8ca93e4d61229fff3d&X-Amz-SignedHeaders=host&actor_id=47619464&response-content-disposition=attachment%3B%20filename%3Dcmake-3.16.4-win64-x64.msi&response-content-type=application%2Foctet-stream">Windows</a>,<a class="md_compiled" href="https://github-production-release-asset-2e65be.s3.amazonaws.com/537699/bbc33d80-4811-11ea-8831-73b31acbc700?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200208%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200208T083615Z&X-Amz-Expires=300&X-Amz-Signature=979d65590f1da16d08c9cf940b80e5bd93067af4d9118e77f2dff3fceb4095dc&X-Amz-SignedHeaders=host&actor_id=47619464&response-content-disposition=attachment%3B%20filename%3Dcmake-3.16.4-Darwin-x86_64.dmg&response-content-type=application%2Foctet-stream">macOS</a>,<a class="md_compiled" href="https://github-production-release-asset-2e65be.s3.amazonaws.com/537699/b6fe8980-4811-11ea-94a5-6de6b61d25ac?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200208%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200208T083648Z&X-Amz-Expires=300&X-Amz-Signature=4c6cdd27674b591e1b0bbec7bec370a30429cfc65f5c78596f15444ffb9aed11&X-Amz-SignedHeaders=host&actor_id=47619464&response-content-disposition=attachment%3B%20filename%3Dcmake-3.16.4-Linux-x86_64.sh&response-content-type=application%2Foctet-stream">Linux</a>)并打包为应用程序,并将其复制到<code>/Applications</code>,然后将命令行工具添加到<code>PATH</code>中：</span>
+</p>
+
+
+<pre><code>    export PATH=/Applications/CMake.app/Contents/bin:$PATH</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start">在Linux上，如果尚未安装Swift的<a class="md_compiled" href="#linux">development依赖项</a>,则可以下载并安装CMake.<br /></span>
+    <span class="md_line md_line_end">使用以下命令打包：</span>
+</p>
+
+
+<pre><code>    sudo apt-get install cmake</code></pre>
+
+<!--block_code_end--><h3 id="toc_22" class="h16"><span class="span_for_h">Ninja</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start"><a class="md_compiled" href="https://github.com/CharlotteFallices/ninja_ZH-CN">Ninja</a>是当前推荐用于构建Swift的程序,并且是CMake生成的默认配置. <a class="md_compiled" href="https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages">预构建包</a>可用于macOS和Linux发行版,您也可以在其他项目旁边克隆Ninja,它将自动执行以下命令:<br /></span>
+<strong>HTTPS</strong></p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start">    git clone https://github.com/ninja-build/ninja.git &amp;&amp; cd ninja<br /></span>
+    <span class="md_line">    git checkout release<br /></span>
+    <span class="md_line md_line_end">    cat README</span>
+</p>
+
+<strong>SSH</strong>
+<p class="md_block">
+    <span class="md_line md_line_start">    git clone git@github.com:ninja-build/ninja.git &amp;&amp; cd ninja<br /></span>
+    <span class="md_line">    git checkout release<br /></span>
+    <span class="md_line md_line_end">    cat README</span>
+</p>
+
+<h2 id="toc_23" class="h16"><span class="span_for_h">Appendix</span></h2>
+<h3 id="toc_24" class="h16"><span class="span_for_h"><a class="md_compiled" href="https://github.com/CharlotteFallices/the-swift-programming-language-in-chinese/blob/gh-pages/README.md#术语表">Glossary</a></span></h3>
+
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>备选翻译</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>property wrapper</td>
+<td>属性包装器</td>
+</tr>
+<tr>
+<td>projected value</td>
+<td>被呈现值</td>
+</tr>
+<tr>
+<td>wrapped value</td>
+<td>被包装值</td>
+</tr>
+<tr>
+<td>argument</td>
+<td>实参</td>
+</tr>
+<tr>
+<td>parameter</td>
+<td>形参</td>
+</tr>
+<tr>
+<td>variadic parameters</td>
+<td>可变参数</td>
+</tr>
+<tr>
+<td>associated type</td>
+<td>关联类型</td>
+</tr>
+<tr>
+<td>range</td>
+<td>区间</td>
+</tr>
+<tr>
+<td>type property</td>
+<td>类型属性</td>
+</tr>
+<tr>
+<td>unary operator</td>
+<td>一元运算符</td>
+</tr>
+<tr>
+<td>binary operator</td>
+<td>二元运算符</td>
+</tr>
+<tr>
+<td>ternary operator</td>
+<td>三元运算符</td>
+</tr>
+<tr>
+<td>labeled statement</td>
+<td>具名语句</td>
+</tr>
+<tr>
+<td>conform protocol</td>
+<td>遵循协议</td>
+</tr>
+<tr>
+<td>availability-condition</td>
+<td>可用性条件</td>
+</tr>
+<tr>
+<td>fallthrough</td>
+<td>贯穿</td>
+</tr>
+<tr>
+<td>branch statement</td>
+<td>分支语句</td>
+</tr>
+<tr>
+<td>control transfer statement</td>
+<td>控制传递语句</td>
+</tr>
+<tr>
+<td>type annotation</td>
+<td>类型注解</td>
+</tr>
+<tr>
+<td>type identifier</td>
+<td>类型标识符</td>
+</tr>
+<tr>
+<td>metatype type</td>
+<td>元类型</td>
+</tr>
+<tr>
+<td>protocol composition type</td>
+<td>复合协议类型</td>
+</tr>
+<tr>
+<td>associated value</td>
+<td>关联值</td>
+</tr>
+<tr>
+<td>raw value</td>
+<td>原始值</td>
+</tr>
+<tr>
+<td>computed property</td>
+<td>计算属性</td>
+</tr>
+<tr>
+<td>stored property</td>
+<td>存储属性</td>
+</tr>
+<tr>
+<td>operator</td>
+<td>运算符</td>
+</tr>
+<tr>
+<td>playground</td>
+<td>(不翻译)</td>
+</tr>
+<tr>
+<td>array</td>
+<td>数组</td>
+</tr>
+<tr>
+<td>dictionary</td>
+<td>字典</td>
+</tr>
+<tr>
+<td>list</td>
+<td>列表</td>
+</tr>
+<tr>
+<td>statement</td>
+<td>语句</td>
+</tr>
+<tr>
+<td>expression</td>
+<td>表达式</td>
+</tr>
+<tr>
+<td>optional</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>implicitly unwrapped optional</td>
+<td>隐式解包可选值</td>
+</tr>
+<tr>
+<td>optional binding</td>
+<td>可选绑定</td>
+</tr>
+<tr>
+<td>optional chaining</td>
+<td>可选链</td>
+</tr>
+<tr>
+<td>collection</td>
+<td>集合</td>
+</tr>
+<tr>
+<td>convention</td>
+<td>约定</td>
+</tr>
+<tr>
+<td>iterate</td>
+<td>迭代</td>
+</tr>
+<tr>
+<td>nest</td>
+<td>嵌套</td>
+</tr>
+<tr>
+<td>inheritance</td>
+<td>继承</td>
+</tr>
+<tr>
+<td>override</td>
+<td>重写</td>
+</tr>
+<tr>
+<td>base class</td>
+<td>基类</td>
+</tr>
+<tr>
+<td>designated initializer</td>
+<td>指定构造器</td>
+</tr>
+<tr>
+<td>convenience initializer</td>
+<td>便利构造器</td>
+</tr>
+<tr>
+<td>automatic reference counting</td>
+<td>自动引用计数</td>
+</tr>
+<tr>
+<td>type inference</td>
+<td>类型推断</td>
+</tr>
+<tr>
+<td>type casting</td>
+<td>类型转换</td>
+</tr>
+<tr>
+<td>unwrapped</td>
+<td>解包</td>
+</tr>
+<tr>
+<td>wrapped</td>
+<td>包装</td>
+</tr>
+<tr>
+<td>note</td>
+<td>注意</td>
+</tr>
+<tr>
+<td>closure</td>
+<td>闭包</td>
+</tr>
+<tr>
+<td>tuple</td>
+<td>元组</td>
+</tr>
+<tr>
+<td>first-class</td>
+<td>一等</td>
+</tr>
+<tr>
+<td>deinitializer</td>
+<td>析构器</td>
+</tr>
+<tr>
+<td>initializer</td>
+<td>构造器</td>
+</tr>
+<tr>
+<td>initialization</td>
+<td>构造过程</td>
+</tr>
+<tr>
+<td>deinitialization</td>
+<td>析构过程</td>
+</tr>
+<tr>
+<td>getter</td>
+<td>(不翻译)</td>
+</tr>
+<tr>
+<td>setter</td>
+<td>(不翻译)</td>
+</tr>
+<tr>
+<td>subscript</td>
+<td>下标</td>
+</tr>
+<tr>
+<td>property</td>
+<td>属性</td>
+</tr>
+<tr>
+<td>attribute</td>
+<td>特性或者属性,根据上下文</td>
+</tr>
+<tr>
+<td>method</td>
+<td>方法</td>
+</tr>
+<tr>
+<td>enumeration</td>
+<td>枚举</td>
+</tr>
+<tr>
+<td>structure</td>
+<td>结构体</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>协议</td>
+</tr>
+<tr>
+<td>extension</td>
+<td>扩展</td>
+</tr>
+<tr>
+<td>generic</td>
+<td>泛型</td>
+</tr>
+<tr>
+<td>literal value</td>
+<td>字面量</td>
+</tr>
+<tr>
+<td>alias</td>
+<td>别名</td>
+</tr>
+<tr>
+<td>assertion</td>
+<td>断言</td>
+</tr>
+<tr>
+<td>conditional compilation</td>
+<td>条件编译</td>
+</tr>
+<tr>
+<td>opaque type</td>
+<td>不透明类型</td>
+</tr>
+<tr>
+<td>function</td>
+<td>函数</td>
+</tr>
+<tr>
+<td>runtime</td>
+<td>运行时</td>
+</tr>
+</tbody>
+</table>
+<h3 id="toc_25" class="h16"><span class="span_for_h">For Ubuntu14</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start">对于Ubuntu 14.04 LTS的构建说明:<br /></span>
+    <span class="md_line md_line_end">您需要升级<code>Clang编译器</code><strong>(Clang complier)</strong> 以获得对于C++14的支持,并创建一个<code>符号链接</code><strong>(symlink)</strong>.要求的最低版本可能会更改,将来可能在Ubuntu 14.04上不可用:</span>
+</p>
+
+
+<pre><code>sudo apt-get install clang-3.9
+sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.9 100
+sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.9 100
+sudo update-alternatives --set clang /usr/bin/clang-3.9
+sudo update-alternatives --set clang++ /usr/bin/clang++-3.9
+Upgrade CMake</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">您需要通过编译本地副本以便将<code>CMake工具链</code><strong>(toolchain)</strong> 升级到受支持的版本:</span>
+</p>
+
+
+<pre><code>wget https://cmake.org/files/v3.5/cmake-3.5.2.tar.gz
+tar xf cmake-3.5.2.tar.gz
+cd cmake-3.5.2
+./configure
+make
+sudo make install
+sudo update-alternatives --install /usr/bin/cmake cmake /usr/local/bin/cmake 1 --force
+cmake --version # This should print 3.5.2</code></pre>
+
+<!--block_code_end--><h3 id="toc_26" class="h16"><span class="span_for_h">About Website</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><a class="md_compiled" href="https://charlottefallices.github.io/swift_ZH-CN/">Pages</a>中的内容可能会相对低2-3个版本,License会在每个版本完成后添加,完成之前因为引用内容暂不明确故先行删除.</span>
+</p>
+
+<h2 id="toc_27" class="h16"><span class="span_for_h">Lincense</span></h2>
+
+<p class="md_block  md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">此页面(<a class="md_compiled" href="https://github.com/CharlotteFallices/swift_ZH-CN/blob/master/README.md">README.md</a>或<a class="md_compiled" href="https://github.com/CharlotteFallices/swift_ZH-CN/blob/master/index.html">index.html</a>)由<a class="md_compiled" href="https://github.com/apple">Apple Inc.</a>创作,并由<a class="md_compiled" href="">本人</a>翻译并整合,内容中有包含其他人/组织创作的文档,正在进行统计,统计完成后会联系原作者并进行署名.</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span></span></li>
+<li class="md_li"><span>The <a class="md_compiled" href="https://charlottefallices.github.io/swift-docs_ZH-CN/">documents</a> is licensed under <strong>the Creative Commons Attribution 4.0 International License</strong>.To view a copy of this license,visit <a class="md_compiled" href="http://creativecommons.org/licenses/by/4.0/">website</a> or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, US.
+
+</span></li>
+<li class="md_li"><span>The translation text is licensed under <strong>the WTFPL2 License</strong>.To view this license,visit <a class="md_compiled" href="https://wtfpl2.com">website</a>.
+
+</span></li>
+</ul>
+
+<hr>
+
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start md_line_end">最后更新于2020-02-10 08:25:40</span>
+</p>
+        </div>
+    </div>
+    
+        <script type= "text/javascript">
+            window.MathJax = {
+              tex: {
+                inlineMath: [ ['$','$']],
+                displayMath: [ ['$$','$$'] ]
+              },
+              svg: {fontCache: 'none'},
+              startup: {
+                    ready: () => {
+                      MathJax.startup.defaultReady();
+                      MathJax.startup.promise.then(() => {
+                        if (typeof(send_to_app_client)!='undefined'){send_to_app_client({'action': 'start_to_export_pdf'})}
+                      });
+                    }
+                  },
+              options: {
+                renderActions: {
+                  addMenu: [0]
+                }
+              }
+            };
+        </script>
+        <script src="https://markeditor-files.oss-cn-hangzhou.aliyuncs.com/fb_static/lib/markdown/MathJax/tex-svg.js" type= "text/javascript"></script>
+        
+        
+    <!--mermaid-->
+</body>
+</html>

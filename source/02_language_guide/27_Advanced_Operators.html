@@ -1,0 +1,807 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>高级运算符</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">高级运算符</span></h1>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">除了之前介绍过的 <a class="md_compiled" href="./02_Basic_Operators.md">基本运算符</a>，Swift 还提供了数种可以对数值进行复杂运算的高级运算符。它们包含了在 C 和 Objective-C 中已经被大家所熟知的位运算符和移位运算符。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">与 C 语言中的算术运算符不同，Swift 中的算术运算符默认是不会溢出的。所有溢出行为都会被捕获并报告为错误。如果想让系统允许溢出行为，可以选择使用 Swift 中另一套默认支持溢出的运算符，比如溢出加法运算符（<code>&amp;+</code>）。所有的这些溢出运算符都是以 <code>&amp;</code> 开头的。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">自定义结构体、类和枚举时，如果也为它们提供标准 Swift 运算符的实现，将会非常有用。在 Swift 中为这些运算符提供自定义的实现非常简单，运算符也会针对不同类型使用对应实现。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">我们不用被预定义的运算符所限制。在 Swift 中可以自由地定义中缀、前缀、后缀和赋值运算符，它们具有自定义的优先级与关联值。这些运算符在代码中可以像预定义的运算符一样使用，你甚至可以扩展已有的类型以支持自定义运算符。</span>
+</p>
+
+<h2 id="toc_1" class="h16"><span class="span_for_h">位运算符 {#bitwise-operators}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>位运算符</em>可以操作数据结构中每个独立的比特位。它们通常被用在底层开发中，比如图形编程和创建设备驱动。位运算符在处理外部资源的原始数据时也十分有用，比如对自定义通信协议传输的数据进行编码和解码。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 支持 C 语言中的全部位运算符，接下来会一一介绍。</span>
+</p>
+
+<h3 id="toc_2" class="h16"><span class="span_for_h">Bitwise NOT Operator（按位取反运算符） {#bitwise-not-operator}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>按位取反运算符（<code>~</code>）</em>对一个数值的全部比特位进行取反：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/bitwiseNOT_2x.png" alt="Art/bitwiseNOT_2x.png" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">按位取反运算符是一个前缀运算符，直接放在运算数之前，并且它们之间不能添加任何空格：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">initialBits</span><span class="p">:</span> <span class="nb">UInt8</span> <span class="p">=</span> <span class="mb">0b00001111</span>
+<span class="kd">let</span> <span class="nv">invertedBits</span> <span class="p">=</span> <span class="o">~</span><span class="n">initialBits</span> <span class="c1">// 等于 0b11110000</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>UInt8</code> 类型的整数有 8 个比特位，可以存储 <code>0 ~ 255</code> 之间的任意整数。这个例子初始化了一个 <code>UInt8</code> 类型的整数，并赋值为二进制的 <code>00001111</code>，它的前 4 位为 <code>0</code>，后 4 位为 <code>1</code>。这个值等价于十进制的 <code>15</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">接着使用按位取反运算符创建了一个名为 <code>invertedBits</code> 的常量，这个常量的值与全部位取反后的 <code>initialBits</code> 相等。即所有的 <code>0</code> 都变成了 <code>1</code>，同时所有的 <code>1</code> 都变成 <code>0</code>。<code>invertedBits</code> 的二进制值为 <code>11110000</code>，等价于无符号十进制数的 <code>240</code>。</span>
+</p>
+
+<h3 id="toc_3" class="h16"><span class="span_for_h">Bitwise AND Operator（按位与运算符） {#bitwise-and-operator}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>按位与运算符（<code>&amp;</code>）</em> 对两个数的比特位进行合并。它返回一个新的数，只有当两个数的对应位*都*为 <code>1</code> 的时候，新数的对应位才为 <code>1</code>：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/bitwiseAND_2x.png" alt="Art/bitwiseAND_2x.png" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在下面的示例当中，<code>firstSixBits</code> 和 <code>lastSixBits</code> 中间 4 个位的值都为 <code>1</code>。使用按位与运算符之后，得到二进制数值 <code>00111100</code>，等价于无符号十进制数的 <code>60</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">firstSixBits</span><span class="p">:</span> <span class="nb">UInt8</span> <span class="p">=</span> <span class="mb">0b11111100</span>
+<span class="kd">let</span> <span class="nv">lastSixBits</span><span class="p">:</span> <span class="nb">UInt8</span>  <span class="p">=</span> <span class="mb">0b00111111</span>
+<span class="kd">let</span> <span class="nv">middleFourBits</span> <span class="p">=</span> <span class="n">firstSixBits</span> <span class="o">&amp;</span> <span class="n">lastSixBits</span> <span class="c1">// 等于 00111100</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_4" class="h16"><span class="span_for_h">Bitwise OR Operator（按位或运算符） {#bitwise-or-operator}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>按位或运算符（<code>|</code>）</em>可以对两个数的比特位进行比较。它返回一个新的数，只要两个数的对应位中有*任意一个*为 <code>1</code> 时，新数的对应位就为 <code>1</code>：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/bitwiseOR_2x.png" alt="Art/bitwiseOR_2x.png" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在下面的示例中，<code>someBits</code> 和 <code>moreBits</code> 存在不同的位被设置为 <code>1</code>。使用按位或运算符之后，得到二进制数值 <code>11111110</code>，等价于无符号十进制数的 <code>254</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">someBits</span><span class="p">:</span> <span class="nb">UInt8</span> <span class="p">=</span> <span class="mb">0b10110010</span>
+<span class="kd">let</span> <span class="nv">moreBits</span><span class="p">:</span> <span class="nb">UInt8</span> <span class="p">=</span> <span class="mb">0b01011110</span>
+<span class="kd">let</span> <span class="nv">combinedbits</span> <span class="p">=</span> <span class="n">someBits</span> <span class="o">|</span> <span class="n">moreBits</span> <span class="c1">// 等于 11111110</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_5" class="h16"><span class="span_for_h">Bitwise XOR Operator（按位异或运算符） {#bitwise-xor-operator}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>按位异或运算符</em>，或称“排外的或运算符”（<code>^</code>），可以对两个数的比特位进行比较。它返回一个新的数，当两个数的对应位不相同时，新数的对应位就为 <code>1</code>，并且对应位相同时则为 <code>0</code>：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/bitwiseXOR_2x.png" alt="Art/bitwiseXOR_2x.png" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在下面的示例当中，<code>firstBits</code> 和 <code>otherBits</code> 都有一个自己为 <code>1</code>，而对方为 <code>0</code> 的位。按位异或运算符将新数的这两个位都设置为 <code>1</code>。在其余的位上 <code>firstBits</code> 和 <code>otherBits</code> 是相同的，所以设置为 <code>0</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">firstBits</span><span class="p">:</span> <span class="nb">UInt8</span> <span class="p">=</span> <span class="mb">0b00010100</span>
+<span class="kd">let</span> <span class="nv">otherBits</span><span class="p">:</span> <span class="nb">UInt8</span> <span class="p">=</span> <span class="mb">0b00000101</span>
+<span class="kd">let</span> <span class="nv">outputBits</span> <span class="p">=</span> <span class="n">firstBits</span> <span class="o">^</span> <span class="n">otherBits</span> <span class="c1">// 等于 00010001</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_6" class="h16"><span class="span_for_h">Bitwise Left and Right Shift Operators（按位左移、右移运算符） {#bitwise-left-and-right-shift-operators}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>按位左移运算符（<code>&lt;&lt;</code>）</em> 和 <em>按位右移运算符（<code>&gt;&gt;</code>）</em>可以对一个数的所有位进行指定位数的左移和右移，但是需要遵守下面定义的规则。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">对一个数进行按位左移或按位右移，相当于对这个数进行乘以 2 或除以 2 的运算。将一个整数左移一位，等价于将这个数乘以 2，同样地，将一个整数右移一位，等价于将这个数除以 2。</span>
+</p>
+
+<h4 id="toc_7" class="h16"><span class="span_for_h">无符号整数的移位运算 {#shifting-behavior-for-unsigned-integers}</span></h4>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ol">
+    <span class="md_line md_line_start md_line_end">对无符号整数进行移位的规则如下：</span>
+</p>
+
+
+<ol>
+<li class="md_li"><span>已存在的位按指定的位数进行左移和右移。
+
+</span></li>
+<li class="md_li"><span>任何因移动而超出整型存储范围的位都会被丢弃。
+
+</span></li>
+<li class="md_li"><span>用 <code>0</code> 来填充移位后产生的空白位。
+
+</span></li>
+</ol>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这种方法称为<em class="md_patched_em">逻辑移位</em>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">以下这张图展示了 <code>11111111 &lt;&lt; 1</code>（即把 <code>11111111</code> 向左移动 <code>1</code> 位），和 <code>11111111 &gt;&gt; 1</code>（即把 <code>11111111</code> 向右移动 <code>1</code> 位）的结果。蓝色的数字是被移位的，灰色的数字是被抛弃的，橙色的 <code>0</code> 则是被填充进来的：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/bitshiftUnsigned_2x.png" alt="Art/bitshiftUnsigned_2x.png" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的代码演示了 Swift 中的移位运算：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">shiftBits</span><span class="p">:</span> <span class="nb">UInt8</span> <span class="p">=</span> <span class="mi">4</span> <span class="c1">// 即二进制的 00000100</span>
+<span class="n">shiftBits</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span>           <span class="c1">// 00001000</span>
+<span class="n">shiftBits</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span>           <span class="c1">// 00010000</span>
+<span class="n">shiftBits</span> <span class="o">&lt;&lt;</span> <span class="mi">5</span>           <span class="c1">// 10000000</span>
+<span class="n">shiftBits</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span>           <span class="c1">// 00000000</span>
+<span class="n">shiftBits</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span>           <span class="c1">// 00000001</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">可以使用移位运算对其他的数据类型进行编码和解码：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">pink</span><span class="p">:</span> <span class="nb">UInt32</span> <span class="p">=</span> <span class="mh">0xCC6699</span>
+<span class="kd">let</span> <span class="nv">redComponent</span> <span class="p">=</span> <span class="p">(</span><span class="n">pink</span> <span class="o">&amp;</span> <span class="mh">0xFF0000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span>  <span class="c1">// redComponent 是 0xCC，即 204</span>
+<span class="kd">let</span> <span class="nv">greenComponent</span> <span class="p">=</span> <span class="p">(</span><span class="n">pink</span> <span class="o">&amp;</span> <span class="mh">0x00FF00</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span> <span class="c1">// greenComponent 是 0x66， 即 102</span>
+<span class="kd">let</span> <span class="nv">blueComponent</span> <span class="p">=</span> <span class="n">pink</span> <span class="o">&amp;</span> <span class="mh">0x0000FF</span>         <span class="c1">// blueComponent 是 0x99，即 153</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个示例使用了一个命名为 <code>pink</code> 的 <code>UInt32</code> 型常量来存储 Cascading Style Sheets（CSS）中粉色的颜色值。该 CSS 的颜色值 <code>#CC6699</code>，在 Swift 中表示为十六进制的 <code>0xCC6699</code>。然后利用按位与运算符（<code>&amp;</code>）和按位右移运算符（<code>&gt;&gt;</code>）从这个颜色值中分解出红（<code>CC</code>）、绿（<code>66</code>）以及蓝（<code>99</code>）三个部分。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">红色部分是通过对 <code>0xCC6699</code> 和 <code>0xFF0000</code> 进行按位与运算后得到的。<code>0xFF0000</code> 中的 <code>0</code> 部分“掩盖”了 <code>OxCC6699</code> 中的第二、第三个字节，使得数值中的 <code>6699</code> 被忽略，只留下 <code>0xCC0000</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">然后，将这个数向右移动 16 位（<code>&gt;&gt; 16</code>）。十六进制中每两个字符占用 8 个比特位，所以移动 16 位后 <code>0xCC0000</code> 就变为 <code>0x0000CC</code>。这个数和 <code>0xCC</code> 是等同的，也就是十进制数值的 <code>204</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">同样的，绿色部分通过对 <code>0xCC6699</code> 和 <code>0x00FF00</code> 进行按位与运算得到 <code>0x006600</code>。然后将这个数向右移动 8 位，得到 <code>0x66</code>，也就是十进制数值的 <code>102</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">最后，蓝色部分通过对 <code>0xCC6699</code> 和 <code>0x0000FF</code> 进行按位与运算得到 <code>0x000099</code>。这里不需要再向右移位，而 <code>0x000099</code> 也就是 <code>0x99</code> ，也就是十进制数值的 <code>153</code>。</span>
+</p>
+
+<h4 id="toc_8" class="h16"><span class="span_for_h">有符号整数的移位运算 {#shifting-behavior-for-signed-integers}</span></h4>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">对比无符号整数，有符号整数的移位运算相对复杂得多，这种复杂性源于有符号整数的二进制表现形式。（为了简单起见，以下的示例都是基于 8 比特的有符号整数，但是其中的原理对任何位数的有符号整数都是通用的。）</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">有符号整数使用第 1 个比特位（通常被称为<em class="md_patched_em">符号位</em>）来表示这个数的正负。符号位为 <code>0</code> 代表正数，为 <code>1</code> 代表负数。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">其余的比特位（通常被称为<em class="md_patched_em">数值位</em>）存储了实际的值。有符号正整数和无符号数的存储方式是一样的，都是从 <code>0</code> 开始算起。这是值为 <code>4</code> 的 <code>Int8</code> 型整数的二进制位表现形式：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/bitshiftSignedFour_2x.png" alt="Art/bitshiftSignedFour_2x.png" title="" ></span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">符号位为 <code>0</code>（代表这是一个“正数”），另外 7 位则代表了十进制数值 <code>4</code> 的二进制表示。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">负数的存储方式略有不同。它存储 <code>2</code> 的 <code>n</code> 次方减去其实际值的绝对值，这里的 <code>n</code> 是数值位的位数。一个 8 比特位的数有 7 个比特位是数值位，所以是 <code>2</code> 的 <code>7</code> 次方，即 <code>128</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这是值为 <code>-4</code> 的 <code>Int8</code> 型整数的二进制表现形式：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/bitshiftSignedMinusFour_2x.png" alt="Art/bitshiftSignedMinusFour_2x.png" title="" ></span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这次的符号位为 <code>1</code>，说明这是一个负数，另外 7 个位则代表了数值 <code>124</code>（即 <code>128 - 4</code>）的二进制表示：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/bitshiftSignedMinusFourValue_2x.png" alt="Art/bitshiftSignedMinusFourValue_2x.png" title="" ></span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">负数的表示通常被称为<em class="md_patched_em">二进制补码</em>。用这种方法来表示负数乍看起来有点奇怪，但它有几个优点。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">首先，如果想对 <code>-1</code> 和 <code>-4</code> 进行加法运算，我们只需要对这两个数的全部 8 个比特位执行标准的二进制相加（包括符号位），并且将计算结果中超出 8 位的数值丢弃：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/bitshiftSignedAddition_2x.png" alt="Art/bitshiftSignedAddition_2x.png" title="" ></span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">其次，使用二进制补码可以使负数的按位左移和右移运算得到跟正数同样的效果，即每向左移一位就将自身的数值乘以 2，每向右一位就将自身的数值除以 2。要达到此目的，对有符号整数的右移有一个额外的规则：当对有符号整数进行按位右移运算时，遵循与无符号整数相同的规则，但是对于移位产生的空白位使用<em class="md_patched_em">符号位</em>进行填充，而不是用 <code>0</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/bitshiftSigned_2x.png" alt="Art/bitshiftSigned_2x.png" title="" ></span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个行为可以确保有符号整数的符号位不会因为右移运算而改变，这通常被称为<em class="md_patched_em">算术移位</em>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">由于正数和负数的特殊存储方式，在对它们进行右移的时候，会使它们越来越接近 <code>0</code>。在移位的过程中保持符号位不变，意味着负整数在接近 <code>0</code> 的过程中会一直保持为负。</span>
+</p>
+
+<h2 id="toc_9" class="h16"><span class="span_for_h">溢出运算符 {#overflow-operators}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当向一个整数类型的常量或者变量赋予超过它容量的值时，Swift 默认会报错，而不是允许生成一个无效的数。这个行为为我们在运算过大或者过小的数时提供了额外的安全性。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">例如，<code>Int16</code> 型整数能容纳的有符号整数范围是 <code>-32768</code> 到 <code>32767</code>。当为一个 <code>Int16</code> 类型的变量或常量赋予的值超过这个范围时，系统就会报错：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">potentialOverflow</span> <span class="p">=</span> <span class="nb">Int16</span><span class="p">.</span><span class="bp">max</span>
+<span class="c1">// potentialOverflow 的值是 32767，这是 Int16 能容纳的最大整数</span>
+<span class="n">potentialOverflow</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="c1">// 这里会报错</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在赋值时为过大或者过小的情况提供错误处理，能让我们在处理边界值时更加灵活。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">然而，当你希望的时候也可以选择让系统在数值溢出的时候采取截断处理，而非报错。Swift 提供的三个<em class="md_patched_em">溢出运算符</em>来让系统支持整数溢出运算。这些运算符都是以 <code>&amp;</code> 开头的：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>溢出加法 <code>&amp;+</code>
+
+</span></li>
+<li class="md_li"><span>溢出减法 <code>&amp;-</code>
+
+</span></li>
+<li class="md_li"><span>溢出乘法 <code>&amp;&#42;</code>
+
+</span></li>
+</ul>
+<h3 id="toc_10" class="h16"><span class="span_for_h">数值溢出 {#value-overflow}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">数值有可能出现上溢或者下溢。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">这个示例演示了当我们对一个无符号整数使用溢出加法（<code>&amp;+</code>）进行上溢运算时会发生什么：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">unsignedOverflow</span> <span class="p">=</span> <span class="nb">UInt8</span><span class="p">.</span><span class="bp">max</span>
+<span class="c1">// unsignedOverflow 等于 UInt8 所能容纳的最大整数 255</span>
+<span class="n">unsignedOverflow</span> <span class="p">=</span> <span class="n">unsignedOverflow</span> <span class="o">&amp;+</span> <span class="mi">1</span>
+<span class="c1">// 此时 unsignedOverflow 等于 0</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>unsignedOverflow</code> 被初始化为 <code>UInt8</code> 所能容纳的最大整数（<code>255</code>，以二进制表示即 <code>11111111</code>）。然后使用溢出加法运算符（<code>&amp;+</code>）对其进行加 <code>1</code> 运算。这使得它的二进制表示正好超出 <code>UInt8</code> 所能容纳的位数，也就导致了数值的溢出，如下图所示。数值溢出后，仍然留在 <code>UInt8</code> 边界内的值是 <code>00000000</code>，也就是十进制数值的 <code>0</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/overflowAddition_2x.png" alt="Art/overflowAddition_2x.png" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">当允许对一个无符号整数进行下溢运算时也会产生类似的情况。这里有一个使用溢出减法运算符（<code>&amp;-</code>）的例子：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">unsignedOverflow</span> <span class="p">=</span> <span class="nb">UInt8</span><span class="p">.</span><span class="bp">min</span>
+<span class="c1">// unsignedOverflow 等于 UInt8 所能容纳的最小整数 0</span>
+<span class="n">unsignedOverflow</span> <span class="p">=</span> <span class="n">unsignedOverflow</span> <span class="o">&amp;-</span> <span class="mi">1</span>
+<span class="c1">// 此时 unsignedOverflow 等于 255</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>UInt8</code> 型整数能容纳的最小值是 <code>0</code>，以二进制表示即 <code>00000000</code>。当使用溢出减法运算符对其进行减 <code>1</code> 运算时，数值会产生下溢并被截断为 <code>11111111</code>， 也就是十进制数值的 <code>255</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/overflowUnsignedSubtraction_2x.png" alt="Art/overflowUnsignedSubtraction_2x.png" title="" ></span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">溢出也会发生在有符号整型上。针对有符号整型的所有溢出加法或者减法运算都是按位运算的方式执行的，符号位也需要参与计算，正如 <a class="md_compiled" href="#bitwise-left-and-right-shift-operators">按位左移、右移运算符</a> 所描述的。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">signedOverflow</span> <span class="p">=</span> <span class="nb">Int8</span><span class="p">.</span><span class="bp">min</span>
+<span class="c1">// signedOverflow 等于 Int8 所能容纳的最小整数 -128</span>
+<span class="n">signedOverflow</span> <span class="p">=</span> <span class="n">signedOverflow</span> <span class="o">&amp;-</span> <span class="mi">1</span>
+<span class="c1">// 此时 signedOverflow 等于 127</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>Int8</code> 型整数能容纳的最小值是 <code>-128</code>，以二进制表示即 <code>10000000</code>。当使用溢出减法运算符对其进行减 <code>1</code> 运算时，符号位被翻转，得到二进制数值 <code>01111111</code>，也就是十进制数值的 <code>127</code>，这个值也是 <code>Int8</code> 型整所能容纳的最大值。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/overflowSignedSubtraction_2x.png" alt="Art/overflowSignedSubtraction_2x.png" title="" ></span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">对于无符号与有符号整型数值来说，当出现上溢时，它们会从数值所能容纳的最大数变成最小数。同样地，当发生下溢时，它们会从所能容纳的最小数变成最大数。</span>
+</p>
+
+<h2 id="toc_11" class="h16"><span class="span_for_h">优先级和结合性 {#precedence-and-associativity}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">运算符的<em class="md_patched_em">优先级</em>使得一些运算符优先于其他运算符；它们会先被执行。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>结合性</em>定义了相同优先级的运算符是如何结合的，也就是说，是与左边结合为一组，还是与右边结合为一组。可以将其理解为“它们是与左边的表达式结合的”，或者“它们是与右边的表达式结合的”。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">当考虑一个复合表达式的计算顺序时，运算符的优先级和结合性是非常重要的。举例来说，运算符优先级解释了为什么下面这个表达式的运算结果会是 <code>17</code>。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="c1">// 结果是 17</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">如果你直接从左到右进行运算，你可能认为运算的过程是这样的：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>2 + 3 = 5
+
+</span></li>
+<li class="md_li"><span>5 % 4 = 1
+
+</span></li>
+<li class="md_li"><span>1 * 5 = 5
+
+</span></li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">但是正确答案是 <code>17</code> 而不是 <code>5</code>。优先级高的运算符要先于优先级低的运算符进行计算。与 C 语言类似，在 Swift 中，乘法运算符（<code>&#42;</code>）与取余运算符（<code>%</code>）的优先级高于加法运算符（<code>+</code>）。因此，它们的计算顺序要先于加法运算。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">而乘法运算与取余运算的优先级<em class="md_patched_em">相同</em>。这时为了得到正确的运算顺序，还需要考虑结合性。乘法运算与取余运算都是左结合的。可以将这考虑成，从它们的左边开始为这两部分表达式都隐式地加上括号：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="p">((</span><span class="mi">3</span> <span class="o">%</span> <span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>(3 % 4)</code> 等于 <code>3</code>，所以表达式相当于：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>3 &#42; 5</code> 等于 <code>15</code>，所以表达式相当于：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">15</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">因此计算结果为 <code>17</code>。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">有关 Swift 标准库提供的操作符信息，包括操作符优先级组和结核性设置的完整列表，请参见 <a class="md_compiled" href="https://developer.apple.com/documentation/swift/operator_declarations">操作符声明</a>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">相对 C 语言和 Objective-C 来说，Swift 的运算符优先级和结合性规则更加简洁和可预测。但是，这也意味着它们相较于 C 语言及其衍生语言并不是完全一致。在对现有的代码进行移植的时候，要注意确保运算符的行为仍然符合你的预期。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_12" class="h16"><span class="span_for_h">运算符函数 {#operator-functions}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">类和结构体可以为现有的运算符提供自定义的实现。这通常被称为运算符<em class="md_patched_em">重载</em>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">下面的例子展示了如何让自定义的结构体支持加法运算符（<code>+</code>）。算术加法运算符是一个<em class="md_patched_em">二元运算符</em>，因为它是对两个值进行运算，同时它还可以称为<em class="md_patched_em">中缀</em>运算符，因为它出现在两个值中间。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">例子中定义了一个名为 <code>Vector2D</code> 的结构体用来表示二维坐标向量 <code>(x, y)</code>，紧接着定义了一个可以将两个 <code>Vector2D</code> 结构体实例进行相加的<em class="md_patched_em">运算符函数</em>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">struct</span> <span class="nc">Vector2D</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">x</span> <span class="p">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">y</span> <span class="p">=</span> <span class="mf">0.0</span>
+<span class="p">}</span>
+
+<span class="kd">extension</span> <span class="nc">Vector2D</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">func</span> <span class="o">+</span> <span class="p">(</span><span class="kr">left</span><span class="p">:</span> <span class="n">Vector2D</span><span class="p">,</span> <span class="kr">right</span><span class="p">:</span> <span class="n">Vector2D</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Vector2D</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Vector2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="kr">left</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="kr">right</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="kr">left</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="kr">right</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">该运算符函数被定义为 <code>Vector2D</code> 上的一个类方法，并且函数的名字与它要进行重载的 <code>+</code> 名字一致。因为加法运算并不是一个向量必需的功能，所以这个类方法被定义在 <code>Vector2D</code> 的一个扩展中，而不是 <code>Vector2D</code> 结构体声明内。而算术加法运算符是二元运算符，所以这个运算符函数接收两个类型为 <code>Vector2D</code> 的参数，同时有一个 <code>Vector2D</code> 类型的返回值。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在这个实现中，输入参数分别被命名为 <code>left</code> 和 <code>right</code>，代表在 <code>+</code> 运算符左边和右边的两个 <code>Vector2D</code> 实例。函数返回了一个新的 <code>Vector2D</code> 实例，这个实例的 <code>x</code> 和 <code>y</code> 分别等于作为参数的两个实例的 <code>x</code> 和 <code>y</code> 的值之和。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">这个类方法可以在任意两个 <code>Vector2D</code> 实例中间作为中缀运算符来使用：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">vector</span> <span class="p">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">anotherVector</span> <span class="p">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">combinedVector</span> <span class="p">=</span> <span class="n">vector</span> <span class="o">+</span> <span class="n">anotherVector</span>
+<span class="c1">// combinedVector 是一个新的 Vector2D 实例，值为 (5.0, 5.0)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个例子实现两个向量 <code>(3.0，1.0)</code> 和 <code>(2.0，4.0)</code> 的相加，并得到新的向量 <code>(5.0，5.0)</code>。这个过程如下图示：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/vectorAddition_2x.png" alt="Art/vectorAddition_2x.png" title="" ></span>
+</p>
+
+<h3 id="toc_13" class="h16"><span class="span_for_h">前缀和后缀运算符 {#prefix-and-postfix-operators}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上个例子演示了一个二元中缀运算符的自定义实现。类与结构体也能提供标准*一元运算符*的实现。一元运算符只运算一个值。当运算符出现在值之前时，它就是*前缀*的（例如 <code>-a</code>），而当它出现在值之后时，它就是*后缀*的（例如 <code>b!</code>）。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">要实现前缀或者后缀运算符，需要在声明运算符函数的时候在 <code>func</code> 关键字之前指定 <code>prefix</code> 或者 <code>postfix</code> 修饰符：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">extension</span> <span class="nc">Vector2D</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kr">prefix</span> <span class="kd">func</span> <span class="o">-</span> <span class="p">(</span><span class="n">vector</span><span class="p">:</span> <span class="n">Vector2D</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Vector2D</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Vector2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">vector</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="o">-</span><span class="n">vector</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这段代码为 <code>Vector2D</code> 类型实现了一元运算符（<code>-a</code>）。由于该运算符是前缀运算符，所以这个函数需要加上 <code>prefix</code> 修饰符。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">对于简单数值，一元负号运算符可以对它们的正负性进行改变。对于 <code>Vector2D</code> 来说，该运算将其 <code>x</code> 和 <code>y</code> 属性的正负性都进行了改变：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">positive</span> <span class="p">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">negative</span> <span class="p">=</span> <span class="o">-</span><span class="n">positive</span>
+<span class="c1">// negative 是一个值为 (-3.0, -4.0) 的 Vector2D 实例</span>
+<span class="kd">let</span> <span class="nv">alsoPositive</span> <span class="p">=</span> <span class="o">-</span><span class="n">negative</span>
+<span class="c1">// alsoPositive 是一个值为 (3.0, 4.0) 的 Vector2D 实例</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_14" class="h16"><span class="span_for_h">复合赋值运算符 {#compound-assignment-operators}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>复合赋值运算符</em>将赋值运算符（<code>=</code>）与其它运算符进行结合。例如，将加法与赋值结合成加法赋值运算符（<code>+=</code>）。在实现的时候，需要把运算符的左参数设置成 <code>inout</code> 类型，因为这个参数的值会在运算符函数内直接被修改。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在下面的例子中，对 <code>Vector2D</code> 实例实现了一个加法赋值运算符函数：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">extension</span> <span class="nc">Vector2D</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">func</span> <span class="o">+=</span> <span class="p">(</span><span class="kr">left</span><span class="p">:</span> <span class="kr">inout</span> <span class="n">Vector2D</span><span class="p">,</span> <span class="kr">right</span><span class="p">:</span> <span class="n">Vector2D</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">left</span> <span class="p">=</span> <span class="kr">left</span> <span class="o">+</span> <span class="kr">right</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">因为加法运算在之前已经定义过了，所以在这里无需重新定义。在这里可以直接利用现有的加法运算符函数，用它来对左值和右值进行相加，并再次赋值给左值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">original</span> <span class="p">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">vectorToAdd</span> <span class="p">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">)</span>
+<span class="n">original</span> <span class="o">+=</span> <span class="n">vectorToAdd</span>
+<span class="c1">// original 的值现在为 (4.0, 6.0)</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">不能对默认的赋值运算符（<code>=</code>）进行重载。只有复合赋值运算符可以被重载。同样地，也无法对三元条件运算符 （<code>a ? b : c</code>） 进行重载。</span>
+</p>
+
+</blockquote>
+<h3 id="toc_15" class="h16"><span class="span_for_h">等价运算符 {#equivalence-operators}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">通常情况下，自定义的类和结构体没有对*等价运算符*进行默认实现，等价运算符通常被称为*相等*运算符（<code>==</code>）与*不等*运算符（<code>!=</code>）。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">为了使用等价运算符对自定义的类型进行判等运算，需要为“相等”运算符提供自定义实现，实现的方法与其它中缀运算符一样, 并且增加对标准库 <code>Equatable</code> 协议的遵循：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">extension</span> <span class="nc">Vector2D</span><span class="p">:</span> <span class="nb">Equatable</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">func</span> <span class="p">==</span> <span class="p">(</span><span class="kr">left</span><span class="p">:</span> <span class="n">Vector2D</span><span class="p">,</span> <span class="kr">right</span><span class="p">:</span> <span class="n">Vector2D</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kr">left</span><span class="p">.</span><span class="n">x</span> <span class="p">==</span> <span class="kr">right</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="kr">left</span><span class="p">.</span><span class="n">y</span> <span class="p">==</span> <span class="kr">right</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上述代码实现了“相等”运算符（<code>==</code>）来判断两个 <code>Vector2D</code> 实例是否相等。对于 <code>Vector2D</code> 来说，“相等”意味着“两个实例的 <code>x</code> 和 <code>y</code> 都相等”，这也是代码中用来进行判等的逻辑。如果你已经实现了“相等”运算符，通常情况下你并不需要自己再去实现“不等”运算符（<code>!=</code>）。标准库对于“不等”运算符提供了默认的实现，它简单地将“相等”运算符的结果进行取反后返回。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">现在我们可以使用这两个运算符来判断两个 <code>Vector2D</code> 实例是否相等：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">twoThree</span> <span class="p">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">anotherTwoThree</span> <span class="p">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">twoThree</span> <span class="p">==</span> <span class="n">anotherTwoThree</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;These two vectors are equivalent.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“These two vectors are equivalent.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">多数简单情况下，您可以使用 Swift 为您提供的等价运算符默认实现。Swift 为以下数种自定义类型提供等价运算符的默认实现：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>只拥有存储属性，并且它们全都遵循 <code>Equatable</code> 协议的结构体
+
+</span></li>
+<li class="md_li"><span>只拥有关联类型，并且它们全都遵循 <code>Equatable</code> 协议的枚举
+
+</span></li>
+<li class="md_li"><span>没有关联类型的枚举
+
+</span></li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在类型原始的声明中声明遵循 <code>Equatable</code> 来接收这些默认实现。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面为三维位置向量 <code>(x, y, z)</code> 定义的 <code>Vector3D</code> 结构体，与 <code>Vector2D</code> 类似。由于 <code>x</code>，<code>y</code> 和 <code>z</code> 属性都是 <code>Equatable</code> 类型，<code>Vector3D</code> 获得了默认的等价运算符实现。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">struct</span> <span class="nc">Vector3D</span><span class="p">:</span> <span class="nb">Equatable</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">x</span> <span class="p">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">y</span> <span class="p">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">z</span> <span class="p">=</span> <span class="mf">0.0</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nv">twoThreeFour</span> <span class="p">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">anotherTwoThreeFour</span> <span class="p">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">twoThreeFour</span> <span class="p">==</span> <span class="n">anotherTwoThreeFour</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;These two vectors are also equivalent.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“These two vectors are also equivalent.”</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_16" class="h16"><span class="span_for_h">自定义运算符 {#custom-operators}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">除了实现标准运算符，在 Swift 中还可以声明和实现<em class="md_patched_em">自定义运算符</em>。可以用来自定义运算符的字符列表请参考 <a class="md_compiled" href="../03_language_reference/02_Lexical_Structure.html#operators">运算符</a>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">新的运算符要使用 <code>operator</code> 关键字在全局作用域内进行定义，同时还要指定 <code>prefix</code>、<code>infix</code> 或者 <code>postfix</code> 修饰符：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kr">prefix</span> <span class="kd">operator</span> <span class="o">+++</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">上面的代码定义了一个新的名为 <code>+++</code> 的前缀运算符。对于这个运算符，在 Swift 中并没有已知的意义，因此在针对 <code>Vector2D</code> 实例的特定上下文中，给予了它自定义的意义。对这个示例来讲，<code>+++</code> 被实现为“前缀双自增”运算符。它使用了前面定义的复合加法运算符来让矩阵与自身进行相加，从而让 <code>Vector2D</code> 实例的 <code>x</code> 属性和 <code>y</code> 属性值翻倍。你可以像下面这样通过对 <code>Vector2D</code> 添加一个 <code>+++</code> 类方法，来实现 <code>+++</code> 运算符：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">extension</span> <span class="nc">Vector2D</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kr">prefix</span> <span class="kd">func</span> <span class="o">+++</span> <span class="p">(</span><span class="n">vector</span><span class="p">:</span> <span class="kr">inout</span> <span class="n">Vector2D</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Vector2D</span> <span class="p">{</span>
+        <span class="n">vector</span> <span class="o">+=</span> <span class="n">vector</span>
+        <span class="k">return</span> <span class="n">vector</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nv">toBeDoubled</span> <span class="p">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">afterDoubling</span> <span class="p">=</span> <span class="o">+++</span><span class="n">toBeDoubled</span>
+<span class="c1">// toBeDoubled 现在的值为 (2.0, 8.0)</span>
+<span class="c1">// afterDoubling 现在的值也为 (2.0, 8.0)</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_17" class="h16"><span class="span_for_h">自定义中缀运算符的优先级 {#precedence-and-associativity-for-custom-infix-operators}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">每个自定义中缀运算符都属于某个优先级组。优先级组指定了这个运算符相对于其他中缀运算符的优先级和结合性。<a class="md_compiled" href="#precedence-and-associativity">优先级和结合性</a> 中详细阐述了这两个特性是如何对中缀运算符的运算产生影响的。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">而没有明确放入某个优先级组的自定义中缀运算符将会被放到一个默认的优先级组内，其优先级高于三元运算符。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">以下例子定义了一个新的自定义中缀运算符 <code>+-</code>，此运算符属于 <code>AdditionPrecedence</code> 优先组：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kr">infix</span> <span class="kd">operator</span> <span class="o">+-</span><span class="p">:</span> <span class="n">AdditionPrecedence</span>
+<span class="kd">extension</span> <span class="nc">Vector2D</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">func</span> <span class="o">+-</span> <span class="p">(</span><span class="kr">left</span><span class="p">:</span> <span class="n">Vector2D</span><span class="p">,</span> <span class="kr">right</span><span class="p">:</span> <span class="n">Vector2D</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Vector2D</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Vector2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="kr">left</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="kr">right</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="kr">left</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="kr">right</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nv">firstVector</span> <span class="p">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">secondVector</span> <span class="p">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">plusMinusVector</span> <span class="p">=</span> <span class="n">firstVector</span> <span class="o">+-</span> <span class="n">secondVector</span>
+<span class="c1">// plusMinusVector 是一个 Vector2D 实例，并且它的值为 (4.0, -2.0)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">这个运算符把两个向量的 <code>x</code> 值相加，同时从第一个向量的 <code>y</code> 中减去第二个向量的 <code>y</code> 。因为它本质上是属于“相加型”运算符，所以将它放置在 <code>+</code> 和 <code>-</code> 等默认中缀“相加型”运算符相同的优先级组中。关于 Swift 标准库提供的运算符，以及完整的运算符优先级组和结合性设置，请参考 <a class="md_compiled" href="https://developer.apple.com/documentation/swift/operator_declarations">运算符声明</a>。而更多关于优先级组以及自定义操作符和优先级组的语法，请参考 <a class="md_compiled" href="./06_Declarations.md#operator-declaration">运算符声明</a>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line">当定义前缀与后缀运算符的时候，我们并没有指定优先级。然而，如果对同一个值同时使用前缀与后缀运算符，则后缀运算符会先参与运算。<br /></span>
+<!--blockquote--></p>
+
+</blockquote>
+        </div>
+    </div>
+    <!--mathjax-->
+    <!--mermaid-->
+</body>
+</html>

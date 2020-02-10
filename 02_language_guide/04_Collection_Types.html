@@ -1,0 +1,955 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>集合类型</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">集合类型</span></h1>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 语言提供数组（Array）、集合（Set）和字典（Dictionary）三种基本的<em class="md_patched_em">集合类型</em>用来存储集合数据。数组是有序数据的集。集合是无序无重复数据的集。字典是无序的键值对的集。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/CollectionTypes_intro_2x.png" alt="" title="" ></span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">Swift 中的数组、集合和字典必须明确其中保存的键和值类型，这样就可以避免插入一个错误数据类型的值。同理，对于获取到的值你也可以放心，其数据类型是确定的。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">Swift 的数组、集合和字典类型被实现为<em class="md_patched_em">泛型集合</em>。更多关于泛型类型和集合，参见 <a class="md_compiled" href="./22_Generics.md">泛型</a> 章节。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_1" class="h16"><span class="span_for_h">集合的可变性 {#mutability-of-collections}</span></h2>
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">如果创建一个数组、集合或字典并且把它分配成一个变量，这个集合将会是<em class="md_patched_em">可变的</em>。这意味着可以在创建之后添加、修改或者删除数据项。如果把数组、集合或字典分配成常量，那么它就是<em class="md_patched_em">不可变的</em>，它的大小和内容都不能被改变。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">在不需要改变集合的时候创建不可变集合是很好的实践。这样做便于你理解自己的代码，也能让 Swift 编译器优化集合的性能。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_2" class="h16"><span class="span_for_h">数组（Arrays） {#arrays}</span></h2>
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end"><em>数组</em>使用有序列表存储同一类型的多个值。相同的值可以多次出现在一个数组的不同位置中。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line">Swift 的 <code>Array</code> 类型被桥接到 Foundation 中的 <code>NSArray</code> 类。<br><br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">更多关于在 Foundation 和 Cocoa 中使用 <code>Array</code> 的信息，参见 <a class="md_compiled" href="https://developer.apple.com/documentation/swift/array#2846730">Bridging Between Array and NSArray</a>。</span>
+</p>
+
+</blockquote>
+<h3 id="toc_3" class="h16"><span class="span_for_h">数组的简单语法 {#array-type-shorthand-syntax}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 中数组的完整写法为 <code>Array&lt;Element&gt;</code>，其中 <code>Element</code> 是这个数组中唯一允许存在的数据类型。也可以使用像 <code>[Element]</code> 这样的简单语法。尽管两种形式在功能上是一样的，但是推荐较短的那种，而且在本文中都会使用这种形式来使用数组。</span>
+</p>
+
+<h3 id="toc_4" class="h16"><span class="span_for_h">创建一个空数组 {#creating-an-empty-array}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以使用构造语法来创建一个由特定数据类型构成的空数组：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">someInts</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]()</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;someInts is of type [Int] with </span><span class="si">\(</span><span class="n">someInts</span><span class="p">.</span><span class="bp">count</span><span class="si">)</span><span class="s"> items.&quot;</span><span class="p">)</span>
+<span class="c1">// 打印“someInts is of type [Int] with 0 items.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">注意，通过构造函数的类型，<code>someInts</code> 的值类型被推断为 <code>[Int]</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">或者，如果代码上下文中已经提供了类型信息，例如一个函数参数或者一个已经定义好类型的常量或者变量，你可以使用空数组语句创建一个空数组，它的写法很简单：<code>[]</code>（一对空方括号）：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">someInts</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1">// someInts 现在包含一个 Int 值</span>
+<span class="n">someInts</span> <span class="p">=</span> <span class="p">[]</span>
+<span class="c1">// someInts 现在是空数组，但是仍然是 [Int] 类型的。</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_5" class="h16"><span class="span_for_h">创建一个带有默认值的数组 {#creating-an-array-with-a-default-value}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">Swift 中的 <code>Array</code> 类型还提供一个可以创建特定大小并且所有数据都被默认的构造方法。可以把准备加入新数组的数据项数量（<code>count</code>）和适当类型的初始值（<code>repeating</code>）传入数组构造函数：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">threeDoubles</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
+<span class="c1">// threeDoubles 是一种 [Double] 数组，等价于 [0.0, 0.0, 0.0]</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_6" class="h16"><span class="span_for_h">通过两个数组相加创建一个数组 {#creating-an-array-by-adding-two-arrays-together}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以使用加法操作符（<code>+</code>）来组合两个已存在的相同类型数组。新数组的数据类型会从两个数组的数据类型中推断出来：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">anotherThreeDoubles</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mf">2.5</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
+<span class="c1">// anotherThreeDoubles 被推断为 [Double]，等价于 [2.5, 2.5, 2.5]</span>
+
+<span class="kd">var</span> <span class="nv">sixDoubles</span> <span class="p">=</span> <span class="n">threeDoubles</span> <span class="o">+</span> <span class="n">anotherThreeDoubles</span>
+<span class="c1">// sixDoubles 被推断为 [Double]，等价于 [0.0, 0.0, 0.0, 2.5, 2.5, 2.5]</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_7" class="h16"><span class="span_for_h">用数组字面量构造数组 {#creating-an-array-with-an-array-literals}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以使用<em class="md_patched_em">数组字面量</em>来进行数组构造，这是一种用一个或者多个数值构造数组的简单方法。数组字面量是一系列由逗号分割并由方括号包含的数值：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>[value 1, value 2, value 3]</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面这个例子创建了一个叫做 <code>shoppingList</code> 并且存储 <code>String</code> 的数组：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">shoppingList</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Eggs&quot;</span><span class="p">,</span> <span class="s">&quot;Milk&quot;</span><span class="p">]</span>
+<span class="c1">// shoppingList 已经被构造并且拥有两个初始项。</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end"><code>shoppingList</code> 变量被声明为“字符串值类型的数组“，记作 <code>[String]</code>。因为这个数组被规定只有 <code>String</code> 一种数据结构，所以只有 <code>String</code> 类型可以在其中被存取。在这里，<code>shoppingList</code> 数组由两个 <code>String</code> 值（<code>"Eggs"</code> 和 <code>"Milk"</code>）构造，并且由数组字面量定义。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end"><code>shoppingList</code> 数组被声明为变量（<code>var</code> 关键字创建）而不是常量（<code>let</code> 创建）是因为之后会有更多的数据项被插入其中。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在这个例子中，字面量仅仅包含两个 <code>String</code> 值。匹配了该数组的声明（只能包含 <code>String</code> 的数组），所以可以将这个字面量的赋值过程看作用两个初始项来构造 <code>shoppingList</code> 的一种方式。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">由于 Swift 的类型推断机制，当你用字面量构造拥有相同类型值数组的时候，不必把数组的类型定义清楚。<code>shoppingList</code> 的构造也可以这样写：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">shoppingList</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Eggs&quot;</span><span class="p">,</span> <span class="s">&quot;Milk&quot;</span><span class="p">]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">因为所有数组字面量中的值都是相同的类型，Swift 可以推断出 <code>[String]</code> 是 <code>shoppingList</code> 中变量的正确类型。</span>
+</p>
+
+<h3 id="toc_8" class="h16"><span class="span_for_h">访问和修改数组 {#accessing-and-modifying-an-array}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以通过数组的方法和属性来访问和修改数组，或者使用下标语法。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">可以使用数组的只读属性 <code>count</code> 来获取数组中的数据项数量：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;The shopping list contains </span><span class="si">\(</span><span class="n">shoppingList</span><span class="p">.</span><span class="bp">count</span><span class="si">)</span><span class="s"> items.&quot;</span><span class="p">)</span>
+<span class="c1">// 输出“The shopping list contains 2 items.”（这个数组有2个项）</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">使用布尔属性 <code>isEmpty</code> 作为一个缩写形式去检查 <code>count</code> 属性是否为 <code>0</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="n">shoppingList</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The shopping list is empty.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The shopping list is not empty.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“The shopping list is not empty.”（shoppinglist 不是空的）</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">也可以使用 <code>append(_:)</code> 方法在数组后面添加新的数据项：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">shoppingList</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;Flour&quot;</span><span class="p">)</span>
+<span class="c1">// shoppingList 现在有3个数据项，似乎有人在摊煎饼</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">除此之外，也可以使用加法赋值运算符（<code>+=</code>）直接将另一个相同类型数组中的数据添加到该数组后面：  </span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">shoppingList</span> <span class="o">+=</span> <span class="p">[</span><span class="s">&quot;Baking Powder&quot;</span><span class="p">]</span>
+<span class="c1">// shoppingList 现在有四项了</span>
+<span class="n">shoppingList</span> <span class="o">+=</span> <span class="p">[</span><span class="s">&quot;Chocolate Spread&quot;</span><span class="p">,</span> <span class="s">&quot;Cheese&quot;</span><span class="p">,</span> <span class="s">&quot;Butter&quot;</span><span class="p">]</span>
+<span class="c1">// shoppingList 现在有七项了</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">可以直接使用<em class="md_patched_em">下标语法</em>来获取数组中的数据项，把所需要数据项的索引值直接放在数组名称之后的方括号中：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">firstItem</span> <span class="p">=</span> <span class="n">shoppingList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1">// 第一项是“Eggs”</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">第一项在数组中的索引值是 <code>0</code> 而不是 <code>1</code>。 Swift 中的数组索引总是从零开始。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你也可以用下标来改变某个有效索引值对应的数据值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">shoppingList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Six eggs&quot;</span>
+<span class="c1">// 其中的第一项现在是“Six eggs”而不是“Eggs”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当你使用下标语法，所使用的下标必须是有效的。例如，试图通过 <code>shoppingList[shoppingList.count] = "Salt"</code> 在数组的最后添加一项，将产生一个运行时错误。  </span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">还可以利用下标来一次改变一系列数据值，即使新数据和原有数据的数量是不一样的。下面的例子把 <code>"Chocolate Spread"</code>、<code>"Cheese"</code> 和 <code>"Butter"</code> 替换为 <code>"Bananas"</code> 和 <code>"Apples"</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">shoppingList</span><span class="p">[</span><span class="mf">4.</span><span class="p">..</span><span class="mi">6</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Bananas&quot;</span><span class="p">,</span> <span class="s">&quot;Apples&quot;</span><span class="p">]</span>
+<span class="c1">// shoppingList 现在有6项</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">通过调用数组的 <code>insert(_:at:)</code> 方法在某个指定索引值之前添加数据项：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">shoppingList</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="s">&quot;Maple Syrup&quot;</span><span class="p">,</span> <span class="n">at</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1">// shoppingList 现在有7项</span>
+<span class="c1">// 现在是这个列表中的第一项是“Maple Syrup”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这次 <code>insert(_:at:)</code> 方法调用把值为 <code>"Maple Syrup"</code> 的新数据项插入列表的最开始位置，并且使用 <code>0</code> 作为索引值。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">类似的可以使用 <code>remove(at:)</code> 方法来移除数组中的某一项。这个方法把数组在特定索引值中存储的数据项移除并且返回这个被移除的数据项（不需要的时候就可以无视它）：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">mapleSyrup</span> <span class="p">=</span> <span class="n">shoppingList</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1">// 索引值为0的数据项被移除</span>
+<span class="c1">// shoppingList 现在只有6项，而且不包括 Maple Syrup</span>
+<span class="c1">// mapleSyrup 常量的值等于被移除数据项“Maple Syrup”</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">如果你试图通过越界索引来执行访问或者修改数据的操作，会引发一个运行时错误。此时可以使用索引值和数组的 <code>count</code> 属性进行比较来在使用该索引之前检验其是否有效。除了当 <code>count</code> 等于 0 时（说明这是个空数组），最大索引值一直是 <code>count - 1</code>，因为数组都是零起索引。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">数据项被移除后数组中的空出项会被自动填补，所以现在索引值为 <code>0</code> 的数据项的值再次等于 <code>"Six eggs"</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">firstItem</span> <span class="p">=</span> <span class="n">shoppingList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1">// firstItem 现在等于“Six eggs”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你只想把数组中的最后一项移除，可以使用 <code>removeLast()</code> 方法而不是 <code>remove(at:)</code> 方法来避免需要获取数组的 <code>count</code> 属性。就像后者一样，前者也会返回被移除的数据项：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">apples</span> <span class="p">=</span> <span class="n">shoppingList</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">()</span>
+<span class="c1">// 数组的最后一项被移除了</span>
+<span class="c1">// shoppingList 现在只有5项，不包括 Apples</span>
+<span class="c1">// apples 常量的值现在等于字符串“Apples”</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_9" class="h16"><span class="span_for_h">数组的遍历 {#iterating-over-an-array}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以使用 <code>for-in</code> 循环来遍历数组中所有的数据项：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">shoppingList</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// Six eggs</span>
+<span class="c1">// Milk</span>
+<span class="c1">// Flour</span>
+<span class="c1">// Baking Powder</span>
+<span class="c1">// Bananas</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果同时需要每个数据项的值和索引值，可以使用 <code>enumerated()</code> 方法来进行数组遍历。<code>enumerated()</code> 返回一个由索引值和数据值组成的元组数组。索引值从零开始，并且每次增加一；如果枚举一整个数组，索引值将会和数据值一一匹配。你可以把这个元组分解成临时常量或者变量来进行遍历：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="n">shoppingList</span><span class="p">.</span><span class="n">enumerated</span><span class="p">()</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Item </span><span class="si">\(</span><span class="nb">String</span><span class="si">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="si">))</span><span class="s">: </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// Item 1: Six eggs</span>
+<span class="c1">// Item 2: Milk</span>
+<span class="c1">// Item 3: Flour</span>
+<span class="c1">// Item 4: Baking Powder</span>
+<span class="c1">// Item 5: Bananas</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">更多关于 <code>for-in</code> 循环的介绍请参见 <a class="md_compiled" href="05_Control_Flow.html#for-loops">For 循环</a>。</span>
+</p>
+
+<h2 id="toc_10" class="h16"><span class="span_for_h">集合（Sets） {#sets}</span></h2>
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end"><em>集合</em>用来存储相同类型并且没有确定顺序的值。当集合元素顺序不重要时或者希望确保每个元素只出现一次时可以使用集合而不是数组。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_4 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">Swift 的 <code>Set</code> 类型被桥接到 Foundation 中的 <code>NSSet</code> 类。<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">关于使用 Foundation 和 Cocoa 中 <code>Set</code> 的知识，参见 <a class="md_compiled" href="https://developer.apple.com/documentation/swift/set#2845530">Bridging Between Set and NSSet</a></span>
+</p>
+
+</blockquote>
+<h3 id="toc_11" class="h16"><span class="span_for_h">集合类型的哈希值 {#hash-values-for-set-types}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">一个类型为了存储在集合中，该类型必须是<em class="md_patched_em">可哈希化</em>的——也就是说，该类型必须提供一个方法来计算它的<em class="md_patched_em">哈希值</em>。一个哈希值是 <code>Int</code> 类型的，相等的对象哈希值必须相同，比如 <code>a == b</code>,因此必须 <code>a.hashValue == b.hashValue</code>。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">Swift 的所有基本类型（比如 <code>String</code>、<code>Int</code>、<code>Double</code> 和 <code>Bool</code>）默认都是可哈希化的，可以作为集合值的类型或者字典键的类型。没有关联值的枚举成员值（在 <a class="md_compiled" href="./08_Enumerations.md">枚举</a> 有讲述）默认也是可哈希化的。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line">你可以使用自定义的类型作为集合值的类型或者是字典键的类型，但需要使自定义类型遵循 Swift 标准库中的 <code>Hashable</code> 协议。遵循 <code>Hashable</code> 协议的类型需要提供一个类型为 <code>Int</code> 的可读属性 <code>hashValue</code>。由类型的 <code>hashValue</code> 属性返回的值不需要在同一程序的不同执行周期或者不同程序之间保持相同。<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">因为 <code>Hashable</code> 协议遵循 <code>Equatable</code> 协议，所以遵循该协议的类型也必须提供一个“是否相等”运算符（<code>==</code>）的实现。这个 <code>Equatable</code> 协议要求任何遵循 <code>==</code> 实现的实例间都是一种相等的关系。也就是说，对于 <code>a,b,c</code> 三个值来说，<code>==</code> 的实现必须满足下面三种情况：</span>
+</p>
+
+</blockquote>
+
+<blockquote class=" blockquote_without_image"><ul>
+<li class="md_li"><span><code>a == a</code>(自反性)
+</span></li>
+<li class="md_li"><span><code>a == b</code> 意味着 <code>b == a</code>(对称性)
+</span></li>
+<li class="md_li"><span><code>a == b &amp;&amp; b == c</code> 意味着 <code>a == c</code>(传递性)
+&nbsp;
+关于遵循协议的更多信息，请看 <a class="md_compiled" href="./21_Protocols.md">协议</a>。
+</span></li>
+</ul>
+</blockquote>
+<h3 id="toc_12" class="h16"><span class="span_for_h">集合类型语法 {#set-type-syntax}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">Swift 中的集合类型被写为 <code>Set&lt;Element&gt;</code>，这里的 <code>Element</code> 表示集合中允许存储的类型。和数组不同的是，集合没有等价的简化形式。</span>
+</p>
+
+<h3 id="toc_13" class="h16"><span class="span_for_h">创建和构造一个空的集合 {#creating-and-initalizing-an-empty-set}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以通过构造器语法创建一个特定类型的空集合：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">letters</span> <span class="p">=</span> <span class="n">Set</span><span class="p">&lt;</span><span class="nb">Character</span><span class="p">&gt;()</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;letters is of type Set&lt;Character&gt; with </span><span class="si">\(</span><span class="n">letters</span><span class="p">.</span><span class="bp">count</span><span class="si">)</span><span class="s"> items.&quot;</span><span class="p">)</span>
+<span class="c1">// 打印“letters is of type Set&lt;Character&gt; with 0 items.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">通过构造器，这里 <code>letters</code> 变量的类型被推断为 <code>Set&lt;Character&gt;</code>。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">此外，如果上下文提供了类型信息，比如作为函数的参数或者已知类型的变量或常量，你可以通过一个空的数组字面量创建一个空的集合：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">letters</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span>
+<span class="c1">// letters 现在含有1个 Character 类型的值</span>
+<span class="n">letters</span> <span class="p">=</span> <span class="p">[]</span>
+<span class="c1">// letters 现在是一个空的 Set，但是它依然是 Set&lt;Character&gt; 类型</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_14" class="h16"><span class="span_for_h">用数组字面量创建集合 {#creating-a-set-with-an-array-literal}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以使用数组字面量来构造集合，相当于一种简化的形式将一个或者多个值作为集合元素。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子创建一个称之为 <code>favoriteGenres</code> 的集合来存储 <code>String</code> 类型的值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">favoriteGenres</span><span class="p">:</span> <span class="n">Set</span><span class="p">&lt;</span><span class="nb">String</span><span class="p">&gt;</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Rock&quot;</span><span class="p">,</span> <span class="s">&quot;Classical&quot;</span><span class="p">,</span> <span class="s">&quot;Hip hop&quot;</span><span class="p">]</span>
+<span class="c1">// favoriteGenres 被构造成含有三个初始值的集合</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">这个 <code>favoriteGenres</code> 变量被声明为“一个 <code>String</code> 值的集合”，写为 <code>Set&lt;String&gt;</code>。由于这个特定集合指定了值为 <code>String</code> 类型，所以它*只*允许存储 <code>String</code> 类型值。这里的 <code>favoriteGenres</code> 变量有三个 <code>String</code> 类型的初始值（<code>"Rock"</code>，<code>"Classical"</code> 和 <code>"Hip hop"</code>），以数组字面量的形式书写。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end"><code>favoriteGenres</code> 被声明为一个变量（拥有 <code>var</code> 标示符）而不是一个常量（拥有 <code>let</code> 标示符）,因为它里面的元素将会在之后的例子中被增加或者移除。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">一个集合类型不能从数组字面量中被直接推断出来，因此 <code>Set</code> 类型必须显式声明。然而，由于 Swift 的类型推断功能，如果你想使用一个数组字面量构造一个集合并且与该数组字面量中的所有元素类型相同，那么无须写出集合的具体类型。<code>favoriteGenres</code> 的构造形式可以采用简化的方式代替：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">favoriteGenres</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Rock&quot;</span><span class="p">,</span> <span class="s">&quot;Classical&quot;</span><span class="p">,</span> <span class="s">&quot;Hip hop&quot;</span><span class="p">]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">由于数组字面量中的所有元素类型相同，Swift 可以推断出 <code>Set&lt;String&gt;</code> 作为 <code>favoriteGenres</code> 变量的正确类型。</span>
+</p>
+
+<h3 id="toc_15" class="h16"><span class="span_for_h">访问和修改一个集合 {#accesing-and-modifying-a-set}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以通过集合的属性和方法来对其进行访问和修改。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">为了获取一个集合中元素的数量，可以使用其只读属性 <code>count</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;I have </span><span class="si">\(</span><span class="n">favoriteGenres</span><span class="p">.</span><span class="bp">count</span><span class="si">)</span><span class="s"> favorite music genres.&quot;</span><span class="p">)</span>
+<span class="c1">// 打印“I have 3 favorite music genres.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">使用布尔属性 <code>isEmpty</code> 作为一个缩写形式去检查 <code>count</code> 属性是否为 <code>0</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="n">favoriteGenres</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;As far as music goes, I&#39;m not picky.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;I have particular music preferences.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“I have particular music preferences.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以通过调用集合的 <code>insert(_:)</code> 方法来添加一个新元素：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">favoriteGenres</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="s">&quot;Jazz&quot;</span><span class="p">)</span>
+<span class="c1">// favoriteGenres 现在包含4个元素</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以通过调用集合的 <code>remove(_:)</code> 方法去删除一个元素，如果它是该集合的一个元素则删除它并且返回它的值，若该集合不包含它，则返回 <code>nil</code>。另外，集合可以通过 <code>removeAll()</code> 方法删除所有元素。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">removedGenre</span> <span class="p">=</span> <span class="n">favoriteGenres</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s">&quot;Rock&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">removedGenre</span><span class="si">)</span><span class="s">? I&#39;m over it.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;I never much cared for that.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“Rock? I&#39;m over it.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">使用 <code>contains(_:)</code> 方法去检查集合中是否包含一个特定的值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="n">favoriteGenres</span><span class="p">.</span><span class="bp">contains</span><span class="p">(</span><span class="s">&quot;Funk&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;I get up on the good foot.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;It&#39;s too funky in here.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“It&#39;s too funky in here.”</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_16" class="h16"><span class="span_for_h">遍历一个集合 {#iterating-over-a-set}</span></h3>
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以在一个 <code>for-in</code> 循环中遍历一个集合中的所有值。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">genre</span> <span class="k">in</span> <span class="n">favoriteGenres</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">genre</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// Classical</span>
+<span class="c1">// Jazz</span>
+<span class="c1">// Hip hop</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">更多关于 <code>for-in</code> 循环的信息，参见 <a class="md_compiled" href="./05_Control_Flow.md#for-loops">For 循环</a>。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">Swift 的 <code>Set</code> 类型没有确定的顺序，为了按照特定顺序来遍历一个集合中的值可以使用 <code>sorted()</code> 方法，它将返回一个有序数组，这个数组的元素排列顺序由操作符 <code>&lt;</code> 对元素进行比较的结果来确定。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">genre</span> <span class="k">in</span> <span class="n">favoriteGenres</span><span class="p">.</span><span class="bp">sorted</span><span class="p">()</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">genre</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// Classical</span>
+<span class="c1">// Hip hop</span>
+<span class="c1">// Jazz</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_17" class="h16"><span class="span_for_h">集合操作 {#performing-set-operations}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以高效地完成集合的一些基本操作，比如把两个集合组合到一起，判断两个集合共有元素，或者判断两个集合是否全包含，部分包含或者不相交。</span>
+</p>
+
+<h3 id="toc_18" class="h16"><span class="span_for_h">基本集合操作 {#fundamental-set-operations}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">下面的插图描述了两个集合 <code>a</code> 和 <code>b</code>，以及通过阴影部分的区域显示集合各种操作的结果。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/setVennDiagram_2x.png" alt="" title="" ></span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>使用 <code>intersection(_:)</code> 方法根据两个集合的交集创建一个新的集合。
+
+</span></li>
+<li class="md_li"><span>使用 <code>symmetricDifference(_:)</code> 方法根据两个集合不相交的值创建一个新的集合。
+
+</span></li>
+<li class="md_li"><span>使用 <code>union(_:)</code> 方法根据两个集合的所有值创建一个新的集合。
+
+</span></li>
+<li class="md_li"><span>使用 <code>subtracting(_:)</code> 方法根据不在另一个集合中的值创建一个新的集合。
+
+</span></li>
+</ul>
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">oddDigits</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nv">evenDigits</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nv">singleDigitPrimeNumbers</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+
+<span class="n">oddDigits</span><span class="p">.</span><span class="n">union</span><span class="p">(</span><span class="n">evenDigits</span><span class="p">).</span><span class="bp">sorted</span><span class="p">()</span>
+<span class="c1">// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+<span class="n">oddDigits</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">evenDigits</span><span class="p">).</span><span class="bp">sorted</span><span class="p">()</span>
+<span class="c1">// []</span>
+<span class="n">oddDigits</span><span class="p">.</span><span class="n">subtracting</span><span class="p">(</span><span class="n">singleDigitPrimeNumbers</span><span class="p">).</span><span class="bp">sorted</span><span class="p">()</span>
+<span class="c1">// [1, 9]</span>
+<span class="n">oddDigits</span><span class="p">.</span><span class="n">symmetricDifference</span><span class="p">(</span><span class="n">singleDigitPrimeNumbers</span><span class="p">).</span><span class="bp">sorted</span><span class="p">()</span>
+<span class="c1">// [1, 2, 9]</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_19" class="h16"><span class="span_for_h">集合成员关系和相等 {#set-membership-and-equality}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">下面的插图描述了三个集合 <code>a</code>、<code>b</code> 和 <code>c</code>，以及通过重叠区域表述集合间共享的元素。集合 <code>a</code> 是集合 <code>b</code> 的*父集合*，因为 <code>a</code> 包含了 <code>b</code> 中所有的元素。相反的，集合 <code>b</code> 是集合 <code>a</code> 的*子集合*，因为属于 <code>b</code> 的元素也被 <code>a</code> 包含。集合 <code>b</code> 和集合 <code>c</code> 是*不相交*的，因为它们之间没有共同的元素。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/setEulerDiagram_2x.png" alt="" title="" ></span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>使用“是否相等”运算符（<code>==</code>）来判断两个集合包含的值是否全部相同。
+
+</span></li>
+<li class="md_li"><span>使用 <code>isSubset(of:)</code> 方法来判断一个集合中的所有值是否也被包含在另外一个集合中。
+
+</span></li>
+<li class="md_li"><span>使用 <code>isSuperset(of:)</code> 方法来判断一个集合是否包含另一个集合中所有的值。
+
+</span></li>
+<li class="md_li"><span>使用 <code>isStrictSubset(of:)</code> 或者 <code>isStrictSuperset(of:)</code> 方法来判断一个集合是否是另外一个集合的子集合或者父集合并且两个集合并不相等。
+
+</span></li>
+<li class="md_li"><span>使用 <code>isDisjoint(with:)</code> 方法来判断两个集合是否不含有相同的值（是否没有交集）。
+
+</span></li>
+</ul>
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">houseAnimals</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;🐶&quot;</span><span class="p">,</span> <span class="s">&quot;🐱&quot;</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nv">farmAnimals</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;🐮&quot;</span><span class="p">,</span> <span class="s">&quot;🐔&quot;</span><span class="p">,</span> <span class="s">&quot;🐑&quot;</span><span class="p">,</span> <span class="s">&quot;🐶&quot;</span><span class="p">,</span> <span class="s">&quot;🐱&quot;</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nv">cityAnimals</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;🐦&quot;</span><span class="p">,</span> <span class="s">&quot;🐭&quot;</span><span class="p">]</span>
+
+<span class="n">houseAnimals</span><span class="p">.</span><span class="n">isSubset</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">farmAnimals</span><span class="p">)</span>
+<span class="c1">// true</span>
+<span class="n">farmAnimals</span><span class="p">.</span><span class="n">isSuperset</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">houseAnimals</span><span class="p">)</span>
+<span class="c1">// true</span>
+<span class="n">farmAnimals</span><span class="p">.</span><span class="n">isDisjoint</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">cityAnimals</span><span class="p">)</span>
+<span class="c1">// true</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_20" class="h16"><span class="span_for_h">字典 {#dictionaries}</span></h2>
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end"><em>字典</em>是一种无序的集合，它存储的是键值对之间的关系，其所有键的值需要是相同的类型，所有值的类型也需要相同。每个值（value）都关联唯一的<em class="md_patched_em">键</em>（key），键作为字典中这个值数据的标识符。和数组中的数据项不同，字典中的数据项并没有具体顺序。你在需要通过标识符（键）访问数据的时候使用字典，这种方法很大程度上和在现实世界中使用字典查字义的方法一样。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_5 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line">Swift 的 <code>Dictionary</code> 类型被桥接到 Foundation 的 <code>NSDictionary</code> 类。<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">更多关于在 Foundation 和 Cocoa 中使用 <code>Dictionary</code> 类型的信息，参见 <a class="md_compiled" href="https://developer.apple.com/documentation/swift/dictionary#2846239">Bridging Between Dictionary and NSDictionary</a>。</span>
+</p>
+
+</blockquote>
+<h3 id="toc_21" class="h16"><span class="span_for_h">字典类型简化语法 {#dictionary-type-shorthand-syntax}</span></h3>
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">Swift 的字典使用 <code>Dictionary&lt;Key, Value&gt;</code> 定义，其中 <code>Key</code> 是一种可以在字典中被用作键的类型，<code>Value</code> 是字典中对应于这些键所存储值的数据类型。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">一个字典的 <code>Key</code> 类型必须遵循 <code>Hashable</code> 协议，就像 <code>Set</code> 的值类型。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你也可以用 <code>[Key: Value]</code> 这样简化的形式去表示字典类型。虽然这两种形式功能上相同，但是后者是首选，并且本教程中涉及到字典类型时通篇采用后者。</span>
+</p>
+
+<h3 id="toc_22" class="h16"><span class="span_for_h">创建一个空字典 {#creating-an-empty-dictionary}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以像数组一样使用构造语法创建一个拥有确定类型的空字典：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">namesOfIntegers</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">:</span> <span class="nb">String</span><span class="p">]()</span>
+<span class="c1">// namesOfIntegers 是一个空的 [Int: String] 字典</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个例子创建了一个 <code>[Int: String]</code> 类型的空字典来储存整数的英语命名。它的键是 <code>Int</code> 型，值是 <code>String</code> 型。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果上下文已经提供了类型信息，你可以使用空字典字面量来创建一个空字典，记作 <code>[:]</code> （一对方括号中放一个冒号）：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">namesOfIntegers</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;sixteen&quot;</span>
+<span class="c1">// namesOfIntegers 现在包含一个键值对</span>
+<span class="n">namesOfIntegers</span> <span class="p">=</span> <span class="p">[:]</span>
+<span class="c1">// namesOfIntegers 又成为了一个 [Int: String] 类型的空字典</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_23" class="h16"><span class="span_for_h">用字典字面量创建字典 {#creating-a-dictionary-with-a-dictionary-literal}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以使用<em class="md_patched_em">字典字面量</em>来构造字典，这和刚才介绍过的数组字面量拥有相似语法。字典字面量是一种将一个或多个键值对写作 <code>Dictionary</code> 集合的快捷途径。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><em>一个键值对</em>是一个键和一个值的结合体。在字典字面量中，每一个键值对的键和值都由冒号分割。这些键值对构成一个列表，其中这些键值对由逗号分割、并整体被包裹在一对方括号中：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="p">[</span><span class="n">key</span> <span class="mi">1</span><span class="p">:</span> <span class="n">value</span> <span class="mi">1</span><span class="p">,</span> <span class="n">key</span> <span class="mi">2</span><span class="p">:</span> <span class="n">value</span> <span class="mi">2</span><span class="p">,</span> <span class="n">key</span> <span class="mi">3</span><span class="p">:</span> <span class="n">value</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子创建了一个存储国际机场名称的字典。在这个字典中键是三个字母的国际航空运输相关代码，值是机场名称：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">airports</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">String</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;YYZ&quot;</span><span class="p">:</span> <span class="s">&quot;Toronto Pearson&quot;</span><span class="p">,</span> <span class="s">&quot;DUB&quot;</span><span class="p">:</span> <span class="s">&quot;Dublin&quot;</span><span class="p">]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end"><code>airports</code> 字典被声明为一种 <code>[String: String]</code> 类型，这意味着这个字典的键和值都是 <code>String</code> 类型。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end"><code>airports</code> 字典被声明为变量（用 <code>var</code> 关键字）而不是常量（用 <code>let</code> 关键字）因为后面会有更多的机场信息被添加到这个字典中。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>airports</code> 字典使用字典字面量初始化，包含两个键值对。第一对的键是 <code>YYZ</code>，值是 <code>Toronto Pearson</code>。第二对的键是 <code>DUB</code>，值是 <code>Dublin</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个字典语句包含了两个 <code>String: String</code> 类型的键值对。它们对应 <code>airports</code> 变量声明的类型（一个只有 <code>String</code> 键和 <code>String</code> 值的字典），所以这个字典字面量的赋值是一种方式用来构造拥有两个初始数据项的 <code>airport</code> 字典。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start">和数组一样，你在用字典字面量构造字典时，如果它的键和值都有各自一致的类型，那么就不必写出字典的类型。<br /></span>
+    <span class="md_line md_line_end"><code>airports</code> 字典也可以用这种简短方式定义：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">airports</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;YYZ&quot;</span><span class="p">:</span> <span class="s">&quot;Toronto Pearson&quot;</span><span class="p">,</span> <span class="s">&quot;DUB&quot;</span><span class="p">:</span> <span class="s">&quot;Dublin&quot;</span><span class="p">]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">因为这个语句中所有的键和值都各自拥有相同的数据类型，Swift 可以推断出 <code>[String: String]</code> 是 <code>airports</code> 字典的正确类型。</span>
+</p>
+
+<h3 id="toc_24" class="h16"><span class="span_for_h">访问和修改字典 {#accessing-and-modifying-a-dictionary}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可以通过字典的方法和属性来访问和修改字典，或者通过使用下标语法。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">和数组一样，可以通过 <code>Dictionary</code> 的只读属性 <code>count</code> 来获取字典的数据项数量：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;The dictionary of airports contains </span><span class="si">\(</span><span class="n">airports</span><span class="p">.</span><span class="bp">count</span><span class="si">)</span><span class="s"> items.&quot;</span><span class="p">)</span>
+<span class="c1">// 打印“The dictionary of airports contains 2 items.”（这个字典有两个数据项）</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">使用布尔属性 <code>isEmpty</code> 作为一个缩写形式去检查 <code>count</code> 属性是否为 <code>0</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="n">airports</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The airports dictionary is empty.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The airports dictionary is not empty.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“The airports dictionary is not empty.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以通过下标语法来给字典添加新的数据项。可以使用一个恰当类型的键作为下标索引，并且分配恰当类型的新值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">airports</span><span class="p">[</span><span class="s">&quot;LHR&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;London&quot;</span>
+<span class="c1">// airports 字典现在有三个数据项</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">也可以使用下标语法来改变特定键对应的值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">airports</span><span class="p">[</span><span class="s">&quot;LHR&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;London Heathrow&quot;</span>
+<span class="c1">// “LHR”对应的值被改为“London Heathrow”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">作为一种替代下标语法的方式，字典的 <code>updateValue(_:forKey:)</code> 方法可以设置或者更新特定键对应的值。就像上面所示的下标示例，<code>updateValue(_:forKey:)</code> 方法在这个键不存在对应值的时候会设置新值或者在存在时更新已存在的值。和下标的方式不同，<code>updateValue(_:forKey:)</code> 这个方法返回更新值之前的<em class="md_patched_em">原值</em>。这样使得你可以检查更新是否成功。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>updateValue(_:forKey:)</code> 方法会返回对应值类型的可选类型。举例来说：对于存储 <code>String</code> 值的字典，这个函数会返回一个 <code>String?</code> 或者“可选 <code>String</code>”类型的值。如果有值存在于更新前，则这个可选值包含了旧值，否则它将会是 <code>nil</code> ：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">oldValue</span> <span class="p">=</span> <span class="n">airports</span><span class="p">.</span><span class="n">updateValue</span><span class="p">(</span><span class="s">&quot;Dublin Airport&quot;</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="s">&quot;DUB&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The old value for DUB was </span><span class="si">\(</span><span class="n">oldValue</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 输出“The old value for DUB was Dublin.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你也可以使用下标语法来在字典中检索特定键对应的值。因为有可能请求的键没有对应的值存在，字典的下标访问会返回对应值类型的可选类型。如果这个字典包含请求键所对应的值，下标会返回一个包含这个存在值的可选类型，否则将返回 <code>nil</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">airportName</span> <span class="p">=</span> <span class="n">airports</span><span class="p">[</span><span class="s">&quot;DUB&quot;</span><span class="p">]</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The name of the airport is </span><span class="si">\(</span><span class="n">airportName</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;That airport is not in the airports dictionary.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“The name of the airport is Dublin Airport.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">还可以使用下标语法通过将某个键的对应值赋值为 <code>nil</code> 来从字典里移除一个键值对：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="n">airports</span><span class="p">[</span><span class="s">&quot;APL&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Apple Internation&quot;</span>
+<span class="c1">// “Apple Internation”不是真的 APL 机场，删除它</span>
+<span class="n">airports</span><span class="p">[</span><span class="s">&quot;APL&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="c1">// APL 现在被移除了</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">此外，<code>removeValue(forKey:)</code> 方法也可以用来在字典中移除键值对。这个方法在键值对存在的情况下会移除该键值对并且返回被移除的值或者在没有对应值的情况下返回 <code>nil</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">removedValue</span> <span class="p">=</span> <span class="n">airports</span><span class="p">.</span><span class="n">removeValue</span><span class="p">(</span><span class="n">forKey</span><span class="p">:</span> <span class="s">&quot;DUB&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The removed airport&#39;s name is </span><span class="si">\(</span><span class="n">removedValue</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The airports dictionary does not contain a value for DUB.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“The removed airport&#39;s name is Dublin Airport.”</span>
+</pre></div>
+
+<!--block_code_end--><h3 id="toc_25" class="h16"><span class="span_for_h">字典遍历 {#iterating-over-a-dictionary}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以使用 <code>for-in</code> 循环来遍历某个字典中的键值对。每一个字典中的数据项都以 <code>(key, value)</code> 元组形式返回，并且可以使用临时常量或者变量来分解这些元组：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">airportCode</span><span class="p">,</span> <span class="n">airportName</span><span class="p">)</span> <span class="k">in</span> <span class="n">airports</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">airportCode</span><span class="si">)</span><span class="s">: </span><span class="si">\(</span><span class="n">airportName</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// YYZ: Toronto Pearson</span>
+<span class="c1">// LHR: London Heathrow</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">更多关于 <code>for-in</code> 循环的信息，参见 <a class="md_compiled" href="./05_Control_Flow.md#for-loops">For 循环</a>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">通过访问 <code>keys</code> 或者 <code>values</code> 属性，你也可以遍历字典的键或者值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">for</span> <span class="n">airportCode</span> <span class="k">in</span> <span class="n">airports</span><span class="p">.</span><span class="n">keys</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Airport code: </span><span class="si">\(</span><span class="n">airportCode</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// Airport code: YYZ</span>
+<span class="c1">// Airport code: LHR</span>
+
+<span class="k">for</span> <span class="n">airportName</span> <span class="k">in</span> <span class="n">airports</span><span class="p">.</span><span class="n">values</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Airport name: </span><span class="si">\(</span><span class="n">airportName</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// Airport name: Toronto Pearson</span>
+<span class="c1">// Airport name: London Heathrow</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果你需要使用某个字典的键集合或者值集合来作为某个接受 <code>Array</code> 实例的 API 的参数，可以直接使用 <code>keys</code> 或者 <code>values</code> 属性构造一个新数组：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">airportCodes</span> <span class="p">=</span> <span class="p">[</span><span class="nb">String</span><span class="p">](</span><span class="n">airports</span><span class="p">.</span><span class="n">keys</span><span class="p">)</span>
+<span class="c1">// airportCodes 是 [&quot;YYZ&quot;, &quot;LHR&quot;]</span>
+
+<span class="kd">let</span> <span class="nv">airportNames</span> <span class="p">=</span> <span class="p">[</span><span class="nb">String</span><span class="p">](</span><span class="n">airports</span><span class="p">.</span><span class="n">values</span><span class="p">)</span>
+<span class="c1">// airportNames 是 [&quot;Toronto Pearson&quot;, &quot;London Heathrow&quot;]</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start md_line_end">Swift 的 <code>Dictionary</code> 是无序集合类型。为了以特定的顺序遍历字典的键或值，可以对字典的 <code>keys</code> 或 <code>values</code> 属性使用 <code>sorted()</code> 方法。</span>
+</p>
+        </div>
+    </div>
+    <!--mathjax-->
+    <!--mermaid-->
+</body>
+</html>

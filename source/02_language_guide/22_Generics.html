@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit"/>
+    <title>泛型</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICBoMSwgaDIsIGgzLCBoNSwgaDYsICBpbWcsIHN2ZywgcHJlLCB0YWJsZSwgdHJ7cGFnZS1icmVhay1pbnNpZGU6IGF2b2lkfQoKICAgIAogICAgLnBvc3R7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICMxNzFEMjE7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuNDsKICAgICAgICBmb250LWZhbWlseTogIkhlbHZldGljYSBOZXVlIiwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICNBNUIwQzA7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CgogICAgICAgIHdvcmQtd3JhcDpicmVhay13b3JkOwogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgICAgICBvdmVyZmxvdy13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgdGV4dC1hbGlnbjoganVzdGlmeTsKCgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi40OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgfQoKICAgIGgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWd7CiAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgfQoKICAgIC54Ml9pbWFnZXsKICAgICAgICB6b29tOiA1MCU7CiAgICB9CgogICAgLngzX2ltYWdlewogICAgICAgIHpvb206IDMzLjMzJTsKICAgIH0KCiAgICAueDRfaW1hZ2V7CiAgICAgICAgem9vbTogMjUlOwogICAgfQoKCiAgICBwIGltZ3sKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgIH0KCiAgICBwewogICAgICAgIC8qb3ZlcmZsb3c6aGlkZGVuOyovCiAgICAgICAgbWFyZ2luOiAxLjBlbSAwIDEuOWVtIDA7CiAgICB9CgogICAgcC5tZF9ibG9ja19hc19vcGVuaW5newogICAgICAgIG1hcmdpbi1ib3R0b206IC0wLjVlbSAhaW1wb3J0YW50OwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDIuMTY7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIC5wX3BhcnQgewogICAgICAgIG1hcmdpbjogMTBweCAwOwogICAgfQoKICAgIC5wX3BhcnQgcHsKICAgICAgICBtYXJnaW46IDAgMCAwLjZlbSAwOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIHN0YXJ0cyovCiAgICAvKmgyLCBoMywgaDQsIGg1LCBoNiwgLnBfcGFydCBwLCAudG9kb19pdGVtLCBwewogICAgICAgIHRleHQtaW5kZW50OiAwcHg7CiAgICB9Ki8KICAgIHRhYmxlLCBwcmUsIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMHB4OwogICAgfQogICAgCiAgICBzcGFuIHN2Z3sKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CiAgICB9CgogICAgLmxpbmVub2RpdiBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwoKICAgIH0KICAgIAogICAgLmhpZ2hsaWdodCBwcmV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDA7CiAgICAgICAgbWFyZ2luLXJpZ2h0OiAwOwogICAgfQogICAgCiAgICAuaGlnaGxpZ2h0dGFibGUgLmNvZGUgeyBwb3NpdGlvbjogcmVsYXRpdmV9CiAgICAKICAgIC5oaWdobGlnaHR0YWJsZSBkaXYud2l0aF9saW5lc3sgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlO30KICAgIAogICAgLmhpZ2hsaWdodHRhYmxlIGRpdi53aXRoX2xpbmVzIHByZXsKICAgICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7CiAgICB9CgoKCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBlbmRzKi8KCgogICAgYmxvY2txdW90ZSAucF9wYXJ0IHAsIGxpIC5wX3BhcnQgcHsKICAgICAgICB0ZXh0LWluZGVudDogMCAhaW1wb3J0YW50OwogICAgfQoKCiAgICBocnsKICAgICAgICBtYXJnaW46IDM4cHggMDsKICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRhc2hlZCByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgICAgIGhlaWdodDogMXB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjFweDsKICAgICAgICBmb250LXNpemU6MXB4OwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICNENUYwRjg7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogI0Q1RjBGODsKICAgIH0KICAgIAogICAgaDF7Y29sb3I6I0Q1RjBGOH0KCgoKICAgIGgyLCBoM3sKICAgICAgICBsaW5lLWhlaWdodDogMS41ZW07CiAgICAgICAgbWFyZ2luLXRvcDogMS44ZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC41ZW07CiAgICB9CgogICAgLmgxNi5tZF9maXJzdF9oLm1kX2ZpcnN0X3BhcnQgewogICAgICAgIG1hcmdpbi10b3A6IDVweDsKICAgIH0KICAgIAogICAgLnNwYW5fZm9yX2h7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIGgyIHsKICAgICAgICBmb250LXNpemU6IDEuNWVtOwogICAgfQoKICAgIGgzIHsKICAgICAgICBmb250LXNpemU6IDEuMjVlbQogICAgfQoKICAgIGg0IHsKICAgICAgICBmb250LXNpemU6IDEuMTVlbTsKICAgIH0KCiAgICBoNSB7CiAgICAgICAgZm9udC1zaXplOiAxLjFlbTsKICAgIH0KCiAgICBoNiB7Zm9udC1zaXplOiAxZW19CgoKICAgIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDZ7CiAgICAgICAgZm9udC1mYW1pbHk6ICJQaW5nRmFuZyBTQyI7CiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjMkE4MUM1OwogICAgICAgIGNvbG9yOiAjOUE5QTlBOwogICAgICAgIG1pbi1oZWlnaHQ6MjBweDsKICAgIH0KCgogICAgYmxvY2txdW90ZSBwIHsKICAgICAgICBtYXJnaW46IDAuOGVtIDA7CiAgICB9CgogICAgYmxvY2txdW90ZSBzcGFuLm1kX2xpbmUgewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjI1ZW07CiAgICB9CgogICAgYmxvY2txdW90ZSB1bHsKICAgICAgICBwYWRkaW5nOiAwIDE1cHg7CiAgICB9CgogICAgYmxvY2txdW90ZSBzbWFsbCB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIG1hcmdpbjogMC44ZW0gMCAwLjhlbSAxLjVlbTsKICAgICAgICBmb250LXNpemU6IDAuOWVtOwogICAgICAgIGNvbG9yOiAjY2NjOwogICAgfQoKCgoKCgogICAgdGFibGUgewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjc7CiAgICAgICAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgbWFyZ2luOiAxZW0gMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBtYXgtd2lkdGg6IDEwMCU7CiAgICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7CiAgICAgICAgYm9yZGVyLXN0eWxlOiBzb2xpZDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CiAgICAKICAgIC8qIGZvciB3ZWNoYXQgb25seSBzdGFydHMgKi8KICAgIHRhYmxlIHRyewogICAgICAgIGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7CiAgICAgICAgYm9yZGVyLXJpZ2h0LXdpZHRoOiAxcHg7CiAgICB9CiAgICAKICAgIHRhYmxlIHRib2R5ewogICAgICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsKICAgICAgICBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsKICAgIH0KICAgIC8qIGZvciB3ZWNoYXQgb25seSBlbmRzICovCgoKICAgIHRhYmxlLCB0YWJsZSB0ciwgdGFibGUgdHIgdGQsIHRhYmxlIHRyIHRoLCB0YWJsZSB0Ym9keSB7CiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDIwNSwgMjA1LCAyMDUsIDAuMzUpOwogICAgfQoKICAgIHRhYmxlIHRoIHsKICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgIH0KCiAgICB0ciB0aCB7CiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OwogICAgICAgIGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICB9CgogICAgdHIgdGgsIHRyIHRkIHsKICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQ7CiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjA1LCAyMDUsIDIwNSwgMC4zNSk7CiAgICB9CgogICAgdGJvZHkgdHI6bGFzdC1jaGlsZCB0ZHsKICAgICAgICBib3JkZXItYm90dG9tOiAwOwogICAgfQoKICAgIHRyIHRoOmxhc3QtY2hpbGQsIHRyIHRkOmxhc3QtY2hpbGQgewogICAgICAgIGJvcmRlci1yaWdodDogMDsKICAgIH0KCiAgICB0YWJsZSB0Ym9keSA+IHRyOm50aC1jaGlsZChvZGQpID4gdGQsIHRhYmxlIHRib2R5ID4gdHI6bnRoLWNoaWxkKG9kZCkgPiB0aCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjIpOwogICAgfQoKCgoKICAgIGNvZGV7CiAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjM1KTsKICAgICAgICBjb2xvcjogIzc4RTI5MTsKICAgICAgICBwYWRkaW5nOiAwIDVweDsKICAgICAgICBtYXJnaW46IDAgMnB4OwogICAgfQoKICAgIHByZXsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyMDUsIDIwNSwgMjA1LCAwLjM1KTsKICAgICAgICAvKmJhY2tncm91bmQ6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC4zNSk7Ki8KICAgICAgICBmb250LXNpemU6IDkwJTsKICAgICAgICBsaW5lLWhlaWdodDoyLjQ7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwOwogICAgICAgIG92ZXJmbG93LXk6IGhpZGRlbjsKICAgICAgICBvdmVyZmxvdy14OiBhdXRvOwogICAgICAgIHdvcmQtd3JhcDogbm9ybWFsOwogICAgfQogICAgCiAgICAuY29kZWhpbGl0ZSBwcmV7CiAgICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KCiAgICAuaGlnaGxpZ2h0dGFibGUgdGR7CiAgICAgICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuMzUpICFpbXBvcnRhbnQ7Ki8KICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICAvKndvcmQtd3JhcDogbm9ybWFsOyovCiAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgfQoKICAgIHByZSBjb2RlewogICAgICAgIGJvcmRlcjpub25lOwogICAgICAgIGJhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgcHJlIHB7CiAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNvZGVoaWxpdGUgdGgsIC5jb2RlaGlsaXRlIHRkewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjhlbTsKICAgIH0KCgogICAgYXsKICAgICAgICBjb2xvcjogIzc3Qjg3RjsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgYTpob3ZlcnsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgICAgICAvL2JvcmRlci1ib3R0b206IDFweCBzb2xpZCAjNzdCODdGOwogICAgfQoKICAgIHN0cm9uZyB7CiAgICAgICAgY29sb3I6ICNGRkZGRkY7CiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICB9CgoKICAgIC8qIGZvciBtYXJrZG93biAqLwoKICAgIC5saW5lbm9zIHByZXsKCQliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCQlib3JkZXI6IG5vbmU7Cgl9CgoJLmxpbmVub3N7CgkgICAgcGFkZGluZzogMCA1cHggMCA1cHg7CgkgICAgd2lkdGg6IDAuMDAxJTsKCX0KCgkuaGlnaGxpZ2h0dGFibGUgIC5saW5lbm9zIHByZXsKCSAgICBwYWRkaW5nOiA1cHggMTBweDsKCX0KCQoJLmhpZ2hsaWdodHRhYmxlICAuY29kZSBwcmV7CgkgICAgcGFkZGluZzogMDsKCX0KCiAgICAudG9jewogICAgICAgIGJhY2tncm91bmQ6IE5vbmU7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIE5vbmU7CiAgICAgICAgbWFyZ2luOiAyN3B4IDAgNDdweCAwOwogICAgICAgIHBhZGRpbmc6IDEwcHggMDsKICAgIH0KCiAgICAudG9jIHVsewogICAgICAgIC8vcGFkZGluZzogNXB4IDQycHg7CiAgICB9CgogICAgLnRvYyB1bCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KICAgIC50b2MgYXsKICAgICAgICBjb2xvcjogI0E1QjBDMDsKICAgIH0KCgoKICAgIC50b2RvX2l0ZW17CiAgICAgICAgbGlzdC1zdHlsZTogbm9uZTsKICAgICAgICBtYXJnaW4tbGVmdDogLTEuNWVtCiAgICB9CiAgICAudG9kb19pdGVtIC50b2RvX2l0ZW0gewogICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvOwogICAgfQoKICAgIC50b2RvX2RvbmVfaXRlbXsKICAgICAgICBjb2xvcjogIzU1NTU1NTsKICAgIH0KCiAgICAudG9kb191bmRvbmVfaXRlbXsKICAgICAgICBjb2xvcjogI0RERERERDsKICAgIH0KCgogICAgdWwgbGkudG9kb19pdGVtewoJbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgfQoKICAgIHVsIGxpLnRvZG9faXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkCc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ+KYkSc7CiAgICAgICAgLypwYWRkaW5nLXJpZ2h0OiAwLjJlbTsqLwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2l0ZW0gaW5wdXR7CiAgICAgICAgZGlzcGxheTpub25lCiAgICB9CgoKICAgIC8qcHlnbWVudHMqLwoKICAgIC5jb2RlaGlsaXRlewogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7CiAgICB9CgogICAgLyp0YWJsZS5oaWdobGlnaHR0YWJsZXsgYm9yZGVyOm5vbmU7IH0KICAgIC5oaWdobGlnaHR0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30qLwoKICAgIC5mbG93LWdyYXBoaWMsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9mbG93X2dyYXBoaWN7dGV4dC1hbGlnbjogY2VudGVyfQogICAgLmZsb3ctZ3JhcGhpYyB7IG92ZXJmbG93LXg6IGF1dG87fQogICAgLm1lcm1haWQsIC5tZF9ibG9ja19zZWN0aW9uX2Zvcl9tZXJtYWlke3RleHQtYWxpZ246IGNlbnRlcn0KICAgIAogICAgLmZsb3ctZ3JhcGhpYywgLm1lcm1haWR7CiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgIH0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgogICAgLmNvZGVoaWxpdGUgLmVycnsKICAgICAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKCgogICAgICAgIHNwYW4ubWRfbGluZXttYXJnaW4tYm90dG9tOjAuNWVtOyBkaXNwbGF5OmJsb2NrOyBsaW5lLWhlaWdodDoyLjF9CiAgICAgICAgLm1kX2xpbmUgYnJ7IGRpc3BsYXk6IG5vbmU7fQogICAgICAgIC5jb2RlaGlsaXRlIC5obGwgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmNjIH0KLmNvZGVoaWxpdGUgIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQouY29kZWhpbGl0ZSAuYyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudCAqLwouY29kZWhpbGl0ZSAuZXJyIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBFcnJvciAqLwouY29kZWhpbGl0ZSAuayB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICMxNzc1MDAgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICM2MzM4MjAgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzE3NzUwMCB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjMTc3NTAwIH0gLyogQ29tbWVudC5TcGVjaWFsICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuRGVjbGFyYXRpb24gKi8KLmNvZGVoaWxpdGUgLmtuIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjQTkwRDkxIH0gLyogS2V5d29yZC5SZXNlcnZlZCAqLwouY29kZWhpbGl0ZSAua3QgeyBjb2xvcjogI0E5MEQ5MSB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubGQgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuRGF0ZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjODM2QzI4IH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICNBOTBEOTEgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMzRjZFNzUgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkV4Y2VwdGlvbiAqLwouY29kZWhpbGl0ZSAubmYgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuRnVuY3Rpb24gKi8KLmNvZGVoaWxpdGUgLm5sIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLkxhYmVsICovCi5jb2RlaGlsaXRlIC5ubiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogIzFDMDFDRSB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICMxQzAxQ0UgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNhIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5BZmZpeCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjMjMwMENFIH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuZGwgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRlbGltaXRlciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI0M0MUExNiB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjQzQxQTE2IH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDNDFBMTYgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM1QjI2OUEgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC5mbSB7IGNvbG9yOiAjMDAwMDAwIH0gLyogTmFtZS5GdW5jdGlvbi5NYWdpYyAqLwouY29kZWhpbGl0ZSAudmMgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuQ2xhc3MgKi8KLmNvZGVoaWxpdGUgLnZnIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLkdsb2JhbCAqLwouY29kZWhpbGl0ZSAudmkgeyBjb2xvcjogIzAwMDAwMCB9IC8qIE5hbWUuVmFyaWFibGUuSW5zdGFuY2UgKi8KLmNvZGVoaWxpdGUgLnZtIHsgY29sb3I6ICMwMDAwMDAgfSAvKiBOYW1lLlZhcmlhYmxlLk1hZ2ljICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjMUMwMUNFIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICovCiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIAogICAgaHRtbHsKICAgICAgICBiYWNrZ3JvdW5kOiAjMTAxNjFBOwogICAgfQogICAgYm9keXsKICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIG1heC13aWR0aDogOTYwcHg7CiAgICAgICAgYmFja2dyb3VuZDogIzE3MUQyMTsKICAgICAgICBtYXJnaW46IDNlbSBhdXRvIDA7CiAgICAgICAgcGFkZGluZy10b3A6IDJlbTsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMTAxNjFBOwogICAgICAgIGJvcmRlci13aWR0aDogMCAxcHg7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgcGFkZGluZzogNSUgMTAlOwogICAgICAgIG1hcmdpbi10b3A6IDA7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDsKICAgIH0KICAgIAoKICAgIC50aXRsZV9jb250YWluZXJ7CiAgICAgICAgbWFyZ2luOiAtMmVtIDAgMy41ZW07CiAgICAgICAgcGFkZGluZy1ib3R0b206IDJlbTsKICAgICAgICBib3JkZXItYm90dG9tOiAzcHggZG91YmxlICMxMDE2MUE7CiAgICB9CiAgICAudGl0bGVfY29udGFpbmVyIGgxewogICAgICAgIG1hcmdpbi10b3A6IDEuMmVtOwogICAgICAgIG1hcmdpbi1ib3R0b206IDAuNmVtOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjM1OwogICAgICAgIGZvbnQtc2l6ZTogMi4yNWVtOwogICAgfQogICAgLnRpdGxlX2NvbnRhaW5lciBoMnsKICAgICAgICBjb2xvcjogIzlBOUE5QTsKICAgICAgICBmb250LXNpemU6IDFlbTsKICAgICAgICBmb250LXdlaWdodDogbm9ybWFsOwogICAgICAgIHBhZGRpbmctYm90dG9tOiAyZW07CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuMzU7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogLTJlbTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXsKICAgICAgICBodG1sewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICB9CiAgICAgICAgYm9keXsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgIH0KICAgICAgICAucG9zdHsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB9CiAgICB9CiAgICAvKiBwYWdlX2NzcyAqLwoKICAgIA==">
+    <!--header_scripts-->
+</head>
+<body>
+    <div class="post">
+        <div class="post_body">
+            
+            <h1 id="toc_0" class="h16 md_first_h"><span class="span_for_h">泛型</span></h1>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><em>泛型代码</em>让你能根据自定义的需求，编写出适用于任意类型的、灵活可复用的函数及类型。你可避免编写重复的代码，而是用一种清晰抽象的方式来表达代码的意图。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">泛型是 Swift 最强大的特性之一，很多 Swift 标准库是基于泛型代码构建的。实际上，即使你没有意识到，你也一直在<em class="md_patched_em">语言指南</em>中使用泛型。例如，Swift 的 <code>Array</code> 和 <code>Dictionary</code> 都是泛型集合。你可以创建一个 <code>Int</code> 类型数组，也可创建一个 <code>String</code> 类型数组，甚至可以是任意其他 Swift 类型的数组。同样，你也可以创建一个存储任意指定类型的字典，并对该类型没有限制。</span>
+</p>
+
+<h2 id="toc_1" class="h16"><span class="span_for_h">泛型解决的问题 {#the-problem-that-generics-solve}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面是一个标准的非泛型函数 <code>swapTwoInts(_:_:)</code>，用来交换两个 <code>Int</code> 值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">swapTwoInts</span><span class="p">(</span><span class="kc">_</span> <span class="n">a</span><span class="p">:</span> <span class="kr">inout</span> <span class="nb">Int</span><span class="p">,</span> <span class="kc">_</span> <span class="n">b</span><span class="p">:</span> <span class="kr">inout</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">temporaryA</span> <span class="p">=</span> <span class="n">a</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="n">b</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="n">temporaryA</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个函数使用输入输出参数（<code>inout</code>）来交换 <code>a</code> 和 <code>b</code> 的值，具体请参考 <a class="md_compiled" href="./06_Functions.md#in-out-parameters">输入输出参数</a>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>swapTwoInts(_:_:)</code> 函数将 <code>b</code> 的原始值换成了 <code>a</code>，将 <code>a</code> 的原始值换成了 <code>b</code>，你可以调用这个函数来交换两个 <code>Int</code> 类型变量：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">someInt</span> <span class="p">=</span> <span class="mi">3</span>
+<span class="kd">var</span> <span class="nv">anotherInt</span> <span class="p">=</span> <span class="mi">107</span>
+<span class="n">swapTwoInts</span><span class="p">(&amp;</span><span class="n">someInt</span><span class="p">,</span> <span class="p">&amp;</span><span class="n">anotherInt</span><span class="p">)</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&quot;someInt is now </span><span class="si">\(</span><span class="n">someInt</span><span class="si">)</span><span class="s">, and anotherInt is now </span><span class="si">\(</span><span class="n">anotherInt</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="c1">// 打印“someInt is now 107, and anotherInt is now 3”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>swapTwoInts(_:_:)</code> 函数很实用，但它只能作用于 <code>Int</code> 类型。如果你想交换两个 <code>String</code> 类型值，或者 <code>Double</code> 类型值，你必须编写对应的函数，类似下面 <code>swapTwoStrings(_:_:)</code> 和 <code>swapTwoDoubles(_:_:)</code> 函数：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">swapTwoStrings</span><span class="p">(</span><span class="kc">_</span> <span class="n">a</span><span class="p">:</span> <span class="kr">inout</span> <span class="nb">String</span><span class="p">,</span> <span class="kc">_</span> <span class="n">b</span><span class="p">:</span> <span class="kr">inout</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">temporaryA</span> <span class="p">=</span> <span class="n">a</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="n">b</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="n">temporaryA</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">swapTwoDoubles</span><span class="p">(</span><span class="kc">_</span> <span class="n">a</span><span class="p">:</span> <span class="kr">inout</span> <span class="nb">Double</span><span class="p">,</span> <span class="kc">_</span> <span class="n">b</span><span class="p">:</span> <span class="kr">inout</span> <span class="nb">Double</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">temporaryA</span> <span class="p">=</span> <span class="n">a</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="n">b</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="n">temporaryA</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可能注意到了，<code>swapTwoInts(_:_:‘)</code>、<code>swapTwoStrings(_:_:)</code> 和 <code>swapTwoDoubles(_:_:)</code> 函数体是一样的，唯一的区别是它们接受的参数类型（<code>Int</code>、<code>String</code> 和 <code>Double</code>）。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">在实际应用中，通常需要一个更实用更灵活的函数来交换两个任意类型的值，幸运的是，泛型代码帮你解决了这种问题。（这些函数的泛型版本已经在下面定义好了。）</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">在上面三个函数中，<code>a</code> 和 <code>b</code> 类型必须相同。如果 <code>a</code> 和 <code>b</code> 类型不同，那它们俩就不能互换值。Swift 是类型安全的语言，所以它不允许一个 <code>String</code> 类型的变量和一个 <code>Double</code> 类型的变量互换值。试图这样做将导致编译错误。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_2" class="h16"><span class="span_for_h">泛型函数 {#generic-functions}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">泛型函数可适用于任意类型，下面是函数 <code>swapTwoInts(_:_:)</code> 的泛型版本，命名为 <code>swapTwoValues(_:_:)</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">swapTwoValues</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="kc">_</span> <span class="n">a</span><span class="p">:</span> <span class="kr">inout</span> <span class="n">T</span><span class="p">,</span> <span class="kc">_</span> <span class="n">b</span><span class="p">:</span> <span class="kr">inout</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">temporaryA</span> <span class="p">=</span> <span class="n">a</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="n">b</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="n">temporaryA</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>swapTwoValues(_:_:)</code> 和 <code>swapTwoInts(_:_:)</code> 函数体内容相同，它们只在第一行不同，如下所示：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">swapTwoInts</span><span class="p">(</span><span class="kc">_</span> <span class="n">a</span><span class="p">:</span> <span class="kr">inout</span> <span class="nb">Int</span><span class="p">,</span> <span class="kc">_</span> <span class="n">b</span><span class="p">:</span> <span class="kr">inout</span> <span class="nb">Int</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">swapTwoValues</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="kc">_</span> <span class="n">a</span><span class="p">:</span> <span class="kr">inout</span> <span class="n">T</span><span class="p">,</span> <span class="kc">_</span> <span class="n">b</span><span class="p">:</span> <span class="kr">inout</span> <span class="n">T</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">泛型版本的函数使用<code>占位符</code>类型名（这里叫做 <code>T</code> ），而不是 <em>实际</em>类型名（例如 <code>Int</code>、<code>String</code> 或 <code>Double</code>），<code>占位符</code>类型名并不关心 <code>T</code> 具体的类型，但它要求 <code>a</code> 和<code>b</code> 必须是相同的类型，<code>T</code> 的实际类型由每次调用 <code>swapTwoValues(_:_:)</code> 来决定。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">泛型函数和非泛型函数的另外一个不同之处在于这个泛型函数名（<code>swapTwoValues(_:_:)</code>）后面跟着占位类型名（<code>T</code>），并用尖括号括起来（<code>&lt;T&gt;</code>）。这个尖括号告诉 Swift 那个 <code>T</code> 是 <code>swapTwoValues(_:_:)</code> 函数定义内的一个占位类型名，因此 Swift 不会去查找名为 <code>T</code>的实际类型。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>swapTwoValues(_:_:)</code> 函数现在可以像 <code>swapTwoInts(_:_:)</code> 那样调用，不同的是它能接受两个任意类型的值，条件是这两个值有着相同的类型。<code>swapTwoValues(_:_:)</code> 函数被调用时，<code>T</code> 所代表的类型都会由传入的值的类型推断出来。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在下面的两个例子中，<code>T</code> 分别代表 <code>Int</code>  和 <code>String</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">someInt</span> <span class="p">=</span> <span class="mi">3</span>
+<span class="kd">var</span> <span class="nv">anotherInt</span> <span class="p">=</span> <span class="mi">107</span>
+<span class="n">swapTwoValues</span><span class="p">(&amp;</span><span class="n">someInt</span><span class="p">,</span> <span class="p">&amp;</span><span class="n">anotherInt</span><span class="p">)</span>
+<span class="c1">// someInt 现在是 107，anotherInt 现在是 3</span>
+
+<span class="kd">var</span> <span class="nv">someString</span> <span class="p">=</span> <span class="s">&quot;hello&quot;</span>
+<span class="kd">var</span> <span class="nv">anotherString</span> <span class="p">=</span> <span class="s">&quot;world&quot;</span>
+<span class="n">swapTwoValues</span><span class="p">(&amp;</span><span class="n">someString</span><span class="p">,</span> <span class="p">&amp;</span><span class="n">anotherString</span><span class="p">)</span>
+<span class="c1">// someString 现在是“world”，anotherString 现在是“hello”</span>
+</pre></div>
+
+<!--block_code_end-->
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">上面定义的 <code>swapTwoValues(_:_:)</code> 函数是受 <code>swap(_:_:)</code> 函数启发而实现的。后者存在于 Swift 标准库，你可以在你的应用程序中使用它。如果你在代码中需要类似 <code>swapTwoValues(_:_:)</code> 函数的功能，你可以使用已存在的 <code>swap(_:_:)</code> 函数。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_3" class="h16"><span class="span_for_h">类型参数 {#type-parameters}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面 <code>swapTwoValues(_:_:)</code> 例子中，占位类型 <code>T</code> 是一个类型参数的例子，类型参数指定并命名一个占位类型，并且紧随在函数名后面，使用一对尖括号括起来（例如 <code>&lt;T&gt;</code>）。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">一旦一个类型参数被指定，你可以用它来定义一个函数的参数类型（例如 <code>swapTwoValues(_:_:)</code> 函数中的参数 <code>a</code> 和 <code>b</code>），或者作为函数的返回类型，还可以用作函数主体中的注释类型。在这些情况下，类型参数会在函数调用时被实际类型所替换。（在上面的 <code>swapTwoValues(_:_:)</code> 例子中，当函数第一次被调用时，<code>T</code> 被 <code>Int</code> 替换，第二次调用时，被 <code>String</code> 替换。）</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">你可提供多个类型参数，将它们都写在尖括号中，用逗号分开。</span>
+</p>
+
+<h2 id="toc_4" class="h16"><span class="span_for_h">命名类型参数 {#naming-type-parameters}</span></h2>
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">大多情况下，类型参数具有描述下的名称，例如字典 <code>Dictionary&lt;Key, Value&gt;</code> 中的 <code>Key</code> 和 <code>Value</code> 及数组 <code>Array&lt;Element&gt;</code> 中的 <code>Element</code>，这能告诉阅读代码的人这些参数类型与泛型类型或函数之间的关系。然而，当它们之间没有有意义的关系时，通常使用单个字符来表示，例如 <code>T</code>、<code>U</code>、<code>V</code>，例如上面演示函数 <code>swapTwoValues(_:_:)</code> 中的 <code>T</code>。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">请始终使用大写字母开头的驼峰命名法（例如 <code>T</code> 和 <code>MyTypeParameter</code>）来为类型参数命名，以表明它们是占位类型，而不是一个值。</span>
+</p>
+
+</blockquote>
+<h2 id="toc_5" class="h16"><span class="span_for_h">泛型类型 {#generic-types}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">除了泛型函数，Swift 还允许自定义<em class="md_patched_em">泛型类型</em>。这些自定义类、结构体和枚举可以适用于<em class="md_patched_em">任意类型</em>，类似于 <code>Array</code> 和 <code>Dictionary</code>。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_blockquote">
+    <span class="md_line md_line_start md_line_end">本节将向你展示如何编写一个名为 <code>Stack</code>（栈）的泛型集合类型。栈是值的有序集合，和数组类似，但比数组有更严格的操作限制。数组允许在其中任意位置插入或是删除元素。而栈只允许在集合的末端添加新的元素（称之为入栈）。类似的，栈也只能从末端移除元素（称之为出栈）。</span>
+</p>
+
+
+<blockquote class="blockquote_lines_3 blockquote_without_image">
+<p class="md_block">
+    <span class="md_line md_line_start">注意<br /></span>
+    <span class="md_line">&nbsp;<br /></span>
+    <span class="md_line md_line_end">栈的概念已被 <code>UINavigationController</code> 类用来构造视图控制器的导航结构。你通过调用 <code>UINavigationController</code> 的 <code>pushViewController(_:animated:)</code> 方法来添加新的视图控制器到导航栈，通过 <code>popViewControllerAnimated(_:)</code> 方法来从导航栈中移除视图控制器。每当你需要一个严格的“后进先出”方式来管理集合，栈都是最实用的模型。</span>
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">下图展示了入栈（push）和出栈（pop）的行为：</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_ol">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/stackPushPop_2x.png" alt="" title="" ></span>
+</p>
+
+
+<ol>
+<li class="md_li"><span>现在有三个值在栈中。
+
+</span></li>
+<li class="md_li"><span>第四个值被压入到栈的顶部。
+
+</span></li>
+<li class="md_li"><span>现在栈中有四个值，最近入栈的那个值在顶部。
+
+</span></li>
+<li class="md_li"><span>栈中最顶部的那个值被移除出栈。
+
+</span></li>
+<li class="md_li"><span>一个值移除出栈后，现在栈又只有三个值了。
+
+</span></li>
+</ol>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面展示如何编写一个非泛型版本的栈，以 <code>Int</code> 型的栈为例：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">struct</span> <span class="nc">IntStack</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">items</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]()</span>
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">push</span><span class="p">(</span><span class="kc">_</span> <span class="n">item</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">items</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">pop</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">items</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个结构体在栈中使用一个名为 <code>items</code> 的数组属性来存储值。栈提供了两个方法：<code>push(_:)</code> 和 <code>pop()</code>，用来向栈中压入值以及从栈中移除值。这些方法被标记为 <code>mutating</code>，因为它们需要修改结构体的 <code>items</code> 数组。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面的 <code>IntStack</code> 结构体只能用于 <code>Int</code> 类型。不过，可以定义一个泛型 <code>Stack</code> 结构体，从而能够处理任意类型的值。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面是相同代码的泛型版本：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">struct</span> <span class="nc">Stack</span><span class="p">&lt;</span><span class="n">Element</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">items</span> <span class="p">=</span> <span class="p">[</span><span class="n">Element</span><span class="p">]()</span>
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">push</span><span class="p">(</span><span class="kc">_</span> <span class="n">item</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">items</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">pop</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">Element</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">items</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">注意，<code>Stack</code> 基本上和 <code>IntStack</code> 相同，只是用占位类型参数 <code>Element</code> 代替了实际的 <code>Int</code> 类型。这个类型参数包裹在紧随结构体名的一对尖括号里（&lt;<code>Element</code>&gt;）。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end"><code>Element</code> 为待提供的类型定义了一个占位名。这种待提供的类型可以在结构体的定义中通过 <code>Element</code> 来引用。在这个例子中，<code>Element</code> 在如下三个地方被用作占位符：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>创建 <code>items</code> 属性，使用 <code>Element</code> 类型的空数组对其进行初始化。
+</span></li>
+<li class="md_li"><span>指定 <code>push(_:)</code> 方法的唯一参数 <code>item</code> 的类型必须是 <code>Element</code> 类型。
+</span></li>
+<li class="md_li"><span>指定 <code>pop()</code> 方法的返回值类型必须是 <code>Element</code> 类型。
+</span></li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">由于 <code>Stack</code> 是泛型类型，因此可以用来创建适用于 Swift 中任意有效类型的栈，就像 <code>Array</code> 和 <code>Dictionary</code> 那样。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以通过在尖括号中写出栈中需要存储的数据类型来创建并初始化一个 <code>Stack</code> 实例。例如，要创建一个 <code>String</code> 类型的栈，可以写成 <code>Stack&lt;String&gt;()</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">stackOfStrings</span> <span class="p">=</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="nb">String</span><span class="p">&gt;()</span>
+<span class="n">stackOfStrings</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;uno&quot;</span><span class="p">)</span>
+<span class="n">stackOfStrings</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;dos&quot;</span><span class="p">)</span>
+<span class="n">stackOfStrings</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;tres&quot;</span><span class="p">)</span>
+<span class="n">stackOfStrings</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;cuatro&quot;</span><span class="p">)</span>
+<span class="c1">// 栈中现在有 4 个字符串</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">下图展示了 <code>stackOfStrings</code> 如何将这四个值压栈：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/stackPushedFourStrings_2x.png" alt="" title="" ></span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">移除并返回栈顶部的值“cuatro”，即出栈：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">fromTheTop</span> <span class="p">=</span> <span class="n">stackOfStrings</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="c1">// fromTheTop 的值为“cuatro”，现在栈中还有 3 个字符串</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">下图展示了如何将顶部的值出栈：</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed md_line_with_image md_line_start md_line_end"><img class="md_compiled " src="https://docs.swift.org/swift-book/_images/stackPoppedOneString_2x.png" alt="" title="" ></span>
+</p>
+
+<h2 id="toc_6" class="h16"><span class="span_for_h">泛型扩展 {#extending-a-generic-type}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当对泛型类型进行扩展时，你并不需要提供类型参数列表作为定义的一部分。原始类型定义中声明的类型参数列表在扩展中可以直接使用，并且这些来自原始类型中的参数名称会被用作原始定义中类型参数的引用。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面的例子扩展了泛型类型 <code>Stack</code>，为其添加了一个名为 <code>topItem</code> 的只读计算型属性，它将会返回当前栈顶元素且不会将其从栈中移除：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">extension</span> <span class="nc">Stack</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">topItem</span><span class="p">:</span> <span class="n">Element</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">items</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="p">?</span> <span class="kc">nil</span> <span class="p">:</span> <span class="n">items</span><span class="p">[</span><span class="n">items</span><span class="p">.</span><span class="bp">count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>topItem</code> 属性会返回 <code>Element</code> 类型的可选值。当栈为空的时候，<code>topItem</code> 会返回 <code>nil</code>；当栈不为空的时候，<code>topItem</code> 会返回 <code>items</code> 数组中的最后一个元素。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">注意：这个扩展并没有定义类型参数列表。相反的，<code>Stack</code> 类型已有的类型参数名称 <code>Element</code>，被用在扩展中来表示计算型属性 <code>topItem</code> 的可选类型。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">计算型属性 <code>topItem</code> 现在可以用来访问任意 <code>Stack</code> 实例的顶端元素且不移除它：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">topItem</span> <span class="p">=</span> <span class="n">stackOfStrings</span><span class="p">.</span><span class="n">topItem</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The top item on the stack is </span><span class="si">\(</span><span class="n">topItem</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“The top item on the stack is tres.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">泛型类型的扩展，还可以包括类型扩展需要额外满足的条件，从而对类型添加新功能，这一部分将在 <a class="md_compiled" href="#extensions-with-a-generic-where-clause">具有泛型 Where 子句的扩展</a> 中进行讨论。</span>
+</p>
+
+<h2 id="toc_7" class="h16"><span class="span_for_h">类型约束 {#type-constraints}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>swapTwoValues(_:_:)</code> 函数和 <code>Stack</code> 适用于任意类型。不过，如果能对泛型函数或泛型类型中添加特定的<em class="md_patched_em">类型约束</em>，这将在某些情况下非常有用。类型约束指定类型参数必须继承自指定类、遵循特定的协议或协议组合。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">例如，Swift 的 <code>Dictionary</code> 类型对字典的键的类型做了些限制。在 <a class="md_compiled" href="./04_Collection_Types.md#dictionaries">字典的描述</a> 中，字典键的类型必须是可哈希（hashable）的。也就是说，必须有一种方法能够唯一地表示它。字典键之所以要是可哈希的，是为了便于检查字典中是否已经包含某个特定键的值。若没有这个要求，字典将无法判断是否可以插入或替换某个指定键的值，也不能查找到已经存储在字典中的指定键的值。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个要求通过 <code>Dictionary</code> 键类型上的类型约束实现，它指明了键必须遵循 Swift 标准库中定义的 <code>Hashable</code> 协议。所有 Swift 的基本类型（例如 <code>String</code>、<code>Int</code>、<code>Double</code> 和 <code>Bool</code>）默认都是可哈希的。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">当自定义泛型类型时，你可以定义你自己的类型约束，这些约束将提供更为强大的泛型编程能力。像 <code>可哈希（hashable）</code> 这种抽象概念根据它们的概念特征来描述类型，而不是它们的具体类型。</span>
+</p>
+
+<h3 id="toc_8" class="h16"><span class="span_for_h">类型约束语法 {#type-constraint-syntax}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在一个类型参数名后面放置一个类名或者协议名，并用冒号进行分隔，来定义类型约束。下面将展示泛型函数约束的基本语法（与泛型类型的语法相同）：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">someFunction</span><span class="p">&lt;</span><span class="n">T</span><span class="p">:</span> <span class="n">SomeClass</span><span class="p">,</span> <span class="n">U</span><span class="p">:</span> <span class="n">SomeProtocol</span><span class="p">&gt;(</span><span class="n">someT</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">someU</span><span class="p">:</span> <span class="n">U</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 这里是泛型函数的函数体部分</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面这个函数有两个类型参数。第一个类型参数 <code>T</code> 必须是 <code>SomeClass</code> 子类；第二个类型参数 <code>U</code> 必须符合 <code>SomeProtocol</code> 协议。</span>
+</p>
+
+<h3 id="toc_9" class="h16"><span class="span_for_h">类型约束实践 {#type-constraints-in-action}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">这里有个名为 <code>findIndex(ofString:in:)</code> 的非泛型函数，该函数的功能是在一个 <code>String</code> 数组中查找给定 <code>String</code> 值的索引。若查找到匹配的字符串，<code>findIndex(ofString:in:)</code> 函数返回该字符串在数组中的索引值，否则返回 <code>nil</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">findIndex</span><span class="p">(</span><span class="n">ofString</span> <span class="n">valueToFind</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="k">in</span> <span class="n">array</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">])</span> <span class="p">-&gt;</span> <span class="nb">Int</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="n">array</span><span class="p">.</span><span class="n">enumerated</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="p">==</span> <span class="n">valueToFind</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">index</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>findIndex(ofString:in:)</code> 函数可以用于查找字符串数组中的某个字符串值：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">strings</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;cat&quot;</span><span class="p">,</span> <span class="s">&quot;dog&quot;</span><span class="p">,</span> <span class="s">&quot;llama&quot;</span><span class="p">,</span> <span class="s">&quot;parakeet&quot;</span><span class="p">,</span> <span class="s">&quot;terrapin&quot;</span><span class="p">]</span>
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">foundIndex</span> <span class="p">=</span> <span class="n">findIndex</span><span class="p">(</span><span class="n">ofString</span><span class="p">:</span> <span class="s">&quot;llama&quot;</span><span class="p">,</span> <span class="k">in</span><span class="p">:</span> <span class="n">strings</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;The index of llama is </span><span class="si">\(</span><span class="n">foundIndex</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“The index of llama is 2”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果只能查找字符串在数组中的索引，用处不是很大。不过，你可以用占位类型 <code>T</code> 替换 <code>String</code> 类型来写出具有相同功能的泛型函数 <code>findIndex(_:_:)</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面展示了 <code>findIndex(ofString:in:)</code> 函数的泛型版本 <code>findIndex(of:in:)</code>。请注意这个函数返回值的类型仍然是 <code>Int?</code>，这是因为函数返回的是一个可选的索引数，而不是从数组中得到的一个可选值。需要提醒的是，这个函数无法通过编译，原因将在后面说明：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">findIndex</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">of</span> <span class="n">valueToFind</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="k">in</span> <span class="n">array</span><span class="p">:[</span><span class="n">T</span><span class="p">])</span> <span class="p">-&gt;</span> <span class="nb">Int</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="n">array</span><span class="p">.</span><span class="n">enumerated</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="p">==</span> <span class="n">valueToFind</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">index</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面所写的函数无法通过编译。问题出在相等性检查上，即 &quot;<code>if value == valueToFind</code>&quot;。不是所有的 Swift 类型都可以用等式符（<code>==</code>）进行比较。例如，如果你自定义类或结构体来描述复杂的数据模型，对于这个类或结构体而言，Swift 无法明确知道“相等”意味着什么。正因如此，这部分代码无法保证适用于任意类型 <code>T</code>，当你试图编译这部分代码时就会出现相应的错误。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">不过，所有的这些并不会让我们无从下手。Swift 标准库中定义了一个 <code>Equatable</code> 协议，该协议要求任何遵循该协议的类型必须实现等式符（<code>==</code>）及不等符（<code>!=</code>），从而能对该类型的任意两个值进行比较。所有的 Swift 标准类型自动支持 <code>Equatable</code> 协议。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">遵循 <code>Equatable</code> 协议的类型都可以安全地用于 <code>findIndex(of:in:)</code> 函数，因为其保证支持等式操作符。为了说明这个事情，当定义一个函数时，你可以定义一个 <code>Equatable</code> 类型约束作为类型参数定义的一部分：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">findIndex</span><span class="p">&lt;</span><span class="n">T</span><span class="p">:</span> <span class="nb">Equatable</span><span class="p">&gt;(</span><span class="n">of</span> <span class="n">valueToFind</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="k">in</span> <span class="n">array</span><span class="p">:[</span><span class="n">T</span><span class="p">])</span> <span class="p">-&gt;</span> <span class="nb">Int</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="n">array</span><span class="p">.</span><span class="n">enumerated</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="p">==</span> <span class="n">valueToFind</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">index</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>findIndex(of:in:)</code> 类型参数写做 <code>T: Equatable</code>，也就意味着“任何符合 <code>Equatable</code> 协议的类型 <code>T</code>”。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end"><code>findIndex(of:in:)</code> 函数现在可以成功编译了，并且适用于任何符合 <code>Equatable</code> 的类型，如 <code>Double</code> 或 <code>String</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">let</span> <span class="nv">doubleIndex</span> <span class="p">=</span> <span class="n">findIndex</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="mf">9.3</span><span class="p">,</span> <span class="k">in</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.14159</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">])</span>
+<span class="c1">// doubleIndex 类型为 Int?，其值为 nil，因为 9.3 不在数组中</span>
+<span class="kd">let</span> <span class="nv">stringIndex</span> <span class="p">=</span> <span class="n">findIndex</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="s">&quot;Andrea&quot;</span><span class="p">,</span> <span class="k">in</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;Mike&quot;</span><span class="p">,</span> <span class="s">&quot;Malcolm&quot;</span><span class="p">,</span> <span class="s">&quot;Andrea&quot;</span><span class="p">])</span>
+<span class="c1">// stringIndex 类型为 Int?，其值为 2</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_10" class="h16"><span class="span_for_h">关联类型 {#associated-types}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">定义一个协议时，声明一个或多个关联类型作为协议定义的一部分将会非常有用。关联类型为协议中的某个类型提供了一个占位符名称，其代表的实际类型在协议被遵循时才会被指定。关联类型通过 <code>associatedtype</code> 关键字来指定。</span>
+</p>
+
+<h3 id="toc_11" class="h16"><span class="span_for_h">关联类型实践 {#associated-types-in-action}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面例子定义了一个 <code>Container</code> 协议，该协议定义了一个关联类型 <code>Item</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">protocol</span> <span class="nc">Container</span> <span class="p">{</span>
+    <span class="n">associatedtype</span> <span class="n">Item</span>
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="kc">_</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nv">count</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="kd">subscript</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Item</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end"><code>Container</code> 协议定义了三个任何遵循该协议的类型（即容器）必须提供的功能：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>必须可以通过 <code>append(_:)</code> 方法添加一个新元素到容器里。
+</span></li>
+<li class="md_li"><span>必须可以通过 <code>count</code> 属性获取容器中元素的数量，并返回一个 Int 值。
+</span></li>
+<li class="md_li"><span>必须可以通过索引值类型为 <code>Int</code> 的下标检索到容器中的每一个元素。
+</span></li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">该协议没有指定容器中元素该如何存储以及元素类型。该协议只指定了任何遵从 <code>Container</code> 协议的类型必须提供的三个功能。遵从协议的类型在满足这三个条件的情况下，也可以提供其他额外的功能。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">任何遵从 <code>Container</code> 协议的类型必须能够指定其存储的元素的类型。具体来说，它必须确保添加到容器内的元素以及下标返回的元素类型是正确的。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">为了定义这些条件，<code>Container</code> 协议需要在不知道容器中元素的具体类型的情况下引用这种类型。<code>Container</code> 协议需要指定任何通过 <code>append(_:)</code> 方法添加到容器中的元素和容器内的元素是相同类型，并且通过容器下标返回的元素的类型也是这种类型。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">为此，<code>Container</code> 协议声明了一个关联类型 <code>Item</code>，写作 <code>associatedtype Item</code>。协议没有定义 <code>Item</code> 是什么，这个信息留给遵从协议的类型来提供。尽管如此，<code>Item</code> 别名提供了一种方式来引用 <code>Container</code> 中元素的类型，并将之用于 <code>append(_:)</code> 方法和下标，从而保证任何 <code>Container</code> 的行为都能如预期。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">这是前面非泛型版本 <code>IntStack</code> 类型，使其遵循 <code>Container</code> 协议：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">struct</span> <span class="nc">IntStack</span><span class="p">:</span> <span class="n">Container</span> <span class="p">{</span>
+    <span class="c1">// IntStack 的原始实现部分</span>
+    <span class="kd">var</span> <span class="nv">items</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]()</span>
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">push</span><span class="p">(</span><span class="kc">_</span> <span class="n">item</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">items</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">pop</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">items</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="c1">// Container 协议的实现部分</span>
+    <span class="kd">typealias</span> <span class="n">Item</span> <span class="p">=</span> <span class="nb">Int</span>
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="kc">_</span> <span class="n">item</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nv">count</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">items</span><span class="p">.</span><span class="bp">count</span>
+    <span class="p">}</span>
+    <span class="kd">subscript</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>IntStack</code> 结构体实现了 <code>Container</code> 协议的三个要求，其原有功能也不会和这些要求相冲突。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">此外，<code>IntStack</code> 在实现 <code>Container</code> 的要求时，指定 <code>Item</code> 为 <code>Int</code> 类型，即 <code>typealias Item = Int</code>，从而将 <code>Container</code> 协议中抽象的 <code>Item</code> 类型转换为具体的 <code>Int</code> 类型。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">由于 Swift 的类型推断，实际上在 <code>IntStack</code> 的定义中不需要声明 <code>Item</code> 为 <code>Int</code>。因为 <code>IntStack</code> 符合 <code>Container</code> 协议的所有要求，Swift 只需通过 <code>append(_:)</code> 方法的 <code>item</code> 参数类型和下标返回值的类型，就可以推断出 <code>Item</code> 的具体类型。事实上，如果你在上面的代码中删除了 <code>typealias Item = Int</code> 这一行，一切也可正常工作，因为 Swift 清楚地知道 <code>Item</code> 应该是哪种类型。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你也可以让泛型 <code>Stack</code> 结构体遵循 <code>Container</code> 协议：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">struct</span> <span class="nc">Stack</span><span class="p">&lt;</span><span class="n">Element</span><span class="p">&gt;:</span> <span class="n">Container</span> <span class="p">{</span>
+    <span class="c1">// Stack&lt;Element&gt; 的原始实现部分</span>
+    <span class="kd">var</span> <span class="nv">items</span> <span class="p">=</span> <span class="p">[</span><span class="n">Element</span><span class="p">]()</span>
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">push</span><span class="p">(</span><span class="kc">_</span> <span class="n">item</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">items</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">pop</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">Element</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">items</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="c1">// Container 协议的实现部分</span>
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="kc">_</span> <span class="n">item</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nv">count</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">items</span><span class="p">.</span><span class="bp">count</span>
+    <span class="p">}</span>
+    <span class="kd">subscript</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Element</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这一次，占位类型参数 <code>Element</code> 被用作 <code>append(_:)</code> 方法的 <code>item</code> 参数和下标的返回类型。Swift 可以据此推断出 <code>Element</code> 的类型即是 <code>Item</code> 的类型。</span>
+</p>
+
+<h3 id="toc_12" class="h16"><span class="span_for_h">扩展现有类型来指定关联类型 {#extending-an-existing-type-to-specify-an-associated-type}</span></h3>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><a class="md_compiled" href="./21_Protocols.md#adding-protocol-conformance-with-an-extension">在扩展添加协议一致性</a> 中描述了如何利用扩展让一个已存在的类型遵循一个协议，这包括使用了关联类型协议。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">Swift 的 <code>Array</code> 类型已经提供 <code>append(_:)</code> 方法，<code>count</code> 属性，以及带有 <code>Int</code> 索引的下标来检索其元素。这三个功能都符合 <code>Container</code> 协议的要求，也就意味着你只需声明 <code>Array</code> 遵循<code>Container</code> 协议，就可以扩展 Array，使其遵从 Container 协议。你可以通过一个空扩展来实现这点，正如通过扩展采纳协议中的描述：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">extension</span> <span class="nc">Array</span><span class="p">:</span> <span class="n">Container</span> <span class="p">{}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>Array</code> 的 <code>append(_:)</code> 方法和下标确保了 Swift 可以推断出 <code>Item</code> 具体类型。定义了这个扩展后，你可以将任意 <code>Array</code> 当作 Container 来使用。</span>
+</p>
+
+<h3 id="toc_13" class="h16"><span class="span_for_h">给关联类型添加约束 {#adding-constraints-to-an-associated-type}</span></h3>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以在协议里给关联类型添加约束来要求遵循的类型满足约束。例如，下面的代码定义了 <code>Container</code> 协议， 要求关联类型 <code>Item</code> 必须遵循 <code>Equatable</code> 协议：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">protocol</span> <span class="nc">Container</span> <span class="p">{</span>
+    <span class="n">associatedtype</span> <span class="n">Item</span><span class="p">:</span> <span class="nb">Equatable</span>
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="kc">_</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nv">count</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="kd">subscript</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Item</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">要遵守 <code>Container</code> 协议，<code>Item</code> 类型也必须遵守 <code>Equatable</code> 协议。</span>
+</p>
+
+<h3 id="toc_14" class="h16"><span class="span_for_h">在关联类型约束里使用协议 {#using-a-protocol-in-its-associated-types-constraints}</span></h3>
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">协议可以作为它自身的要求出现。例如，有一个协议细化了 <code>Container</code> 协议，添加了一个<code>suffix(_:)</code> 方法。<code>suffix(_:)</code> 方法返回容器中从后往前给定数量的元素，并把它们存储在一个 <code>Suffix</code> 类型的实例里。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">protocol</span> <span class="nc">SuffixableContainer</span><span class="p">:</span> <span class="n">Container</span> <span class="p">{</span>
+    <span class="n">associatedtype</span> <span class="n">Suffix</span><span class="p">:</span> <span class="n">SuffixableContainer</span> <span class="k">where</span> <span class="n">Suffix</span><span class="p">.</span><span class="n">Item</span> <span class="p">==</span> <span class="n">Item</span>
+    <span class="kd">func</span> <span class="nf">suffix</span><span class="p">(</span><span class="kc">_</span> <span class="n">size</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Suffix</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">在这个协议里，<code>Suffix</code> 是一个关联类型，就像上边例子中 <code>Container</code> 的 <code>Item</code> 类型一样。<code>Suffix</code> 拥有两个约束：它必须遵循 <code>SuffixableContainer</code> 协议（就是当前定义的协议），以及它的 <code>Item</code> 类型必须是和容器里的 <code>Item</code> 类型相同。<code>Item</code> 的约束是一个 <code>where</code> 分句，它在下面 <a class="md_compiled" href="#extensions-with-a-generic-where-clause">具有泛型 Where 子句的扩展</a> 中有讨论。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">这是上面 <a class="md_compiled" href="#generic-types">泛型类型</a> 中 <code>Stack</code> 类型的扩展，它遵循了 SuffixableContainer 协议：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">extension</span> <span class="nc">Stack</span><span class="p">:</span> <span class="n">SuffixableContainer</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">suffix</span><span class="p">(</span><span class="kc">_</span> <span class="n">size</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Stack</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nv">result</span> <span class="p">=</span> <span class="n">Stack</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="p">(</span><span class="bp">count</span><span class="o">-</span><span class="n">size</span><span class="p">)..&lt;</span><span class="bp">count</span> <span class="p">{</span>
+            <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="kc">self</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="p">}</span>
+    <span class="c1">// 推断 suffix 结果是Stack。</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nv">stackOfInts</span> <span class="p">=</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="nb">Int</span><span class="p">&gt;()</span>
+<span class="n">stackOfInts</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">stackOfInts</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">stackOfInts</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">suffix</span> <span class="p">=</span> <span class="n">stackOfInts</span><span class="p">.</span><span class="bp">suffix</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">// suffix 包含 20 和 30</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">在上面的例子中，<code>Suffix</code> 是 <code>Stack</code> 的关联类型，也是 <code>Stack</code> ，所以 <code>Stack</code> 的后缀运算返回另一个 <code>Stack</code> 。另外，遵循 <code>SuffixableContainer</code> 的类型可以拥有一个与它自己不同的 <code>Suffix</code> 类型——也就是说后缀运算可以返回不同的类型。比如说，这里有一个非泛型 <code>IntStack</code> 类型的扩展，它遵循了 <code>SuffixableContainer</code> 协议，使用 <code>Stack&lt;Int&gt;</code> 作为它的后缀类型而不是 <code>IntStack</code>：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">extension</span> <span class="nc">IntStack</span><span class="p">:</span> <span class="n">SuffixableContainer</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">suffix</span><span class="p">(</span><span class="kc">_</span> <span class="n">size</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="nb">Int</span><span class="p">&gt;</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nv">result</span> <span class="p">=</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="nb">Int</span><span class="p">&gt;()</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="p">(</span><span class="bp">count</span><span class="o">-</span><span class="n">size</span><span class="p">)..&lt;</span><span class="bp">count</span> <span class="p">{</span>
+            <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="kc">self</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="p">}</span>
+    <span class="c1">// 推断 suffix 结果是 Stack&lt;Int&gt;。</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_15" class="h16"><span class="span_for_h">泛型 Where 语句 {#where-clauses}</span></h2>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><a class="md_compiled" href="#type-constraints">类型约束</a> 让你能够为泛型函数、下标、类型的类型参数定义一些强制要求。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">对关联类型添加约束通常是非常有用的。你可以通过定义一个泛型 <code>where</code> 子句来实现。通过泛型 <code>where</code> 子句让关联类型遵从某个特定的协议，以及某个特定的类型参数和关联类型必须类型相同。你可以通过将 <code>where</code> 关键字紧跟在类型参数列表后面来定义 <code>where</code> 子句，<code>where</code> 子句后跟一个或者多个针对关联类型的约束，以及一个或多个类型参数和关联类型间的相等关系。你可以在函数体或者类型的大括号之前添加 <code>where</code> 子句。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">下面的例子定义了一个名为 <code>allItemsMatch</code> 的泛型函数，用来检查两个 <code>Container</code> 实例是否包含相同顺序的相同元素。如果所有的元素能够匹配，那么返回 <code>true</code>，否则返回 <code>false</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">被检查的两个 <code>Container</code> 可以不是相同类型的容器（虽然它们可以相同），但它们必须拥有相同类型的元素。这个要求通过一个类型约束以及一个 <code>where</code> 子句来表示：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">func</span> <span class="nf">allItemsMatch</span><span class="p">&lt;</span><span class="n">C1</span><span class="p">:</span> <span class="n">Container</span><span class="p">,</span> <span class="n">C2</span><span class="p">:</span> <span class="n">Container</span><span class="p">&gt;</span>
+    <span class="p">(</span><span class="kc">_</span> <span class="n">someContainer</span><span class="p">:</span> <span class="n">C1</span><span class="p">,</span> <span class="kc">_</span> <span class="n">anotherContainer</span><span class="p">:</span> <span class="n">C2</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span>
+    <span class="k">where</span> <span class="n">C1</span><span class="p">.</span><span class="n">Item</span> <span class="p">==</span> <span class="n">C2</span><span class="p">.</span><span class="n">Item</span><span class="p">,</span> <span class="n">C1</span><span class="p">.</span><span class="n">Item</span><span class="p">:</span> <span class="nb">Equatable</span> <span class="p">{</span>
+
+        <span class="c1">// 检查两个容器含有相同数量的元素</span>
+        <span class="k">if</span> <span class="n">someContainer</span><span class="p">.</span><span class="bp">count</span> <span class="o">!=</span> <span class="n">anotherContainer</span><span class="p">.</span><span class="bp">count</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 检查每一对元素是否相等</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">someContainer</span><span class="p">.</span><span class="bp">count</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="n">someContainer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">anotherContainer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">false</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 所有元素都匹配，返回 true</span>
+        <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个函数接受 <code>someContainer</code> 和 <code>anotherContainer</code> 两个参数。参数 <code>someContainer</code> 的类型为 <code>C1</code>，参数 <code>anotherContainer</code> 的类型为 <code>C2</code>。<code>C1</code> 和 <code>C2</code> 是容器的两个占位类型参数，函数被调用时才能确定它们的具体类型。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">这个函数的类型参数列表还定义了对两个类型参数的要求：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span><code>C1</code> 必须符合 <code>Container</code> 协议（写作 <code>C1: Container</code>）。
+</span></li>
+<li class="md_li"><span><code>C2</code> 必须符合 <code>Container</code> 协议（写作 <code>C2: Container</code>）。
+</span></li>
+<li class="md_li"><span><code>C1</code> 的 <code>Item</code> 必须和 <code>C2</code> 的 <code>Item</code> 类型相同（写作 <code>C1.Item == C2.Item</code>）。
+</span></li>
+<li class="md_li"><span><code>C1</code> 的 <code>Item</code> 必须符合 <code>Equatable</code> 协议（写作 <code>C1.Item: Equatable</code>）。
+</span></li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">前两个要求定义在函数的类型形式参数列表里，后两个要求定义在了函数的泛型 <code>where</code> 分句中。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">这些要求意味着：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span><code>someContainer</code> 是一个 <code>C1</code> 类型的容器。
+</span></li>
+<li class="md_li"><span><code>anotherContainer</code> 是一个 <code>C2</code> 类型的容器。
+</span></li>
+<li class="md_li"><span><code>someContainer</code> 和 <code>anotherContainer</code> 包含相同类型的元素。
+</span></li>
+<li class="md_li"><span><code>someContainer</code> 中的元素可以通过不等于操作符（!=）来检查它们是否相同。
+</span></li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">第三个和第四个要求结合起来意味着 <code>anotherContainer</code> 中的元素也可以通过 <code>!=</code> 操作符来比较，因为它们和 <code>someContainer</code> 中的元素类型相同。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这些要求让 <code>allItemsMatch(_:_:)</code> 函数能够比较两个容器，即使它们的容器类型不同。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end"><code>allItemsMatch(_:_:)</code> 函数首先检查两个容器元素个数是否相同，如果元素个数不同，那么一定不匹配，函数就会返回 <code>false</code>。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">进行这项检查之后，通过 <code>for-in</code> 循环和半闭区间操作符（<code>..&lt;</code>）来迭代每个元素，检查 <code>someContainer</code> 中的元素是否不等于 <code>anotherContainer</code> 中的对应元素。如果两个元素不相等，那么两个容器不匹配，函数返回 false。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">如果循环体结束后未发现任何不匹配的情况，表明两个容器匹配，函数返回 <code>true</code>。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下面是 <code>allItemsMatch(_:_:)</code> 函数的示例：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">var</span> <span class="nv">stackOfStrings</span> <span class="p">=</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="nb">String</span><span class="p">&gt;()</span>
+<span class="n">stackOfStrings</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;uno&quot;</span><span class="p">)</span>
+<span class="n">stackOfStrings</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;dos&quot;</span><span class="p">)</span>
+<span class="n">stackOfStrings</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;tres&quot;</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nv">arrayOfStrings</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;uno&quot;</span><span class="p">,</span> <span class="s">&quot;dos&quot;</span><span class="p">,</span> <span class="s">&quot;tres&quot;</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="n">allItemsMatch</span><span class="p">(</span><span class="n">stackOfStrings</span><span class="p">,</span> <span class="n">arrayOfStrings</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;All items match.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Not all items match.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“All items match.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">上面的例子创建 <code>Stack</code> 实例来存储 <code>String</code> 值，然后将三个字符串压栈。这个例子还通过数组字面量创建了一个 <code>Array</code> 实例，数组中包含同栈中一样的三个字符串。即使栈和数组是不同的类型，但它们都遵从 <code>Container</code> 协议，而且它们都包含相同类型的值。因此你可以用这两个容器作为参数来调用 <code>allItemsMatch(_:_:)</code> 函数。在上面的例子中，<code>allItemsMatch(_:_:)</code> 函数正确地显示了这两个容器中的所有元素都是相互匹配的。</span>
+</p>
+
+<h2 id="toc_16" class="h16"><span class="span_for_h">具有泛型 Where 子句的扩展 {#extensions-with-a-generic-where-clause}</span></h2>
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你也可以使用泛型 <code>where</code> 子句作为扩展的一部分。基于以前的例子，下面的示例扩展了泛型 <code>Stack</code> 结构体，添加一个 <code>isTop(_:)</code> 方法。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">extension</span> <span class="nc">Stack</span> <span class="k">where</span> <span class="n">Element</span><span class="p">:</span> <span class="nb">Equatable</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">isTop</span><span class="p">(</span><span class="kc">_</span> <span class="n">item</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">topItem</span> <span class="p">=</span> <span class="n">items</span><span class="p">.</span><span class="bp">last</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">topItem</span> <span class="p">==</span> <span class="n">item</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">这个新的 <code>isTop(_:)</code> 方法首先检查这个栈是不是空的，然后比较给定的元素与栈顶部的元素。如果你尝试不用泛型 <code>where</code> 子句，会有一个问题：在 <code>isTop(_:)</code> 里面使用了 <code>==</code> 运算符，但是 <code>Stack</code> 的定义没有要求它的元素是符合 <code>Equatable</code> 协议的，所以使用 <code>==</code> 运算符导致编译时错误。使用泛型 <code>where</code> 子句可以为扩展添加新的条件，因此只有当栈中的元素符合 <code>Equatable</code> 协议时，扩展才会添加 <code>isTop(_:)</code> 方法。</span>
+</p>
+
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">以下是 <code>isTop(_:)</code> 方法的调用方式：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="n">stackOfStrings</span><span class="p">.</span><span class="n">isTop</span><span class="p">(</span><span class="s">&quot;tres&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Top element is tres.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Top element is something else.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“Top element is tres.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">如果尝试在其元素不符合 <code>Equatable</code> 协议的栈上调用 <code>isTop(_:)</code> 方法，则会收到编译时错误。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">struct</span> <span class="nc">NotEquatable</span> <span class="p">{</span> <span class="p">}</span>
+<span class="kd">var</span> <span class="nv">notEquatableStack</span> <span class="p">=</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="n">NotEquatable</span><span class="p">&gt;()</span>
+<span class="kd">let</span> <span class="nv">notEquatableValue</span> <span class="p">=</span> <span class="n">NotEquatable</span><span class="p">()</span>
+<span class="n">notEquatableStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">notEquatableValue</span><span class="p">)</span>
+<span class="n">notEquatableStack</span><span class="p">.</span><span class="n">isTop</span><span class="p">(</span><span class="n">notEquatableValue</span><span class="p">)</span>  <span class="c1">// 报错</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以使用泛型 <code>where</code> 子句去扩展一个协议。基于以前的示例，下面的示例扩展了 <code>Container</code> 协议，添加一个 <code>startsWith(_:)</code> 方法。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">extension</span> <span class="nc">Container</span> <span class="k">where</span> <span class="n">Item</span><span class="p">:</span> <span class="nb">Equatable</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">startsWith</span><span class="p">(</span><span class="kc">_</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="bp">count</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="kc">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">==</span> <span class="n">item</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">这个 <code>startsWith(_:)</code> 方法首先确保容器至少有一个元素，然后检查容器中的第一个元素是否与给定的元素相等。任何符合 <code>Container</code> 协议的类型都可以使用这个新的 <code>startsWith(_:)</code> 方法，包括上面使用的栈和数组，只要容器的元素是符合 <code>Equatable</code> 协议的。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="k">if</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">].</span><span class="bp">startsWith</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Starts with 42.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Starts with something else.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// 打印“Starts with something else.”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">上述示例中的泛型 <code>where</code> 子句要求 <code>Item</code> 遵循协议，但也可以编写一个泛型 <code>where</code> 子句去要求 <code>Item</code> 为特定类型。例如：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">extension</span> <span class="nc">Container</span> <span class="k">where</span> <span class="n">Item</span> <span class="p">==</span> <span class="nb">Double</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">average</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Double</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nv">sum</span> <span class="p">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="bp">count</span> <span class="p">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="kc">self</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">sum</span> <span class="o">/</span> <span class="nb">Double</span><span class="p">(</span><span class="bp">count</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">([</span><span class="mf">1260.0</span><span class="p">,</span> <span class="mf">1200.0</span><span class="p">,</span> <span class="mf">98.6</span><span class="p">,</span> <span class="mf">37.0</span><span class="p">].</span><span class="n">average</span><span class="p">())</span>
+<span class="c1">// 打印“648.9”</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">此示例将一个 <code>average()</code> 方法添加到 <code>Item</code> 类型为 <code>Double</code> 的容器中。此方法遍历容器中的元素将其累加，并除以容器的数量计算平均值。它将数量从 <code>Int</code> 转换为 <code>Double</code> 确保能够进行浮点除法。</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">就像可以在其他地方写泛型 <code>where</code> 子句一样，你可以在一个泛型 <code>where</code> 子句中包含多个条件作为扩展的一部分。用逗号分隔列表中的每个条件。</span>
+</p>
+
+<h2 id="toc_17" class="h16"><span class="span_for_h">具有泛型 Where 子句的关联类型 {#associated-types-with-a-generic-where-clause}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">你可以在关联类型后面加上具有泛型 <code>where</code> 的字句。例如，建立一个包含迭代器（<code>Iterator</code>）的容器，就像是标准库中使用的 <code>Sequence</code> 协议那样。你应该这么写：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">protocol</span> <span class="nc">Container</span> <span class="p">{</span>
+    <span class="n">associatedtype</span> <span class="n">Item</span>
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="kc">_</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nv">count</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="kd">subscript</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Item</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+
+    <span class="n">associatedtype</span> <span class="n">Iterator</span><span class="p">:</span> <span class="n">IteratorProtocol</span> <span class="k">where</span> <span class="n">Iterator</span><span class="p">.</span><span class="n">Element</span> <span class="p">==</span> <span class="n">Item</span>
+    <span class="kd">func</span> <span class="nf">makeIterator</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">Iterator</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line md_line_start md_line_end">迭代器（<code>Iterator</code>）的泛型 <code>where</code> 子句要求：无论迭代器是什么类型，迭代器中的元素类型，必须和容器项目的类型保持一致。<code>makeIterator()</code> 则提供了容器的迭代器的访问接口。</span>
+</p>
+
+
+<p class="md_block  md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">一个协议继承了另一个协议，你通过在协议声明的时候，包含泛型 <code>where</code> 子句，来添加了一个约束到被继承协议的关联类型。例如，下面的代码声明了一个 <code>ComparableContainer</code> 协议，它要求所有的 <code>Item</code> 必须是 <code>Comparable</code> 的。</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">protocol</span> <span class="nc">ComparableContainer</span><span class="p">:</span> <span class="n">Container</span> <span class="k">where</span> <span class="n">Item</span><span class="p">:</span> <span class="nb">Comparable</span> <span class="p">{</span> <span class="p">}</span>
+</pre></div>
+
+<!--block_code_end--><h2 id="toc_18" class="h16"><span class="span_for_h">泛型下标 {#generic-subscripts}</span></h2>
+
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_code_block">
+    <span class="md_line md_line_start md_line_end">下标可以是泛型，它们能够包含泛型 <code>where</code> 子句。你可以在 <code>subscript</code> 后用尖括号来写占位符类型，你还可以在下标代码块花括号前写 <code>where</code> 子句。例如：</span>
+</p>
+
+<div class="codehilite code_lang_swift  highlight"><pre><span></span><span class="kd">extension</span> <span class="nc">Container</span> <span class="p">{</span>
+    <span class="kd">subscript</span><span class="p">&lt;</span><span class="n">Indices</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">&gt;(</span><span class="bp">indices</span><span class="p">:</span> <span class="n">Indices</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="n">Item</span><span class="p">]</span>
+        <span class="k">where</span> <span class="n">Indices</span><span class="p">.</span><span class="n">Iterator</span><span class="p">.</span><span class="n">Element</span> <span class="p">==</span> <span class="nb">Int</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nv">result</span> <span class="p">=</span> <span class="p">[</span><span class="n">Item</span><span class="p">]()</span>
+            <span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="bp">indices</span> <span class="p">{</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="kc">self</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">result</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_block_as_opening md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_start md_line_end">这个 <code>Container</code> 协议的扩展添加了一个下标方法，接收一个索引的集合，返回每一个索引所在的值的数组。这个泛型下标的约束如下：</span>
+</p>
+
+
+<ul>
+<li class="md_li"><span>在尖括号中的泛型参数 <code>Indices</code>，必须是符合标准库中的 <code>Sequence</code> 协议的类型。
+</span></li>
+<li class="md_li"><span>下标使用的单一的参数，<code>indices</code>，必须是 <code>Indices</code> 的实例。
+</span></li>
+<li class="md_li"><span>泛型 <code>where</code> 子句要求 <code>Sequence（Indices）</code>的迭代器，其所有的元素都是 <code>Int</code> 类型。这样就能确保在序列（<code>Sequence</code>）中的索引和容器（<code>Container</code>）里面的索引类型是一致的。
+</span></li>
+</ul>
+
+<p class="md_block last_md_block_in_page">
+    <span class="md_line md_line_start md_line_end">综合一下，这些约束意味着，传入到 <code>indices</code> 下标，是一个整型的序列。</span>
+</p>
+        </div>
+    </div>
+    <!--mathjax-->
+    <!--mermaid-->
+</body>
+</html>
