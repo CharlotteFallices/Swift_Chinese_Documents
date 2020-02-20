@@ -424,7 +424,7 @@ cmake --version # This should print 3.5.2
 
 - The [documents](https://github.com/CharlotteFallices/Swift_Chinese_Documents/blob/master/docindex.html) are licensed under **the Creative Commons Attribution 4.0 International License**.To view a copy of this license,visit [website](http://creativecommons.org/licenses/by/4.0/) or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, US.
 
-- The translation text is licensed under **the WTFPL2 License**.To view this license,visit [website](https://wtfpl2.com).
+- The translation text is licensed under **the Artist 2.0 License**.
 
 ------------------------------------------------------------------------------------------------------------------------------
 最后更新于2020-02-10 08:56:32
